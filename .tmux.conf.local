@@ -270,7 +270,7 @@ bind r source-file ~/.tmux.conf
 #unbind C-b
 #bind C-j send-prefix
 set-option -g prefix `
-set-option -g prefix2 C-f
+set-option -g prefix2 C-)
 
 # tmux-resurrect
 run-shell ~/clone/path/resurrect.tmux
