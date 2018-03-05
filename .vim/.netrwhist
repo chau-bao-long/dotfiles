@@ -1,0 +1,4 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/var/lib/docker/volumes/miracamserver_log-data/_data'
+let g:netrw_dirhist_2='/home/framgia/Projects/globis/glopla_api/config/initializers'
