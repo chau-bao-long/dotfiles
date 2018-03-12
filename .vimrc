@@ -155,5 +155,5 @@ map <C-n> :NERDTreeToggle<CR>
 map <leader>r :NERDTreeFind<cr>
 nmap - gt
 nmap _ gT
-nmap <script> <silent> <F3> :call ToggleLocationList()<CR>
+nmap <script> <silent> <F3> :copen 1000<CR>
 nmap <script> <silent> <F2> :call ToggleQuickfixList()<CR>
