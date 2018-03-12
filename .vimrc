@@ -28,6 +28,7 @@ Plugin 'kylef/apiblueprint.vim'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'milkypostman/vim-togglelist'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -130,9 +131,10 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
-let g:rspec_command = "!rspec {spec}"
+let g:rspec_command = "!spring rspec {spec}"
 
 " ================ The Silver Searcher ==============
+
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
@@ -147,4 +149,11 @@ endif
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
+" ================ Topcbl custom mapping ============
+
 map <C-n> :NERDTreeToggle<CR>
+map <leader>r :NERDTreeFind<cr>
+nmap - gt
+nmap _ gT
+nmap <script> <silent> <F3> :call ToggleLocationList()<CR>
+nmap <script> <silent> <F2> :call ToggleQuickfixList()<CR>
