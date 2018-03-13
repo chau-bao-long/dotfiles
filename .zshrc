@@ -56,6 +56,7 @@ plugins=(
   ruby
 )
 
+
 # User configuration
 
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
@@ -123,6 +124,8 @@ alias gpf="git push -f"
 alias gp="git push"
 alias gtd="git tag -d "
 alias gprb="git pull --rebase"
+alias gcod="git fetch origin && git checkout origin/develop"
+alias gcom="git fetch origin && git checkout origin/master"
 
 # docker shortcut
 alias dc="docker-compose $1"
