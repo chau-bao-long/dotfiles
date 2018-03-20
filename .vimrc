@@ -29,6 +29,7 @@ Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'milkypostman/vim-togglelist'
+Plugin 'aaronbieber/vim-quicktask'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -51,6 +52,16 @@ set hidden
 
 "turn on syntax highlighting
 syntax on
+
+" Alternative ESC key
+inoremap ;j <Esc>
+vnoremap ;j <Esc>
+cnoremap ;j <Esc>
+snoremap ;j <Esc>
+xnoremap ;j <Esc>
+onoremap ;j <Esc>
+lnoremap ;j <Esc>
+
 
 " ================ Turn Off Swap Files ==============
 
