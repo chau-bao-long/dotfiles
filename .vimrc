@@ -160,6 +160,26 @@ endif
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
+" ================ Ctags ============================
+
+function CtagsAll()
+  !ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)
+endfunction
+
+function CtagsCur()
+  !ctags -R --languages=ruby --exclude=.git --exclude=log .
+endfunction
+
+command CtagsAll :call CtagsAll()
+command CtagsCur :call CtagsCur()
+
+" ================ Rubocop ==========================
+
+function Rubocop()
+  !rubocop --require rubocop/formatter/checkstyle_formatter
+endfunction
+command Rubocop :call Rubocop()
+
 " ================ Topcbl custom mapping ============
 
 map <C-n> :NERDTreeToggle<CR>
@@ -169,4 +189,3 @@ nmap _ gT
 nmap <script> <silent> <F3> :copen 1000<CR>
 nmap <script> <silent> <F2> :call ToggleQuickfixList()<CR>
 map <Leader>w :!~/bin/api <C-R><C-W><CR>
-map <Leader>z :!rubocop --require rubocop/formatter/checkstyle_formatter<CR>
