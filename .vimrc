@@ -53,16 +53,6 @@ set hidden
 "turn on syntax highlighting
 syntax on
 
-" Alternative ESC key
-inoremap ;j <Esc>
-vnoremap ;j <Esc>
-cnoremap ;j <Esc>
-snoremap ;j <Esc>
-xnoremap ;j <Esc>
-onoremap ;j <Esc>
-lnoremap ;j <Esc>
-
-
 " ================ Turn Off Swap Files ==============
 
 set noswapfile
