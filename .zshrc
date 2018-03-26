@@ -31,9 +31,6 @@ export SDKMAN_DIR="/home/framgia/.sdkman"
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-# Remap Caplock to Esc
-xmodmap ~/.Xmodmap
-
 # Git shortcut
 alias gca="git add . && git commit --amend"
 alias gst="git status"
