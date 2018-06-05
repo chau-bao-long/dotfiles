@@ -1,6 +1,5 @@
 # Path to your oh-my-zsh installation.  export ZSH=/home/framgia/.oh-my-zsh # Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
+# Look in ~/.oh-my-zsh/themes/ # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="amuse"
 
@@ -59,6 +58,22 @@ alias dcub="docker-compose up -d --build"
 alias dcd="docker-compose down"
 alias da="docker attach $1"
 alias dp="docker ps"
+
+# kubernetes shortcut
+alias k='kubectl'
+alias kk='kubectl get all'
+alias wk='watch kubectl get all'
+alias kga='kubectl get --all-namespaces'
+alias kg='kubectl get'
+alias kc='kubectl create -f'
+alias ka='kubectl apply -f'
+alias kdel='kubectl delete -f'
+alias kcdel='kubectl delete configmap'
+alias kd='kubectl describe'
+alias kl='kubectl logs'
+alias ke='kubectl exec -it'
+alias kcontext='kubectl config set-context $(kubectl config current-context)' # add --namespace=<ns>
+alias kdelpod='kubectl delete --grace-period=0 --force pod'
 
 # topcbl command
 alias rgrep="grep -rn --exclude-dir=.* --exclude=.* --exclude=tags --exclude-dir=asset* --exclude-dir=log* --exclude=*log* --exclude-dir=public --exclude=*.csv"

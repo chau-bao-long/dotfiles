@@ -152,6 +152,14 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " ================ Ctags ============================
 
+function! Ctag(p)
+  if p == "all"
+    ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)
+  else
+    ctags -R --languages=ruby --exclude=.git --exclude=log .
+  endif
+endfunction
+
 function CtagsAll()
   !ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)
 endfunction
@@ -160,6 +168,7 @@ function CtagsCur()
   !ctags -R --languages=ruby --exclude=.git --exclude=log .
 endfunction
 
+command -nargs=1 Tag :call Ctag(<f-args>)
 command CtagsAll :call CtagsAll()
 command CtagsCur :call CtagsCur()
 
@@ -179,3 +188,5 @@ nmap _ gT
 nmap <script> <silent> <F3> :copen 1000<CR>
 nmap <script> <silent> <F2> :call ToggleQuickfixList()<CR>
 map <Leader>w :!~/bin/api <C-R><C-W><CR>
+
+set pastetoggle=<F4>
