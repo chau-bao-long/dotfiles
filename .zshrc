@@ -31,6 +31,7 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # Git shortcut
+alias g='git'
 alias gca="git add . && git commit --amend"
 alias gst="git status"
 alias gls="git ls"
@@ -51,6 +52,7 @@ alias gcod="git fetch origin && git checkout origin/develop"
 alias gcom="git fetch origin && git checkout origin/master"
 
 # docker shortcut
+alias d='docker'
 alias dc="docker-compose $1"
 alias dcr="docker-compose down && docker-compose up -d"
 alias dcu="docker-compose up -d"
@@ -74,6 +76,7 @@ alias kl='kubectl logs'
 alias ke='kubectl exec -it'
 alias kcontext='kubectl config set-context $(kubectl config current-context)' # add --namespace=<ns>
 alias kdelpod='kubectl delete --grace-period=0 --force pod'
+kct () { kubectl config set-context $(kubectl config current-context) --namespace=$1 }
 
 # topcbl command
 alias rgrep="grep -rn --exclude-dir=.* --exclude=.* --exclude=tags --exclude-dir=asset* --exclude-dir=log* --exclude=*log* --exclude-dir=public --exclude=*.csv"
