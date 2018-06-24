@@ -29,7 +29,7 @@ Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'milkypostman/vim-togglelist'
-Plugin 'aaronbieber/vim-quicktask'
+Plugin 'tpope/vim-commentary'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
