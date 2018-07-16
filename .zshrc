@@ -11,6 +11,7 @@ plugins=(
   rake
   rbenv
   ruby
+  zsh-completions
 )
 
 export ZSH=~/.oh-my-zsh
@@ -75,7 +76,7 @@ alias kd='kubectl describe'
 alias kl='kubectl logs'
 alias ke='kubectl exec -it'
 alias kcontext='kubectl config set-context $(kubectl config current-context)' # add --namespace=<ns>
-alias kdelpod='kubectl delete --grace-period=0 --force pod'
+alias kdelete='kubectl delete --grace-period=0 --force '
 kct () { kubectl config set-context $(kubectl config current-context) --namespace=$1 }
 
 # topcbl command
@@ -84,6 +85,10 @@ alias agrep="grep -rn --exclude=tags --exclude-dir=build --exclude-dir=.idea"
 
 export NVM_DIR="/home/framgia/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+if [ $commands[kubectl] ]; then
+    source <(kubectl completion zsh)
+fi
 
 findfile () { find -name "*$1*" }
 dm () { docker-machine $1 $2 $3 $4 $5 $6 $7 $8 $9 }
