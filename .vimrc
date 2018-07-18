@@ -201,6 +201,7 @@ let g:ale_echo_msg_format = '%linter% says %s'
 " Map keys to navigate between lines with errors and warnings.
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
+map <leader>at :ALEToggle<CR>
 
 " ================ Topcbl custom mapping ============
 
