@@ -31,6 +31,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'milkypostman/vim-togglelist'
 Plugin 'tpope/vim-commentary'
 Plugin 'w0rp/ale'
+Plugin 'pangloss/vim-javascript'
+Plugin 'maxmellon/vim-jsx-pretty'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
