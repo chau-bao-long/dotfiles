@@ -209,6 +209,9 @@ map <leader>at :ALEToggle<CR>
 
 map <C-n> :NERDTreeToggle<CR>
 map <leader>r :NERDTreeFind<cr>
+let NERDTreeQuitOnOpen = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 nmap - gt
 nmap _ gT
 nmap <script> <silent> <F3> :copen 1000<CR>
