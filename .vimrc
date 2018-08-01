@@ -1,12 +1,12 @@
-set nocompatible              " be iMproved, required filetype off                  " required
-
-" Theme
+" ================ Theme ==============================
 set background=dark
 " colorscheme darkest-space
 " colorscheme py-darcula
 " colorscheme deep-space
 colorscheme jellybeans
 
+
+" ================ Plugin Config ======================
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -14,16 +14,14 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" My plugins
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
 Plugin 'christoomey/vim-system-copy'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'thoughtbot/vim-rspec'
 Plugin 'kylef/apiblueprint.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
@@ -32,12 +30,18 @@ Plugin 'tpope/vim-commentary'
 Plugin 'w0rp/ale'
 Plugin 'pangloss/vim-javascript'
 Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
-" ================ General Config ====================
 
+" ================ General Config ====================
+set nocompatible              " be iMproved, required filetype off                  " required
 set number                      "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
@@ -55,13 +59,14 @@ set hidden
 "turn on syntax highlighting
 syntax on
 
-" ================ Turn Off Swap Files ==============
 
+" ================ Turn Off Swap Files ===============
 set noswapfile
 set nobackup
 set nowb
 
-" ================ Persistent Undo ==================
+
+" ================ Persistent Undo ===================
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
 if has('persistent_undo') && isdirectory(expand('~').'/.vim/backups')
@@ -70,8 +75,8 @@ if has('persistent_undo') && isdirectory(expand('~').'/.vim/backups')
   set undofile
 endif
 
-" ================ Indentation ======================
 
+" ================ Indentation =======================
 set autoindent
 set smartindent
 set smarttab
@@ -97,7 +102,7 @@ set linebreak    "Wrap lines at convenient points
 " ================ Folds ============================
 
 set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
+set foldnestmax=5       "deepest fold is 5 levels
 set nofoldenable        "dont fold by default
 
 " ================ Completion =======================
@@ -115,29 +120,30 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
-" ================ Scrolling ========================
 
+" ================ Scrolling ========================
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
-" ================ Search ===========================
 
+" ================ Search ===========================
 set incsearch       " Find the next match as we type the search
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
-" ================ Rspec ============================
 
+" ================ Rspec ============================
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
-let g:rspec_command = "!spring rspec {spec}"
+"let g:rspec_command = "!spring rspec {spec}"
+let g:rspec_command = "!rspec {spec}"
+
 
 " ================ The Silver Searcher ==============
-
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
@@ -152,8 +158,8 @@ endif
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-" ================ Ctags ============================
 
+" ================ Ctags ============================
 function! Ctag(p)
   if p == "all"
     ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)
@@ -175,14 +181,15 @@ command CtagsAll :call CtagsAll()
 command CtagsCur :call CtagsCur()
 map <Leader>c :CtagsAll<CR>
 
-" ================ Rubocop ==========================
 
+" ================ Rubocop ===========================
 function Rubocop()
   !rubocop --require rubocop/formatter/checkstyle_formatter
 endfunction
 command Rubocop :call Rubocop()
 
-" ================ ALE ==============================
+
+" ================ ALE ===============================
 " Asynchronous Lint Engine (ALE)
 " Limit linters used for JavaScript.
 let g:ale_linters = {
@@ -191,7 +198,7 @@ let g:ale_linters = {
 \}
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
 highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
-let g:ale_enabled = 1
+let g:ale_enabled = 0
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = 'X' " could use emoji
 let g:ale_sign_warning = '?' " could use emoji
@@ -204,8 +211,48 @@ nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
 map <leader>at :ALEToggle<CR>
 
-" ================ Topcbl custom mapping ============
 
+" ================ Fuzzy Finder =======================
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'right': '~100%' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+" Finder mapping
+map <C-p> :Files<CR>
+map <C-t> :Tags<CR>
+map <C-i> :Snippets<CR>
+map <C-l> :BLines<CR>
+
+
+" ================ My custom mapping ==============
 map <C-n> :NERDTreeToggle<CR>
 map <leader>r :NERDTreeFind<cr>
 let NERDTreeQuitOnOpen = 1
