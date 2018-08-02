@@ -239,7 +239,8 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " Finder mapping
 map <C-p> :Files<CR>
 map <C-t> :Tags<CR>
-map <C-i> :Snippets<CR>
+imap <C-c> <ESC>:Snippets<CR>
+nmap <C-c> :Snippets<CR>
 map <C-l> :BLines<CR>
 
 
