@@ -21,20 +21,21 @@ Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-commentary'
 Plugin 'christoomey/vim-system-copy'
 Plugin 'kylef/apiblueprint.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'milkypostman/vim-togglelist'
-Plugin 'tpope/vim-commentary'
 Plugin 'w0rp/ale'
-Plugin 'pangloss/vim-javascript'
-Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-
+Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'MaxMEllon/vim-jsx-pretty'
+Plugin 'isruslan/vim-es6'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -160,26 +161,16 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 
 " ================ Ctags ============================
-function! Ctag(p)
-  if p == "all"
-    ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)
-  else
-    ctags -R --languages=ruby --exclude=.git --exclude=log .
-  endif
+function CtagsRuby()
+  !ctags -R --languages=Ruby --exclude=.git --exclude=log . $(bundle list --paths)
 endfunction
 
-function CtagsAll()
-  !ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)
+function CtagsJS()
+  !ctags -R --languages=JavaScript --exclude=.git --exclude=log .
 endfunction
 
-function CtagsCur()
-  !ctags -R --languages=ruby --exclude=.git --exclude=log .
-endfunction
-
-command -nargs=1 Tag :call Ctag(<f-args>)
-command CtagsAll :call CtagsAll()
-command CtagsCur :call CtagsCur()
-map <Leader>c :CtagsAll<CR>
+map <Leader>cr :call CtagsRuby()<CR>
+map <Leader>cj :call CtagsJS()<CR>
 
 
 " ================ Rubocop ===========================
@@ -221,7 +212,7 @@ let g:fzf_action = {
 
 " Default fzf layout
 " - down / up / left / right
-let g:fzf_layout = { 'right': '~100%' }
+let g:fzf_layout = { 'up': '~50%' }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
