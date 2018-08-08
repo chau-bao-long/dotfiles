@@ -22,6 +22,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-dispatch'
+Plugin 'thoughtbot/vim-rspec'
 Plugin 'christoomey/vim-system-copy'
 Plugin 'kylef/apiblueprint.vim'
 Plugin 'rking/ag.vim'
@@ -141,7 +143,7 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 "let g:rspec_command = "!spring rspec {spec}"
-let g:rspec_command = "!rspec {spec}"
+let g:rspec_command = "Dispatch rspec {spec}"
 
 
 " ================ The Silver Searcher ==============
