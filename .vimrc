@@ -164,11 +164,11 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " ================ Ctags ============================
 function CtagsRuby()
-  !ctags -R --languages=Ruby --exclude=.git --exclude=log . $(bundle list --paths)
+  Dispatch! ctags -R --languages=Ruby --exclude=.git --exclude=log . $(bundle list --paths)
 endfunction
 
 function CtagsJS()
-  !ctags -R --languages=JavaScript --exclude=.git --exclude=log .
+  Dispatch! ctags -R --languages=JavaScript --exclude=.git --exclude=log .
 endfunction
 
 map <Leader>cr :call CtagsRuby()<CR>
