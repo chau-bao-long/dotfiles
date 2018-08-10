@@ -143,7 +143,8 @@ map <Leader>t :call RunLastSpec()<CR>
 map <Leader>al :call RunAllSpecs()<CR>
 
 "let g:rspec_command = "!spring rspec {spec}"
-let g:rspec_command = "Dispatch rspec {spec}"
+"let g:rspec_command = "Dispatch rspec {spec}"
+let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
 
 
 " ================ The Silver Searcher ==============
