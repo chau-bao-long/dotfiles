@@ -137,10 +137,10 @@ set smartcase       " ...unless we type a capital
 
 
 " ================ Rspec ============================
-map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>a :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>t :call RunLastSpec()<CR>
+map <Leader>al :call RunAllSpecs()<CR>
 
 "let g:rspec_command = "!spring rspec {spec}"
 let g:rspec_command = "Dispatch rspec {spec}"
