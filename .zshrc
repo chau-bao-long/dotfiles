@@ -79,6 +79,16 @@ alias kcontext='kubectl config set-context $(kubectl config current-context)' # 
 alias kdelete='kubectl delete --grace-period=0 --force '
 kct () { kubectl config set-context $(kubectl config current-context) --namespace=$1 }
 
+# zeus shortcut
+# more details: gem install --pre 0.15.15 and zeus --log /dev/stderr start
+alias z="unset RAILS_ENV; zeus rake"
+alias zc="unset RAILS_ENV; zeus console"
+alias zr="unset RAILS_ENV; zeus runner"
+alias zs="unset RAILS_ENV; zeus server"
+alias zg="unset RAILS_ENV; zeus generate"
+alias zd="unset RAILS_ENV; zeus destroy"
+alias zt="unset RAILS_ENV; zeus test"
+
 # topcbl command
 alias rgrep="grep -rn --exclude-dir=.* --exclude=.* --exclude=tags --exclude-dir=asset* --exclude-dir=log* --exclude=*log* --exclude-dir=public --exclude=*.csv"
 alias agrep="grep -rn --exclude=tags --exclude-dir=build --exclude-dir=.idea"
