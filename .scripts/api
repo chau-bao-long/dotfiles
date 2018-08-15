@@ -1,0 +1,13 @@
+#! /bin/bash
+
+apis=(
+get_products
+)
+
+for i in ${apis[*]}; do
+  case $i in
+    get_products)
+      http localhost:3000/api/v1/products
+      ;;
+  esac
+done

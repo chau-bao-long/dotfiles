@@ -259,7 +259,7 @@ nmap - gt
 nmap _ gT
 nmap <script> <silent> <F3> :copen 1000<CR>
 nmap <script> <silent> <F2> :call ToggleQuickfixList()<CR>
-map <Leader>w :!~/bin/api <C-R><C-W><CR>
+map <Leader>w :Dispatch ~/bin/api<CR>
 map <Leader>b :!git blame %<CR>
 
 set pastetoggle=<F4>
