@@ -273,6 +273,3 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
-
-run-shell ~/.tmux/themes tmux-onedark-theme.tmux
-
