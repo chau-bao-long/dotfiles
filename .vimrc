@@ -38,6 +38,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'MaxMEllon/vim-jsx-pretty'
 Plugin 'isruslan/vim-es6'
+Plugin 'dyng/ctrlsf.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -161,6 +162,7 @@ endif
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap F :CtrlSF <C-R><C-W><CR>
 
 
 " ================ Ctags ============================
