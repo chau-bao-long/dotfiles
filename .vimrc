@@ -39,6 +39,7 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'MaxMEllon/vim-jsx-pretty'
 Plugin 'isruslan/vim-es6'
 Plugin 'dyng/ctrlsf.vim'
+Plugin 'terryma/vim-multiple-cursors'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -249,6 +250,17 @@ map <C-t> :Tags<CR>
 imap <C-c> <ESC>:Snippets<CR>
 nmap <C-c> :Snippets<CR>
 map <C-l> :BLines<CR>
+
+" Vim multiple cursors mapping
+let g:multi_cursor_use_default_mapping = 0
+let g:multi_cursor_start_word_key = '<C-m>'
+let g:multi_cursor_select_all_word_key = '<Leader>m'
+let g:multi_cursor_start_key           = 'g<C-n>'
+let g:multi_cursor_select_all_key      = 'g<A-n>'
+let g:multi_cursor_next_key            = '<C-n>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
 
 
 " ================ My custom mapping ==============
