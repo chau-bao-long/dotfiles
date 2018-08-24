@@ -163,7 +163,25 @@ endif
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+
+" =============== CtrlSF configuration ====================
 nnoremap F :CtrlSF <C-R><C-W><CR>
+let g:ctrlsf_auto_focus = {
+    \ "at": "start"
+    \ }
+let g:ctrlsf_auto_close = {
+    \ "normal" : 1,
+    \ "compact": 1
+    \}
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 
 " ================ Ctags ============================
@@ -251,10 +269,10 @@ imap <C-c> <ESC>:Snippets<CR>
 nmap <C-c> :Snippets<CR>
 map <C-l> :BLines<CR>
 
-" Vim multiple cursors mapping
+" ============== Vim multiple cursors mapping =======
 let g:multi_cursor_use_default_mapping = 0
-let g:multi_cursor_start_word_key = '<C-m>'
-let g:multi_cursor_select_all_word_key = '<Leader>m'
+let g:multi_cursor_start_word_key =  '<C-m>m'
+let g:multi_cursor_select_all_word_key = '<C-m>a'
 let g:multi_cursor_start_key           = 'g<C-n>'
 let g:multi_cursor_select_all_key      = 'g<A-n>'
 let g:multi_cursor_next_key            = '<C-n>'
@@ -263,7 +281,7 @@ let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
 
-" ================ My custom mapping ==============
+" ================ My custom mapping =================
 map <C-n> :NERDTreeToggle<CR>
 map <leader>r :NERDTreeFind<cr>
 let NERDTreeQuitOnOpen = 1
