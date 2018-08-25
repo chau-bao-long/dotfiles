@@ -162,11 +162,11 @@ if executable('ag')
 endif
 
 " bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+"nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 
 " =============== CtrlSF configuration ====================
-nnoremap F :CtrlSF <C-R><C-W><CR>
+nnoremap K :CtrlSF <C-R><C-W><CR>
 let g:ctrlsf_auto_focus = {
     \ "at": "start"
     \ }
