@@ -40,6 +40,7 @@ Plugin 'MaxMEllon/vim-jsx-pretty'
 Plugin 'isruslan/vim-es6'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'styled-components/vim-styled-components'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -296,6 +297,7 @@ map <Leader>b :!git blame %<CR>
 map <Leader>p :ts<CR>
 map <Leader>] :tn<CR>
 map <Leader>[ :tp<CR>
-nmap bt a`
+nmap bt a``<Esc>i
+
 
 set pastetoggle=<F4>
