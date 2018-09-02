@@ -297,7 +297,6 @@ map <Leader>b :!git blame %<CR>
 map <Leader>p :ts<CR>
 map <Leader>] :tn<CR>
 map <Leader>[ :tp<CR>
-vmap bt <Esc>a``<Esc>i
-
+imap zbt <Esc>a``<Esc>i
 
 set pastetoggle=<F4>
