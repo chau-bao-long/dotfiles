@@ -167,7 +167,6 @@ endif
 
 
 " =============== CtrlSF configuration ====================
-nnoremap K :CtrlSF <C-R><C-W><CR>
 let g:ctrlsf_auto_focus = {
     \ "at": "start"
     \ }
@@ -183,6 +182,9 @@ nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+
+nnoremap K :CtrlSF <C-R><C-W><CR>
+vmap F <Plug>CtrlSFVwordExec
 
 
 " ================ Ctags ============================
@@ -209,7 +211,7 @@ command Rubocop :call Rubocop()
 " Asynchronous Lint Engine (ALE)
 " Limit linters used for JavaScript.
 let g:ale_linters = {
-\  'javascript': ['flow'],
+\  'javascript': ['flow', 'eslint'],
 \  'ruby': ['rubocop'],
 \}
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
