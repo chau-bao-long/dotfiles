@@ -211,7 +211,7 @@ command Rubocop :call Rubocop()
 " Asynchronous Lint Engine (ALE)
 " Limit linters used for JavaScript.
 let g:ale_linters = {
-\  'javascript': ['flow', 'eslint'],
+\  'javascript': ['eslint', 'flow'],
 \  'ruby': ['rubocop'],
 \}
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
