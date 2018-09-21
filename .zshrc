@@ -76,11 +76,12 @@ alias kd='kubectl describe'
 alias kl='kubectl logs'
 alias ke='kubectl exec -it'
 alias kcontext='kubectl config set-context $(kubectl config current-context)' # add --namespace=<ns>
-alias kdelete='kubectl delete --grace-period=0 --force '
+alias kdelete='kubectl delete --grace-period=0 --force po'
 kct () { kubectl config set-context $(kubectl config current-context) --namespace=$1 }
 
 # zeus shortcut
 # more details: gem install --pre 0.15.15 and zeus --log /dev/stderr start
+alias zst="unset RAILS_ENV; zeus start"
 alias z="unset RAILS_ENV; zeus rake"
 alias zc="unset RAILS_ENV; zeus console"
 alias zr="unset RAILS_ENV; zeus runner"
@@ -103,3 +104,6 @@ fi
 findfile () { find -name "*$1*" }
 dm () { docker-machine $1 $2 $3 $4 $5 $6 $7 $8 $9 }
 dcp () { docker-compose -f docker-compose.yml -f docker-compose.prod.yml $1 $2 $3 $4 $5 $6 }
+pkill() {
+  ps aux | grep $1 | awk '{print $2}' | xargs kill -9
+}
