@@ -78,6 +78,7 @@ alias ke='kubectl exec -it'
 alias kcontext='kubectl config set-context $(kubectl config current-context)' # add --namespace=<ns>
 alias kdelete='kubectl delete --grace-period=0 --force po'
 kct () { kubectl config set-context $(kubectl config current-context) --namespace=$1 }
+kdevict() { kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod }
 
 # zeus shortcut
 # more details: gem install --pre 0.15.15 and zeus --log /dev/stderr start
