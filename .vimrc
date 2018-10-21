@@ -309,10 +309,10 @@ let NERDTreeDirArrows = 1
 nmap - gt
 nmap _ gT
 set pastetoggle=<F4>
-map <C-w><C-l> <C-w>25>
-map <C-w><C-h> <C-w>25<
-map <C-w><C-k> <C-w>15+
-map <C-w><C-j> <C-w>15-
+map <C-w><S-l> <C-w>25>
+map <C-w><S-h> <C-w>25<
+map <C-w><S-k> <C-w>15+
+map <C-w><S-j> <C-w>15-
 nmap <script> <silent> <F3> :copen 1000<CR>
 nmap <script> <silent> <F2> :call ToggleQuickfixList()<CR>
 map <Leader>w :Dispatch ~/bin/api<CR>
