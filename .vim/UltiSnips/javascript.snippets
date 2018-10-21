@@ -8,6 +8,76 @@ snippet irn "import react native" b
 import { ${1:View} } from 'react-native';
 endsnippet
 
-snippet jsx "Write jsx faster"
-<$1>$0</$1>
+snippet t "Write jsx faster"
+<$1>
+	$0
+</$1>
+endsnippet
+
+snippet sc "Declare a styled component"
+const ${1:ComponentName} = styled.${2:View}\`
+	$0
+\`
+endsnippet
+
+snippet sca "Declare a styled component with attrs"
+const ${1:ComponentName} = styled.${2:View}.attrs({
+	$0
+})\`
+\`
+endsnippet
+
+snippet rc "Create a new component"
+// @flow
+import React from 'react';
+import styled from 'styled-components';
+
+type Props = {
+}
+
+export default class ${1:className} extends React.Component<Props> {
+	render() {
+		return (
+			$0
+		);
+	}
+}
+endsnippet
+
+snippet rnpc "Create a new pure component"
+// @flow
+import React from 'react';
+import styled from 'styled-components';
+
+export default class ${1:className} extends React.PureComponent<$FlowFixMeProps> {
+	render() {
+		return (
+			$0
+		);
+	}
+}
+endsnippet
+
+snippet rnsc "Create a new stateless component"
+// @flow
+import React from 'react';
+
+export default function ${1:ComponentName}() {
+	return (
+		$0
+	);
+}
+endsnippet
+
+snippet rnp "Define prop"
+type Props = {
+	$0
+}
+endsnippet
+
+
+snippet rns "Define state"
+type State = {
+	$0
+}
 endsnippet
