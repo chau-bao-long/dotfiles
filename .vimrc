@@ -23,6 +23,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-repeat'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'christoomey/vim-system-copy'
 Plugin 'kylef/apiblueprint.vim'
@@ -44,6 +45,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'ervandew/supertab'
+Plugin 'svermeulen/vim-easyclip'
+Plugin 'pseewald/vim-anyfold'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -113,6 +116,7 @@ set linebreak    "Wrap lines at convenient points
 set foldmethod=indent   "fold based on indent
 set foldnestmax=5       "deepest fold is 5 levels
 set nofoldenable        "dont fold by default
+autocmd Filetype * AnyFoldActivate               " activate for all filetypes
 
 " ================ Completion =======================
 
@@ -299,7 +303,6 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-
 " ================ My custom mapping =================
 map <C-n> :NERDTreeToggle<CR>
 map <leader>r :NERDTreeFind<cr>
@@ -309,10 +312,10 @@ let NERDTreeDirArrows = 1
 nmap - gt
 nmap _ gT
 set pastetoggle=<F4>
-map <C-w><S-l> <C-w>25>
-map <C-w><S-h> <C-w>25<
-map <C-w><S-k> <C-w>15+
-map <C-w><S-j> <C-w>15-
+map <C-w><S-l> <C-w>35>
+map <C-w><S-h> <C-w>35<
+map <C-w><S-k> <C-w>25+
+map <C-w><S-j> <C-w>25-
 nmap <script> <silent> <F3> :copen 1000<CR>
 nmap <script> <silent> <F2> :call ToggleQuickfixList()<CR>
 map <Leader>w :Dispatch ~/bin/api<CR>
