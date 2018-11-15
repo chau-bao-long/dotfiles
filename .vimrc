@@ -45,7 +45,6 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'ervandew/supertab'
-Plugin 'svermeulen/vim-easyclip'
 Plugin 'pseewald/vim-anyfold'
 
 " All of your Plugins must be added before the following line
@@ -303,6 +302,10 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+" ============= Better copy/paste behavior ==========
+set pastetoggle=<F4>
+xnoremap p "_dP
+
 " ================ My custom mapping =================
 map <C-n> :NERDTreeToggle<CR>
 map <leader>r :NERDTreeFind<cr>
@@ -311,7 +314,6 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 nmap - gt
 nmap _ gT
-set pastetoggle=<F4>
 map <C-w><S-l> <C-w>35>
 map <C-w><S-h> <C-w>35<
 map <C-w><S-k> <C-w>25+
