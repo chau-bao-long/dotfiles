@@ -10,6 +10,7 @@ let g:gruvbox_contrast_dark='hard'
 " colorscheme zerg
 colorscheme gruvbox
 
+
 " ================ Plugin Config ======================
 call plug#begin('~/.vim/plugged')
 
@@ -55,6 +56,7 @@ Plug 'jason0x43/vim-js-indent'
 
 call plug#end()
 
+
 " ================ General Config ====================
 set nocompatible              " be iMproved, required filetype off                  " required
 set number                      "Line numbers are good
@@ -73,6 +75,7 @@ set hidden
 
 "turn on syntax highlighting
 syntax on
+set nohlsearch
 
 
 " ================ Turn Off Swap Files ===============
