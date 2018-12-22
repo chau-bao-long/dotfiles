@@ -1,14 +1,36 @@
 " ================ Theme ==============================
+syntax enable
 set background=dark
+let g:airline_theme='deus'
+let g:gruvbox_contrast_dark='hard'
 " colorscheme darkest-space
 " colorscheme py-darcula
 " colorscheme deep-space
-colorscheme jellybeans
-
+" colorscheme jellybeans
+" colorscheme zerg
+colorscheme gruvbox
 
 " ================ Plugin Config ======================
 call plug#begin('~/.vim/plugged')
 
+Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'christoomey/vim-system-copy'
+Plug 'scrooloose/nerdtree'
+Plug 'milkypostman/vim-togglelist'
+Plug 'w0rp/ale'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'dyng/ctrlsf.vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'ervandew/supertab'
+
+" Ruby on Rails plugins
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-bundler'
@@ -20,27 +42,13 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
 Plug 'thoughtbot/vim-rspec'
-Plug 'christoomey/vim-system-copy'
-Plug 'kylef/apiblueprint.vim'
-Plug 'rking/ag.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'milkypostman/vim-togglelist'
-Plug 'w0rp/ale'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+
+" Javascript plugins
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'isruslan/vim-es6'
-Plug 'dyng/ctrlsf.vim'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'styled-components/vim-styled-components'
-Plug 'majutsushi/tagbar'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'ervandew/supertab'
-Plug 'pseewald/vim-anyfold'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'jason0x43/vim-js-indent'
@@ -111,7 +119,6 @@ set linebreak    "Wrap lines at convenient points
 set foldmethod=indent   "fold based on indent
 set foldnestmax=5       "deepest fold is 5 levels
 set nofoldenable        "dont fold by default
-autocmd Filetype * AnyFoldActivate               " activate for all filetypes
 
 " ================ Completion =======================
 
