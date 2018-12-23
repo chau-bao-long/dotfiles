@@ -14,7 +14,7 @@ colorscheme gruvbox
 " ================ Plugin Config ======================
 call plug#begin('~/.vim/plugged')
 
-Plug 'morhetz/gruvbox'
+Plug 'sjl/gundo.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-system-copy'
@@ -30,6 +30,8 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
 
 " Ruby on Rails plugins
 Plug 'tpope/vim-rails'
@@ -153,7 +155,7 @@ set smartcase       " ...unless we type a capital
 
 " ================ Rspec ============================
 map <Leader>a :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>e :call RunNearestSpec()<CR>
 map <Leader>t :call RunLastSpec()<CR>
 map <Leader>al :call RunAllSpecs()<CR>
 
@@ -308,6 +310,17 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+" ============= session management ==================
+let g:session_directory = "~/.vim/session"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_directory = "~/.vim/session"
+let g:session_command_aliases = 1
+nnoremap , :OpenSession<CR>
+nnoremap <leader>ss :SaveSession
+nnoremap <leader>sd :DeleteSession<CR>
+nnoremap <leader>sc :CloseSession<CR>
+
 " ============= Better copy/paste behavior ==========
 set pastetoggle=<F4>
 xnoremap p "_dP
@@ -318,6 +331,9 @@ map <leader>r :NERDTreeFind<cr>
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+nnoremap <F5> :GundoToggle<CR>
+let g:gundo_width = 100
+let g:gundo_preview_height = 25
 nmap - gt
 nmap _ gT
 map <C-w><S-l> <C-w>35>
