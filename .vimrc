@@ -1,6 +1,7 @@
 " ================ Theme ==============================
-syntax enable
 set background=dark
+let g:airline_powerline_fonts = 1
+set t_Co=256
 let g:airline_theme='deus'
 let g:gruvbox_contrast_dark='hard'
 " colorscheme darkest-space
@@ -312,8 +313,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " ============= session management ==================
 let g:session_directory = "~/.vim/session"
-" let g:session_autoload = "yes"
-" let g:session_autosave = "yes"
+let g:session_autoload = "yes"
+let g:session_autosave = "yes"
 let g:session_command_aliases = 1
 nnoremap , :OpenSession<CR>
 nnoremap <leader>ss :SaveSession
