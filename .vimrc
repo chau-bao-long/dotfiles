@@ -63,7 +63,7 @@ call plug#end()
 
 " ================ General Config ====================
 set nocompatible              " be iMproved, required filetype off                  " required
-set number                      "Line numbers are good
+" set number                      "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
@@ -106,7 +106,7 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab ts=2 sw=2 ai
-set relativenumber
+" set relativenumber
 
 " Auto indent pasted text
 nnoremap p p=`]<C-o>
