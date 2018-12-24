@@ -15,7 +15,7 @@ colorscheme gruvbox
 " ================ Plugin Config ======================
 call plug#begin('~/.vim/plugged')
 
-Plug 'sjl/gundo.vim'
+Plug 'mbbill/undotree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-system-copy'
@@ -331,9 +331,7 @@ map <leader>r :NERDTreeFind<cr>
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-nnoremap <F5> :GundoToggle<CR>
-let g:gundo_width = 100
-let g:gundo_preview_height = 25
+nnoremap <F5> :UndotreeToggle<cr>
 nmap - gt
 nmap _ gT
 map <C-w><S-l> <C-w>35>
@@ -348,3 +346,4 @@ map <Leader>p :ts<CR>
 map <Leader>] :tn<CR>
 map <Leader>[ :tp<CR>
 imap zbt <Esc>a``<Esc>i
+nnoremap <leader>bd :bufdo bd<CR>
