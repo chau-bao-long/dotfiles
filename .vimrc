@@ -33,6 +33,7 @@ Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
+Plug 'easymotion/vim-easymotion'
 
 " Ruby on Rails plugins
 Plug 'tpope/vim-rails'
@@ -287,6 +288,7 @@ imap <C-c> <ESC>:Snippets<CR>
 nmap <C-c> :Snippets<CR>
 map <C-l> :BLines<CR>
 
+
 " ============== Vim multiple cursors mapping =======
 let g:multi_cursor_use_default_mapping = 0
 let g:multi_cursor_start_word_key =  '<C-m>m'
@@ -297,6 +299,7 @@ let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
+
 
 " ============== Setup autocomplete =================
 " Note: run python3 install.py --all to download all completer
@@ -311,6 +314,7 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+
 " ============= session management ==================
 let g:session_directory = "~/.vim/session"
 let g:session_autoload = "yes"
@@ -321,11 +325,32 @@ nnoremap <leader>ss :SaveSession
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
+
+" ============= easy motion =========================
+" <Leader>f{char} to move to {char}
+map f <Plug>(easymotion-bd-f)
+nmap f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+map <space>l <Plug>(easymotion-lineforward)
+map <space>j <Plug>(easymotion-j)
+map <space>k <Plug>(easymotion-k)
+map <space>h <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+
+" Move to word
+map  <space>w <Plug>(easymotion-bd-w)
+nmap <space>w <Plug>(easymotion-overwin-w)
+
+
 " ============= Better copy/paste behavior ==========
 set pastetoggle=<F4>
 xnoremap p "_dP
 
-" ================ My custom mapping =================
+" ================ My custom mapping ================
 map <C-n> :NERDTreeToggle<CR>
 map <leader>r :NERDTreeFind<cr>
 let NERDTreeQuitOnOpen = 1
