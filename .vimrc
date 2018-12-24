@@ -334,6 +334,7 @@ let NERDTreeDirArrows = 1
 nnoremap <F5> :UndotreeToggle<cr>
 nmap - gt
 nmap _ gT
+nmap T :tabnew<cr>
 map <C-w><S-l> <C-w>35>
 map <C-w><S-h> <C-w>35<
 map <C-w><S-k> <C-w>25+
