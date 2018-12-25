@@ -327,21 +327,14 @@ nnoremap <leader>sc :CloseSession<CR>
 
 
 " ============= easy motion =========================
-" <Leader>f{char} to move to {char}
-map f <Plug>(easymotion-bd-f)
-nmap f <Plug>(easymotion-overwin-f)
-
-" s{char}{char} to move to {char}{char}
+map <space>f <Plug>(easymotion-bd-f)
+nmap <space>f <Plug>(easymotion-overwin-f)
 nmap s <Plug>(easymotion-overwin-f2)
-
 map <space>l <Plug>(easymotion-lineforward)
 map <space>j <Plug>(easymotion-j)
 map <space>k <Plug>(easymotion-k)
 map <space>h <Plug>(easymotion-linebackward)
-
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
-
-" Move to word
 map  <space>w <Plug>(easymotion-bd-w)
 nmap <space>w <Plug>(easymotion-overwin-w)
 
