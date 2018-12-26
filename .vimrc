@@ -348,10 +348,10 @@ nnoremap <F5> :UndotreeToggle<cr>
 nmap - gt
 nmap _ gT
 nmap T :tabnew<cr>
-map <C-w><S-l> <C-w>35>
-map <C-w><S-h> <C-w>35<
-map <C-w><S-k> <C-w>25+
-map <C-w><S-j> <C-w>25-
+map <space><S-l> <C-w>35>
+map <space><S-h> <C-w>35<
+map <space><S-k> <C-w>25+
+map <space><S-j> <C-w>25-
 nmap <script> <silent> <F3> :copen 1000<CR>
 nmap <script> <silent> <F2> :call ToggleQuickfixList()<CR>
 map <Leader>w :Dispatch ~/bin/api<CR>
@@ -361,3 +361,7 @@ map <Leader>] :tn<CR>
 map <Leader>[ :tp<CR>
 imap zbt <Esc>a``<Esc>i
 nnoremap <leader>bd :bufdo bd<CR>
+nnoremap <space>h <C-w>h
+nnoremap <space>j <C-w>j
+nnoremap <space>k <C-w>k
+nnoremap <space>l <C-w>l
