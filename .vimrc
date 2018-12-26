@@ -33,7 +33,7 @@ Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
-Plug 'easymotion/vim-easymotion'
+Plug 'justinmk/vim-sneak'
 
 " Ruby on Rails plugins
 Plug 'tpope/vim-rails'
@@ -320,28 +320,23 @@ let g:session_directory = "~/.vim/session"
 let g:session_autoload = "yes"
 let g:session_autosave = "yes"
 let g:session_command_aliases = 1
-nnoremap , :OpenSession<CR>
+nnoremap <space> :OpenSession<CR>
 nnoremap <leader>ss :SaveSession
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 
-" ============= easy motion =========================
-map <space>f <Plug>(easymotion-bd-f)
-nmap <space>f <Plug>(easymotion-overwin-f)
-nmap s <Plug>(easymotion-overwin-f2)
-map <space>l <Plug>(easymotion-lineforward)
-map <space>j <Plug>(easymotion-j)
-map <space>k <Plug>(easymotion-k)
-map <space>h <Plug>(easymotion-linebackward)
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
-map  <space>w <Plug>(easymotion-bd-w)
-nmap <space>w <Plug>(easymotion-overwin-w)
+" ============= Better motion =======================
+map s <Plug>Sneak_s
+map <space>s <Plug>Sneak_S
+map f <Plug>Sneak_f
+map t <Plug>Sneak_t
 
 
 " ============= Better copy/paste behavior ==========
 set pastetoggle=<F4>
 xnoremap p "_dP
+
 
 " ================ My custom mapping ================
 map <C-n> :NERDTreeToggle<CR>
