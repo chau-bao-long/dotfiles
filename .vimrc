@@ -321,9 +321,9 @@ let g:session_autoload = "yes"
 let g:session_autosave = "yes"
 let g:session_command_aliases = 1
 nnoremap <space> :OpenSession<CR>
-nnoremap <leader>ss :SaveSession
-nnoremap <leader>sd :DeleteSession<CR>
-nnoremap <leader>sc :CloseSession<CR>
+nnoremap <space><space>ss :SaveSession
+nnoremap <space><space>sd :DeleteSession<CR>
+nnoremap <space><space>sc :CloseSession<CR>
 
 
 " ============= Better motion =======================
