@@ -20,7 +20,6 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias rndebugger="~/Projects/rn-debugger-linux-x64/React\ Native\ Debugger"
 alias as="studio.sh"
-alias open="xdg-open"
 
 # Add android PATH
 export ANDROID_HOME=$HOME/Android/Sdk
@@ -33,9 +32,12 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
 
+# User bin folder to PATH
+export PATH="$PATH:$HOME/bin"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/framgia/.sdkman"
-[[ -s "/home/framgia/.sdkman/bin/sdkman-init.sh" ]] && source "/home/framgia/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
@@ -103,7 +105,7 @@ alias zt="unset RAILS_ENV; zeus test"
 alias rgrep="grep -rn --exclude-dir=.* --exclude=.* --exclude=tags --exclude-dir=asset* --exclude-dir=log* --exclude=*log* --exclude-dir=public --exclude=*.csv"
 alias agrep="grep -rn --exclude=tags --exclude-dir=build --exclude-dir=.idea"
 
-export NVM_DIR="/home/framgia/.nvm"
+export NVM_DIR="/Users/chau.bao.long/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 if [ $commands[kubectl] ]; then
@@ -116,3 +118,5 @@ dcp () { docker-compose -f docker-compose.yml -f docker-compose.prod.yml $1 $2 $
 pkill() {
   ps aux | grep $1 | awk '{print $2}' | xargs kill -9
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
