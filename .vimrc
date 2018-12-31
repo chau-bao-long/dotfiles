@@ -200,7 +200,7 @@ nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 nnoremap K :CtrlSF <C-R><C-W><CR>
-vmap F <Plug>CtrlSFVwordExec
+vmap K <Plug>CtrlSFVwordExec
 
 
 " ================ Ctags ============================
@@ -280,13 +280,12 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " Finder mapping
-map <C-p> :Files<CR>
-map <C-h> :History<CR>
-map <C-b> :Buffers<CR>
-map <C-t> :Tags<CR>
-imap <C-c> <ESC>:Snippets<CR>
-nmap <C-c> :Snippets<CR>
-map <C-l> :BLines<CR>
+map <space>p :Files<CR>
+map <space>h :History<CR>
+map <space>b :Buffers<CR>
+map <space>t :Tags<CR>
+nmap <space>c :Snippets<CR>
+map <space>i :BLines<CR>
 
 
 " ============== Vim multiple cursors mapping =======
@@ -330,6 +329,7 @@ nnoremap <space><space>sc :CloseSession<CR>
 map s <Plug>Sneak_s
 map <space>s <Plug>Sneak_S
 map f <Plug>Sneak_f
+map F <Plug>Sneak_F
 map t <Plug>Sneak_t
 
 
@@ -339,15 +339,15 @@ xnoremap p "_dP
 
 
 " ================ My custom mapping ================
-map <C-n> :NERDTreeToggle<CR>
-map <leader>r :NERDTreeFind<cr>
+map <space>n :NERDTreeToggle<CR>
+map <space>r :NERDTreeFind<cr>
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 nnoremap <F5> :UndotreeToggle<cr>
 nmap - gt
 nmap _ gT
-nmap T :tabnew<cr>
+nmap <space>- :tabnew<cr>
 map <space><S-l> <C-w>35>
 map <space><S-h> <C-w>35<
 map <space><S-k> <C-w>25+
@@ -365,3 +365,5 @@ nnoremap <space>h <C-w>h
 nnoremap <space>j <C-w>j
 nnoremap <space>k <C-w>k
 nnoremap <space>l <C-w>l
+nnoremap 'w :wa!<CR>
+nnoremap 'q :wq<CR>
