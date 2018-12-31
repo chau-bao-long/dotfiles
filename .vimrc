@@ -341,7 +341,8 @@ xnoremap p "_dP
 
 " ============= Turn of hard mode by default ========
 let g:hardtime_default_on = 1
-
+let g:hardtime_maxcount = 3
+let g:hardtime_timeout = 2000
 
 " ================ My custom mapping ================
 map <space>n :NERDTreeToggle<CR>
