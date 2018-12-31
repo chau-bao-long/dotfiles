@@ -284,10 +284,9 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 map <space>p :Files<CR>
 map <space>h :History<CR>
 map <space>b :Buffers<CR>
-map <space>t :Tags<CR>
-nmap <space>c :Snippets<CR>
+map <space>c :Commands<CR>
 map <space>i :BLines<CR>
-
+map <space>g :GFiles?<CR>
 
 " ============== Vim multiple cursors mapping =======
 let g:multi_cursor_use_default_mapping = 0
@@ -315,7 +314,7 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 
-" ============= session management ==================
+" ============= Session management ==================
 let g:session_directory = "~/.vim/session"
 let g:session_autoload = "yes"
 let g:session_autosave = "yes"
