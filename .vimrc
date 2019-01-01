@@ -34,7 +34,6 @@ Plug 'ervandew/supertab'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'justinmk/vim-sneak'
-Plug 'takac/vim-hardtime'
 
 " Ruby on Rails plugins
 Plug 'tpope/vim-rails'
@@ -337,12 +336,6 @@ map T <Plug>Sneak_T
 " ============= Better copy/paste behavior ==========
 set pastetoggle=<F4>
 xnoremap p "_dP
-
-
-" ============= Turn of hard mode by default ========
-let g:hardtime_default_on = 1
-let g:hardtime_maxcount = 3
-let g:hardtime_timeout = 2000
 
 " ================ My custom mapping ================
 map <space>n :NERDTreeToggle<CR>
