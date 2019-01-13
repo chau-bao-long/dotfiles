@@ -25,7 +25,6 @@ Plug 'w0rp/ale'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'dyng/ctrlsf.vim'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'SirVer/ultisnips'
@@ -34,6 +33,7 @@ Plug 'ervandew/supertab'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'justinmk/vim-sneak'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " Ruby on Rails plugins
 Plug 'tpope/vim-rails'
@@ -286,6 +286,7 @@ map <space>b :Buffers<CR>
 map <space>c :Commands<CR>
 map <space>i :BLines<CR>
 map <space>g :GFiles?<CR>
+map <space>t :Tags<CR>
 
 " ============== Vim multiple cursors mapping =======
 let g:multi_cursor_use_default_mapping = 0
@@ -366,3 +367,5 @@ nnoremap <space>k <C-w>k
 nnoremap <space>l <C-w>l
 nnoremap 'w :wa!<CR>
 nnoremap 'q :wq<CR>
+map <space>cr :Dispatch rubocop --require rubocop-airbnb -a<CR>
+map <space>cj :Dispatch yarn lint --fix<CR>
