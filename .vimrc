@@ -57,6 +57,12 @@ Plug 'styled-components/vim-styled-components'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'jason0x43/vim-js-indent'
+Plug 'jparise/vim-graphql'
+
+" Terraform plugins
+Plug 'hashivim/vim-terraform'
+Plug 'vim-syntastic/syntastic'
+Plug 'juliosueiras/vim-terraform-completion'
 
 call plug#end()
 

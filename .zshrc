@@ -32,6 +32,9 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
 
+# Python to PATH
+export PATH="$PATH:$HOME/Library/Python/3.7/bin"
+
 # User bin folder to PATH
 export PATH="$PATH:$HOME/bin"
 
