@@ -254,6 +254,9 @@ set -g mode-keys vi
 # move status line to top
 set -g status-position top
 
+# hide status bar since i use window manager
+set -g status off
+
 # force a reload of the config file
 unbind r
 bind r source-file ~/.tmux.conf
