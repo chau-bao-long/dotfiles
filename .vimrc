@@ -20,6 +20,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-system-copy'
 Plug 'scrooloose/nerdtree'
+Plug 'francoiscabrol/ranger.vim'
 Plug 'milkypostman/vim-togglelist'
 Plug 'w0rp/ale'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -343,6 +344,14 @@ map T <Plug>Sneak_T
 " ============= Better copy/paste behavior ==========
 set pastetoggle=<F4>
 xnoremap p "_dP
+
+
+" ============== Ranger ================
+let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree
+let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
+let g:ranger_map_keys = 0
+map <space>f :Ranger<CR>
+
 
 " ================ My custom mapping ================
 map <space>n :NERDTreeToggle<CR>
