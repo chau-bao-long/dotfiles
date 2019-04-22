@@ -1,25 +1,17 @@
 # Path to your oh-my-zsh installation.  export ZSH=/home/framgia/.oh-my-zsh # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/ # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="amuse"
+ZSH_THEME="agnoster"
 
 plugins=(
   git
-  bundler
-  dotenv
   osx
-  rake
-  rbenv
-  ruby
   zsh-completions
 )
 
 export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-alias rndebugger="~/Projects/rn-debugger-linux-x64/React\ Native\ Debugger"
-alias as="studio.sh"
 
 # Add android PATH
 export ANDROID_HOME=$HOME/Android/Sdk
@@ -107,13 +99,8 @@ alias zt="unset RAILS_ENV; zeus test"
 # topcbl command
 alias rgrep="grep -rn --exclude-dir=.* --exclude=.* --exclude=tags --exclude-dir=asset* --exclude-dir=log* --exclude=*log* --exclude-dir=public --exclude=*.csv"
 alias agrep="grep -rn --exclude=tags --exclude-dir=build --exclude-dir=.idea"
-
-export NVM_DIR="/Users/chau.bao.long/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-if [ $commands[kubectl] ]; then
-    source <(kubectl completion zsh)
-fi
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+alias f='ranger'
 
 findfile () { find -name "*$1*" }
 dm () { docker-machine $1 $2 $3 $4 $5 $6 $7 $8 $9 }
@@ -124,5 +111,14 @@ pkill() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-alias f='ranger'
+# lazy load
+loadnode() {
+  export NVM_DIR="/Users/chau.bao.long/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+}
+
+loadk8s() {
+  if [ $commands[kubectl] ]; then
+    source <(kubectl completion zsh)
+  fi
+}
