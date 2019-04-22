@@ -96,12 +96,12 @@ alias zg="unset RAILS_ENV; zeus generate"
 alias zd="unset RAILS_ENV; zeus destroy"
 alias zt="unset RAILS_ENV; zeus test"
 
-# topcbl command
-alias rgrep="grep -rn --exclude-dir=.* --exclude=.* --exclude=tags --exclude-dir=asset* --exclude-dir=log* --exclude=*log* --exclude-dir=public --exclude=*.csv"
-alias agrep="grep -rn --exclude=tags --exclude-dir=build --exclude-dir=.idea"
+# some custom alias and functions
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 alias f='ranger'
 
+rgrep() { grep -rn --exclude-dir=.* --exclude=.* --exclude=tags --exclude-dir=asset* --exclude-dir=log* --exclude=*log* --exclude-dir=public --exclude=*.csv $1 . }
+agrep() { grep -rn --exclude=tags --exclude-dir=build --exclude-dir=.idea $1 . }
 findfile () { find -name "*$1*" }
 dm () { docker-machine $1 $2 $3 $4 $5 $6 $7 $8 $9 }
 dcp () { docker-compose -f docker-compose.yml -f docker-compose.prod.yml $1 $2 $3 $4 $5 $6 }
