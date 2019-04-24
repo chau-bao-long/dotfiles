@@ -139,6 +139,7 @@ chunkc core::load ffm.so
 # NOTE: sample rules for the tiling plugin
 #
 
+chunkc tiling::rule --owner "Python" --state tile &
 chunkc tiling::rule --owner Finder --name Copy --state float &
 chunkc tiling::rule --owner \"App Store\" --state float &
 chunkc tiling::rule --owner Emacs --except "^$" --state tile &
