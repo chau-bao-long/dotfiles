@@ -33,7 +33,7 @@ c.url.default_page = 'https://duckduckgo.com/'
 # Type: List of FuzzyUrl, or FuzzyUrl
 c.url.start_pages = 'https://duckduckgo.com/'
 
-c.url.searchengines = { "DEFAULT": "https://duckduckgo.com/?q={}", "gh": "https://github.com/{}" }
+c.url.searchengines = { "DEFAULT": "https://duckduckgo.com/?q={}", "g": "https://google.com/?q={}" }
 
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
@@ -128,19 +128,19 @@ c.colors.tabs.even.bg = '#202020'
 
 # Foreground color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.fg = '#d5c4a1'
+c.colors.tabs.selected.odd.fg = '#000000'
 
 # Background color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.bg = '#202020'
+c.colors.tabs.selected.odd.bg = '#64b130'
 
 # Foreground color of selected even tabs.
 # Type: QtColor
-c.colors.tabs.selected.even.fg = '#d5c4a1'
+c.colors.tabs.selected.even.fg = '#000000'
 
 # Background color of selected even tabs.
 # Type: QtColor
-c.colors.tabs.selected.even.bg = '#202020'
+c.colors.tabs.selected.even.bg = '#64b130'
 
 # Font used in the tab bar.
 # Type: QtFont
@@ -167,3 +167,6 @@ config.bind('u', 'scroll-page 0 -0.8')
 config.bind('d', 'scroll-page 0 0.8')
 config.bind('wu', 'undo')
 config.bind('wd', 'tab-close')
+config.unbind('-')
+config.bind('_', 'zoom-out')
+config.bind('-', 'tab-focus')
