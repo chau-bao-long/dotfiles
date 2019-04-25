@@ -18,7 +18,7 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 # Enable smooth scrolling for web pages. Note smooth scrolling does not
 # work with the `:scroll-px` command.
 # Type: Bool
-# c.scrolling.smooth = True
+c.scrolling.smooth = True
 
 # Padding (in pixels) around text for tabs.
 # Type: Padding
@@ -161,3 +161,9 @@ config.bind('etc', 'open -t https://tracau.vn/')
 config.bind('ecb', 'open -t https://dictionary.cambridge.org/')
 config.bind('esc', 'open -t https://soundcloud.com/')
 config.bind('ecw', 'open -t https://chatwork.com/')
+config.unbind('u')
+config.unbind('d')
+config.bind('u', 'scroll-page 0 -0.8')
+config.bind('d', 'scroll-page 0 0.8')
+config.bind('wu', 'undo')
+config.bind('wd', 'tab-close')
