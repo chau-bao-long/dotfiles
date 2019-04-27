@@ -27,7 +27,7 @@ c.tabs.padding = {'bottom': 5, 'left': 5, 'right': 5, 'top': 5}
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
 # Type: FuzzyUrl
-c.url.default_page = 'https://duckduckgo.com/'
+c.url.default_page = 'https://google.com/'
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
@@ -147,11 +147,25 @@ c.colors.tabs.selected.even.bg = '#64b130'
 c.fonts.tabs = '10pt fantasque sans mono'
 
 # Bindings for normal mode
-# config.bind(';M', 'hint --rapid links spawn open -na /Applications/mpv.app {hint-url}')
+config.bind(';M', 'hint --rapid links spawn open -na /Applications/mpv.app {hint-url}')
 # config.bind('<Meta+n>', 'open -p')
 # config.bind('<Meta+w>', 'close')
-# config.bind('M', 'hint links spawn open -na /Applications/mpv.app {hint-url}')
-# config.bind('m', 'spawn open -na /Applications/mpv.app {url}')
+config.bind('M', 'hint links spawn open -na /Applications/mpv.app {hint-url}')
+config.bind('m', 'spawn open -na /Applications/mpv.app {url}')
+
+# bind to optimize default hotkey
+config.unbind('u')
+config.unbind('d')
+config.bind('u', 'scroll-page 0 -0.75')
+config.bind('d', 'scroll-page 0 0.75')
+config.bind('gu', 'undo')
+config.bind('ge', 'tab-close')
+config.unbind('-')
+config.bind('_', 'zoom-out')
+config.bind('-', 'tab-focus')
+config.bind('cs', 'config-source')
+
+# bind for quick access web
 config.bind('egh', 'open -t https://github.com')
 config.bind('egf', 'open -t https://github.com/jccapital/funxeed')
 config.bind('eyt', 'open -t https://youtube.com')
@@ -162,12 +176,42 @@ config.bind('etc', 'open -t https://tracau.vn/')
 config.bind('ecb', 'open -t https://dictionary.cambridge.org/')
 config.bind('esc', 'open -t https://soundcloud.com/')
 config.bind('ecw', 'open -t https://chatwork.com/')
-config.unbind('u')
-config.unbind('d')
-config.bind('u', 'scroll-page 0 -0.8')
-config.bind('d', 'scroll-page 0 0.8')
-config.bind('gu', 'undo')
-config.bind('gw', 'tab-close')
-config.unbind('-')
-config.bind('_', 'zoom-out')
-config.bind('-', 'tab-focus')
+config.bind('ebd', 'open -t http://baobongda.com.vn')
+config.bind('eis', 'open -t https://instagram.com')
+config.bind('egm', 'open -t https://map.google.com')
+config.bind('em0', 'open -t https://mail.google.com/mail/u/0/#inbox')
+config.bind('em1', 'open -t https://mail.google.com/mail/u/1/#inbox')
+config.bind('em2', 'open -t https://mail.google.com/mail/u/2/#inbox')
+config.bind('el3', 'open -t localhost:3000')
+config.bind('el8', 'open -t localhost:8000')
+config.bind('el9', 'open -t localhost:9000')
+config.bind('ed0', 'open -t https://drive.google.com/drive/u/0/my-drive')
+config.bind('ed1', 'open -t https://drive.google.com/drive/u/1/my-drive')
+config.bind('ed2', 'open -t https://drive.google.com/drive/u/2/my-drive')
+config.bind('edtg', 'open -t https://docs.google.com/spreadsheets/d/1ki1KQYN5FTXBgohbJaeluAwxoqoKY6qHX30nePfUtak/edit#gid=0')
+
+config.bind('egg', 'open https://google.com')
+
+config.bind('Egh', 'open https://github.com')
+config.bind('Egf', 'open https://github.com/jccapital/funxeed')
+config.bind('Eyt', 'open https://youtube.com')
+config.bind('Esl', 'open https://docs.google.com/spreadsheets/u/1/d/1VjaXOycDguoesjVfVxx6uUSV_cssOHeDWZJDivTvLik/edit#gid=891834841')
+config.bind('Est', 'open qute://settings/')
+config.bind('Etl', 'open https://translate.google.com/')
+config.bind('Etc', 'open https://tracau.vn/')
+config.bind('Ecb', 'open https://dictionary.cambridge.org/')
+config.bind('Esc', 'open https://soundcloud.com/')
+config.bind('Ecw', 'open https://chatwork.com/')
+config.bind('Ebd', 'open http://baobongda.com.vn')
+config.bind('Eis', 'open https://instagram.com')
+config.bind('Egm', 'open https://map.google.com')
+config.bind('Em0', 'open https://mail.google.com/mail/u/0/#inbox')
+config.bind('Em1', 'open https://mail.google.com/mail/u/1/#inbox')
+config.bind('Em2', 'open https://mail.google.com/mail/u/2/#inbox')
+config.bind('El3', 'open localhost:3000')
+config.bind('El8', 'open localhost:8000')
+config.bind('El9', 'open localhost:9000')
+config.bind('Ed0', 'open https://drive.google.com/drive/u/0/my-drive')
+config.bind('Ed1', 'open https://drive.google.com/drive/u/1/my-drive')
+config.bind('Ed2', 'open https://drive.google.com/drive/u/2/my-drive')
+config.bind('Edtg', 'open https://docs.google.com/spreadsheets/d/1ki1KQYN5FTXBgohbJaeluAwxoqoKY6qHX30nePfUtak/edit#gid=0')

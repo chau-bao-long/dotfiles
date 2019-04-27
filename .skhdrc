@@ -73,7 +73,7 @@
 cmd - return : open -na /Applications/iTerm.app
 
 # open qutebrowser
-# cmd + shift - return : ~/scripts/qtb.sh
+cmd + shift - return : open -na /Applications/qutebrowser.app
 
 # close focused window
 alt - q : chunkc tiling::window --close
