@@ -44,6 +44,7 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
@@ -159,8 +160,9 @@ set sidescroll=1
 
 " ================ Search ===========================
 set incsearch       " Find the next match as we type the search
-set ignorecase      " Ignore case when searching...
-set smartcase       " ...unless we type a capital
+" set ignorecase      " Ignore case when searching...
+" set smartcase       " ...unless we type a capital
+set noignorecase      " Respect case sensitive when searching...
 
 
 " ================ Rspec ============================
@@ -293,7 +295,7 @@ map <space>h :History<CR>
 map <space>b :Buffers<CR>
 map <space>c :Commands<CR>
 map <space>i :BLines<CR>
-map <space>g :GFiles?<CR>
+" map <space>g :GFiles?<CR>
 map <space>t :Tags<CR>
 
 " ============== Vim multiple cursors mapping =======
@@ -347,21 +349,16 @@ set pastetoggle=<F4>
 xnoremap p "_dP
 
 
-" ============== Ranger ================
+" ==================== Ranger ========================
 let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree
 let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
 let g:ranger_map_keys = 0
 map <space>f :Ranger<CR>
 map <space>d :RangerNewTab<CR>
 
+" ===================== My custom mapping ====================
 
-" ================ My custom mapping ================
-map <space>n :NERDTreeToggle<CR>
-map <space>r :NERDTreeFind<cr>
-let NERDTreeQuitOnOpen = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-nnoremap <F5> :UndotreeToggle<cr>
+" Customize vim a little bit
 nmap - gt
 nmap _ gT
 nmap <space>- :tabnew<cr>
@@ -371,6 +368,15 @@ map <space><S-k> <C-w>25+
 map <space><S-j> <C-w>25-
 nmap <script> <silent> <F3> :copen 1000<CR>
 nmap <script> <silent> <F2> :call ToggleQuickfixList()<CR>
+nnoremap <space>h <C-w>h
+nnoremap <space>j <C-w>j
+nnoremap <space>k <C-w>k
+nnoremap <space>l <C-w>l
+nnoremap 'w :wa!<CR>
+nnoremap 'q :wq<CR>
+nnoremap 'e :q!<CR>
+
+" Miscellaneous
 map <Leader>w :Dispatch ~/bin/api<CR>
 map <Leader>b :!git blame %<CR>
 map <Leader>p :ts<CR>
@@ -378,11 +384,34 @@ map <Leader>] :tn<CR>
 map <Leader>[ :tp<CR>
 imap zbt <Esc>a``<Esc>i
 nnoremap <leader>bd :bufdo bd<CR>
-nnoremap <space>h <C-w>h
-nnoremap <space>j <C-w>j
-nnoremap <space>k <C-w>k
-nnoremap <space>l <C-w>l
-nnoremap 'w :wa!<CR>
-nnoremap 'q :wq<CR>
+
+" NerdTree & UndoTree
+map <space>n :NERDTreeToggle<CR>
+map <space>r :NERDTreeFind<cr>
+let NERDTreeQuitOnOpen = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+nnoremap <F5> :UndotreeToggle<cr>
+
+" Linter
 map <space>cr :Dispatch rubocop --require rubocop-airbnb -a<CR>
 map <space>cj :Dispatch yarn lint --fix<CR>
+
+" Terraform 
+map <space>etp :Dispatch terraform plan<CR>
+map <space>eta :Dispatch terraform apply<CR>
+map <space>etd :Dispatch terraform destroy<CR>
+
+" Git
+map <space>gg :Git 
+map <space>gl :Glog<CR>
+map <space>gd :Gdiff 
+map <space>gp :Ggrep 
+map <space>gr :Gread! 
+map <space>gw :Gwrite<CR>
+map <space>gbl :Gblame<CR> 
+map <space>gbr :Gbrowse<CR> 
+map <space>gs :Gstatus<CR> 
+map <space>ge :Gedit 
+map <space>gvs :Gvsplit<CR>
+map <space>gsp :Gsplit<CR>
