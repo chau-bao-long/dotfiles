@@ -46,6 +46,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
@@ -409,9 +410,9 @@ map <space>gd :Gdiff
 map <space>gp :Ggrep 
 map <space>gr :Gread! 
 map <space>gw :Gwrite<CR>
-map <space>gbl :Gblame<CR> 
-map <space>gbr :Gbrowse<CR> 
-map <space>gs :Gstatus<CR> 
+map <space>gbl :Gblame<CR>
+map <space>gbr :Gbrowse<CR>
+map <space>gs :Gstatus<CR>
 map <space>ge :Gedit 
 map <space>gvs :Gvsplit<CR>
 map <space>gsp :Gsplit<CR>
