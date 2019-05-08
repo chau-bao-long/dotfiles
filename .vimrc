@@ -166,17 +166,6 @@ set incsearch       " Find the next match as we type the search
 set noignorecase      " Respect case sensitive when searching...
 
 
-" ================ Rspec ============================
-map <Leader>a :call RunCurrentSpecFile()<CR>
-map <Leader>e :call RunNearestSpec()<CR>
-map <Leader>t :call RunLastSpec()<CR>
-map <Leader>al :call RunAllSpecs()<CR>
-
-" let g:rspec_command = "!spring rspec {spec}"
-" let g:rspec_command = "Dispatch rspec {spec}"
-let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
-
-
 " ================ The Silver Searcher ==============
 if executable('ag')
   " Use ag over grep
@@ -292,7 +281,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " Finder mapping
 map <space>p :Files<CR>
-map <space>h :History<CR>
+map <space>u :History<CR>
 map <space>b :Buffers<CR>
 map <space>c :Commands<CR>
 map <space>i :BLines<CR>
@@ -379,6 +368,8 @@ nnoremap 'w :wa!<CR>
 nnoremap 'q :wq<CR>
 nnoremap 'e :q!<CR>
 nnoremap 'r :edit!<CR>
+nmap <tab> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
+nmap <backspace> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
 
 " Miscellaneous
 map <Leader>w :Dispatch ~/bin/api<CR>
@@ -405,6 +396,16 @@ map <space>cj :Dispatch yarn lint --fix<CR>
 map <space>etp :Dispatch terraform plan<CR>
 map <space>eta :Dispatch terraform apply<CR>
 map <space>etd :Dispatch terraform destroy<CR>
+
+" Rspec
+map <space>ef :call RunCurrentSpecFile()<CR>
+map <space>ee :call RunNearestSpec()<CR>
+map <space>et :call RunLastSpec()<CR>
+map <space>ea :call RunAllSpecs()<CR>
+
+" let g:rspec_command = "!spring rspec {spec}"
+" let g:rspec_command = "Dispatch rspec {spec}"
+let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
 
 " Git
 map <space>gg :Git 
