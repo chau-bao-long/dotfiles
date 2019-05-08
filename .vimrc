@@ -363,6 +363,8 @@ map <space>d :RangerNewTab<CR>
 nmap - gt
 nmap _ gT
 nmap <space>- :tabnew<cr>
+nmap <space>v :vs<CR><C-w>l<space>f
+nmap <space>x :split<CR><C-w>j<space>f
 map <space><S-l> <C-w>35>
 map <space><S-h> <C-w>35<
 map <space><S-k> <C-w>25+
@@ -376,6 +378,7 @@ nnoremap <space>l <C-w>l
 nnoremap 'w :wa!<CR>
 nnoremap 'q :wq<CR>
 nnoremap 'e :q!<CR>
+nnoremap 'r :edit!<CR>
 
 " Miscellaneous
 map <Leader>w :Dispatch ~/bin/api<CR>
