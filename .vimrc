@@ -284,7 +284,7 @@ map <space>p :Files<CR>
 map <space>u :History<CR>
 map <space>b :Buffers<CR>
 map <space>c :Commands<CR>
-map <space>i :BLines<CR>
+map <space>; :BLines<CR>
 " map <space>g :GFiles?<CR>
 map <space>t :Tags<CR>
 
@@ -319,10 +319,10 @@ let g:session_directory = "~/.vim/session"
 let g:session_autoload = "yes"
 let g:session_autosave = "yes"
 let g:session_command_aliases = 1
-nnoremap <space> :OpenSession<CR>
-nnoremap <space><space>ss :SaveSession
-nnoremap <space><space>sd :DeleteSession<CR>
-nnoremap <space><space>sc :CloseSession<CR>
+nnoremap <tab>o :OpenSession<CR>
+nnoremap <tab>s :SaveSession
+nnoremap <tab>d :DeleteSession<CR>
+nnoremap <tab>c :CloseSession<CR>
 
 
 " ============= Better motion =======================
@@ -351,7 +351,7 @@ map <space>d :RangerNewTab<CR>
 " Customize vim a little bit
 nmap - gt
 nmap _ gT
-nmap <space>- :tabnew<cr>
+nmap <space>- :tabnew<CR><space>f
 nmap <space>v :vs<CR><C-w>l<space>f
 nmap <space>x :split<CR><C-w>j<space>f
 map <space><S-l> <C-w>35>
@@ -368,8 +368,10 @@ nnoremap 'w :wa!<CR>
 nnoremap 'q :wq<CR>
 nnoremap 'e :q!<CR>
 nnoremap 'r :edit!<CR>
-nmap <tab> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
-nmap <backspace> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
+nmap r <C-d>
+nmap q <C-u>
+nmap <space>i <C-i>
+nmap <space>o <C-o>
 
 " Miscellaneous
 map <Leader>w :Dispatch ~/bin/api<CR>
@@ -382,7 +384,7 @@ nnoremap <leader>bd :bufdo bd<CR>
 
 " NerdTree & UndoTree
 map <space>n :NERDTreeToggle<CR>
-map <space>r :NERDTreeFind<cr>
+map <space>r :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1

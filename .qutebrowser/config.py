@@ -146,13 +146,6 @@ c.colors.tabs.selected.even.bg = '#64b130'
 # Type: QtFont
 c.fonts.tabs = '10pt fantasque sans mono'
 
-# Bindings for normal mode
-config.bind(';M', 'hint --rapid links spawn open -na /Applications/mpv.app {hint-url}')
-# config.bind('<Meta+n>', 'open -p')
-# config.bind('<Meta+w>', 'close')
-config.bind('M', 'hint links spawn open -na /Applications/mpv.app {hint-url}')
-config.bind('m', 'spawn open -na /Applications/mpv.app {url}')
-
 # bind to optimize default hotkey
 config.unbind('u')
 config.unbind('d')
