@@ -94,6 +94,10 @@ link_file () {
   then
     ln -s "$1" "$2"
     success "linked $1 to $2"
+  elif [ "$skip" != "true" ] 
+  then
+    cp -r "$1" "$2"
+    success "copied $1 to $2"
   fi
 }
 
