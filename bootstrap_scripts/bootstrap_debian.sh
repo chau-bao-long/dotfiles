@@ -169,7 +169,7 @@ install_zsh() {
   read -r -p "Do you want to install zsh? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     sudo apt install zsh
-    chsh -s $(which zsh)
+    sudo chsh -s $(which zsh)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     success "Installed zsh"
   fi

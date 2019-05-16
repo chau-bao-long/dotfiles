@@ -167,7 +167,7 @@ install_zsh() {
   read -r -p "Do you want to install zsh? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     sudo yum install -y zsh
-    chsh -s $(which zsh) root
+    sudo chsh -s $(which zsh) root
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     success "Installed zsh"
   fi
