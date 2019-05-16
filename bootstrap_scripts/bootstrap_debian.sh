@@ -120,7 +120,32 @@ copy_dotfiles() {
   done
 }
 
+install_nvim() {
+  read -r -p "Do you want to install neovim? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    info "Installing neovim"
+    sudo apt-get install neovim
+    sudo apt-get install python-dev python-pip python3-dev python3-pip
+    success
+  else
+    success "skipped. Install by running :PlugInstall within vim"
+  fi
+}
+
+setup_nvim() {
+  read -r -p "Do you want to install vim plugins now? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    info "Installing vim plugins"
+    nvim +PlugInstall +qall > /dev/null 2>&1
+    success "Installed vim plugins"
+  else
+    success "skipped. Install by running :PlugInstall within vim"
+  fi
+}
+
 copy_dotfiles
+install_nvim
+setup_nvim
 
 echo "---" 
 
