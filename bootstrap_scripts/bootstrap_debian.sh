@@ -120,12 +120,17 @@ copy_dotfiles() {
   done
 }
 
+setup_apt_repo() {
+  sudo add-apt-repository ppa:neovim-ppa/unstable
+  sudo apt-get update -y
+}
+
 install_nvim() {
   read -r -p "Do you want to install neovim? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     info "Installing neovim"
-    sudo apt-get install neovim
-    sudo apt-get install python-dev python-pip python3-dev python3-pip
+    sudo apt-get install -y neovim
+    sudo apt-get install -y python-dev python-pip python3-dev python3-pip
     success
   fi
 }
@@ -145,7 +150,7 @@ install_tmux() {
   read -r -p "Do you want to install tmux? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     info "Installing tmux"
-    sudo apt-get install tmux
+    sudo apt-get install -y tmux
     success
   fi
 }
@@ -164,7 +169,7 @@ install_ranger() {
 }
 
 copy_dotfiles
-sudo apt-get update
+setup_apt_repo
 install_ranger
 install_tmux
 install_nvim
