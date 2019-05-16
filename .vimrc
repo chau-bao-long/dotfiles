@@ -368,10 +368,11 @@ nnoremap 'w :wa!<CR>
 nnoremap 'q :wq<CR>
 nnoremap 'e :q!<CR>
 nnoremap 'r :edit!<CR>
-nmap r <C-d>
-nmap q <C-u>
-nmap <S-r> <C-e><C-e><C-e><C-e><C-e>
-nmap <S-q> <C-y><C-y><C-y><C-y><C-y>
+nmap ; q:
+nmap ms <C-d>
+nmap mw <C-u>
+nmap <S-s> <C-e><C-e><C-e><C-e><C-e>
+nmap <S-w> <C-y><C-y><C-y><C-y><C-y>
 nmap <space>i <C-i>
 nmap <space>o <C-o>
 

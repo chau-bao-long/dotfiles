@@ -92,12 +92,19 @@ link_file () {
 
   if [ "$skip" != "true" ] && [ ! -d $1 ] # "false" or empty
   then
-    ln -s "$1" "$2"
-    success "linked $1 to $2"
-  elif [ "$skip" != "true" ] 
+    if [[ ! $1 =~ ^\.\/\..*\/.* ]] || [[ $1 =~ ^\.\/\..*\/.*conf.* ]]
+    then
+      local src="$DOTFILES_ROOT/$(echo $1 | cut -d '/' -f 2,3,4)"
+      ln -s $src "$2"
+      success "linked $src to $2"
+    else
+      cp "$1" "$2"
+      success "copied file $1 to $2"
+    fi
+  elif [ "$skip" != "true" ]
   then
     cp -r "$1" "$2"
-    success "copied $1 to $2"
+    success "copied directory $1 to $2"
   fi
 }
 
@@ -106,9 +113,9 @@ copy_dotfiles() {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 1 -name '.*' -not -path '*.git*')
+  for src in $(find . -maxdepth 3 -regextype sed -regex ".*\(conf.*\|\.\/\..*\)" -not -path '*.git*')
   do
-    dst="$HOME/$(basename $src)"
+    dst="$HOME/$(echo $src | cut -d '/' -f 2,3,4)"
     link_file "$src" "$dst"
   done
 }
