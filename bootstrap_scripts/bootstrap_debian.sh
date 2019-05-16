@@ -124,14 +124,11 @@ install_nvim() {
   read -r -p "Do you want to install neovim? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     info "Installing neovim"
-    git clone https://github.com/neovim/neovim.git
-    cd neovim
-    make CMAKE_BUILD_TYPE=Release
-    sudo make install
-    cd ..
-    sudo rm -rf neovim
-    sudo apt-get install -y python-dev python-pip
-    success
+    sudo add-apt-repository ppa:neovim-ppa/unstable
+    sudo apt-get update
+    sudo apt-get install neovim
+    sudo apt-get install python-dev python-pip python3-dev python3-pip
+    success "Installed neovim"
   fi
 }
 
@@ -151,7 +148,7 @@ install_tmux() {
   if [[ $response =~ (y|yes|Y) ]];then
     info "Installing tmux"
     sudo apt-get install -y tmux
-    success
+    success "Installed tmux"
   fi
 }
 
@@ -164,15 +161,35 @@ install_ranger() {
     sudo make install
     cd ..
     sudo rm -rf ranger
-    success
+    success "Installed ranger"
   fi
 }
 
-copy_dotfiles
+install_zsh() {
+  read -r -p "Do you want to install zsh? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    sudo apt install zsh
+    chsh -s $(which zsh)
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    success "Installed zsh"
+  fi
+}
+
+install_browser() {
+  read -r -p "Do you want to install qutebrowser? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    apt install qutebrowser
+    success "Installed qutebrowser"
+  fi
+}
+
 install_nvim
-setup_nvim
 install_ranger
 install_tmux
+install_zsh
+install_browser
+copy_dotfiles
+setup_nvim
 
 echo "---" 
 
