@@ -124,10 +124,8 @@ install_nvim() {
   read -r -p "Do you want to install neovim? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     info "Installing neovim"
-    sudo add-apt-repository ppa:neovim-ppa/unstable
-    sudo apt-get update
-    sudo apt-get install neovim
-    sudo apt-get install python-dev python-pip python3-dev python3-pip
+    sudo apt-get install -y neovim
+    sudo apt-get install -y python-dev python-pip python3-dev python3-pip
     success "Installed neovim"
   fi
 }
