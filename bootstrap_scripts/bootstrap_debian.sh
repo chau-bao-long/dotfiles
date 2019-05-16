@@ -159,6 +159,7 @@ install_ranger() {
     sudo make install
     cd ..
     sudo rm -rf ranger
+    sudo apt-get install -y highlight
     success "Installed ranger"
   fi
 }
