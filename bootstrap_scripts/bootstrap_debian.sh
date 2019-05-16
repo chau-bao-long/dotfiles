@@ -127,8 +127,6 @@ install_nvim() {
     sudo apt-get install neovim
     sudo apt-get install python-dev python-pip python3-dev python3-pip
     success
-  else
-    success "skipped. Install by running :PlugInstall within vim"
   fi
 }
 
@@ -143,9 +141,33 @@ setup_nvim() {
   fi
 }
 
-copy_dotfiles
+install_tmux() {
+  read -r -p "Do you want to install tmux? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    info "Installing tmux"
+    sudo apt-get install tmux
+    success
+  fi
+}
+
+install_ranger() {
+  read -r -p "Do you want to install ranger? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    info "Installing ranger"
+    git clone https://github.com/ranger/ranger.git
+    cd ranger
+    sudo make install
+    cd ..
+    rm -rf ranger
+    success
+  fi
+}
+
+install_ranger
+install_tmux
 install_nvim
 setup_nvim
+copy_dotfiles
 
 echo "---" 
 
