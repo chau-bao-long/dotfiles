@@ -21,3 +21,18 @@ $ make macos
 $ brew cask install ubersicht
 $ cp -r .Ubersicht/* Library/Application Support/Übersicht
 ```
+### Install Git on CentOS 7
+Create file `/etc/yum.repos.d/wandisco-git.repo with` content
+```
+[wandisco-git]
+name=Wandisco GIT Repository
+baseurl=http://opensource.wandisco.com/centos/7/git/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=http://opensource.wandisco.com/RPM-GPG-KEY-WANdisco
+```
+Then run these commands
+``` bash
+$ sudo rpm --import http://opensource.wandisco.com/RPM-GPG-KEY-WANdisco
+$ sudo yum install git
+```

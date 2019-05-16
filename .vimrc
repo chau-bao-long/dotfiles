@@ -369,13 +369,14 @@ nnoremap 'q :wq<CR>
 nnoremap 'e :q!<CR>
 nnoremap 'r :edit!<CR>
 nmap ; q:
-nmap ms <C-d>
-nmap mw <C-u>
-nmap <S-s> <C-e><C-e><C-e><C-e><C-e>
-nmap <S-w> <C-y><C-y><C-y><C-y><C-y>
+nmap <esc>j <C-d>
+nmap <esc>k <C-u>
+nmap <esc>h <C-e><C-e><C-e><C-e><C-e>jjjjj
+nmap <esc>l <C-y><C-y><C-y><C-y><C-y>kkkkk
 nmap <space>i <C-i>
 nmap <space>o <C-o>
 
+"
 " Miscellaneous
 map <Leader>w :Dispatch ~/bin/api<CR>
 map <Leader>b :!git blame %<CR>
@@ -402,7 +403,7 @@ map <space>etp :Dispatch terraform plan<CR>
 map <space>eta :Dispatch terraform apply<CR>
 map <space>etd :Dispatch terraform destroy<CR>
 
-" Dotfiles
+" Dot files
 map <space>edb :!make debian<CR>
 
 " Rspec
