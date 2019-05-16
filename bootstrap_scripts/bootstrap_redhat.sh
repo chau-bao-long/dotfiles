@@ -173,12 +173,25 @@ install_zsh() {
   fi
 }
 
+install_font() {
+  read -r -p "Do you want to install font? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    git clone https://github.com/powerline/fonts.git --depth=1
+    cd fonts
+    ./install.sh
+    cd ..
+    rm -rf fonts
+    success "Installed font powerline!"
+  fi
+}
+
 install_nvim
 install_ranger
 install_tmux
 install_zsh
 copy_dotfiles
 setup_nvim
+install_font
 
 echo "---" 
 
