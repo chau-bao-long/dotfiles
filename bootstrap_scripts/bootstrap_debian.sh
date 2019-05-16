@@ -158,16 +158,17 @@ install_ranger() {
     cd ranger
     sudo make install
     cd ..
-    rm -rf ranger
+    sudo rm -rf ranger
     success
   fi
 }
 
+copy_dotfiles
+sudo apt-get update
 install_ranger
 install_tmux
 install_nvim
 setup_nvim
-copy_dotfiles
 
 echo "---" 
 
