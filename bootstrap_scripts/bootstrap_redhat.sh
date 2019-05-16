@@ -124,8 +124,8 @@ install_nvim() {
   read -r -p "Do you want to install neovim? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     info "Installing neovim"
-    yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-    yum install -y neovim python{2,3}-neovim
+    sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    sudo yum install -y neovim python{2,3}-neovim
     success "Installed neovim"
   fi
 }
@@ -166,7 +166,7 @@ install_ranger() {
 install_zsh() {
   read -r -p "Do you want to install zsh? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    sudo yum install zsh
+    sudo yum install -y zsh
     chsh -s $(which zsh) root
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     success "Installed zsh"
