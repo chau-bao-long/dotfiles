@@ -1,11 +1,35 @@
 # My React JS and React Native Snippets
 
+snippet d "Debugger"
+debugger
+endsnippet
+
+snippet ct "Console table log"
+console.table($0);
+endsnippet
+
+snippet scp "Style component props theme"
+${p => p.theme.$0};
+endsnippet
+
+snippet tw "Style component tailwind"
+${tw$0};
+endsnippet
+
 snippet ip "Import module" b
 import $0 from '$1';
 endsnippet
 
+snippet i18 "Import i18n" b
+import { withNamespaces } from 'react-i18next';
+endsnippet
+
 snippet isc "Import style components" b
 import styled from 'styled-components';
+endsnippet
+
+snippet itw "Import tailwind" b
+import tw from 'tailwind.macro';
 endsnippet
 
 snippet irn "import react native" b
@@ -71,14 +95,12 @@ export default class ${1:className} extends React.PureComponent<$FlowFixMeProps>
 endsnippet
 
 snippet rnsc "Create a new stateless component"
-// @flow
 import React from 'react';
+import styled from 'styled-components';
+import tw from 'tailwind.macro';
 
-export default function ${1:ComponentName}() {
-	return (
-		$0
-	);
-}
+export default ({ $0 }) => (
+)
 endsnippet
 
 snippet rnp "Define prop"

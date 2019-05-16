@@ -370,6 +370,8 @@ nnoremap 'e :q!<CR>
 nnoremap 'r :edit!<CR>
 nmap r <C-d>
 nmap q <C-u>
+nmap <S-r> <C-e><C-e><C-e><C-e><C-e>
+nmap <S-q> <C-y><C-y><C-y><C-y><C-y>
 nmap <space>i <C-i>
 nmap <space>o <C-o>
 
@@ -398,6 +400,9 @@ map <space>cj :Dispatch yarn lint --fix<CR>
 map <space>etp :Dispatch terraform plan<CR>
 map <space>eta :Dispatch terraform apply<CR>
 map <space>etd :Dispatch terraform destroy<CR>
+
+" Dot files
+map <space>edb :!make debian<CR>
 
 " Rspec
 map <space>ef :call RunCurrentSpecFile()<CR>
