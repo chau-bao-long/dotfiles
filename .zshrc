@@ -9,6 +9,8 @@ plugins=(
   zsh-completions
 )
 
+autoload -U compinit && compinit
+
 export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
