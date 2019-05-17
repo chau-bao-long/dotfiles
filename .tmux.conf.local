@@ -239,7 +239,12 @@ tmux_conf_copy_to_os_clipboard=false
 #set -g history-limit 10000
 
 # start with mouse mode enabled
-set -g mouse off
+set -g mouse on
+
+bind-key -T copy-mode-vi d send-keys -X page-down
+bind-key -T copy-mode-vi u send-keys -X page-up
+
+# bind -n 'u' copy-mode -u
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
