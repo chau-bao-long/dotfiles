@@ -108,6 +108,15 @@ link_file () {
   fi
 }
 
+install_homebrew() {
+  read -r -p "Do you want to install homebrew? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew tap caskroom/cask
+    success "Installed homebrew"
+  fi
+}
+
 copy_dotfiles() {
   info 'copying dotfiles to system'
 
@@ -124,7 +133,7 @@ install_nvim() {
   read -r -p "Do you want to install neovim? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     info "Installing neovim"
-    # TODO
+    brew install neovim
     success "Installed neovim"
   fi
 }
@@ -144,7 +153,7 @@ install_tmux() {
   read -r -p "Do you want to install tmux? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     info "Installing tmux"
-    # TODO
+    brew install tmux
     success "Installed tmux"
   fi
 }
@@ -153,12 +162,8 @@ install_ranger() {
   read -r -p "Do you want to install ranger? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     info "Installing ranger"
-    git clone https://github.com/ranger/ranger.git
-    cd ranger
-    sudo make install
-    cd ..
-    sudo rm -rf ranger
-    sudo brew install highlight
+    brew install ranger
+    brew install highlight
     success "Installed ranger"
   fi
 }
@@ -166,20 +171,12 @@ install_ranger() {
 install_zsh() {
   read -r -p "Do you want to install zsh? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    # TODO
+    brew install zsh
     sudo chsh -s $(which zsh)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
     success "Installed zsh"
-  fi
-}
-
-install_browser() {
-  read -r -p "Do you want to install qutebrowser? [y|N] " response
-  if [[ $response =~ (y|yes|Y) ]];then
-    # TODO
-    success "Installed qutebrowser"
   fi
 }
 
@@ -195,14 +192,53 @@ install_font() {
   fi
 }
 
+install_browser() {
+  read -r -p "Do you want to install qutebrowser? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    brew cask install qutebrowser
+    success "Installed qutebrowser"
+  fi
+}
+
+install_skhd() {
+  read -r -p "Do you want to install simple hotkey daemon? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    brew install koekeishiya/formulae/skhd
+    brew services start skhd
+    success "Installed simple hotkey daemon"
+  fi
+}
+
+install_chunkwm() {
+  read -r -p "Do you want to install chunk window manager? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    brew tap koekeishiya/formulae
+    brew install chunkwm
+    success "Installed chunk window manager"
+  fi
+}
+
+install_ubersicht() {
+  read -r -p "Do you want to install ubersicht status bar? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    brew cask install ubersicht
+    cp -r Ubersicht/* Library/Application Support/Übersicht
+    success "Installed ubersicht status bar"
+  fi
+}
+
+install_homebrew
 install_nvim
 install_ranger
 install_tmux
 install_zsh
 install_browser
+install_skhd
+install_chunkwm
+install_ubersicht
+install_font
 copy_dotfiles
 setup_nvim
-install_font
 
 echo "---" 
 

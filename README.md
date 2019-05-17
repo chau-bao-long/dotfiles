@@ -16,11 +16,6 @@ $ make macos
 - skhd (simple hotkey daemon for macos)
 
 # More infos!
-### Install Übersicht
-```bash
-$ brew cask install ubersicht
-$ cp -r .Ubersicht/* Library/Application Support/Übersicht
-```
 ### Install Git on CentOS 7
 Create file `/etc/yum.repos.d/wandisco-git.repo with` content
 ```

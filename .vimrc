@@ -369,10 +369,10 @@ nnoremap 'q :wq<CR>
 nnoremap 'e :q!<CR>
 nnoremap 'r :edit!<CR>
 nmap ; q:
-nmap <esc>j <C-d>
-nmap <esc>k <C-u>
-nmap <esc>h <C-e><C-e><C-e><C-e><C-e>jjjjj
-nmap <esc>l <C-y><C-y><C-y><C-y><C-y>kkkkk
+nmap <tab>j <C-d>
+nmap <tab>k <C-u>
+nmap <tab>h <C-e><C-e><C-e><C-e><C-e>jjjjj
+nmap <tab>l <C-y><C-y><C-y><C-y><C-y>kkkkk
 nmap <space>i <C-i>
 nmap <space>o <C-o>
 
