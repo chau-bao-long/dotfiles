@@ -179,7 +179,7 @@ install_zsh() {
 install_browser() {
   read -r -p "Do you want to install qutebrowser? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    apt install qutebrowser
+    sudo apt install -y qutebrowser
     success "Installed qutebrowser"
   fi
 }
