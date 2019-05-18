@@ -150,15 +150,21 @@ install_tmux() {
   fi
 }
 
+install_python() {
+  read -r -p "Do you want to install python? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    info "Installing python 3 on system"
+    sudo yum install python34-setuptools
+    sudo easy_install-3.4 pip
+    success "Installed python 3"
+  fi
+}
+
 install_ranger() {
   read -r -p "Do you want to install ranger? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     info "Installing ranger"
-    git clone https://github.com/ranger/ranger.git
-    cd ranger
-    sudo make install
-    cd ..
-    sudo rm -rf ranger
+    sudo pip3 install ranger-fm
     success "Installed ranger"
   fi
 }
@@ -188,6 +194,7 @@ install_font() {
 }
 
 install_nvim
+install_python
 install_ranger
 install_tmux
 install_zsh
