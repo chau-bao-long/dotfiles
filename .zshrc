@@ -7,7 +7,11 @@ plugins=(
   git
   osx
   zsh-completions
+  vi-mode
 )
+
+# Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
+export KEYTIMEOUT=1
 
 autoload -U compinit && compinit
 
