@@ -368,7 +368,6 @@ nnoremap 'w :wa!<CR>
 nnoremap 'q :wq<CR>
 nnoremap 'e :q!<CR>
 nnoremap 'r :edit!<CR>
-nmap ; q:
 nmap <tab>j <C-d>
 nmap <tab>k <C-u>
 nmap <tab>h <C-e><C-e><C-e><C-e><C-e>jjjjj

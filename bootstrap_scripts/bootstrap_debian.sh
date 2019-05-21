@@ -170,8 +170,12 @@ install_zsh() {
     sudo apt install zsh
     sudo chsh -s $(which zsh)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+    if [ ! -d ~/.zsh/zsh-autosuggestions ]; then
+      git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+    fi
+    if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-completions ]; then
+      git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+    fi
     success "Installed zsh"
     sed -i 's/blue/cyan/g' ~/.oh-my-zsh/themes/agnoster.zsh-theme
     cd ~/.oh-my-zsh
@@ -201,6 +205,16 @@ install_font() {
   fi
 }
 
+setup_git() {
+  read -r -p "Do you want to setup git? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    git config --global user.email "chau.bao.long.vn@gmail.com" 
+    git config --global user.name "Chau Bao Long" 
+    success "Setup git with user.email chau.bao.long.vn@gmail.com and name is Chau Bao Long."
+  fi
+}
+
+setup_git
 install_nvim
 install_ranger
 install_tmux
