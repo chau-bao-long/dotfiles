@@ -15,6 +15,7 @@ colorscheme gruvbox
 " ================ Plugin Config ======================
 call plug#begin('~/.vim/plugged')
 
+Plug 'junegunn/goyo.vim'
 Plug 'mbbill/undotree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -346,6 +347,11 @@ let g:ranger_map_keys = 0
 map <space>f :Ranger<CR>
 map <space>d :RangerNewTab<CR>
 
+
+" ==================== Goyo =========================
+nmap <tab>o :Goyo 160x850%<CR>
+nmap <tab>u :Goyo!<CR>
+
 " ===================== My custom mapping ====================
 
 " Customize vim a little bit
@@ -375,7 +381,6 @@ nmap <tab>l <C-y><C-y><C-y><C-y><C-y>kkkkk
 nmap <space>i <C-i>
 nmap <space>o <C-o>
 
-"
 " Miscellaneous
 map <Leader>w :Dispatch ~/bin/api<CR>
 map <Leader>b :!git blame %<CR>
