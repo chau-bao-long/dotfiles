@@ -31,3 +31,7 @@ Then run these commands
 $ sudo rpm --import http://opensource.wandisco.com/RPM-GPG-KEY-WANdisco
 $ sudo yum install git
 ```
+### Install Terminal & Setup font
+On MacOS, we can install iTerm2 for the main terminal
+On Linux, we can install Xterm or Konsole for the main terminal
+After setup font and terminal successfully on system, remember to change font on terminal to one of powerline-based font.
