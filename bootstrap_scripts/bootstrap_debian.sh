@@ -179,7 +179,7 @@ install_zsh() {
     success "Installed zsh"
     sed -i 's/blue/cyan/g' ~/.oh-my-zsh/themes/agnoster.zsh-theme
     cd ~/.oh-my-zsh
-    git commit -m "Tmp commit to keep oh-my-zsh can update properly."
+    git add . && git commit -m "just a tmp commit to keep oh-my-zsh can update properly."
     cd - 
     success "Updated Agnoster Theme"
   fi
