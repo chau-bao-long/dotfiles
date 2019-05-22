@@ -374,10 +374,10 @@ nnoremap 'w :wa!<CR>
 nnoremap 'q :wq<CR>
 nnoremap 'e :q!<CR>
 nnoremap 'r :edit!<CR>
-nmap <tab>j <C-d>
-nmap <tab>k <C-u>
-nmap <tab>h <C-e><C-e><C-e><C-e><C-e>jjjjj
-nmap <tab>l <C-y><C-y><C-y><C-y><C-y>kkkkk
+nmap zj <C-d>
+nmap zk <C-u>
+nmap zh <C-e><C-e><C-e><C-e><C-e>jjjjj
+nmap zl <C-y><C-y><C-y><C-y><C-y>kkkkk
 nmap <space>i <C-i>
 nmap <space>o <C-o>
 
