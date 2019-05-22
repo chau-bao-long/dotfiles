@@ -5,12 +5,15 @@ $ make redhat
 $ make macos
 ```
 # What is installed?
-- zsh
-- oh-my-zsh
+- git
+- zsh + oh-my-zsh + completion + suggestion + theme
 - vim
 - tmux
 - ranger 
 - qutebrowser
+- font
+- link and copy all config files
+- homebrew & homecask (package manager for macos)
 - Übersicht (status bar for mac os)
 - chunkwm (tilling window manager for macos)
 - skhd (simple hotkey daemon for macos)
