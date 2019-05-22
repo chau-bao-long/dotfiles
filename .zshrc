@@ -13,6 +13,9 @@ plugins=(
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
 
+# Hightlight syntax for manual page
+export PAGER="most"
+
 autoload -U compinit && compinit
 
 export ZSH=~/.oh-my-zsh
