@@ -182,8 +182,6 @@ install_zsh() {
     git add . && git commit -m "just a tmp commit to keep oh-my-zsh can update properly."
     cd - 
     success "Updated Agnoster Theme"
-    sudo apt-get install most
-    success "Installed hightlight syntax for manual page"
   fi
 }
 
