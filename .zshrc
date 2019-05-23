@@ -147,11 +147,17 @@ export KEYTIMEOUT=1
 
 # Make Vi mode has cursor change when switch from insert mode and command mode
 function zle-keymap-select zle-line-init {
-  # change cursor shape in iTerm2
-  case $KEYMAP in
-    vicmd)      print -n -- "\E]50;CursorShape=0\C-G";;  # block cursor
-    viins|main) print -n -- "\E]50;CursorShape=1\C-G";;  # line cursor
-  esac
+  if [ $(uname) = "Darwin" ]; then
+    case $KEYMAP in
+      vicmd)      print -n -- "\E]50;CursorShape=0\C-G";;  # block cursor
+      viins|main) print -n -- "\E]50;CursorShape=1\C-G";;  # line cursor
+    esac
+  elif [ $(uname) = "Linux" ]; then
+    case $KEYMAP in
+      vicmd)      printf '\e[2 q\e]12;grey\a';;
+      viins|main) printf '\e[2 q\e]12;red\a';;
+    esac
+  fi
 
   zle reset-prompt
   zle -R
