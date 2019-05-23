@@ -349,8 +349,8 @@ map <space>d :RangerNewTab<CR>
 
 
 " ==================== Goyo =========================
-nmap <tab>o :Goyo 160x850%<CR>
-nmap <tab>u :Goyo!<CR>
+nmap zi :Goyo 160x850%<CR>
+nmap zu :Goyo!<CR>
 
 " ===================== My custom mapping ====================
 
