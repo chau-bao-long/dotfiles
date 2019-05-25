@@ -182,11 +182,13 @@ install_zsh() {
       git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
     fi
     success "Installed zsh"
-    sed -i 's/blue/cyan/g' ~/.oh-my-zsh/themes/agnoster.zsh-theme
-    cd ~/.oh-my-zsh
-    git add . && git commit -m "just a tmp commit to keep oh-my-zsh can update properly."
-    cd - 
-    success "Updated Agnoster Theme"
+    if [ -f ~/.oh-my-zsh/themes/agnoster.zsh-theme ]; then
+      sed -i 's/blue/cyan/g' ~/.oh-my-zsh/themes/agnoster.zsh-theme
+      cd ~/.oh-my-zsh
+      git add . && git commit -m "just a tmp commit to keep oh-my-zsh can update properly."
+      cd - 
+      success "Updated Agnoster Theme"
+    fi
   fi
 }
 
