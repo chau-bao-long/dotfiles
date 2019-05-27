@@ -247,6 +247,14 @@ setup_git() {
   fi
 }
 
+install_search_tool() {
+  read -r -p "Do you want to setup search? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    brew install s-search
+    success "Installed terminal search tool"
+  fi
+}
+
 setup_git
 install_homebrew
 install_nvim
@@ -258,6 +266,7 @@ install_skhd
 install_chunkwm
 install_ubersicht
 install_font
+install_search_tool
 copy_dotfiles
 setup_nvim
 
