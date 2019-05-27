@@ -118,6 +118,8 @@ alias zt="unset RAILS_ENV; zeus test"
 # some custom alias and functions
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 alias f='ranger'
+alias m='neomutt'
+alias ms='mailsync'
 
 rgrep() { grep -rn --exclude-dir=.* --exclude=.* --exclude=tags --exclude-dir=asset* --exclude-dir=log* --exclude=*log* --exclude-dir=public --exclude=*.csv $1 . }
 agrep() { grep -rn --exclude=tags --exclude-dir=build --exclude-dir=.idea $1 . }
