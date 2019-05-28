@@ -433,3 +433,6 @@ map <space>gs :Gstatus<CR>
 map <space>ge :Gedit 
 map <space>gvs :Gvsplit<CR>
 map <space>gsp :Gsplit<CR>
+
+" Auto commands
+autocmd BufWritePost *.c :Dispatch gcc % && ./a.out
