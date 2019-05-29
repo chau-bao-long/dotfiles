@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ $(head -c 2 ~/.skhdrc) = '##' ]; then
+  # turn on
+  sed -i '' '$ d' ~/.skhdrc
+  sed -i '' 's/^#//' ~/.skhdrc
+  echo "alt - m : /Users/chau.bao.long/bin/toggle-skhd" >> ~/.skhdrc
+else
+  # turn off
+  sed -i '' '$ d' ~/.skhdrc
+  sed -i '' 's/^/#/' ~/.skhdrc
+  echo "alt - m : /Users/chau.bao.long/bin/toggle-skhd" >> ~/.skhdrc
+fi

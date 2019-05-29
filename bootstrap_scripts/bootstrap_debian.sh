@@ -216,6 +216,14 @@ setup_git() {
   fi
 }
 
+install_suckless() {
+  read -r -p "Do you want to install suckless app? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    sudo apt-get install -y libx11-dev libxinerama-dev libxft-dev 
+    success "Installed suckless app"
+  fi
+}
+
 setup_git
 install_nvim
 install_ranger
