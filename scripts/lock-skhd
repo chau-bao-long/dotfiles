@@ -4,10 +4,10 @@ if [ $(head -c 2 ~/.skhdrc) = '##' ]; then
   # turn on
   sed -i '' '$ d' ~/.skhdrc
   sed -i '' 's/^#//' ~/.skhdrc
-  echo "alt - m : /Users/chau.bao.long/bin/toggle-skhd" >> ~/.skhdrc
+  echo "cmd - l : /Users/chau.bao.long/bin/lock-skhd" >> ~/.skhdrc
 else
   # turn off
   sed -i '' '$ d' ~/.skhdrc
   sed -i '' 's/^/#/' ~/.skhdrc
-  echo "alt - m : /Users/chau.bao.long/bin/toggle-skhd" >> ~/.skhdrc
+  echo "cmd - l : /Users/chau.bao.long/bin/lock-skhd" >> ~/.skhdrc
 fi

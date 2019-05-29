@@ -226,4 +226,4 @@ ctrl + alt - d : chunkc tiling::desktop --layout float
 
 ctrl + alt - w : chunkc tiling::desktop --deserialize ~/.chunkwm_layouts/dev_1
 
-alt - a : toggle-skhd
+cmd - l : /Users/chau.bao.long/bin/lock-skhd
