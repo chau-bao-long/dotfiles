@@ -435,4 +435,5 @@ map <space>gvs :Gvsplit<CR>
 map <space>gsp :Gsplit<CR>
 
 " Auto commands
-autocmd BufWritePost *.c :Dispatch gcc % && ./a.out
+autocmd BufWritePost ~/Projects/algorithm/*.c :Dispatch gcc % && ./a.out
+autocmd BufWritePost ~/suckless/*/*.h :Dispatch sudo make clean install
