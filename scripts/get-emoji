@@ -1,0 +1,5 @@
+#!/bin/bash
+
+grep -v "#" ~/bin/emoji | dmenu -i -l 20 -fn Monospace-13 | awk '{print $1}' | tr -d '\n' | xclip -selection clipboard
+
+pgrep -x dunst >/dev/null && /usr/bin/notify-send "$(xclip -o -selection clipboard) copied to clipboard"
