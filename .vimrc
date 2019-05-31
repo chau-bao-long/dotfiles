@@ -364,6 +364,7 @@ map <space><S-l> <C-w>35>
 map <space><S-h> <C-w>35<
 map <space><S-k> <C-w>25+
 map <space><S-j> <C-w>25-
+map <space>= <C-w>=
 nmap <script> <silent> <F3> :copen 1000<CR>
 nmap <script> <silent> <F2> :call ToggleQuickfixList()<CR>
 nnoremap <space>h <C-w>h
