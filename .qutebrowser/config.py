@@ -160,7 +160,6 @@ config.bind('cs', 'config-source')
 
 # bind for quick access web
 config.bind('egh', 'open -t https://github.com')
-config.bind('egf', 'open -t https://github.com/jccapital/funxeed')
 config.bind('eyt', 'open -t https://youtube.com')
 config.bind('efb', 'open -t https://facebook.com')
 config.bind('etw', 'open -t https://twitter.com')
@@ -196,7 +195,6 @@ config.bind('ezl', 'open -t https://chat.zalo.me/')
 config.bind('egg', 'open https://google.com')
 
 config.bind('Egh', 'open https://github.com')
-config.bind('Egf', 'open https://github.com/jccapital/funxeed')
 config.bind('Eyt', 'open https://youtube.com')
 config.bind('Esl', 'open https://docs.google.com/spreadsheets/d/1HsTu5QJVAqM9NWdZ2Sz8iIx9O7npha7l-WDEXA6XTm4/edit#gid=481443926')
 config.bind('Eqa', 'open https://docs.google.com/spreadsheets/d/1f3Xw0DKNCiuG4bH0w-zBaRh8O5ArCg9RW_QW3-kNexI/edit#gid=144530364')
