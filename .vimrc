@@ -162,9 +162,9 @@ set sidescroll=1
 
 " ================ Search ===========================
 set incsearch       " Find the next match as we type the search
-" set ignorecase      " Ignore case when searching...
-" set smartcase       " ...unless we type a capital
-set noignorecase      " Respect case sensitive when searching...
+set ignorecase      " Ignore case when searching...
+set smartcase       " ...unless we type a capital
+" set noignorecase      " Respect case sensitive when searching...
 
 
 " ================ The Silver Searcher ==============
@@ -349,7 +349,7 @@ map <space>d :RangerNewTab<CR>
 
 
 " ==================== Goyo =========================
-nmap zi :Goyo 160x850%<CR>
+nmap zi :Goyo<CR>
 nmap zu :Goyo!<CR>
 
 " ===================== My custom mapping ====================
