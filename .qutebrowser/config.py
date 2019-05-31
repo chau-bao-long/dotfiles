@@ -154,8 +154,8 @@ config.bind('d', 'scroll-page 0 0.75')
 config.bind('gu', 'undo')
 config.bind('ge', 'tab-close')
 config.bind('gp', 'tab-pin')
-config.bind('zj', 'zoom-in')
-config.bind('zk', 'zoom-out')
+config.bind('zh', 'zoom-out')
+config.bind('zl', 'zoom-in')
 config.bind('cs', 'config-source')
 
 # bind for quick access web

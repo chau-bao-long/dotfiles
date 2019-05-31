@@ -135,6 +135,7 @@ alias f='ranger'
 alias m='neomutt'
 alias ms='mailsync'
 alias pdf='zathura'
+alias v='nvim'
 
 rgrep() { grep -rn --exclude-dir=.* --exclude=.* --exclude=tags --exclude-dir=asset* --exclude-dir=log* --exclude=*log* --exclude-dir=public --exclude=*.csv $1 . }
 agrep() { grep -rn --exclude=tags --exclude-dir=build --exclude-dir=.idea $1 . }
