@@ -238,4 +238,4 @@ cmd + shift - s : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-windo
 cmd + shift - w : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge north
 cmd + shift - d : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge east
 cmd + shift - return : open -na /Applications/iTerm.app
-cmd - k : /Users/chau.bao.long/bin/lock-skhd
+# cmd - k : /Users/chau.bao.long/bin/lock-skhd
