@@ -73,9 +73,9 @@ getVolume: (str) ->
 
 getInputSource: (str) ->
   if str.includes("ABC")
-    return "<span class='green'><strong>EN</strong></span>"
+    return "<span class='green'>⌨&nbsp;&nbsp;<strong>EN</strong></span>"
   else
-    return "<span class='green'><strong>VI</strong></span>"
+    return "<span class='green'>⌨&nbsp;&nbsp;<strong>VI</strong></span>"
 
 separator: () -> "<span>" + " ⎢ " + "</span>"
 
