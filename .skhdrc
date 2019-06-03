@@ -226,17 +226,17 @@
 #
 #ctrl + alt - w : chunkc tiling::desktop --deserialize ~/.chunkwm_layouts/dev_1
 #
-cmd + shift - h : chunkc tiling::window --focus west
-cmd + shift - j : chunkc tiling::window --focus south
-cmd + shift - k : chunkc tiling::window --focus north
-cmd + shift - l : chunkc tiling::window --focus east
-cmd + shift - e : chunkc tiling::window --toggle fullscreen
-cmd + shift - r : chunkc tiling::desktop --rotate 90
-cmd + shift - 0 : chunkc tiling::desktop --equalize
-cmd + shift - a : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge west
-cmd + shift - s : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge south
-cmd + shift - w : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge north
-cmd + shift - d : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge east
-cmd + shift - 0 : chunkc tiling::desktop --equalize
+# cmd + shift - h : chunkc tiling::window --focus west
+# cmd + shift - j : chunkc tiling::window --focus south
+# cmd + shift - k : chunkc tiling::window --focus north
+# cmd + shift - l : chunkc tiling::window --focus east
+# cmd + shift - e : chunkc tiling::window --toggle fullscreen
+# cmd + shift - r : chunkc tiling::desktop --rotate 90
+# cmd + shift - 0 : chunkc tiling::desktop --equalize
+# cmd + shift - a : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge west
+# cmd + shift - s : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge south
+# cmd + shift - w : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge north
+# cmd + shift - d : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge east
+# cmd + shift - 0 : chunkc tiling::desktop --equalize
 cmd + shift - return : open -na /Applications/iTerm.app
 # cmd - k : /Users/chau.bao.long/bin/lock-skhd

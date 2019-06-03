@@ -220,12 +220,12 @@ install_skhd() {
   fi
 }
 
-install_chunkwm() {
-  read -r -p "Do you want to install chunk window manager? [y|N] " response
+install_window_manager() {
+  read -r -p "Do you want to install window manager? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    brew tap koekeishiya/formulae
-    brew install chunkwm
-    success "Installed chunk window manager"
+    brew cask install amethyst
+    cp ./mac_config/Amethyst/com.amethyst.Amethyst.plist ~/Library/Preferences/com.amethyst.Amethyst.plist
+    success "Installed window manager"
   fi
 }
 
@@ -233,7 +233,7 @@ install_ubersicht() {
   read -r -p "Do you want to install ubersicht status bar? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     brew cask install ubersicht
-    cp -r Ubersicht/* Library/Application Support/Übersicht
+    cp -r mac_config/Ubersicht/* Library/Application Support/Übersicht
     success "Installed ubersicht status bar"
   fi
 }
@@ -244,6 +244,15 @@ setup_git() {
     git config --global user.email "chau.bao.long.vn@gmail.com" 
     git config --global user.name "Chau Bao Long" 
     success "Setup git with user.email chau.bao.long.vn@gmail.com and name is Chau Bao Long."
+  fi
+}
+
+install_terminal() {
+  read -r -p "Do you want to install terminal? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    brew cask install iterm2
+    cp ./mac_config/iTerm2/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+    success "Installed terminal"
   fi
 }
 
@@ -263,9 +272,10 @@ install_tmux
 install_zsh
 install_browser
 install_skhd
-install_chunkwm
+install_window_manager
 install_ubersicht
 install_font
+install_terminal
 install_search_tool
 copy_dotfiles
 setup_nvim

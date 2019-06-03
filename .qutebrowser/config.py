@@ -1,7 +1,7 @@
 # Hide the window decoration.  This setting requires a restart on
 # Wayland.
 # Type: Bool
-c.window.hide_decoration = True
+c.window.hide_decoration = False
 
 # Enable JavaScript.
 # Type: Bool
