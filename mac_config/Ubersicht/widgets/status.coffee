@@ -67,7 +67,7 @@ getWifiStatus: (status, netName, netIP) ->
 
 getVolume: (str) ->
   if str == "muted"
-    return "<span class='green volume'>&nbsp;&nbsp;</span>"
+    return "<span class='green volume'>🔇&nbsp;&nbsp;<span class='white'>muted<span></span>"
   else
     return "<span class='green volume'>&nbsp;&nbsp;</span><span class='white'>#{str}&nbsp</span>"
 
