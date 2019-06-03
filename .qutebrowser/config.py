@@ -149,6 +149,8 @@ c.fonts.tabs = '10pt fantasque sans mono'
 # bind to optimize default hotkey
 config.unbind('u')
 config.unbind('d')
+config.unbind('r')
+config.bind('rr', 'reload')
 config.bind('u', 'scroll-page 0 -0.75')
 config.bind('d', 'scroll-page 0 0.75')
 config.bind('gu', 'undo')
