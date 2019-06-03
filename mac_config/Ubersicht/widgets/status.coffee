@@ -1,6 +1,6 @@
 command: "sh ./scripts/status.sh"
 
-refreshFrequency: 10000 # ms
+refreshFrequency: 500 # ms
 
 render: (output) ->
   """
@@ -71,8 +71,15 @@ getVolume: (str) ->
   else
     return "<span class='green volume'>&nbsp;&nbsp;</span><span class='white'>#{str}&nbsp</span>"
 
-update: (output, domEl) ->
+getInputSource: (str) ->
+  if str.includes("ABC")
+    return "<span class='green'><strong>EN</strong></span>"
+  else
+    return "<span class='green'><strong>VI</strong></span>"
 
+separator: () -> "<span>" + " ⎢ " + "</span>"
+
+update: (output, domEl) ->
   # split the output of the script
   values = output.split('@')
 
@@ -84,11 +91,11 @@ update: (output, domEl) ->
   netName = values[5]
   netIP = values[6]
   volume = values[7]
+  inputSource = values[8]
 
   # create an HTML string to be displayed by the widget
-  htmlString = @getVolume(volume) + "<span>" + " | " + "</span>" +
-               @getWifiStatus(netStatus, netName, netIP) + "<span>" + " ⎢ " + "</span>" +
-               @batteryStatus(battery, isCharging) + "<span>" + " ⎢ " + "</span>" +
-               @timeAndDate(date,time)
+  htmlString = @getInputSource(inputSource) + @separator() + @getVolume(volume) + @separator() +
+               @getWifiStatus(netStatus, netName, netIP) + @separator() + @batteryStatus(battery, isCharging) +
+               @separator() + @timeAndDate(date,time)
 
   $(domEl).find('.compstatus').html(htmlString)
