@@ -216,14 +216,17 @@ setup_git() {
 install_suckless() {
   read -r -p "Do you want to install suckless app? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    sudo apt-get install -y libx11-dev libxinerama-dev libxft-dev
+    sudo yum install -y libX11-devel libXft-devel libXinerama-devel fontpackages-devel
     git clone https://git.suckless.org/dwm ~/suckless/dwm
     git clone https://git.suckless.org/st ~/suckless/st
     git clone https://git.suckless.org/dmenu ~/suckless/dmenu
     git clone https://git.suckless.org/slstatus ~/suckless/slstatus
-    cd ~/suckless/dwm && cp ./suckless/dwm/config.h . && sudo make clean install
-    cd ~/suckless/st && cp ./suckless/st/config.h . && sudo make clean install
-    cd ~/suckless/slstatus && cp ./suckless/slstatus/config.h . && sudo make clean install
+    cp ./suckless/dwm/config.h ~/suckless/dwm/
+    cp ./suckless/st/config.h ~/suckless/st/
+    cp ./suckless/slstatus/config.h ~/suckless/slstatus/
+    cd ~/suckless/dwm && sudo make clean install
+    cd ~/suckless/st && sudo make clean install
+    cd ~/suckless/slstatus && sudo make clean install
     cd ~/suckless/dmenu && sudo make clean install
     success "Installed suckless app"
   fi
