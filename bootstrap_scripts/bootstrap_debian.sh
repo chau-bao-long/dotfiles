@@ -219,7 +219,15 @@ setup_git() {
 install_suckless() {
   read -r -p "Do you want to install suckless app? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    sudo apt-get install -y libx11-dev libxinerama-dev libxft-dev 
+    sudo apt-get install -y libx11-dev libxinerama-dev libxft-dev
+    git clone https://git.suckless.org/dwm ~/suckless/dwm
+    git clone https://git.suckless.org/st ~/suckless/st
+    git clone https://git.suckless.org/dmenu ~/suckless/dmenu
+    git clone https://git.suckless.org/slstatus ~/suckless/slstatus
+    cd ~/suckless/dwm && cp ./suckless/dwm/config.h . && sudo make clean install
+    cd ~/suckless/st && cp ./suckless/st/config.h . && sudo make clean install
+    cd ~/suckless/slstatus && cp ./suckless/slstatus/config.h . && sudo make clean install
+    cd ~/suckless/dmenu && sudo make clean install
     success "Installed suckless app"
   fi
 }
@@ -233,6 +241,7 @@ install_browser
 copy_dotfiles
 setup_nvim
 install_font
+install_suckless
 
 echo "---" 
 
