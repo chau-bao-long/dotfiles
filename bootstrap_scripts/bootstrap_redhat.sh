@@ -217,6 +217,7 @@ install_suckless() {
   read -r -p "Do you want to install suckless app? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     sudo yum install -y libX11-devel libXft-devel libXinerama-devel fontpackages-devel
+    rm -rf ~/suckless
     git clone https://git.suckless.org/dwm ~/suckless/dwm
     git clone https://git.suckless.org/st ~/suckless/st
     git clone https://git.suckless.org/dmenu ~/suckless/dmenu
