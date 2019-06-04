@@ -232,6 +232,8 @@ install_suckless() {
     cd ~/suckless/st && sudo make clean install
     cd ~/suckless/slstatus && sudo make clean install
     cd ~/suckless/dmenu && sudo make clean install
+    echo "exec dwm" > ~/.xinitrc
+    ln -s ~/.xinitrc ~/.xsession
     success "Installed suckless app"
   fi
 }
