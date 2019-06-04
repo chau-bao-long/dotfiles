@@ -264,6 +264,19 @@ install_search_tool() {
   fi
 }
 
+install_zathura_pdf() {
+  read -r -p "Do you want to install zathura to read pdf file? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    brew cask install xquartz
+    brew tap zegervdv/zathura
+    brew install zathura
+    brew install zathura-pdf-poppler
+    mkdir -p $(brew --prefix zathura)/lib/zathura
+    ln -s $(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib $(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib
+    success "Installed zathura successfully"
+  fi
+}
+
 setup_git
 install_homebrew
 install_nvim
@@ -279,6 +292,7 @@ install_terminal
 install_search_tool
 copy_dotfiles
 setup_nvim
+install_zathura_pdf
 
 echo "---" 
 
