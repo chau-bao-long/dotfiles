@@ -219,7 +219,7 @@ install_suckless() {
     sudo yum install -y libX11-devel libXft-devel libXinerama-devel fontpackages-devel
     rm -rf ~/suckless
     git clone https://git.suckless.org/dwm ~/suckless/dwm
-    git clone https://git.suckless.org/st ~/suckless/st
+    git clone https://github.com/LukeSmithxyz/st.git ~/suckless/st
     git clone https://git.suckless.org/dmenu ~/suckless/dmenu
     git clone https://git.suckless.org/slstatus ~/suckless/slstatus
     cp ./suckless/dwm/config.h ~/suckless/dwm/
@@ -230,6 +230,12 @@ install_suckless() {
     cd ~/suckless/slstatus && sudo make clean install
     cd ~/suckless/dmenu && sudo make clean install
     echo "exec dwm" > ~/.xinitrc
+    echo "[Desktop Entry]
+    Encoding=UTF-8
+    Name=DWM window manager
+    Comment=Runs DWM window manager defined by xsession script
+    Exec=/etc/X11/Xsession
+    Type=Application" > /usr/share/xsessions/dwm-session.desktop
     success "Installed suckless app"
   fi
 }
