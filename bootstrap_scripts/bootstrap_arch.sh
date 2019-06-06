@@ -246,10 +246,10 @@ install_ranger
 install_tmux
 install_zsh
 install_browser
-install_suckless
 copy_dotfiles
 setup_nvim
 install_font
+install_suckless
 
 echo "---" 
 
