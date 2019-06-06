@@ -124,8 +124,8 @@ install_nvim() {
   read -r -p "Do you want to install neovim? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     info "Installing neovim"
-    sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-    sudo yum install -y neovim python{2,3}-neovim
+    sudo pacman -S neovim
+    sudo pacman -S python python-pip
     success "Installed neovim"
   fi
 }
@@ -145,26 +145,16 @@ install_tmux() {
   read -r -p "Do you want to install tmux? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     info "Installing tmux"
-    sudo yum install -y tmux
+    sudo pacman -S tmux
     success "Installed tmux"
-  fi
-}
-
-install_python() {
-  read -r -p "Do you want to install python? [y|N] " response
-  if [[ $response =~ (y|yes|Y) ]];then
-    info "Installing python 3 on system"
-    sudo yum install python34-setuptools
-    sudo easy_install-3.4 pip
-    success "Installed python 3"
   fi
 }
 
 install_ranger() {
   read -r -p "Do you want to install ranger? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    info "Installing ranger"
-    sudo pip3 install ranger-fm
+    sudo pacman -S ranger
+    sudo pacman -S  highlight
     success "Installed ranger"
   fi
 }
@@ -172,8 +162,8 @@ install_ranger() {
 install_zsh() {
   read -r -p "Do you want to install zsh? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    sudo yum install -y zsh
-    sudo chsh -s $(which zsh) root
+    sudo pacman -S zsh
+    sudo chsh -s $(which zsh)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     if [ ! -d ~/.zsh/zsh-autosuggestions ]; then
       git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
@@ -189,6 +179,14 @@ install_zsh() {
       cd - 
       success "Updated Agnoster Theme"
     fi
+  fi
+}
+
+install_browser() {
+  read -r -p "Do you want to install qutebrowser? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    sudo pacman -S qutebrowser
+    success "Installed qutebrowser"
   fi
 }
 
@@ -216,7 +214,7 @@ setup_git() {
 install_suckless() {
   read -r -p "Do you want to install suckless app? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    sudo yum install -y libX11-devel libXft-devel libXinerama-devel fontpackages-devel
+    sudo pacman -S libx11 libxinerama libxft
     rm -rf ~/suckless
     git clone https://git.suckless.org/dwm ~/suckless/dwm
     git clone https://github.com/LukeSmithxyz/st.git ~/suckless/st
@@ -230,22 +228,24 @@ install_suckless() {
     cd ~/suckless/slstatus && sudo make clean install
     cd ~/suckless/dmenu && sudo make clean install
     echo "exec dwm" > ~/.xinitrc
+    ln -s ~/.xinitrc ~/.xsession
     echo "[Desktop Entry]
     Encoding=UTF-8
     Name=DWM window manager
     Comment=Runs DWM window manager defined by xsession script
     Exec=/etc/X11/Xsession
     Type=Application" > /usr/share/xsessions/dwm-session.desktop
+    # xrandr && xrandr --output Virtual1 --mode 1920x1200
     success "Installed suckless app"
   fi
 }
 
 setup_git
 install_nvim
-install_python
 install_ranger
 install_tmux
 install_zsh
+install_browser
 install_suckless
 copy_dotfiles
 setup_nvim

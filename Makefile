@@ -15,3 +15,6 @@ redhat: say_hello
 macos: say_hello
 	@chmod u+x ./bootstrap_scripts/bootstrap_macos.sh
 	@./bootstrap_scripts/bootstrap_macos.sh
+arch: say_hello
+	@chmod u+x ./bootstrap_scripts/bootstrap_arch.sh
+	@./bootstrap_scripts/bootstrap_arch.sh
