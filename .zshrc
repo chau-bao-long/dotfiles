@@ -162,3 +162,17 @@ loadk8s() {
 
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
+
+# turn on / off wifi
+wifi() {
+  if [ $1 = 'on' ]; then
+    networksetup -setairportpower en0 on
+  elif [$1 = 'off' ]; then
+    networksetup -setairportpower en0 off
+  fi
+}
+
+# connect to wifi by $1 is ssid and $2 is pass
+wific() {
+  networksetup -setairportnetwork en0 $1 $2
+}
