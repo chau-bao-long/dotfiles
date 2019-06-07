@@ -201,6 +201,10 @@ install_font() {
     cd ..
     rm -rf fonts
     success "Installed font powerline!"
+    yaourt -S ttf-symbola
+    success "Installed font emoji symbola!"
+    sudo pacman -S --noconfirm ttf-hack
+    success "Installed font hack!"
   fi
 }
 
@@ -263,7 +267,6 @@ install_yaourt() {
     makepkg -si
     cd ..
     sudo rm -dR yaourt/ package-query/
-    yaourt -S ttf-symbola
   fi
 }
 
@@ -280,6 +283,10 @@ core_script_n_command() {
   pacman -S --noconfirm xclip
   pacman -S --noconfirm mlocate
   pacman -S --noconfirm unzip
+  pacman -S --noconfirm ntp
+  sudo systemctl enable ntpd
+  sudo systemctl start ntpd
+  sudo timedatectl set-ntp on
 }
 
 setup_git
@@ -290,9 +297,9 @@ install_tmux
 install_zsh
 install_browser
 copy_dotfiles
+install_yaourt
 install_font
 install_suckless
-install_yaourt
 setup_nvim
 
 echo "---" 
