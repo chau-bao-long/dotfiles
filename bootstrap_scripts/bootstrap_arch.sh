@@ -154,7 +154,9 @@ install_ranger() {
   read -r -p "Do you want to install ranger? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     sudo pacman -S --noconfirm ranger
-    sudo pacman -S --noconfirm  highlight
+    sudo pacman -S --noconfirm highlight
+    sudo pacman -S --noconfirm fzf
+    sudo pacman -S --noconfirm the_silver_searcher
     success "Installed ranger"
   fi
 }
@@ -247,16 +249,24 @@ install_suckless() {
   fi
 }
 
+add_scripts() {
+  if [ ! -d ~/bin ]; then
+    mkdir -p ~/bin
+    cp ./scripts/* ~/bin
+  fi
+}
+
 setup_git
+add_scripts
 install_nvim
 install_ranger
 install_tmux
 install_zsh
 install_browser
 copy_dotfiles
-setup_nvim
 install_font
 install_suckless
+setup_nvim
 
 echo "---" 
 
