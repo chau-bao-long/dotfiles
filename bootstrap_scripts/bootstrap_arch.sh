@@ -238,7 +238,7 @@ install_suckless() {
     # config window manager
     echo "slstatus &
     xrandr --output Virtual-1 --mode 1440x900
-    exec dwm" > ~/.xinitrc
+    ~/bin/startdwm" > ~/.xinitrc
     ln -s ~/.xinitrc ~/.xsession
     echo "[Desktop Entry]
     Encoding=UTF-8
@@ -250,15 +250,23 @@ install_suckless() {
   fi
 }
 
-add_scripts() {
+core_script_n_command() {
+  # copy scripts to user bin
   if [ ! -d ~/bin ]; then
     mkdir -p ~/bin
     cp ./scripts/* ~/bin
   fi
+  # core command
+  pacman -S --noconfirm net-tools
+  pacman -S --noconfirm netcat
+  pacman -S --noconfirm htop
+  pacman -S --noconfirm xclip
+  pacman -S --noconfirm mlocate
+  pacman -S --noconfirm unzip
 }
 
 setup_git
-add_scripts
+core_script_n_command
 install_nvim
 install_ranger
 install_tmux
