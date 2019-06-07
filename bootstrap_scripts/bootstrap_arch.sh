@@ -124,8 +124,8 @@ install_nvim() {
   read -r -p "Do you want to install neovim? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     info "Installing neovim"
-    sudo pacman -S neovim
-    sudo pacman -S python python-pip
+    sudo pacman -S --noconfirm neovim
+    sudo pacman -S --noconfirm python python-pip
     success "Installed neovim"
   fi
 }
@@ -145,7 +145,7 @@ install_tmux() {
   read -r -p "Do you want to install tmux? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     info "Installing tmux"
-    sudo pacman -S tmux
+    sudo pacman -S --noconfirm tmux
     success "Installed tmux"
   fi
 }
@@ -153,8 +153,8 @@ install_tmux() {
 install_ranger() {
   read -r -p "Do you want to install ranger? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    sudo pacman -S ranger
-    sudo pacman -S  highlight
+    sudo pacman -S --noconfirm ranger
+    sudo pacman -S --noconfirm  highlight
     success "Installed ranger"
   fi
 }
@@ -162,7 +162,7 @@ install_ranger() {
 install_zsh() {
   read -r -p "Do you want to install zsh? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    sudo pacman -S zsh
+    sudo pacman -S --noconfirm zsh
     sudo chsh -s $(which zsh)
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     if [ ! -d ~/.zsh/zsh-autosuggestions ]; then
@@ -185,7 +185,7 @@ install_zsh() {
 install_browser() {
   read -r -p "Do you want to install qutebrowser? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    sudo pacman -S qutebrowser
+    sudo pacman -S --noconfirm qutebrowser
     success "Installed qutebrowser"
   fi
 }
@@ -214,19 +214,26 @@ setup_git() {
 install_suckless() {
   read -r -p "Do you want to install suckless app? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    sudo pacman -S libx11 libxinerama libxft
+    sudo pacman -S --noconfirm libx11 libxinerama libxft
     rm -rf ~/suckless
+    # clone repo
     git clone https://git.suckless.org/dwm ~/suckless/dwm
-    git clone https://github.com/LukeSmithxyz/st.git ~/suckless/st
+    git clone https://git.suckless.org/st ~/suckless/st
     git clone https://git.suckless.org/dmenu ~/suckless/dmenu
     git clone https://git.suckless.org/slstatus ~/suckless/slstatus
+    # apply config
     cp ./suckless/dwm/config.h ~/suckless/dwm/
     cp ./suckless/st/config.h ~/suckless/st/
     cp ./suckless/slstatus/config.h ~/suckless/slstatus/
+    # apply patch
+    curl -o srcoll.patch http://st.suckless.org/patches/scrollback/st-scrollback-20190331-21367a0.diff
+    git apply scroll.patch
+    # compile source
     cd ~/suckless/dwm && sudo make clean install
     cd ~/suckless/st && sudo make clean install
     cd ~/suckless/slstatus && sudo make clean install
     cd ~/suckless/dmenu && sudo make clean install
+    # config window manager
     echo "exec dwm" > ~/.xinitrc
     ln -s ~/.xinitrc ~/.xsession
     echo "[Desktop Entry]
@@ -235,7 +242,7 @@ install_suckless() {
     Comment=Runs DWM window manager defined by xsession script
     Exec=/etc/X11/Xsession
     Type=Application" > /usr/share/xsessions/dwm-session.desktop
-    # xrandr && xrandr --output Virtual1 --mode 1920x1200
+    # xrandr && xrandr --output Virtual-1 --mode 1920x1200
     success "Installed suckless app"
   fi
 }
