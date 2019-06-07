@@ -65,11 +65,11 @@ static const struct arg args[] = {
 	/* function format          argument */
   { netspeed_rx, "  ⬆%s", "ens33" },
   { netspeed_tx, " ⬇%s", "ens33" },
-  { battery_perc, "  🔋 %s%%", "BAT1" },
-  { battery_state, "  🔌 %s%%", "BAT1" },
-  { disk_perc, "  💽 %s%%", "/" },
-  { ram_perc, "  🎰 %s%%", NULL },
-  { cpu_perc, "   💻 %s%%", NULL },
-  { ipv4, "  🌏 %s", "ens33" },
-  { datetime, "  📆 %s", "%F %T" },
+  { battery_perc, "  🔋%s%%", "BAT1" },
+  { battery_state, "  🔌%s%%", "BAT1" },
+  { disk_perc, "  💽%s%%", "/" },
+  { ram_perc, "  🎰%s%%", NULL },
+  { cpu_perc, "   💻%s%%", NULL },
+  { ipv4, "  🌏%s", "ens33" },
+  { datetime, "  📆%s", "%F %T" },
 } ;
