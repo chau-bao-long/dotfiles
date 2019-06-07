@@ -250,6 +250,23 @@ install_suckless() {
   fi
 }
 
+install_yaourt() {
+  read -r -p "Do you want to install yaourt, which allow us to use AUR repos? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    sudo pacman -S --needed base-devel git wget yajl
+    git clone https://aur.archlinux.org/package-query.git
+    cd package-query/
+    makepkg -si
+    cd ..
+    git clone https://aur.archlinux.org/yaourt.git
+    cd yaourt/
+    makepkg -si
+    cd ..
+    sudo rm -dR yaourt/ package-query/
+    yaourt -S ttf-symbola
+  fi
+}
+
 core_script_n_command() {
   # copy scripts to user bin
   if [ ! -d ~/bin ]; then
@@ -275,6 +292,7 @@ install_browser
 copy_dotfiles
 install_font
 install_suckless
+install_yaourt
 setup_nvim
 
 echo "---" 
