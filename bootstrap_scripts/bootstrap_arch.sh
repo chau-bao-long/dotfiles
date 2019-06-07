@@ -236,7 +236,9 @@ install_suckless() {
     cd ~/suckless/slstatus && sudo make clean install
     cd ~/suckless/dmenu && sudo make clean install
     # config window manager
-    echo "exec dwm" > ~/.xinitrc
+    echo "slstatus &
+    xrandr --output Virtual-1 --mode 1440x900
+    exec dwm" > ~/.xinitrc
     ln -s ~/.xinitrc ~/.xsession
     echo "[Desktop Entry]
     Encoding=UTF-8
@@ -244,7 +246,6 @@ install_suckless() {
     Comment=Runs DWM window manager defined by xsession script
     Exec=/etc/X11/Xsession
     Type=Application" > /usr/share/xsessions/dwm-session.desktop
-    # xrandr && xrandr --output Virtual-1 --mode 1920x1200
     success "Installed suckless app"
   fi
 }
