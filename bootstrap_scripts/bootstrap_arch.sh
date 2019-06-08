@@ -242,6 +242,7 @@ install_suckless() {
     # config window manager
     echo "slstatus &
     xrandr --output Virtual-1 --mode 1440x900
+    fcitx &
     ~/bin/startdwm" > ~/.xinitrc
     ln -s ~/.xinitrc ~/.xsession
     echo "[Desktop Entry]
@@ -277,16 +278,23 @@ core_script_n_command() {
     cp ./scripts/* ~/bin
   fi
   # core command
-  pacman -S --noconfirm net-tools
-  pacman -S --noconfirm netcat
-  pacman -S --noconfirm htop
-  pacman -S --noconfirm xclip
-  pacman -S --noconfirm mlocate
-  pacman -S --noconfirm unzip
-  pacman -S --noconfirm ntp
+  sudo pacman -S --noconfirm net-tools netcat htop xclip mlocate unzip ntp
   sudo systemctl enable ntpd
   sudo systemctl start ntpd
   sudo timedatectl set-ntp on
+}
+
+install_input_method() {
+  read -r -p "Do you want to install input method framework? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    sudo pacman -S --noconfirm fcitx fcitx-unikey fcitx-im fcitx-configtool
+    echo "GTK_IM_MODULE=fcitx
+    QT_IM_MODULE=fcitx
+    XMODIFIERS=@im=fcitx
+    " > ~/.pam_environment
+    # Extra Work: still need to go to $ fcitx-configtool to set hot key alt + ; and unikey method
+    success "Installed input method framework"
+  fi
 }
 
 setup_git
