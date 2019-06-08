@@ -65,6 +65,7 @@ static const struct arg args[] = {
 	/* function format          argument */
   { netspeed_rx, "  ⬆%s", "ens33" },
   { netspeed_tx, " ⬇%s", "ens33" },
+  { run_command, " 🔊%4s", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
   { battery_perc, "  🔋%s%%", "BAT1" },
   { battery_state, "  🔌%s%%", "BAT1" },
   { disk_perc, "  💽%s%%", "/" },

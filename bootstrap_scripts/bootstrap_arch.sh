@@ -279,6 +279,7 @@ core_script_n_command() {
   fi
   # core command
   sudo pacman -S --noconfirm net-tools netcat htop xclip mlocate unzip ntp
+  sudo pacman -S --noconfirm alsa-utils
   sudo systemctl enable ntpd
   sudo systemctl start ntpd
   sudo timedatectl set-ntp on
