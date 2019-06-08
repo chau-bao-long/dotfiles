@@ -22,7 +22,7 @@ c.scrolling.smooth = True
 
 # Padding (in pixels) around text for tabs.
 # Type: Padding
-c.tabs.padding = {'bottom': 5, 'left': 5, 'right': 5, 'top': 5}
+c.tabs.padding = {'bottom': 1, 'left': 5, 'right': 5, 'top': 1}
 
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
