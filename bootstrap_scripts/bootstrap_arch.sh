@@ -299,6 +299,21 @@ install_input_method() {
   fi
 }
 
+install_mail_client() {
+  read -r -p "Do you want to install mail client? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    sudo pacman -S -noconfirm neomutt isync msmtp pass w3m cronie
+    sudo systemctl enable cronie.service
+    sudo systemctl start cronie.service
+    git clone https://github.com/LukeSmithxyz/mutt-wizard
+    cd mutt-wizard
+    sudo make install
+    cd ..
+    rm -rf mutt-wizard
+    success "Installed mail client, you still need to do further manual jobs to make it really work!!"
+  fi
+}
+
 setup_git
 core_script_n_command
 install_nvim

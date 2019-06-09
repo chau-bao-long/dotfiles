@@ -1,0 +1,11 @@
+# Add following lines to the muttrc account config 
+# run $ cat ~/.config/mutt/muttrc-extend >> ~/.config/mutt/accounts/1-longcb.muttrc
+macro index,pager gI "<change-folder>=[Gmail].Important<enter>" "go to important"
+macro index,pager MI "<save-message>=[Gmail].Important<enter>" "move mail to important"
+macro index,pager CI "<copy-message>=[Gmail].Important<enter>" "copy mail to important"
+macro index,pager gt "<change-folder>=[Gmail].Starred<enter>" "go to Starred"
+macro index,pager Mt "<save-message>=[Gmail].Starred<enter>" "move mail to Starred"
+macro index,pager Ct "<copy-message>=[Gmail].Starred<enter>" "copy mail to Starred"
+macro index,pager gb "<change-folder>=[Gmail].Bin<enter>" "go to trash bin"
+macro index,pager Mb "<save-message>=[Gmail].Bin<enter>" "move mail to trash bin"
+macro index,pager Cb "<copy-message>=[Gmail].Bin<enter>" "copy mail to trash bin"
