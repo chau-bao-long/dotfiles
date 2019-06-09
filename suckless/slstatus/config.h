@@ -72,5 +72,6 @@ static const struct arg args[] = {
   { ram_perc, "  🎰%s%%", NULL },
   { cpu_perc, "   💻%s%%", NULL },
   { ipv4, "  🌏%s", "ens33" },
+  { run_command, "  📫%s", " ls /home/topcbl/.local/share/mail/longcb/*I*/new/* | wc -l" },
   { datetime, "  📆%s", "%F %T" },
 } ;
