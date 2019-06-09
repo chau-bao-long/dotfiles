@@ -63,3 +63,8 @@ $ cat ~/.config/mutt/muttrc-extend >> ~/.config/mutt/accounts/1-longcb.muttrc
 ```
 */1 * * * * /usr/local/bin/mailsync >/tmp/mailout.log 2>/tmp/mailerr.log
 ```
+- To make pass in gpg-agent does not expire after max-cache-ttl (2 hours), we can set it too 400 days in gpg-agent.conf
+```
+max-cache-ttl 34560000
+default-cache-ttl 34560000
+```
