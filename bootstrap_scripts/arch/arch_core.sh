@@ -6,7 +6,7 @@ if [ ! -d ~/bin ]; then
   cp ./scripts/* ~/bin
 fi
 # core command
-sudo pacman -S --noconfirm net-tools openbsd-netcat htop xclip mlocate unzip ntp
+sudo pacman -S --noconfirm net-tools openbsd-netcat htop xclip xsel mlocate unzip ntp
 sudo pacman -S --noconfirm alsa-utils dunst sxiv feh
 # sync time with time server
 sudo systemctl enable ntpd
