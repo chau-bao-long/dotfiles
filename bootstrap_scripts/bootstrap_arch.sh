@@ -123,9 +123,7 @@ copy_dotfiles() {
 install_nvim() {
   read -r -p "Do you want to install neovim? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    info "Installing neovim"
-    sudo pacman -S --noconfirm neovim
-    sudo pacman -S --noconfirm python python-pip
+    ./bootstrap_scripts/arch/install_nvim.sh
     success "Installed neovim"
   fi
 }
@@ -153,10 +151,7 @@ install_tmux() {
 install_ranger() {
   read -r -p "Do you want to install ranger? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    sudo pacman -S --noconfirm ranger
-    sudo pacman -S --noconfirm highlight
-    sudo pacman -S --noconfirm fzf
-    sudo pacman -S --noconfirm the_silver_searcher
+    ./bootstrap_scripts/arch/install_ranger.sh
     success "Installed ranger"
   fi
 }
@@ -164,23 +159,8 @@ install_ranger() {
 install_zsh() {
   read -r -p "Do you want to install zsh? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    sudo pacman -S --noconfirm zsh
-    sudo chsh -s $(which zsh)
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    if [ ! -d ~/.zsh/zsh-autosuggestions ]; then
-      git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-    fi
-    if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-completions ]; then
-      git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
-    fi
+    ./bootstrap_scripts/arch/install_zsh.sh
     success "Installed zsh"
-    if [ -f ~/.oh-my-zsh/themes/agnoster.zsh-theme ]; then
-      sed -i 's/blue/cyan/g' ~/.oh-my-zsh/themes/agnoster.zsh-theme
-      cd ~/.oh-my-zsh
-      git add . && git commit -m "just a tmp commit to keep oh-my-zsh can update properly."
-      cd - 
-      success "Updated Agnoster Theme"
-    fi
   fi
 }
 
@@ -195,24 +175,15 @@ install_browser() {
 install_font() {
   read -r -p "Do you want to install font? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    git clone https://github.com/powerline/fonts.git --depth=1
-    cd fonts
-    ./install.sh
-    cd ..
-    rm -rf fonts
-    success "Installed font powerline!"
-    yaourt -S ttf-symbola
-    success "Installed font emoji symbola!"
-    sudo pacman -S --noconfirm ttf-hack
-    success "Installed font hack!"
+    ./bootstrap_scripts/arch/install_font.sh
+    success "Installed font!"
   fi
 }
 
 setup_git() {
   read -r -p "Do you want to setup git? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    git config --global user.email "chau.bao.long.vn@gmail.com" 
-    git config --global user.name "Chau Bao Long" 
+    ./bootstrap_scripts/arch/setup_git.sh
     success "Setup git with user.email chau.bao.long.vn@gmail.com and name is Chau Bao Long."
   fi
 }
@@ -220,32 +191,7 @@ setup_git() {
 install_suckless() {
   read -r -p "Do you want to install suckless app? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    sudo pacman -S --noconfirm libx11 libxinerama libxft
-    rm -rf ~/suckless
-    # clone repo
-    git clone https://git.suckless.org/dwm ~/suckless/dwm
-    git clone https://git.suckless.org/st ~/suckless/st
-    git clone https://git.suckless.org/dmenu ~/suckless/dmenu
-    git clone https://git.suckless.org/slstatus ~/suckless/slstatus
-    # apply config
-    cp ./suckless/dwm/config.h ~/suckless/dwm/
-    cp ./suckless/st/config.h ~/suckless/st/
-    cp ./suckless/slstatus/config.h ~/suckless/slstatus/
-    # apply patch
-    curl -o srcoll.patch http://st.suckless.org/patches/scrollback/st-scrollback-20190331-21367a0.diff
-    git apply scroll.patch
-    # compile source
-    cd ~/suckless/dwm && sudo make clean install
-    cd ~/suckless/st && sudo make clean install
-    cd ~/suckless/slstatus && sudo make clean install
-    cd ~/suckless/dmenu && sudo make clean install
-    # config window manager
-    echo "[Desktop Entry]
-    Encoding=UTF-8
-    Name=DWM window manager
-    Comment=Runs DWM window manager defined by xsession script
-    Exec=/etc/X11/Xsession
-    Type=Application" > /usr/share/xsessions/dwm-session.desktop
+    ./bootstrap_scripts/arch/install_suckless.sh
     success "Installed suckless app"
   fi
 }
@@ -253,43 +199,15 @@ install_suckless() {
 install_yaourt() {
   read -r -p "Do you want to install yaourt, which allow us to use AUR repos? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    sudo pacman -S --needed base-devel git wget yajl
-    git clone https://aur.archlinux.org/package-query.git
-    cd package-query/
-    makepkg -si
-    cd ..
-    git clone https://aur.archlinux.org/yaourt.git
-    cd yaourt/
-    makepkg -si
-    cd ..
-    sudo rm -dR yaourt/ package-query/
+    ./bootstrap_scripts/arch/install_yaourt.sh
+    success "Installed yaourt"
   fi
-}
-
-core_script_n_command() {
-  # copy scripts to user bin
-  if [ ! -d ~/bin ]; then
-    mkdir -p ~/bin
-    cp ./scripts/* ~/bin
-  fi
-  # core command
-  sudo pacman -S --noconfirm net-tools openbsd-netcat htop xclip mlocate unzip ntp
-  sudo pacman -S --noconfirm alsa-utils dunst sxiv feh
-  # sync time with time server
-  sudo systemctl enable ntpd
-  sudo systemctl start ntpd
-  sudo timedatectl set-ntp on
 }
 
 install_input_method() {
   read -r -p "Do you want to install input method framework? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    sudo pacman -S --noconfirm fcitx fcitx-unikey fcitx-im fcitx-configtool
-    echo "GTK_IM_MODULE=fcitx
-    QT_IM_MODULE=fcitx
-    XMODIFIERS=@im=fcitx
-    " > ~/.pam_environment
-    # Extra Work: still need to go to $ fcitx-configtool to set hot key alt + ; and unikey method
+    ./bootstrap_scripts/arch/install_input_method.sh
     success "Installed input method framework"
   fi
 }
@@ -297,20 +215,13 @@ install_input_method() {
 install_mail_client() {
   read -r -p "Do you want to install mail client? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    sudo pacman -S -noconfirm neomutt isync msmtp pass w3m cronie
-    sudo systemctl enable cronie.service
-    sudo systemctl start cronie.service
-    git clone https://github.com/LukeSmithxyz/mutt-wizard
-    cd mutt-wizard
-    sudo make install
-    cd ..
-    rm -rf mutt-wizard
+    ./bootstrap_scripts/arch/install_input_method.sh
     success "Installed mail client, you still need to do further manual jobs to make it really work!!"
   fi
 }
 
 setup_git
-core_script_n_command
+./bootstrap_scripts/arch/arch_core.sh
 install_nvim
 install_ranger
 install_tmux
