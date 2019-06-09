@@ -243,6 +243,7 @@ install_suckless() {
     echo "slstatus &
     xrandr --output Virtual-1 --mode 1440x900
     fcitx &
+    dunst &
     ~/bin/startdwm" > ~/.xinitrc
     ln -s ~/.xinitrc ~/.xsession
     echo "[Desktop Entry]
@@ -279,7 +280,7 @@ core_script_n_command() {
   fi
   # core command
   sudo pacman -S --noconfirm net-tools openbsd-netcat htop xclip mlocate unzip ntp
-  sudo pacman -S --noconfirm alsa-utils
+  sudo pacman -S --noconfirm alsa-utils dunst
   sudo systemctl enable ntpd
   sudo systemctl start ntpd
   sudo timedatectl set-ntp on
