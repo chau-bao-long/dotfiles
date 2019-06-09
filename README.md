@@ -53,3 +53,13 @@ which requires us to setup:
 9. urlview - outputs urls in mail to browser.
 
 NOTE: Bug SASL(-7) can solve by adding AuthMechs LOGIN to .mbsyncrc
+
+More work to do:
+- Extend key-binding for account by
+```bash
+$ cat ~/.config/mutt/muttrc-extend >> ~/.config/mutt/accounts/1-longcb.muttrc
+```
+- Set cron job when I'm on MacOS
+```
+*/1 * * * * /usr/local/bin/mailsync >/tmp/mailout.log 2>/tmp/mailerr.log
+```
