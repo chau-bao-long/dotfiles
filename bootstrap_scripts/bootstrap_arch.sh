@@ -240,12 +240,6 @@ install_suckless() {
     cd ~/suckless/slstatus && sudo make clean install
     cd ~/suckless/dmenu && sudo make clean install
     # config window manager
-    echo "slstatus &
-    xrandr --output Virtual-1 --mode 1440x900
-    fcitx &
-    dunst &
-    ~/bin/startdwm" > ~/.xinitrc
-    ln -s ~/.xinitrc ~/.xsession
     echo "[Desktop Entry]
     Encoding=UTF-8
     Name=DWM window manager
@@ -281,8 +275,6 @@ core_script_n_command() {
   # core command
   sudo pacman -S --noconfirm net-tools openbsd-netcat htop xclip mlocate unzip ntp
   sudo pacman -S --noconfirm alsa-utils dunst sxiv feh
-  # set wallpaper
-  feh --bg-scale ./suckless/wallpapers/wp2618260-blackarch-wallpaper.png
   # sync time with time server
   sudo systemctl enable ntpd
   sudo systemctl start ntpd
