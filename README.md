@@ -3,20 +3,27 @@
 $ make debian
 $ make redhat
 $ make macos
+
+$ make arch #install base package on arch linux
+$ make install_softwares #install mostly used softwares
 ```
 # What is installed?
 - git
 - zsh + oh-my-zsh + completion + suggestion + theme
 - vim
 - tmux
-- ranger 
-- qutebrowser
+- ranger
 - font
 - link and copy all config files
 - homebrew & homecask (package manager for macos)
 - Übersicht (status bar for mac os)
-- chunkwm (tilling window manager for macos)
+- Amethyst (window manager for macos)
 - skhd (simple hotkey daemon for macos)
+- qutebrowser
+- brave
+- zathura
+- s-search
+- telegram
 
 # More infos!
 ### Install Git on CentOS 7

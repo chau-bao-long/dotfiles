@@ -164,14 +164,6 @@ install_zsh() {
   fi
 }
 
-install_browser() {
-  read -r -p "Do you want to install qutebrowser? [y|N] " response
-  if [[ $response =~ (y|yes|Y) ]];then
-    sudo pacman -S --noconfirm qutebrowser
-    success "Installed qutebrowser"
-  fi
-}
-
 install_font() {
   read -r -p "Do you want to install font? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
@@ -220,26 +212,16 @@ install_mail_client() {
   fi
 }
 
-install_pdf_viewer() {
-  read -r -p "Do you want to install pdf viewer? [y|N] " response
-  if [[ $response =~ (y|yes|Y) ]];then
-    sudo pacman -S --noconfirm zathura zathura-pdf-mupdf
-    success "Installed pdf viewer"
-  fi
-}
-
 setup_git
 ./bootstrap_scripts/arch/arch_core.sh
 install_nvim
 install_ranger
 install_tmux
 install_zsh
-install_browser
 copy_dotfiles
 install_yaourt
 install_font
 install_suckless
-install_pdf_viewer
 setup_nvim
 
 echo "---" 

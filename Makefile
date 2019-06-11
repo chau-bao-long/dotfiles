@@ -52,3 +52,6 @@ install_input_method:
 
 install_mail_client:
 	./bootstrap_scripts/arch/install_mail_client.sh
+
+install_softwares:
+	./bootstrap_scripts/arch/install_softwares.sh
