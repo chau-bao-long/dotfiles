@@ -55,3 +55,6 @@ install_mail_client:
 
 install_softwares:
 	./bootstrap_scripts/arch/install_softwares.sh
+
+fix_osx_compability:
+	./bootstrap_scripts/arch/fix_osx_compability.sh
