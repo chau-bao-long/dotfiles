@@ -220,8 +220,10 @@ install_tmux
 install_yaourt
 install_font
 install_suckless
-install_zsh
+install_input_method
+install_mail_client
 copy_dotfiles
+install_zsh
 setup_nvim
 
 echo "---" 
