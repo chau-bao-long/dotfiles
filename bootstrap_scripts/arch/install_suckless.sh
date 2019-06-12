@@ -20,3 +20,7 @@ cd ~/suckless/dwm && sudo make clean install
 cd ~/suckless/st && sudo make clean install
 cd ~/suckless/slstatus && sudo make clean install
 cd ~/suckless/dmenu && sudo make clean install
+
+# NOTE
+# Run following command to adjust resolution
+# xrandr && xrandr --output Virtual1 --mode 1920x1200
