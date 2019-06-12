@@ -217,11 +217,11 @@ setup_git
 install_nvim
 install_ranger
 install_tmux
-install_zsh
-copy_dotfiles
 install_yaourt
 install_font
 install_suckless
+install_zsh
+copy_dotfiles
 setup_nvim
 
 echo "---" 

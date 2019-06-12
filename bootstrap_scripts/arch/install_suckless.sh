@@ -1,6 +1,6 @@
 #! /bin/bash
 
-sudo pacman -S --noconfirm libx11 libxinerama libxft
+sudo pacman -S --noconfirm libx11 libxinerama libxft xorg-xinit
 rm -rf ~/suckless
 # clone repo
 git clone https://git.suckless.org/dwm ~/suckless/dwm
@@ -12,17 +12,11 @@ cp ./suckless/dwm/config.h ~/suckless/dwm/
 cp ./suckless/st/config.h ~/suckless/st/
 cp ./suckless/slstatus/config.h ~/suckless/slstatus/
 # apply patch
-curl -o srcoll.patch http://st.suckless.org/patches/scrollback/st-scrollback-20190331-21367a0.diff
+cd ~/suckless/st
+curl -o scroll.patch http://st.suckless.org/patches/scrollback/st-scrollback-20190331-21367a0.diff
 git apply scroll.patch
 # compile source
 cd ~/suckless/dwm && sudo make clean install
 cd ~/suckless/st && sudo make clean install
 cd ~/suckless/slstatus && sudo make clean install
 cd ~/suckless/dmenu && sudo make clean install
-# config window manager
-echo "[Desktop Entry]
-Encoding=UTF-8
-Name=DWM window manager
-Comment=Runs DWM window manager defined by xsession script
-Exec=/etc/X11/Xsession
-Type=Application" > /usr/share/xsessions/dwm-session.desktop
