@@ -75,3 +75,28 @@ $ cat ~/.config/mutt/muttrc-extend >> ~/.config/mutt/accounts/1-longcb.muttrc
 max-cache-ttl 34560000
 default-cache-ttl 34560000
 ```
+### Fix Arch Linux on Mac compability
+- Delayed lid switch action
+```
+/etc/systemd/logind.conf
+...
+HoldoffTimeoutSec=30s
+...
+```
+- Set default font, add this to beginning of **/etc/fonts/fonts.conf**
+```
+<!-- Default font (no fc-match pattern) -->
+<match>
+  <edit mode="prepend" name="family">
+    <string>OpenSans</string>
+  </edit>
+</match>
+```
+```bash
+# list all fonts
+$ fc-list
+# see current default font
+$ fc-match
+# see order matching of fonts
+$ fc-match -s "San" | less
+```

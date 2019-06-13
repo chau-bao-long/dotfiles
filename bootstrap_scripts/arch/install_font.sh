@@ -6,7 +6,8 @@ cd fonts
 cd ..
 rm -rf fonts
 echo "Installed font powerline!"
-yaourt -S ttf-symbola
-echo "Installed font emoji symbola!"
+yaourt -S ttf-twemoji-color
+ln -s /etc/fonts/conf.avail/56-ttf-twemoji-color.conf /etc/fonts/conf.d/56-ttf-twemoji-color.conf
+echo "Installed font emoji!"
 sudo pacman -S --noconfirm ttf-hack
 echo "Installed font hack!"

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [[ $2 = "" ]]; then
+  dev="wlp3s0"
+else
+  dev=$2
+fi
+if [[ $1 = "" ]]; then
+  network="/etc/wpa_supplicant/default.conf"
+else
+  network="/etc/wpa_supplicant/$1.conf"
+fi
+
+echo "Try to connect to $1 through $dev"
+
+if [[ `iw dev $dev link` =~ "Not connect" ]]; then
+  sudo wpa_supplicant -B -D wext -i $dev -c $network
+fi
