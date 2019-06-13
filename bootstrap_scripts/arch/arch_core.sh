@@ -7,7 +7,7 @@ if [ ! -d ~/bin ]; then
 fi
 # core command
 sudo pacman -S --noconfirm net-tools openbsd-netcat htop xclip xsel mlocate unzip ntp
-sudo pacman -S --noconfirm alsa-utils libnotify dunst feh dnsutils
+sudo pacman -S --noconfirm alsa-utils libnotify dunst feh dnsutils openssh
 # sync time with time server
 sudo systemctl enable ntpd
 sudo systemctl start ntpd
