@@ -1,11 +1,11 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hack:size=12", "Twitter Color Emoji:size=14" };
+static const char *fonts[]          = { "Hack:size=11", "Twitter Color Emoji:size=12" };
 static const char dmenufont[]       = "Hack:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -13,12 +13,13 @@ static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
 static const char col_green[]        = "#22bc22";
+static const char col_green2[]        = "#33ff33";
 static const char col_black[]        = "#000000";
 static const char col_red[]        = "#cc1d0c";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_black, col_green, col_gray2 },
-	[SchemeSel]  = { col_green, col_black,  col_red  },
+	[SchemeSel]  = { col_green, col_black,  col_green2  },
 };
 
 /* tagging */
