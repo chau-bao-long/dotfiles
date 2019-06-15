@@ -1,6 +1,6 @@
 #! /bin/bash
 
-sudo pacman -S --noconfirm libx11 libxinerama libxft xorg-xinit
+sudo pacman -S --noconfirm libx11 libxinerama libxft xorg-xinit xorg
 rm -rf ~/suckless
 # clone repo
 git clone https://git.suckless.org/dwm ~/suckless/dwm

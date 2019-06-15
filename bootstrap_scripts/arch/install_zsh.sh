@@ -14,4 +14,4 @@ if [ -f ~/.oh-my-zsh/themes/agnoster.zsh-theme ]; then
   git add . && git commit -m "just a tmp commit to keep oh-my-zsh can update properly."
   cd -·
 fi
-sudo chsh -s $(which zsh)
+chsh -s $(which zsh)
