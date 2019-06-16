@@ -1,6 +1,6 @@
 #! /bin/bash
 
-sudo pacman -S --noconfirm libx11 libxinerama libxft xorg-xinit xorg
+sudo pacman -S --noconfirm libx11 libxinerama libxft xorg-xinit xorg xcompmgr transset-df
 rm -rf ~/suckless
 # clone repo
 git clone https://git.suckless.org/dwm ~/suckless/dwm
@@ -14,7 +14,12 @@ cp ./suckless/slstatus/config.h ~/suckless/slstatus/
 # apply patch
 cd ~/suckless/st
 curl -o scroll.patch http://st.suckless.org/patches/scrollback/st-scrollback-20190331-21367a0.diff
+curl -o alpha.patch https://st.suckless.org/patches/alpha/st-alpha-0.8.2.diff
 git apply scroll.patch
+git apply alpha.patch
+cd ~/suckless/dwm
+curl -o alpha.patch https://dwm.suckless.org/patches/alpha/dwm-alpha-20180613-b69c870.diff
+git apply alpha.patch
 # compile source
 cd ~/suckless/dwm && sudo make clean install
 cd ~/suckless/st && sudo make clean install
