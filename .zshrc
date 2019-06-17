@@ -47,7 +47,7 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/Library/Python/3.7/bin"
 
 # User bin folder to PATH
-export PATH="$PATH:$HOME/bin"
+export PATH="$HOME/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
