@@ -19,7 +19,9 @@ git apply scroll.patch
 git apply alpha.patch
 cd ~/suckless/dwm
 curl -o alpha.patch https://dwm.suckless.org/patches/alpha/dwm-alpha-20180613-b69c870.diff
+curl -o rotatestack.patch https://dwm.suckless.org/patches/rotatestack/dwm-rotatestack-20161021-ab9571b.diff
 git apply alpha.patch
+git apply rotatestack.patch
 # compile source
 cd ~/suckless/dwm && sudo make clean install
 cd ~/suckless/st && sudo make clean install
