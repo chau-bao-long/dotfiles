@@ -71,6 +71,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *emojicmd[]  = { "get-emoji", NULL };
 static const char *screenshootcmd[]  = { "screenshoot", NULL };
+static const char *transparent[]  = { "transset-df", "0.9", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -78,6 +79,7 @@ static Key keys[] = {
   { MODKEY,                       XK_e,      spawn,          {.v = emojicmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
   { MODKEY|ControlMask,           XK_s,      spawn,          {.v = screenshootcmd } },
+  { MODKEY|ShiftMask,             XK_t,      spawn,          {.v = transparent } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
