@@ -20,10 +20,14 @@ $ make install_softwares #install mostly used softwares
 - Amethyst (window manager for macos)
 - skhd (simple hotkey daemon for macos)
 - qutebrowser
-- brave
-- zathura
-- s-search
+- brave (browser)
+- zathura (pdf viewer)
+- s-search (search from terminal)
 - telegram
+- sxiv (image viewer)
+- cmus (music player)
+- mpv (video player)
+- maim (take screenshoot)
 
 # More infos!
 ### Install Git on CentOS 7

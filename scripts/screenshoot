@@ -1,0 +1,3 @@
+#!/bin/bash
+mkdir -p ~/Pictures
+maim -s ~/Pictures/ss-$(date +%F_%H-%M-%S).png
