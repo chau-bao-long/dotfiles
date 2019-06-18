@@ -166,6 +166,7 @@ config.bind('cs', 'config-source')
 config.bind('M', 'hint links spawn mpv {hint-url}')
 
 # bind for quick access web
+config.bind('eim', 'open -t https://longcb.imgur.com/all')
 config.bind('esv', 'open -t https://www.youtube.com/watch?v=-e3e9w1GmBw&list=PLh94XVT4dq02frQRRZBHzvj2hwuhzSByN&index=5')
 config.bind('egh', 'open -t https://github.com')
 config.bind('eyt', 'open -t https://youtube.com')
@@ -200,8 +201,6 @@ config.bind('eaa', 'open -t https://signin.aws.amazon.com/oauth?redirect_uri=htt
 config.bind('ear', 'open -t https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fhomepage&forceMobileApp=0')
 config.bind('ewsm', 'open -t https://wsm.sun-asterisk.vn/en/dashboard/user_timesheets')
 config.bind('ezl', 'open -t https://chat.zalo.me/')
-
-config.bind('egg', 'open https://google.com')
 
 config.bind('Egh', 'open https://github.com')
 config.bind('Eyt', 'open https://youtube.com')
