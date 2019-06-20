@@ -21,9 +21,11 @@ cd ~/suckless/dwm
 curl -o alpha.patch https://dwm.suckless.org/patches/alpha/dwm-alpha-20180613-b69c870.diff
 curl -o rotatestack.patch https://dwm.suckless.org/patches/rotatestack/dwm-rotatestack-20161021-ab9571b.diff
 curl -o movestack.patch https://dwm.suckless.org/patches/push/dwm-6.1-push_no_master.diff
+cp ~/dotfiles/suckless/dwm/shiftview.diff .
 git apply alpha.patch
 git apply rotatestack.patch
 git apply movestack.patch
+git apply shiftview.diff
 # compile source
 cd ~/suckless/dwm && sudo make clean install
 cd ~/suckless/st && sudo make clean install

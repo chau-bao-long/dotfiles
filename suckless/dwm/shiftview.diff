@@ -1,0 +1,34 @@
+diff --git a/dwm.c b/dwm.c
+index 39055b1..ab96525 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -212,6 +212,7 @@ static void setmfact(const Arg *arg);
+ static void setup(void);
+ static void seturgent(Client *c, int urg);
+ static void showhide(Client *c);
++static void shiftview(const Arg *arg);
+ static void sigchld(int unused);
+ static void spawn(const Arg *arg);
+ static void tag(const Arg *arg);
+@@ -1738,6 +1739,21 @@ showhide(Client *c)
+ 	}
+ }
+ 
++void
++shiftview(const Arg *arg) {
++	Arg shifted;
++
++	if(arg->i > 0) // left circular shift
++		shifted.ui = (selmon->tagset[selmon->seltags] << arg->i)
++		   | (selmon->tagset[selmon->seltags] >> (LENGTH(tags) - arg->i));
++
++	else // right circular shift
++		shifted.ui = selmon->tagset[selmon->seltags] >> (- arg->i)
++		   | selmon->tagset[selmon->seltags] << (LENGTH(tags) + arg->i);
++
++	view(&shifted);
++}
++
+ void
+ sigchld(int unused)
+ {
