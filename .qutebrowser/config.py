@@ -150,6 +150,7 @@ c.fonts.tabs = '10pt fantasque sans mono'
 config.unbind('u')
 config.unbind('d')
 config.unbind('r')
+config.unbind('R')
 config.unbind('<Ctrl-v>')
 config.unbind('<Ctrl-x>')
 config.unbind('<Ctrl-a>')
