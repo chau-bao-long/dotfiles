@@ -28,6 +28,9 @@ $ make install_softwares #install mostly used softwares
 - cmus (music player)
 - mpv (video player)
 - maim (take screenshoot)
+- pipes.sh (terminal screensaver)
+- neofetch (command-line system information)
+- cava (console-based audio visualizer)
 
 # More infos!
 ### Install Git on CentOS 7

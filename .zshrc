@@ -176,3 +176,10 @@ wifi() {
 wific() {
   networksetup -setairportnetwork en0 $1 $2
 }
+
+# show system info at terminal startup
+neofetch
+
+# run screen-saver after 60s
+TMOUT=60
+TRAPALRM() { pipes.sh -t c0100111001010101 }

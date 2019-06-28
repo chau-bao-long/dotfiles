@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 1.5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -87,8 +87,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_r,      rotatestack,    {.i = -1 } },
   { MODKEY|ControlMask,           XK_k,      pushup,         {.i = +1 } },
   { MODKEY|ControlMask,           XK_j,      pushdown,       {.i = +1 } },
-  { MODKEY,                       XK_i,      shiftview,      { .i = -1 } },
-  { MODKEY,                       XK_o,      shiftview,      { .i = +1 } },
+  { MODKEY,                       XK_i,      shiftview,  { .i = -1 } },
+  { MODKEY,                       XK_o,      shiftview,  { .i = +1 } },
 	{ MODKEY,                       XK_u,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
