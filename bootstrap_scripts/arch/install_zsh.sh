@@ -12,6 +12,6 @@ if [ -f ~/.oh-my-zsh/themes/agnoster.zsh-theme ]; then
   sed -i 's/blue/cyan/g' ~/.oh-my-zsh/themes/agnoster.zsh-theme
   cd ~/.oh-my-zsh
   git add . && git commit -m "just a tmp commit to keep oh-my-zsh can update properly."
-  cd -·
+  cd -
 fi
 chsh -s $(which zsh)
