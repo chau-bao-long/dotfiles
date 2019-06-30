@@ -1,4 +1,15 @@
 #!/bin/bash
+# Scan for access points
+# > sudo iw dev wlp3s0 scan | grep SSID
+# create passphrase
+# > wpa_passphrase "your SSID" > /etc/wpa_supplicant/yourssid.conf
+# bring network up
+# > sudo ip link set wlp3s0 up
+# network is already exists
+# > pkill wpa
+# connect to wifi
+# > connect-wifi yourssid
+# > connect-wifi yourssid device
 
 if [[ $2 = "" ]]; then
   dev="wlp3s0"

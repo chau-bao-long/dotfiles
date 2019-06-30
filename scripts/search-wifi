@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ $1 = "" ]]; then
+  dev="wlp3s0"
+else
+  dev=$1
+fi
+
+iw dev $dev scan | grep SSID
+echo "======="
+echo "Choose an access point to connnect: "
+read -r ssid
+accesspoint=$(echo "$ssid" | sed "s/ /-/g" | tr '[:upper:]' '[:lower:]')
+wpa_passphrase "$ssid" > /etc/wpa_supplicant/$accesspoint.conf
