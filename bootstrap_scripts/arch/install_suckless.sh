@@ -1,6 +1,6 @@
 #! /bin/bash
 
-sudo pacman -S --noconfirm libx11 libxinerama libxft xorg-xinit xorg xcompmgr transset-df
+sudo pacman -S --noconfirm libx11 libxinerama libxft xorg-xinit xorg xcompmgr transset-df keynav
 rm -rf ~/suckless
 # clone repo
 git clone https://git.suckless.org/dwm ~/suckless/dwm
