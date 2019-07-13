@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1.5;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -55,7 +55,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -72,6 +72,9 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *emojicmd[]  = { "get-emoji", NULL };
 static const char *screenshootcmd[]  = { "screenshoot", NULL };
 static const char *transparent[]  = { "transset-df", "0.9", NULL };
+static const char *volumeup[]  = { "volume", "up", NULL };
+static const char *volumedown[]  = { "volume", "down", NULL };
+static const char *togglevolume[]  = { "pulsemixer", "--toggle-mute", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -80,6 +83,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
   { MODKEY|ControlMask,           XK_s,      spawn,          {.v = screenshootcmd } },
   { MODKEY|ShiftMask,             XK_t,      spawn,          {.v = transparent } },
+  { MODKEY,                       XK_F10,    spawn,          {.v = togglevolume } },
+  { MODKEY,                       XK_F11,    spawn,          {.v = volumedown } },
+  { MODKEY,                       XK_F12,    spawn,          {.v = volumeup } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ $1 = 'up' ]; then
+  pulsemixer --set-volume  $(($(pulsemixer --get-volume | cut -d' ' -f2) + 10))
+elif [ $1 = 'down' ]; then
+  pulsemixer --set-volume  $(($(pulsemixer --get-volume | cut -d' ' -f2) - 10))
+fi
