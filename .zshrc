@@ -181,5 +181,5 @@ wific() {
 neofetch
 
 # run screen-saver after 5 mins
-TMOUT=300
-TRAPALRM() { pipes.sh -t c0100111001010101 }
+# TMOUT=300
+# TRAPALRM() { pipes.sh -t c0100111001010101 }
