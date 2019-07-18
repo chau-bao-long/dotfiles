@@ -12,7 +12,7 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
-static const char col_green[]       = "#22bc22";
+static const char col_green[]       = "#20C20E";
 static const char col_green2[]      = "#33ff33";
 static const char col_black[]       = "#000000";
 static const char col_red[]         = "#clc1d0c";
@@ -30,7 +30,7 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "</>", "🌐", "💬", "🎵", "⚔" };
+static const char *tags[] = { "</>", "🌐", "💬", "🎵", "⚔", "💻" };
 
 static const Rule rules[] = {
 	/* xprop(1):
