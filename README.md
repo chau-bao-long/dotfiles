@@ -12,7 +12,9 @@ $ make install_softwares #install mostly used softwares
 - zsh + oh-my-zsh + completion + suggestion + theme
 - vim
 - tmux
+- alacritty (terminal)
 - ranger
+- suckless tools (dwm + dmenu + slstatus + st)
 - font
 - link and copy all config files
 - homebrew & homecask (package manager for macos)
