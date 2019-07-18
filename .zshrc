@@ -178,7 +178,7 @@ wific() {
 }
 
 # show system info at terminal startup
-neofetch
+# neofetch
 
 # run screen-saver after 5 mins
 # TMOUT=300
