@@ -250,8 +250,7 @@ setup_git() {
 install_terminal() {
   read -r -p "Do you want to install terminal? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    brew cask install iterm2
-    cp ./mac_config/iTerm2/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+    brew cask install alacritty
     success "Installed terminal"
   fi
 }
