@@ -207,7 +207,7 @@ install_input_method() {
 install_mail_client() {
   read -r -p "Do you want to install mail client? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    ./bootstrap_scripts/arch/install_input_method.sh
+    ./bootstrap_scripts/arch/install_mail_client.sh
     success "Installed mail client, you still need to do further manual jobs to make it really work!!"
   fi
 }
@@ -222,8 +222,8 @@ install_font
 install_suckless
 install_input_method
 install_mail_client
-copy_dotfiles
 install_zsh
+copy_dotfiles
 setup_nvim
 
 echo "---" 

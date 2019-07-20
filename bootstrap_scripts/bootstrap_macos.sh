@@ -281,7 +281,6 @@ install_homebrew
 install_nvim
 install_ranger
 install_tmux
-install_zsh
 install_browser
 install_skhd
 install_window_manager
@@ -289,6 +288,8 @@ install_ubersicht
 install_font
 install_terminal
 install_search_tool
+install_zsh
+copy_dotfiles
 setup_nvim
 install_zathura_pdf
 copy_dotfiles
