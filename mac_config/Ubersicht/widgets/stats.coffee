@@ -1,6 +1,6 @@
 command: "sh ./scripts/stats.sh"
 
-refreshFrequency: 5000 # ms
+refreshFrequency: 10000 # ms
 
 render: (output) ->
   """
@@ -8,7 +8,7 @@ render: (output) ->
   """
 
 style: """
-  right: 480px
+  left: 10px
   top: 0px
   color: #66d9ef
   height: 13

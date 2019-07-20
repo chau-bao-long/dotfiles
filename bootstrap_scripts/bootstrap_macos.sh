@@ -233,7 +233,7 @@ install_ubersicht() {
   read -r -p "Do you want to install ubersicht status bar? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     brew cask install ubersicht
-    cp -r mac_config/Ubersicht/* Library/Application Support/Übersicht
+    cp -r mac_config/Ubersicht/* ~/Library/Application Support/Übersicht
     success "Installed ubersicht status bar"
   fi
 }
@@ -289,9 +289,9 @@ install_ubersicht
 install_font
 install_terminal
 install_search_tool
-copy_dotfiles
 setup_nvim
 install_zathura_pdf
+copy_dotfiles
 
 echo "---" 
 

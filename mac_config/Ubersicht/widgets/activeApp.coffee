@@ -13,9 +13,9 @@ style: """
   width: 100%
   position: absolute
   top: 3px
-  left: 360px
+  text-align: center
   font: 14px "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
-  color: #a5a5a5
+  color: #33ff33
   font-weight: 700
 """
 
