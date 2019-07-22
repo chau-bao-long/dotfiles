@@ -391,6 +391,9 @@ map <Leader>] :tn<CR>
 map <Leader>[ :tp<CR>
 imap zbt <Esc>a``<Esc>i
 nnoremap <leader>bd :bufdo bd<CR>
+nmap <space>0 :cd %:p:h<CR>
+nmap <space>9 :cd ..<CR>
+nmap <space>8 :pwd<CR>
 
 " NerdTree & UndoTree
 map <space>n :NERDTreeToggle<CR>
@@ -408,9 +411,6 @@ map <space>cj :Dispatch yarn lint --fix<CR>
 map <space>etp :Dispatch terraform plan<CR>
 map <space>eta :Dispatch terraform apply<CR>
 map <space>etd :Dispatch terraform destroy<CR>
-
-" Dot files
-map <space>edb :!make debian<CR>
 
 " Rspec
 map <space>ef :call RunCurrentSpecFile()<CR>
