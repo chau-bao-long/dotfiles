@@ -63,14 +63,14 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-  { netspeed_rx, "  ⬆%s", "wlp3s0" },
-  { netspeed_tx, " ⬇%s", "wlp3s0" },
-  { wifi_perc, "📡%s", "wlp3s0" },
-  { wifi_essid, " 📶%s", "wlp3s0" },
-  { ipv4, "  🌏%s", "wlp3s0" },
+  { netspeed_rx, "  ⬆%s", "ens33" },
+  { netspeed_tx, " ⬇%s", "ens33" },
+  { wifi_perc, "📡%s", "ens33" },
+  { wifi_essid, " 📶%s", "ens33" },
+  { ipv4, "  🌏%s", "ens33" },
   { run_command, " 🔊%4s", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
-  { battery_perc, "  🔋%s%%", "BAT0" },
-  { battery_state, "  🔌%s%%", "BAT0" },
+  { battery_perc, "  🔋%s%%", "BAT1" },
+  { battery_state, "  🔌%s%%", "BAT1" },
   { disk_perc, "  💽%s%%", "/" },
   { ram_perc, "  🎰%s%%", NULL },
   { cpu_perc, "   💻%s%%", NULL },
