@@ -1,0 +1,5 @@
+#!/bin/bash
+tmpfile=/tmp/mail.html
+rm $tmpfile
+echo $1 | grep -o "/tmp.*" | xargs -I {} sh -c "cp {} $tmpfile"
+xdg-open $tmpfile

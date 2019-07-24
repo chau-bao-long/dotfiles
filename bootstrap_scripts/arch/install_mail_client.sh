@@ -1,6 +1,7 @@
 #! /bin/bash
 
 sudo pacman -S --noconfirm neomutt isync msmtp pass w3m cronie
+yaourt -S urlview
 sudo systemctl enable cronie.service
 sudo systemctl start cronie.service
 git clone https://github.com/LukeSmithxyz/mutt-wizard

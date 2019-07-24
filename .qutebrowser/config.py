@@ -167,6 +167,7 @@ config.bind('cs', 'config-source')
 config.bind('M', 'hint links spawn mpv {hint-url}')
 
 # bind for quick access web
+config.bind('eom', 'spawn html {url}')
 config.bind('eim', 'open -t https://longcb.imgur.com/all')
 config.bind('esv', 'open -t https://www.youtube.com/watch?v=-e3e9w1GmBw&list=PLh94XVT4dq02frQRRZBHzvj2hwuhzSByN&index=5')
 config.bind('egh', 'open -t https://github.com')
