@@ -1,0 +1,4 @@
+#!/usr/bin/zsh
+scmd=$(echo | dmenu -i -l 0)
+source ~/.zshrc
+eval "$scmd"
