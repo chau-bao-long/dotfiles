@@ -36,7 +36,8 @@ Plug 'ervandew/supertab'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'justinmk/vim-sneak'
-" Plug 'ludovicchabant/vim-gutentags'
+Plug 'sheerun/vim-polyglot'
+Plug 'vim-syntastic/syntastic'
 
 " Ruby on Rails plugins
 Plug 'tpope/vim-rails'
@@ -63,11 +64,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'jason0x43/vim-js-indent'
 Plug 'jparise/vim-graphql'
-
-" Terraform plugins
-Plug 'hashivim/vim-terraform'
-Plug 'vim-syntastic/syntastic'
-Plug 'juliosueiras/vim-terraform-completion'
 
 call plug#end()
 
@@ -439,3 +435,10 @@ map <space>gsp :Gsplit<CR>
 " Auto commands
 autocmd BufWritePost ~/Projects/algorithm/*.c :Dispatch gcc % && ./a.out
 autocmd BufWritePost ~/suckless/*/*.h :Dispatch sudo make clean install
+
+" Kotlin auto commands 
+function BuildKotlin()
+  cd ~/Projects/backend-assignment-2
+  Dispatch! ./gradlew classes
+endfunction
+autocmd BufWritePost ~/Projects/*/*.kt :call BuildKotlin()
