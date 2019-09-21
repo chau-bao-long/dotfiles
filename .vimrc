@@ -400,9 +400,9 @@ nmap <space>o <C-o>
 " Miscellaneous
 map <Leader>w :Dispatch ~/bin/api<CR>
 map <Leader>b :!git blame %<CR>
-map <Leader>p :ts<CR>
-map <Leader>] :tn<CR>
-map <Leader>[ :tp<CR>
+map <space>cl :ts<CR>
+map <space>c] :tn<CR>
+map <space>c[ :tp<CR>
 imap zbt <Esc>a``<Esc>i
 nnoremap <leader>bd :bufdo bd<CR>
 nmap <space>8 :pwd<CR>
