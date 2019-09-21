@@ -219,7 +219,7 @@ endfunction
 
 function CtagsPythonIncludeLib()
   call GoBackToRoot()
-  Dispatch! ctags -R --languages=Python --exclude=.git --exclude=log . $(pip3 show pip | grep Location | cut -d ":" -f 2)
+  Dispatch! ctags -R --languages=Python --exclude=.git --exclude=log . $(pip show pip | grep Location | cut -d ":" -f 2)
 endfunction
 
 function CtagsPython()

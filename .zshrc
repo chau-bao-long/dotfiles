@@ -45,7 +45,8 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
 
 # Python to PATH
-export PATH="$PATH:$HOME/Library/Python/3.7/bin"
+export PATH="$HOME/.pyenv:$PATH"
+eval "$(pyenv init -)"
 
 # User bin folder to PATH
 export PATH="$HOME/bin:$PATH"
