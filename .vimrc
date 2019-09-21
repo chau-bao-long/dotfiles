@@ -210,8 +210,13 @@ function CtagsJS()
   Dispatch! ctags -R --languages=JavaScript --exclude=.git --exclude=log .
 endfunction
 
+function CtagsPython()
+  Dispatch! ctags -R --languages=Python --exclude=.git --exclude=log . $(pip3 show pip | grep Location | cut -d ":" -f 2)
+endfunction
+
 map <Leader>cr :call CtagsRuby()<CR>
 map <Leader>cj :call CtagsJS()<CR>
+map <Leader>cp :call CtagsPython()<CR>
 
 
 " ================ Rubocop ===========================
