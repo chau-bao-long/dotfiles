@@ -202,21 +202,36 @@ vmap K <Plug>CtrlSFVwordExec
 
 
 " ================ Ctags ============================
-function CtagsRuby()
+function CtagsRubyIncludeLib()
+  call GoBackToRoot()
   Dispatch! ctags -R --languages=Ruby --exclude=.git --exclude=log . $(bundle list --paths)
 endfunction
 
+function CtagsRuby()
+  call GoBackToRoot()
+  Dispatch! ctags -R --languages=Ruby --exclude=.git --exclude=log .
+endfunction
+
 function CtagsJS()
+  call GoBackToRoot()
   Dispatch! ctags -R --languages=JavaScript --exclude=.git --exclude=log .
 endfunction
 
-function CtagsPython()
+function CtagsPythonIncludeLib()
+  call GoBackToRoot()
   Dispatch! ctags -R --languages=Python --exclude=.git --exclude=log . $(pip3 show pip | grep Location | cut -d ":" -f 2)
 endfunction
 
-map <Leader>cr :call CtagsRuby()<CR>
-map <Leader>cj :call CtagsJS()<CR>
-map <Leader>cp :call CtagsPython()<CR>
+function CtagsPython()
+  call GoBackToRoot()
+  Dispatch! ctags -R --languages=Python --exclude=.git --exclude=log .
+endfunction
+
+map <space>cr :call CtagsRubyIncludeLib()<CR>
+map <space>cR :call CtagsRuby()<CR>
+map <space>cp :call CtagsPythonIncludeLib()<CR>
+map <space>cP :call CtagsPython()<CR>
+map <space>cj :call CtagsJS()<CR>
 
 
 " ================ Rubocop ===========================
@@ -342,7 +357,7 @@ set pastetoggle=<F4>
 xnoremap p "_dP
 
 
-" ==================== Ranger ========================
+" ==================== Ranger =======================
 let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree
 let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
 let g:ranger_map_keys = 0
@@ -350,13 +365,11 @@ map <space>f :Ranger<CR>
 map <space>d :RangerNewTab<CR>
 
 
-" ==================== Goyo =========================
+" ===================== Goyo =================================
 nmap zi :Goyo<CR>
 nmap zu :Goyo!<CR>
 
 " ===================== My custom mapping ====================
-
-" Customize vim a little bit
 nmap - gt
 nmap _ gT
 nmap <space>- :tabnew<CR><space>f
@@ -392,9 +405,27 @@ map <Leader>] :tn<CR>
 map <Leader>[ :tp<CR>
 imap zbt <Esc>a``<Esc>i
 nnoremap <leader>bd :bufdo bd<CR>
-nmap <space>0 :cd %:p:h<CR>
-nmap <space>9 :cd ..<CR>
 nmap <space>8 :pwd<CR>
+nmap <space>7 :call GoToCurrentFile()<CR>
+nmap <space>9 :call GoBack()<CR>
+nmap <space>0 :call GoBackToRoot()<CR>
+
+function GoBack()
+  cd ..
+  pwd
+endfunction
+
+function GoBackToRoot()
+  while stridx(execute(":!ls -a"), ".git") < 0 && strlen(execute(":pwd")) > 2
+    cd ..
+  endwhile
+  pwd
+endfunction
+
+function GoToCurrentFile()
+  cd %:p:h
+  pwd
+endfunction
 
 " NerdTree & UndoTree
 map <space>n :NERDTreeToggle<CR>
@@ -405,8 +436,8 @@ let NERDTreeDirArrows = 1
 nnoremap <F5> :UndotreeToggle<cr>
 
 " Linter
-map <space>cr :Dispatch rubocop --require rubocop-airbnb -a<CR>
-map <space>cj :Dispatch yarn lint --fix<CR>
+map <Leader>cr :Dispatch rubocop --require rubocop-airbnb -a<CR>
+map <Leader>cj :Dispatch yarn lint --fix<CR>
 
 " Terraform 
 map <space>etp :Dispatch terraform plan<CR>
