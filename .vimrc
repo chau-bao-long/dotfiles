@@ -227,6 +227,8 @@ function CtagsPython()
   Dispatch! ctags -R --languages=Python --exclude=.git --exclude=log .
 endfunction
 
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <leader><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map <space>cr :call CtagsRubyIncludeLib()<CR>
 map <space>cR :call CtagsRuby()<CR>
 map <space>cp :call CtagsPythonIncludeLib()<CR>
