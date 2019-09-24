@@ -212,9 +212,14 @@ function CtagsRuby()
   Dispatch! ctags -R --languages=Ruby --exclude=.git --exclude=log .
 endfunction
 
+function CtagsJSIncludeLib()
+  call GoBackToRoot()
+  Dispatch! ctags -R --languages=JavaScript --exclude=.git --exclude=dist --exclude=log .
+endfunction
+
 function CtagsJS()
   call GoBackToRoot()
-  Dispatch! ctags -R --languages=JavaScript --exclude=.git --exclude=log .
+  Dispatch! ctags -R --languages=JavaScript --exclude=.git --exclude=log --exclude=node_modules --exclude=dist .
 endfunction
 
 function CtagsPythonIncludeLib()
@@ -233,7 +238,8 @@ map <space>cr :call CtagsRubyIncludeLib()<CR>
 map <space>cR :call CtagsRuby()<CR>
 map <space>cp :call CtagsPythonIncludeLib()<CR>
 map <space>cP :call CtagsPython()<CR>
-map <space>cj :call CtagsJS()<CR>
+map <space>cj :call CtagsJSIncludeLib()<CR>
+map <space>cJ :call CtagsJS()<CR>
 
 
 " ================ Rubocop ===========================
