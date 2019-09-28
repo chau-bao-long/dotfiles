@@ -201,6 +201,7 @@ config.bind('egk', 'open -t http://genk.vn')
 config.bind('ett', 'open -t https://tuoitrenews.vn')
 config.bind('eaa', 'open -t https://signin.aws.amazon.com/oauth?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fhomepage&response_type=code&iam_user=true&account=356889831318')
 config.bind('ear', 'open -t https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fhomepage&forceMobileApp=0')
+config.bind('eac', 'open -t https://console.aws.amazon.com')
 config.bind('ewsm', 'open -t https://wsm.sun-asterisk.vn/en/dashboard/user_timesheets')
 config.bind('ezl', 'open -t https://chat.zalo.me/')
 
