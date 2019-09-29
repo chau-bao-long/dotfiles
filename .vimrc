@@ -402,6 +402,13 @@ nmap zj <C-d>
 nmap zk <C-u>
 nmap zh <C-e><C-e><C-e><C-e><C-e>jjjjj
 nmap zl <C-y><C-y><C-y><C-y><C-y>kkkkk
+nmap <C-j> <C-d>
+nmap <C-k> <C-u>
+nmap <C-h> <C-e><C-e><C-e><C-e><C-e>jjj
+nmap <C-l> <C-y><C-y><C-y><C-y><C-y>kkk
+nmap mb 'F
+nmap mf mF
+nmap <C-p> mF<C-]>
 nmap <space>i <C-i>
 nmap <space>o <C-o>
 
