@@ -1,4 +1,4 @@
-" ================ Theme ==============================
+" ==================================================== Theme
 set background=dark
 let g:airline_powerline_fonts = 1
 set t_Co=256
@@ -12,9 +12,10 @@ let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 
 
-" ================ Plugin Config ======================
+" ==================================================== Plugin Config
 call plug#begin('~/.vim/plugged')
 
+Plug 'mhinz/vim-startify'
 Plug 'junegunn/goyo.vim'
 Plug 'mbbill/undotree'
 Plug 'vim-airline/vim-airline'
@@ -24,20 +25,18 @@ Plug 'scrooloose/nerdtree'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'milkypostman/vim-togglelist'
-Plug 'w0rp/ale'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'ervandew/supertab'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'justinmk/vim-sneak'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Ruby on Rails plugins
 Plug 'tpope/vim-rails'
@@ -68,8 +67,8 @@ Plug 'jparise/vim-graphql'
 call plug#end()
 
 
-" ================ General Config ====================
-set nocompatible              " be iMproved, required filetype off                  " required
+" ==================================================== General Config
+set nocompatible              " be iMproved, required filetype off
 " set number                      "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
@@ -90,13 +89,14 @@ syntax on
 set nohlsearch
 
 
-" ================ Turn Off Swap Files ===============
+" ==================================================== Turn Off Swap Files
 set noswapfile
 set nobackup
+set nowritebackup
 set nowb
 
 
-" ================ Persistent Undo ===================
+" ==================================================== Persistent Undo
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
 if has('persistent_undo') && isdirectory(expand('~').'/.vim/backups')
@@ -106,14 +106,14 @@ if has('persistent_undo') && isdirectory(expand('~').'/.vim/backups')
 endif
 
 
-" ================ Indentation =======================
+" ==================================================== Indentation
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab ts=2 sw=2 ai
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set expandtab ts=4 sw=4 ai
 " set relativenumber
 
 " Auto indent pasted text
@@ -129,13 +129,13 @@ filetype indent on
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
 
-" ================ Folds ============================
+" ==================================================== Folds
 
 set foldmethod=indent   "fold based on indent
 set foldnestmax=5       "deepest fold is 5 levels
 set nofoldenable        "dont fold by default
 
-" ================ Completion =======================
+" ==================================================== Completion
 
 set wildmode=list:longest
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
@@ -151,20 +151,20 @@ set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
 
-" ================ Scrolling ========================
+" ==================================================== Scrolling
 set scrolloff=3         "Start scrolling when we're 3 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
 
-" ================ Search ===========================
+" ==================================================== Search
 set incsearch       " Find the next match as we type the search
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 " set noignorecase      " Respect case sensitive when searching...
 
 
-" ================ The Silver Searcher ==============
+" ==================================================== The Silver Searcher
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
@@ -180,7 +180,7 @@ endif
 "nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 
-" =============== CtrlSF configuration ====================
+" ==================================================== CtrlSF configuration
 let g:ctrlsf_auto_focus = {
     \ "at": "start"
     \ }
@@ -201,7 +201,7 @@ nnoremap K :CtrlSF <C-R><C-W><CR>
 vmap K <Plug>CtrlSFVwordExec
 
 
-" ================ Ctags ============================
+" ==================================================== Ctags
 function CtagsRubyIncludeLib()
   call GoBackToRoot()
   Dispatch! ctags -R --languages=Ruby --exclude=.git --exclude=log . $(bundle list --paths)
@@ -232,6 +232,11 @@ function CtagsPython()
   Dispatch! ctags -R --languages=Python --exclude=.git --exclude=log .
 endfunction
 
+function CtagsPHP()
+  call GoBackToRoot()
+  Dispatch! ctags -R --languages=PHP --exclude=.git --exclude=log .
+endfunction
+
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <leader><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map <space>cr :call CtagsRubyIncludeLib()<CR>
@@ -240,39 +245,10 @@ map <space>cp :call CtagsPythonIncludeLib()<CR>
 map <space>cP :call CtagsPython()<CR>
 map <space>cj :call CtagsJSIncludeLib()<CR>
 map <space>cJ :call CtagsJS()<CR>
+map <space>ch :call CtagsPHP()<CR>
 
 
-" ================ Rubocop ===========================
-function Rubocop()
-  !rubocop --require rubocop/formatter/checkstyle_formatter
-endfunction
-command Rubocop :call Rubocop()
-
-
-" ================ ALE ===============================
-" Asynchronous Lint Engine (ALE)
-" Limit linters used for JavaScript.
-let g:ale_linters = {
-\  'javascript': ['eslint', 'flow'],
-\  'ruby': ['rubocop'],
-\}
-highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
-highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
-let g:ale_enabled = 0
-let g:ale_fix_on_save = 1
-let g:ale_sign_error = 'X' " could use emoji
-let g:ale_sign_warning = '?' " could use emoji
-let g:ale_statusline_format = ['X %d', '? %d', '']
-" %linter% is the name of the linter that provided the message
-" %s is the error or warning message
-let g:ale_echo_msg_format = '%linter% says %s'
-" Map keys to navigate between lines with errors and warnings.
-nnoremap <leader>an :ALENextWrap<cr>
-nnoremap <leader>ap :ALEPreviousWrap<cr>
-map <leader>at :ALEToggle<CR>
-
-
-" ================ Fuzzy Finder =======================
+" ==================================================== Fuzzy Finder
 " This is the default extra key bindings
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -312,9 +288,10 @@ map <space>b :Buffers<CR>
 map <space>c :Commands<CR>
 map <space>; :BLines<CR>
 " map <space>g :GFiles?<CR>
-map <space>t :Tags<CR>
+" map <space>t :Tags<CR>
+"
 
-" ============== Vim multiple cursors mapping =======
+" ==================================================== Vim multiple cursors mapping
 let g:multi_cursor_use_default_mapping = 0
 let g:multi_cursor_start_word_key =  '<C-m>m'
 let g:multi_cursor_select_all_word_key = '<C-m>a'
@@ -326,21 +303,108 @@ let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
 
-" ============== Setup autocomplete =================
-" Note: run python3 install.py --all to download all completer
-nmap <F8> :TagbarToggle<CR>
-let g:ycm_key_invoke_completion = '<C-Space>'
-let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_min_num_of_chars_for_completion = 99
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" ==================================================== COC
+set guicursor=n:blinkon1
+set updatetime=300
+set shortmess+=c
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Show documentation in preview window
+nnoremap <space>ad :call <SID>show_documentation()<CR>
+
+nnoremap <silent> <space>ay  :<C-u>CocList -A --normal yank<cr>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>aa  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>ae  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>ac  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>ao  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>as  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>aj  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>ak  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>ap  :<C-u>CocListResume<CR>
 
 
-" ============= Session management ==================
+" ==================================================== Session management
 let g:session_directory = "~/.vim/session"
 let g:session_autoload = "yes"
 let g:session_autosave = "yes"
@@ -351,7 +415,7 @@ nnoremap <tab>d :DeleteSession<CR>
 nnoremap <tab>c :CloseSession<CR>
 
 
-" ============= Better motion =======================
+" ==================================================== Better motion
 map s <Plug>Sneak_s
 map <space>s <Plug>Sneak_S
 map f <Plug>Sneak_f
@@ -360,24 +424,25 @@ map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 
 
-" ============= Better copy/paste behavior ==========
+" ==================================================== Better copy/paste behavior
 set pastetoggle=<F4>
 xnoremap p "_dP
 
 
-" ==================== Ranger =======================
+" ==================================================== Ranger
 let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree
 let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
 let g:ranger_map_keys = 0
 map <space>f :Ranger<CR>
-map <space>d :RangerNewTab<CR>
+map <space>t :RangerNewTab<CR>
 
 
-" ===================== Goyo =================================
+" ==================================================== Goyo
 nmap zi :Goyo 180x850%<CR>
 nmap zu :Goyo!<CR>
 
-" ===================== My custom mapping ====================
+
+" ==================================================== My custom mapping
 nmap - gt
 nmap _ gT
 nmap <space>- :tabnew<CR><space>f

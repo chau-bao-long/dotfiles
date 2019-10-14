@@ -162,6 +162,7 @@ loadnode() {
   export NVM_DIR="/Users/chau.bao.long/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 }
+loadnode
 
 loadk8s() {
   if [ $commands[kubectl] ]; then
