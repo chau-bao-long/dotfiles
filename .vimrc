@@ -308,6 +308,22 @@ set guicursor=n:blinkon1
 set updatetime=300
 set shortmess+=c
 
+let g:coc_global_extensions = [
+   \'coc-yank',
+   \'coc-ultisnips',
+   \'coc-tag',
+   \'coc-phpls',
+   \'coc-json',
+   \'coc-tsserver',
+   \'coc-css',
+   \'coc-html',
+   \'coc-solargraph',
+   \'coc-yaml',
+   \'coc-python',
+   \'coc-svg',
+   \'coc-flow'
+\]
+
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
@@ -372,15 +388,6 @@ xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
-
-" Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
-" Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" use `:OR` for organize import of current buffer
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
@@ -473,7 +480,6 @@ nmap <C-h> <C-e><C-e><C-e><C-e><C-e>jjj
 nmap <C-l> <C-y><C-y><C-y><C-y><C-y>kkk
 nmap mb 'F
 nmap mf mF
-nmap <C-p> mF<C-]>
 nmap <space>i <C-i>
 nmap <space>o <C-o>
 
