@@ -157,19 +157,6 @@ pkill() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# lazy load
-loadnode() {
-  export NVM_DIR="/Users/chau.bao.long/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-}
-loadnode
-
-loadk8s() {
-  if [ $commands[kubectl] ]; then
-    source <(kubectl completion zsh)
-  fi
-}
-
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
 
