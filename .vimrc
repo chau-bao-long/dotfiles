@@ -37,6 +37,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-vdebug/vdebug'
 
 " Ruby on Rails plugins
 Plug 'tpope/vim-rails'
@@ -110,15 +111,18 @@ endif
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-set expandtab ts=4 sw=4 ai
-" set relativenumber
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab ts=2 sw=2 ai
+
+autocmd Filetype php setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype kotlin setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype java setlocal ts=4 sw=4 sts=0 expandtab
 
 " Auto indent pasted text
-nnoremap p p=`]<C-o>
-nnoremap P P=`]<C-o>
+nnoremap p p=`]
+nnoremap P P=`]
 
 filetype plugin on
 filetype indent on
@@ -309,7 +313,6 @@ set updatetime=300
 set shortmess+=c
 
 let g:coc_global_extensions = [
-   \'coc-yank',
    \'coc-ultisnips',
    \'coc-tag',
    \'coc-phpls',
@@ -410,8 +413,8 @@ nnoremap <silent> <space>ap  :<C-u>CocListResume<CR>
 
 " ==================================================== Session management
 let g:session_directory = "~/.vim/session"
-let g:session_autoload = "yes"
-let g:session_autosave = "yes"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
 let g:session_command_aliases = 1
 nnoremap <tab>o :OpenSession<CR>
 nnoremap <tab>s :SaveSession
@@ -429,7 +432,7 @@ map T <Plug>Sneak_T
 
 
 " ==================================================== Better copy/paste behavior
-set pastetoggle=<F4>
+set pastetoggle=<space>4
 xnoremap p "_dP
 
 
@@ -457,8 +460,8 @@ map <space><S-h> <C-w>35<
 map <space><S-k> <C-w>25+
 map <space><S-j> <C-w>25-
 map <space>= <C-w>=
-nmap <script> <silent> <F3> :copen 1000<CR>
-nmap <script> <silent> <F2> :call ToggleQuickfixList()<CR>
+nmap <script> <silent> <space>3 :copen 1000<CR>
+nmap <script> <silent> <space>2 :call ToggleQuickfixList()<CR>
 nnoremap <space>h <C-w>h
 nnoremap <space>j <C-w>j
 nnoremap <space>k <C-w>k
@@ -516,7 +519,7 @@ map <space>r :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-nnoremap <F5> :UndotreeToggle<cr>
+nnoremap <space>5 :UndotreeToggle<cr>
 
 " Linter
 map <Leader>cr :Dispatch rubocop --require rubocop-airbnb -a<CR>
@@ -561,3 +564,7 @@ function BuildKotlin()
   Dispatch! ./gradlew classes
 endfunction
 autocmd BufWritePost ~/Projects/*/*.kt :call BuildKotlin()
+
+" Vdebug
+map <space>de :VdebugEval 
+map <space>dt :VdebugTrace 
