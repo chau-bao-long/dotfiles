@@ -495,6 +495,8 @@ nmap <space>8 :pwd<CR>
 nmap <space>7 :call GoToCurrentFile()<CR>
 nmap <space>9 :call GoBack()<CR>
 nmap <space>0 :call GoBackToRoot()<CR>
+nmap g- :tabm -1<CR>
+nmap g= :tabm +1<CR>
 
 function GoBack()
   cd ..
@@ -536,6 +538,9 @@ map <space>ee :call RunNearestSpec()<CR>
 map <space>et :call RunLastSpec()<CR>
 map <space>ea :call RunAllSpecs()<CR>
 
+" PHPUnit
+map <space>ep :Dispatch phpunit % --filter <C-R><C-W><CR>
+
 " let g:rspec_command = "!spring rspec {spec}"
 " let g:rspec_command = "Dispatch rspec {spec}"
 let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
@@ -566,5 +571,7 @@ endfunction
 autocmd BufWritePost ~/Projects/*/*.kt :call BuildKotlin()
 
 " Vdebug
-map <space>de :VdebugEval 
-map <space>dt :VdebugTrace 
+nmap <space>de :VdebugEval 
+nmap <space>dt :VdebugTrace 
+vmap <space>de y:VdebugEval <C-R>0<CR>
+vmap <space>dt y:VdebugTrace <C-R>0<CR>
