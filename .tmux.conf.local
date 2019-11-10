@@ -274,7 +274,7 @@ set-option -g prefix2 C-)
 set-option -g repeat-time 0
 
 # tmux-resurrect
-run-shell ~/clone/path/resurrect.tmux
+run-shell ~/.tmux/plugins/tmux-resurrect/resurrect.tmux
 
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
