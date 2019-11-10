@@ -499,6 +499,7 @@ nmap <space>9 :call GoBack()<CR>
 nmap <space>0 :call GoBackToRoot()<CR>
 nmap g- :tabm -1<CR>
 nmap g= :tabm +1<CR>
+vmap / y:/<C-R>0<CR>
 
 function GoBack()
   cd ..
@@ -566,11 +567,11 @@ autocmd BufWritePost ~/Projects/algorithm/*.c :Dispatch gcc % && ./a.out
 autocmd BufWritePost ~/suckless/*/*.h :Dispatch sudo make clean install
 
 " Kotlin auto commands 
-function BuildKotlin()
-  cd ~/Projects/backend-assignment-2
-  Dispatch! ./gradlew classes
-endfunction
-autocmd BufWritePost ~/Projects/*/*.kt :call BuildKotlin()
+" function BuildKotlin()
+"   cd ~/Projects/backend-assignment-2
+"   Dispatch! ./gradlew classes
+" endfunction
+" autocmd BufWritePost ~/Projects/*/*.kt :call BuildKotlin()
 
 " Vdebug
 nmap <space>de :VdebugEval 
