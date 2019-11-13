@@ -241,6 +241,11 @@ function CtagsPHP()
   Dispatch! ctags -R --languages=PHP --exclude=.git --exclude=log .
 endfunction
 
+function CtagsKotlin()
+  call GoBackToRoot()
+  Dispatch! ctags -R --languages=kotlin --exclude=.git --exclude=log .
+endfunction
+
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <leader><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map <space>cr :call CtagsRubyIncludeLib()<CR>
@@ -250,6 +255,7 @@ map <space>cP :call CtagsPython()<CR>
 map <space>cj :call CtagsJSIncludeLib()<CR>
 map <space>cJ :call CtagsJS()<CR>
 map <space>ch :call CtagsPHP()<CR>
+map <space>ck :call CtagsKotlin()<CR>
 
 
 " ==================================================== Fuzzy Finder
