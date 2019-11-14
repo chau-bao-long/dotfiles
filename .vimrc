@@ -111,14 +111,14 @@ endif
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab ts=2 sw=2 ai
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set expandtab ts=4 sw=4 ai
 
-autocmd Filetype php setlocal ts=4 sw=4 sts=0 expandtab
-autocmd Filetype kotlin setlocal ts=4 sw=4 sts=0 expandtab
-autocmd Filetype java setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype ruby setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype python setlocal ts=2 sw=2 sts=0 expandtab
 
 " Auto indent pasted text
 nnoremap p p=`]
@@ -243,7 +243,7 @@ endfunction
 
 function CtagsKotlin()
   call GoBackToRoot()
-  Dispatch! ctags -R --languages=kotlin --exclude=.git --exclude=log .
+  Dispatch! ctags -R --languages=kotlin --exclude=.git --exclude=log --exclude=.gradle --exclude=.gradle-home --exclude=data .
 endfunction
 
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
