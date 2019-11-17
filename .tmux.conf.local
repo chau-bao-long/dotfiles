@@ -276,12 +276,13 @@ set-option -g repeat-time 0
 # my custom key binding
 bind-key -T prefix C-h swap-window -t -1
 bind-key -T prefix C-l swap-window -t +1
-bind -n M-i resize-pane -L 20
-bind -n M-o resize-pane -R 20
-bind -n M-h swap-pane -U
-bind -n M-l swap-pane -D
+bind -n M-h resize-pane -L 20
+bind -n M-l resize-pane -R 20
+bind -n M-j swap-pane -U
+bind -n M-k swap-pane -D
 bind -n M-Enter swap-pane -D \; select-pane -L
 bind -n M-c kill-pane
+bind -n M-m resize-pane -Z
 
 # tmux-resurrect
 run-shell ~/.tmux/plugins/tmux-resurrect/resurrect.tmux
