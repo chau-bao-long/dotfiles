@@ -581,8 +581,8 @@ autocmd BufWritePost ~/suckless/*/*.h :Dispatch sudo make clean install
 nmap <space>ek :Dispatch! /Users/topcbl/Projects/personio/admin-panel-service/run.sh reload<CR>
 nmap <space>ec :Dispatch /Users/topcbl/Projects/personio/admin-panel-service/run.sh gradlew clean<CR>
 nmap <space>eb :Dispatch /Users/topcbl/Projects/personio/admin-panel-service/run.sh gradlew build<CR>
-nmap <space>ej :exec "Dispatch /Users/topcbl/Projects/personio/admin-panel-service/run.sh gradlew test --info --tests " . expand('%:t')[:-4] . ".<C-R><C-W>\\*"<CR>
-vmap <space>ej y:exec "Dispatch /Users/topcbl/Projects/personio/admin-panel-service/run.sh gradlew test --info --tests " . expand('%:t')[:-4] . ".<C-R>0\\*"<CR>
+nmap <space>ej :exec "Dispatch /Users/topcbl/Projects/personio/admin-panel-service/run.sh gradlew test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R><C-W>\\*"
+vmap <space>ej y:exec "Dispatch /Users/topcbl/Projects/personio/admin-panel-service/run.sh gradlew test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
 nmap <space>eu :exec "Dispatch /Users/topcbl/Projects/personio/admin-panel-service/run.sh gradlew test --info --tests " . expand('%:t')[:-4]<CR>
 
 " Vdebug
