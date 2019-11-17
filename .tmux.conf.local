@@ -283,6 +283,8 @@ bind -n M-k swap-pane -D
 bind -n M-Enter swap-pane -D \; select-pane -L
 bind -n M-c kill-pane
 bind -n M-m resize-pane -Z
+bind -n -r M-i previous-window
+bind -n -r M-o next-window
 
 # tmux-resurrect
 run-shell ~/.tmux/plugins/tmux-resurrect/resurrect.tmux
