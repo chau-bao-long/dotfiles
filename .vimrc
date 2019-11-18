@@ -38,6 +38,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-vdebug/vdebug'
+Plug 'idanarye/vim-vebugger', {'branch': 'develop'}
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 " Ruby on Rails plugins
 Plug 'tpope/vim-rails'
@@ -579,15 +581,33 @@ autocmd BufWritePost ~/suckless/*/*.h :Dispatch sudo make clean install
 "   Dispatch! ./gradlew classes
 " endfunction
 " autocmd BufWritePost ~/Projects/*/*.kt :call BuildKotlin()
-nmap <space>ek :Dispatch! /Users/topcbl/Projects/personio/admin-panel-service/run.sh reload<CR>
-nmap <space>ec :Dispatch /Users/topcbl/Projects/personio/admin-panel-service/run.sh gradlew clean<CR>
-nmap <space>eb :Dispatch /Users/topcbl/Projects/personio/admin-panel-service/run.sh gradlew build<CR>
-nmap <space>ej :exec "Dispatch /Users/topcbl/Projects/personio/admin-panel-service/run.sh gradlew test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R><C-W>\\*"<CR>
-vmap <space>ej y:exec "Dispatch /Users/topcbl/Projects/personio/admin-panel-service/run.sh gradlew test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
-nmap <space>eu :exec "Dispatch /Users/topcbl/Projects/personio/admin-panel-service/run.sh gradlew test --info --tests " . expand('%:t')[:-4]<CR>
+nmap <space>ek :Dispatch! ~/Projects/personio/admin-panel-service/run.sh reload<CR>
+nmap <space>ec :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew clean<CR>
+nmap <space>eb :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew build<CR>
+nmap <space>ej :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R><C-W>\\*"<CR>
+nmap <space>eJ :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R><C-W>\\*"<CR>
+vmap <space>ej y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
+vmap <space>eJ y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
+nmap <space>eu :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew test --info --tests " . expand('%:t')[:-4]<CR>
+nmap <space>eU :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew test --debug-jvm --info --tests " . expand('%:t')[:-4]<CR>
 
 " Vdebug
 nmap <space>de :VdebugEval 
 nmap <space>dt :VdebugTrace 
 vmap <space>de y:VdebugEval <C-R>0<CR>
 vmap <space>dt y:VdebugTrace <C-R>0<CR>
+
+" Vebugger
+map <space>da :call vebugger#jdb#attach('admin.dev.personio.de:30591', {'srcpath':['data/src/test/kotlin']})<CR>
+map <space>db :VBGtoggleBreakpointThisLine<CR>
+map <space>d2 :VBGstepOver<CR>
+map <space>d3 :VBGstepIn<CR>
+map <space>d4 :VBGstepOut<CR>
+map <space>d5 :VBGcontinue<CR>
+map <space>d6 :VBGkill<CR>
+map <space>d; :VBGtoggleTerminalBuffer<CR>
+map <space>dw :VBGrawWrite 
+map <space>ds :VBGrawWrite list<CR>
+map <space>dj :VBGeval 
+map <space>dk :VBGevalWordUnderCursor<CR>
+map <space>dl :VBGevalSelectedText<CR>
