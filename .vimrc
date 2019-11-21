@@ -22,6 +22,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-system-copy'
 Plug 'scrooloose/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'milkypostman/vim-togglelist'
@@ -68,7 +69,6 @@ Plug 'jason0x43/vim-js-indent'
 Plug 'jparise/vim-graphql'
 
 call plug#end()
-
 
 " ==================================================== General Config
 set nocompatible              " be iMproved, required filetype off
@@ -455,7 +455,7 @@ map <space>t :RangerNewTab<CR>
 
 
 " ==================================================== Goyo
-nmap zi :Goyo 180x850%<CR>
+nmap zi :Goyo 280x850%<CR>
 nmap zu :Goyo!<CR>
 
 
@@ -533,6 +533,9 @@ map <space>r :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
 nnoremap <space>5 :UndotreeToggle<cr>
 
 " Linter
@@ -575,21 +578,19 @@ map <space>gsp :Gsplit<CR>
 autocmd BufWritePost ~/Projects/algorithm/*.c :Dispatch gcc % && ./a.out
 autocmd BufWritePost ~/suckless/*/*.h :Dispatch sudo make clean install
 
-" Kotlin auto commands 
-" function BuildKotlin()
-"   cd ~/Projects/backend-assignment-2
-"   Dispatch! ./gradlew classes
-" endfunction
-" autocmd BufWritePost ~/Projects/*/*.kt :call BuildKotlin()
+" Kotlin daily commands
 nmap <space>ek :Dispatch! ~/Projects/personio/admin-panel-service/run.sh reload<CR>
+nmap <space>eK :Dispatch ~/Projects/personio/admin-panel-service/run.sh reload<CR>
 nmap <space>ec :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew clean<CR>
 nmap <space>eb :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew build<CR>
-nmap <space>ej :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R><C-W>\\*"<CR>
-nmap <space>eJ :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R><C-W>\\*"<CR>
-vmap <space>ej y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
-vmap <space>eJ y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
-nmap <space>eu :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew test --info --tests " . expand('%:t')[:-4]<CR>
-nmap <space>eU :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew test --debug-jvm --info --tests " . expand('%:t')[:-4]<CR>
+nmap <space>ej :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R><C-W>\\*"<CR>
+nmap <space>eJ :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R><C-W>\\*"<CR>
+vmap <space>ej y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
+vmap <space>eJ y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
+nmap <space>eu :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4]<CR>
+nmap <space>eU :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4]<CR>
+nmap <space>eil yiwggjo<esc>pA<c-space>
+nmap <space>eis "1yiw<c-]>ggwvE"2y<c-o><c-o>ggjoimport <esc>"2pA.<esc>"1p
 
 " Vdebug
 nmap <space>de :VdebugEval 
@@ -598,7 +599,7 @@ vmap <space>de y:VdebugEval <C-R>0<CR>
 vmap <space>dt y:VdebugTrace <C-R>0<CR>
 
 " Vebugger
-map <space>da :call vebugger#jdb#attach('admin.dev.personio.de:30591', {'srcpath':['data/src/test/kotlin']})<CR>
+map <space>da :call vebugger#jdb#attach('admin.dev.personio.de:30591', {'srcpath':['~/Projects/personio/admin-panel-service/app/src/test/kotlin']})<CR>:sleep 500m<CR>:VBGcontinue<CR>
 map <space>db :VBGtoggleBreakpointThisLine<CR>
 map <space>d2 :VBGstepOver<CR>
 map <space>d3 :VBGstepIn<CR>
