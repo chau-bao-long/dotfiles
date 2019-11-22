@@ -591,6 +591,7 @@ nmap <space>eu :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gr
 nmap <space>eU :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4]<CR>
 nmap <space>eil yiwggjo<esc>pA<c-space>
 nmap <space>eis "1yiw<c-]>ggwvE"2y<c-o><c-o>ggjoimport <esc>"2pA.<esc>"1p
+nmap <space>eiu mf:UltiSnipsEdit<cr>
 
 " Vdebug
 nmap <space>de :VdebugEval 

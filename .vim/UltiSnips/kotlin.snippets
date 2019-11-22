@@ -1,0 +1,41 @@
+snippet cl "log"
+System.out.println($0)
+endsnippet
+
+snippet pk "package name"
+package main.$0
+endsnippet
+
+snippet ftest "extend with"
+import org.junit.jupiter.api.extension.ExtendWith
+import org.mockito.junit.jupiter.MockitoExtension
+
+@ExtendWith(MockitoExtension::class)
+class $0 {
+}
+endsnippet
+
+snippet mock "import mock"
+import org.mockito.$0
+endsnippet
+
+snippet mock2 "import mock2 kotlin"
+import com.nhaarman.mockitokotlin2.$0
+endsnippet
+
+snippet junit "import junit"
+import org.junit.jupiter.api.$0
+endsnippet
+
+snippet ip "import source code"
+import main.$0
+endsnippet
+
+snippet assert "import assert"
+import kotlin.test.assert$0
+endsnippet
+
+snippet assertThrows "import assertThrows"
+import org.junit.jupiter.api.assertThrows
+endsnippet
+
