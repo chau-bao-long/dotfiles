@@ -124,7 +124,8 @@ alias kl='kubectl logs'
 alias ke='kubectl exec -it'
 alias kcontext='kubectl config set-context $(kubectl config current-context)' # add --namespace=<ns>
 alias kdelete='kubectl delete --grace-period=0 --force po'
-kct () { kubectl config set-context $(kubectl config current-context) --namespace=$1 }
+kct () { kubectl config use-context $1 }
+kns () { kubectl config set-context $(kubectl config current-context) --namespace=$1 }
 kdevict() { kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod }
 
 # zeus shortcut
@@ -145,6 +146,9 @@ alias m='neomutt'
 alias ms='mailsync'
 alias pdf='zathura'
 alias v='nvim'
+alias ping='prettyping'
+alias pc=/Users/topcbl/Projects/personio/personio/perctl
+alias pa=/Users/topcbl/Projects/personio/admin-panel-service/run.sh
 
 rgrep() { grep -rn --exclude-dir=.* --exclude=.* --exclude=tags --exclude-dir=asset* --exclude-dir=log* --exclude=*log* --exclude-dir=public --exclude=*.csv $1 . }
 agrep() { grep -rn --exclude=tags --exclude-dir=build --exclude-dir=.idea $1 . }
@@ -156,6 +160,100 @@ pkill() {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# cd faster
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
+# search, preview and open file
+fo() {
+  local files
+  IFS=$'\n' files=($(fzf --preview "bat --color \"always\" {}" --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+
+# search content and open file
+fg() {
+  if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+  rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
+}
+
+# search and kill proccess
+fkill() {
+  local pid
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi
+}
+
+# checkout git branch/tag with preview 
+fco() {
+  local tags branches target
+  branches=$(
+    git --no-pager branch --all \
+      --format="%(if)%(HEAD)%(then)%(else)%(if:equals=HEAD)%(refname:strip=3)%(then)%(else)%1B[0;34;1mbranch%09%1B[m%(refname:short)%(end)%(end)" \
+    | sed '/^$/d') || return
+  tags=$(
+    git --no-pager tag | awk '{print "\x1b[35;1mtag\x1b[m\t" $1}') || return
+  target=$(
+    (echo "$branches"; echo "$tags") |
+    fzf --no-hscroll --no-multi -n 2 \
+        --ansi --preview="git --no-pager log -150 --pretty=format:%s '..{2}'") || return
+  git checkout $(awk '{print $2}' <<<"$target" )
+}
+
+# search commit and show the diff
+fshow() {
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+      --bind "ctrl-m:execute:
+                (grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | diff-so-fancy | less -R --tabs=1,5') << 'FZF-EOF'
+                {}
+FZF-EOF"
+}
+
+# c - browse chrome history
+c() {
+  local cols sep google_history open
+  cols=$(( COLUMNS / 3 ))
+  sep='{::}'
+
+  if [ "$(uname)" = "Darwin" ]; then
+    google_history="$HOME/Library/Application Support/Google/Chrome/Default/History"
+    open=open
+  else
+    google_history="$HOME/.config/google-chrome/Default/History"
+    open=xdg-open
+  fi
+  cp -f "$google_history" /tmp/h
+  sqlite3 -separator $sep /tmp/h \
+    "select substr(title, 1, $cols), url
+     from urls order by last_visit_time desc" |
+  awk -F $sep '{printf "%-'$cols's  \x1b[36m%s\x1b[m\n", $1, $2}' |
+  fzf --ansi --multi | sed 's#.*\(https*://\)#\1#' | xargs $open > /dev/null 2> /dev/null
+}
+
+# lazy load
+loadnode() {
+  export NVM_DIR="/Users/chau.bao.long/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+}
+loadnode
+
+loadk8s() {
+  if [ $commands[kubectl] ]; then
+    source <(kubectl completion zsh)
+  fi
+}
 
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
@@ -175,8 +273,4 @@ wific() {
 }
 
 # show system info at terminal startup
-# neofetch
-
-# run screen-saver after 5 mins
-# TMOUT=300
-# TRAPALRM() { pipes.sh -t c0100111001010101 }
+neofetch
