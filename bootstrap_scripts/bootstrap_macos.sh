@@ -255,11 +255,15 @@ install_terminal() {
   fi
 }
 
-install_search_tool() {
+install_tool() {
   read -r -p "Do you want to setup search? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     brew install s-search
     brew install ripgrep
+    brew install neofetch
+    brew install pgcli
+    brew install mycli
+    brew install bat
     success "Installed terminal search tool"
   fi
 }
@@ -288,7 +292,7 @@ install_window_manager
 install_ubersicht
 install_font
 install_terminal
-install_search_tool
+install_tool
 install_zsh
 copy_dotfiles
 setup_nvim

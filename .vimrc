@@ -470,7 +470,7 @@ map <space><S-h> <C-w>35<
 map <space><S-k> <C-w>25+
 map <space><S-j> <C-w>25-
 map <space>= <C-w>=
-nmap <script> <silent> <space>3 :copen 1000<CR>
+nmap <script> <silent> <space>3 :copen 1000<CR><s-g>
 nmap <script> <silent> <space>2 :call ToggleQuickfixList()<CR>
 nnoremap <space>h <C-w>h
 nnoremap <space>j <C-w>j
@@ -509,6 +509,8 @@ nmap g- :tabm -1<CR>
 nmap g= :tabm +1<CR>
 vmap / y:/<C-R>0<CR>
 nmap <space>e= ggvG=<C-o>
+nmap <space>er :e<cr>
+nmap <space>eiu mf:UltiSnipsEdit<cr>
 
 function GoBack()
   cd ..
@@ -590,8 +592,7 @@ vmap <space>eJ y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh g
 nmap <space>eu :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4]<CR>
 nmap <space>eU :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4]<CR>
 nmap <space>eil yiwggjo<esc>pA<c-space>
-nmap <space>eis "1yiw<c-]>ggwvE"2y<c-o><c-o>ggjoimport <esc>"2pA.<esc>"1p
-nmap <space>eiu mf:UltiSnipsEdit<cr>
+nmap <space>eis "1yiw<c-]>ggwvE"2y<c-o><c-o>ggjoimport <esc>"2pA.<esc>"1p<c-o>
 
 " Vdebug
 nmap <space>de :VdebugEval 
@@ -601,6 +602,7 @@ vmap <space>dt y:VdebugTrace <C-R>0<CR>
 
 " Vebugger
 map <space>da :call vebugger#jdb#attach('admin.dev.personio.de:30591', {'srcpath':['~/Projects/personio/admin-panel-service/app/src/test/kotlin']})<CR>:sleep 500m<CR>:VBGcontinue<CR>
+map <space>dA :call vebugger#jdb#attach('admin.dev.personio.de:30591', {'srcpath':['~/Projects/personio/admin-panel-service/app/src/main/kotlin']})<CR>:sleep 500m<CR>:VBGcontinue<CR>
 map <space>db :VBGtoggleBreakpointThisLine<CR>
 map <space>d2 :VBGstepOver<CR>
 map <space>d3 :VBGstepIn<CR>
