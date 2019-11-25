@@ -593,6 +593,7 @@ nmap <space>eu :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gr
 nmap <space>eU :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4]<CR>
 nmap <space>eil yiwggjo<esc>pA<c-space>
 nmap <space>eis "1yiw<c-]>ggwvE"2y<c-o><c-o>ggjoimport <esc>"2pA.<esc>"1p<c-o>
+nmap <space>eip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| sed 's/kotlin\.//g' \| sed 's/^/package /' >> %<CR>:e!<CR>
 
 " Vdebug
 nmap <space>de :VdebugEval 
