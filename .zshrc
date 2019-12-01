@@ -33,10 +33,6 @@ export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# Add VPN to PATH
-export PATH="/usr/local/opt/openvpn/sbin:$PATH"
-vpnconnect() { sudo openvpn --config ~/.vpn/client.ovpn --auth-user-pass ~/.vpn/creds }
-
 # Add android PATH
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools
@@ -164,6 +160,15 @@ pkill() {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# setup VPN commands
+export PATH="/usr/local/opt/openvpn/sbin:$PATH"
+vpnconnect() { sudo openvpn --config ~/.vpn/client.ovpn --auth-user-pass ~/.vpn/creds & }
+vpndisconnect() {
+    local pid
+    pid=$(ps -ef | sed 1d | grep "openvpn --config" | grep -v "sudo\|grep" | awk '{print $2}' | head -n 1)
+    sudo kill -9 $pid
+}
 
 # cd faster
 fd() {
