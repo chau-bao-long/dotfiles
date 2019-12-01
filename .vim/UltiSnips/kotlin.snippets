@@ -1,4 +1,4 @@
-snippet cl "log"
+snippet pr "log"
 System.out.println($0)
 endsnippet
 
@@ -6,36 +6,194 @@ snippet pk "package name"
 package main.$0
 endsnippet
 
-snippet ftest "extend with"
+snippet utest "Unit test template"
+package main.$0
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.junit.jupiter.MockitoExtension
 
 @ExtendWith(MockitoExtension::class)
-class $0 {
+class $1 {
 }
 endsnippet
 
-snippet mock "import mock"
-import org.mockito.$0
-endsnippet
+snippet itest "Integration test template"
+package main.$0
 
-snippet mock2 "import mock2 kotlin"
-import com.nhaarman.mockitokotlin2.$0
-endsnippet
+import org.springframework.transaction.annotation.Transactional
+import org.springframework.test.context.ActiveProfiles
+import org.springframework.boot.test.context.SpringBootTest
 
-snippet junit "import junit"
-import org.junit.jupiter.api.$0
+@SpringBootTest
+@ActiveProfiles("test")
+@Transactional
+class $1 {
+}
 endsnippet
 
 snippet ip "import source code"
 import main.$0
 endsnippet
 
-snippet assert "import assert"
-import kotlin.test.assert$0
+snippet assertThat
+import org.assertj.core.api.Assertions.assertThat
 endsnippet
 
-snippet assertThrows "import assertThrows"
+snippet assertThrows
 import org.junit.jupiter.api.assertThrows
 endsnippet
 
+snippet assertTrue
+import kotlin.test.assertTrue
+endsnippet
+
+snippet Test
+import org.junit.jupiter.api.Test
+endsnippet
+
+snippet SpringBootTest
+import org.springframework.boot.test.context.SpringBootTest
+endsnippet
+
+snippet Autowired
+import org.springframework.beans.factory.annotation.Autowired
+endsnippet
+
+snippet Transactional
+import org.springframework.transaction.annotation.Transactional
+endsnippet
+
+snippet Service
+import org.springframework.stereotype.Service
+endsnippet
+
+snippet GetMapping
+import org.springframework.web.bind.annotation.GetMapping
+endsnippet
+
+snippet RestController
+import org.springframework.web.bind.annotation.RestController
+endsnippet
+
+snippet Bean
+import org.springframework.context.annotation.Bean
+endsnippet
+
+snippet Repository
+import org.springframework.stereotype.Repository
+endsnippet
+
+snippet EntityID
+import org.jetbrains.exposed.dao.EntityID
+endsnippet
+
+snippet IntEntity
+import org.jetbrains.exposed.dao.IntEntity
+endsnippet
+
+snippet IntEntityClass
+import org.jetbrains.exposed.dao.IntEntityClass
+endsnippet
+
+snippet IntIdTable
+import org.jetbrains.exposed.dao.IntIdTable
+endsnippet
+
+snippet ActiveProfiles
+import org.springframework.test.context.ActiveProfiles
+endsnippet
+
+snippet transaction
+import org.jetbrains.exposed.sql.transactions.transaction
+endsnippet
+
+snippet BeforeEach
+import org.junit.jupiter.api.BeforeEach
+endsnippet
+
+snippet PathVariable
+import org.springframework.web.bind.annotation.PathVariable
+endsnippet
+
+snippet PutMapping
+import org.springframework.web.bind.annotation.PutMapping
+endsnippet
+
+snippet PostMapping
+import org.springframework.web.bind.annotation.PostMapping
+endsnippet
+
+snippet HttpStatus
+import org.springframework.http.HttpStatus
+endsnippet
+
+snippet NotBlank
+import javax.validation.constraints.NotBlank
+endsnippet
+
+snippet NotEmpty
+import javax.validation.constraints.NotEmpty
+endsnippet
+
+snippet Min
+import javax.validation.constraints.Min
+endsnippet
+
+snippet Max
+import javax.validation.constraints.Max
+endsnippet
+
+snippet Validated
+import org.springframework.validation.annotation.Validated
+endsnippet
+
+snippet Response
+import main.infra.http.responses.Response
+endsnippet
+
+snippet Valid
+import javax.validation.Valid
+endsnippet
+
+snippet RequestBody
+import org.springframework.web.bind.annotation.RequestBody
+endsnippet
+
+snippet ResponseStatus
+import org.springframework.web.bind.annotation.ResponseStatus
+endsnippet
+
+snippet emptySized
+import org.jetbrains.exposed.sql.emptySized
+endsnippet
+
+snippet MockitoExtension
+import org.mockito.junit.jupiter.MockitoExtension
+endsnippet
+
+snippet ExtendWith
+import org.junit.jupiter.api.extension.ExtendWith
+endsnippet
+
+snippet InjectMocks
+import org.mockito.InjectMocks
+endsnippet
+
+snippet Mock
+import org.mockito.Mock
+endsnippet
+
+snippet whenever
+import com.nhaarman.mockitokotlin2.whenever
+endsnippet
+
+snippet any
+import com.nhaarman.mockitokotlin2.any
+endsnippet
+
+snippet SizedIterable
+import org.jetbrains.exposed.sql.SizedIterable
+endsnippet
+
+snippet SizedCollection
+import org.jetbrains.exposed.sql.SizedCollection
+endsnippet

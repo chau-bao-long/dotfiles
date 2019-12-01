@@ -33,6 +33,10 @@ export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Add VPN to PATH
+export PATH="/usr/local/opt/openvpn/sbin:$PATH"
+vpnconnect() { sudo openvpn --config ~/.vpn/client.ovpn --auth-user-pass ~/.vpn/creds }
+
 # Add android PATH
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools
@@ -189,7 +193,7 @@ fkill() {
 
   if [ "x$pid" != "x" ]
   then
-    echo $pid | xargs kill -${1:-9}
+    echo $pid | xargs sudo kill -${1:-9}
   fi
 }
 

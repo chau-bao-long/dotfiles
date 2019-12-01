@@ -451,7 +451,8 @@ let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree
 let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
 let g:ranger_map_keys = 0
 map <space>f :Ranger<CR>
-map <space>t :RangerNewTab<CR>
+map <space>tn :RangerNewTab<CR>
+nmap <space>td :tabnew ~/todo<CR>
 
 
 " ==================================================== Goyo
@@ -580,20 +581,21 @@ map <space>gsp :Gsplit<CR>
 autocmd BufWritePost ~/Projects/algorithm/*.c :Dispatch gcc % && ./a.out
 autocmd BufWritePost ~/suckless/*/*.h :Dispatch sudo make clean install
 
-" Kotlin daily commands
-nmap <space>ek :Dispatch! ~/Projects/personio/admin-panel-service/run.sh reload<CR>
-nmap <space>eK :Dispatch ~/Projects/personio/admin-panel-service/run.sh reload<CR>
-nmap <space>ec :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew clean<CR>
-nmap <space>eb :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew build<CR>
-nmap <space>ej :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R><C-W>\\*"<CR>
-nmap <space>eJ :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R><C-W>\\*"<CR>
-vmap <space>ej y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
-vmap <space>eJ y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
-nmap <space>eu :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4]<CR>
-nmap <space>eU :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4]<CR>
-nmap <space>eil yiwggjo<esc>pA<c-space>
-nmap <space>eis "1yiw<c-]>ggwvE"2y<c-o><c-o>ggjoimport <esc>"2pA.<esc>"1p<c-o>
-nmap <space>eip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| sed 's/kotlin\.//g' \| sed 's/^/package /' >> %<CR>:e!<CR>
+" Kotlin commands
+autocmd Filetype kotlin nmap <buffer> <space>ek :Dispatch! ~/Projects/personio/admin-panel-service/run.sh reload<CR>
+autocmd Filetype kotlin nmap <buffer> <space>eK :Dispatch ~/Projects/personio/admin-panel-service/run.sh reload<CR>
+autocmd Filetype kotlin nmap <buffer> <space>ec :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew clean<CR>
+autocmd Filetype kotlin nmap <buffer> <space>eb :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew build<CR>
+autocmd Filetype kotlin nmap <buffer> <space>ej :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R><C-W>\\*"<CR>
+autocmd Filetype kotlin nmap <buffer> <space>eJ :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R><C-W>\\*"<CR>
+autocmd Filetype kotlin vmap <buffer> <space>ej y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
+autocmd Filetype kotlin vmap <buffer> <space>eJ y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
+autocmd Filetype kotlin nmap <buffer> <space>eu :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4]<CR>
+autocmd Filetype kotlin nmap <buffer> <space>eU :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4]<CR>
+autocmd Filetype kotlin nmap <buffer> <space>eil yiwggjo<esc>pA<c-space>
+autocmd Filetype kotlin nmap <buffer> <space>eis "1yiw<c-]>ggwvE"2y<c-o><c-o>ggjoimport <esc>"2pA.<esc>"1p<c-o>
+autocmd Filetype kotlin nmap <buffer> <space>eip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| sed 's/kotlin\.//g' \| sed 's/^/package /' >> %<CR>:e!<CR>
+autocmd Filetype kotlin nmap <buffer> <space>gi :Rg override fun <C-R><C-W><CR><CR>
 
 " Vdebug
 nmap <space>de :VdebugEval 
