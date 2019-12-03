@@ -49,10 +49,10 @@ export PATH="$HOME/.pyenv:$PATH"
 eval "$(pyenv init -)"
 
 # PHP to PATH
-export PATH="/usr/local/opt/php@7.2/bin:$PATH"
-export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
-export LDFLAGS="-L/usr/local/opt/php@7.2/lib"
-export CPPFLAGS="-I/usr/local/opt/php@7.2/include"
+export PATH="/usr/local/opt/php@7.3/bin:$PATH"
+export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
+export LDFLAGS="-L/usr/local/opt/php@7.3/lib"
+export CPPFLAGS="-I/usr/local/opt/php@7.3/include"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 # User bin folder to PATH

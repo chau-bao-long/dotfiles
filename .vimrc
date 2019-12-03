@@ -598,6 +598,10 @@ autocmd Filetype kotlin nmap <buffer> <space>eip :!echo %:p:h \| sed 's/\//\./g'
 autocmd Filetype kotlin nmap <buffer> <space>gi :Rg override fun <C-R><C-W><CR><CR>
 
 " Vdebug
+if !exists('g:vdebug_options')
+    let g:vdebug_options = {}
+endif
+let g:vdebug_options.port = 9001
 nmap <space>de :VdebugEval 
 nmap <space>dt :VdebugTrace 
 vmap <space>de y:VdebugEval <C-R>0<CR>
