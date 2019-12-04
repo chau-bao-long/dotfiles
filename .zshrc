@@ -149,7 +149,10 @@ alias v='nvim'
 alias ping='prettyping'
 alias pc=/Users/topcbl/Projects/personio/personio/perctl
 alias pa=/Users/topcbl/Projects/personio/admin-panel-service/run.sh
-alias dev=/Users/topcbl/Projects/personio/personio
+alias proj=/Users/topcbl/Projects
+alias per=/Users/topcbl/Projects/personio
+alias mono=/Users/topcbl/Projects/personio/personio
+alias micro=/Users/topcbl/Projects/personio/admin-panel-service
 
 rgrep() { grep -rn --exclude-dir=.* --exclude=.* --exclude=tags --exclude-dir=asset* --exclude-dir=log* --exclude=*log* --exclude-dir=public --exclude=*.csv $1 . }
 agrep() { grep -rn --exclude=tags --exclude-dir=build --exclude-dir=.idea $1 . }

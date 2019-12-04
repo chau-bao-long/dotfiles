@@ -512,6 +512,7 @@ vmap / y:/<C-R>0<CR>
 nmap <space>e= ggvG=<C-o>
 nmap <space>er :e<cr>
 nmap <space>iu mf:UltiSnipsEdit<cr>
+nmap zp :call GotoJump()<CR>
 
 function GoBack()
   cd ..
@@ -528,6 +529,20 @@ endfunction
 function GoToCurrentFile()
   cd %:p:h
   pwd
+endfunction
+
+function! GotoJump()
+  jumps
+  let j = input("Please select your jump: ")
+  if j != ''
+    let pattern = '\v\c^\+'
+    if j =~ pattern
+      let j = substitute(j, pattern, '', 'g')
+      execute "normal " . j . "\<c-i>"
+    else
+      execute "normal " . j . "\<c-o>"
+    endif
+  endif
 endfunction
 
 " NerdTree & UndoTree
@@ -597,9 +612,11 @@ autocmd Filetype kotlin nmap <buffer> <space>ip :!echo %:p:h \| sed 's/\//\./g' 
 " PHP commands
 autocmd Filetype php nmap <buffer> <space>ip :!echo "<?php" >> % && echo "" >> % && echo %:h \| sed 's/\//\\/g' \| sed 's/^/namespace /' \| sed 's/$/; /' >> %<CR>:e!<CR>2jwvUGo<CR>
 autocmd Filetype php nmap <buffer> <space>is "1yiw<c-]>gg2jwvEh"2y<c-o><c-o>gg3jouse <esc>"2pA\<esc>"1pA;<esc><c-o>
+autocmd Filetype php nmap <buffer> <space>io yiwgg3jouse <esc>pA;<esc><c-o>
 autocmd Filetype php nmap <buffer> <space>il yiwgg3jo<esc>pASnip<c-space>
-autocmd Filetype php nmap <space>ep :Dispatch phpunit % --filter <C-R><C-W><CR>
-autocmd Filetype php nmap <buffer> <space>gt :exec "Rg " . expand('%:t:r') . "Test"<CR><CR>
+autocmd Filetype php nmap <buffer> <space>ep /public function<cr>Nwwvey:Dispatch phpunit % --filter <c-r>0<CR>
+autocmd Filetype php nmap <buffer> <space>eP :Dispatch phpunit %<CR>
+autocmd Filetype php nmap <buffer> <space>gt :exec "Rg " . expand('%:t:r') . "Test"<CR>
 autocmd Filetype php nmap <buffer> <space>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<CR>
 
 " Vdebug
