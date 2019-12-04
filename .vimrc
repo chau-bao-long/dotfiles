@@ -556,9 +556,6 @@ map <space>ee :call RunNearestSpec()<CR>
 map <space>et :call RunLastSpec()<CR>
 map <space>ea :call RunAllSpecs()<CR>
 
-" PHPUnit
-map <space>ep :Dispatch phpunit % --filter <C-R><C-W><CR>
-
 " let g:rspec_command = "!spring rspec {spec}"
 " let g:rspec_command = "Dispatch rspec {spec}"
 let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
@@ -596,6 +593,12 @@ autocmd Filetype kotlin nmap <buffer> <space>eil yiwggjo<esc>pA<c-space>
 autocmd Filetype kotlin nmap <buffer> <space>eis "1yiw<c-]>ggwvE"2y<c-o><c-o>ggjoimport <esc>"2pA.<esc>"1p<c-o>
 autocmd Filetype kotlin nmap <buffer> <space>eip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| sed 's/kotlin\.//g' \| sed 's/^/package /' >> %<CR>:e!<CR>
 autocmd Filetype kotlin nmap <buffer> <space>gi :Rg override fun <C-R><C-W><CR><CR>
+
+" PHP commands
+autocmd Filetype php nmap <buffer> <space>eip :!echo "<?php" >> % && echo "" >> % && echo %:h \| sed 's/\//\\/g' \| sed 's/^/namespace /' \| sed 's/$/; /' >> %<CR>:e!<CR>2jwvUGo<CR>
+autocmd Filetype php nmap <buffer> <space>eis "1yiw<c-]>gg2jwvEh"2y<c-o><c-o>gg3jouse <esc>"2pA\<esc>"1pA;<esc><c-o>
+autocmd Filetype php nmap <buffer> <space>eil yiwgg3jo<esc>pASnip<c-space>
+autocmd Filetype php nmap <space>ep :Dispatch phpunit % --filter <C-R><C-W><CR>
 
 " Vdebug
 if !exists('g:vdebug_options')

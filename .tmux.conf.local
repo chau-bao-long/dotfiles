@@ -278,8 +278,8 @@ bind-key -T prefix C-h swap-window -t -1
 bind-key -T prefix C-l swap-window -t +1
 bind -n M-h resize-pane -L 20
 bind -n M-l resize-pane -R 20
-bind -n M-j swap-pane -U
-bind -n M-k swap-pane -D
+bind -n M-k swap-pane -U
+bind -n M-j swap-pane -D
 bind -n M-Enter swap-pane -D \; select-pane -L
 bind -n M-c kill-pane
 bind -n M-m resize-pane -Z
