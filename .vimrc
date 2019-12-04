@@ -456,7 +456,7 @@ nmap <space>td :tabnew ~/todo<CR>
 
 
 " ==================================================== Goyo
-nmap zi :Goyo 280x850%<CR>
+nmap zy :Goyo 280x850%<CR>
 nmap zu :Goyo!<CR>
 
 
@@ -491,8 +491,8 @@ nmap <C-h> <C-e><C-e><C-e><C-e><C-e>jjj
 nmap <C-l> <C-y><C-y><C-y><C-y><C-y>kkk
 nmap mb 'F
 nmap mf mF
-nmap <space>i <C-i>
-nmap <space>o <C-o>
+nmap zi <C-i>
+nmap zo <C-o>
 
 " Miscellaneous
 map <Leader>w :Dispatch ~/bin/api<CR>
@@ -511,7 +511,7 @@ nmap g= :tabm +1<CR>
 vmap / y:/<C-R>0<CR>
 nmap <space>e= ggvG=<C-o>
 nmap <space>er :e<cr>
-nmap <space>eiu mf:UltiSnipsEdit<cr>
+nmap <space>iu mf:UltiSnipsEdit<cr>
 
 function GoBack()
   cd ..
@@ -589,16 +589,18 @@ autocmd Filetype kotlin vmap <buffer> <space>ej y:exec "Dispatch ~/Projects/pers
 autocmd Filetype kotlin vmap <buffer> <space>eJ y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
 autocmd Filetype kotlin nmap <buffer> <space>eu :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4]<CR>
 autocmd Filetype kotlin nmap <buffer> <space>eU :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4]<CR>
-autocmd Filetype kotlin nmap <buffer> <space>eil yiwggjo<esc>pA<c-space>
-autocmd Filetype kotlin nmap <buffer> <space>eis "1yiw<c-]>ggwvE"2y<c-o><c-o>ggjoimport <esc>"2pA.<esc>"1p<c-o>
-autocmd Filetype kotlin nmap <buffer> <space>eip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| sed 's/kotlin\.//g' \| sed 's/^/package /' >> %<CR>:e!<CR>
 autocmd Filetype kotlin nmap <buffer> <space>gi :Rg override fun <C-R><C-W><CR><CR>
+autocmd Filetype kotlin nmap <buffer> <space>il yiwggjo<esc>pA<c-space>
+autocmd Filetype kotlin nmap <buffer> <space>is "1yiw<c-]>ggwvE"2y<c-o><c-o>ggjoimport <esc>"2pA.<esc>"1p<c-o>
+autocmd Filetype kotlin nmap <buffer> <space>ip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| sed 's/kotlin\.//g' \| sed 's/^/package /' >> %<CR>:e!<CR>
 
 " PHP commands
-autocmd Filetype php nmap <buffer> <space>eip :!echo "<?php" >> % && echo "" >> % && echo %:h \| sed 's/\//\\/g' \| sed 's/^/namespace /' \| sed 's/$/; /' >> %<CR>:e!<CR>2jwvUGo<CR>
-autocmd Filetype php nmap <buffer> <space>eis "1yiw<c-]>gg2jwvEh"2y<c-o><c-o>gg3jouse <esc>"2pA\<esc>"1pA;<esc><c-o>
-autocmd Filetype php nmap <buffer> <space>eil yiwgg3jo<esc>pASnip<c-space>
+autocmd Filetype php nmap <buffer> <space>ip :!echo "<?php" >> % && echo "" >> % && echo %:h \| sed 's/\//\\/g' \| sed 's/^/namespace /' \| sed 's/$/; /' >> %<CR>:e!<CR>2jwvUGo<CR>
+autocmd Filetype php nmap <buffer> <space>is "1yiw<c-]>gg2jwvEh"2y<c-o><c-o>gg3jouse <esc>"2pA\<esc>"1pA;<esc><c-o>
+autocmd Filetype php nmap <buffer> <space>il yiwgg3jo<esc>pASnip<c-space>
 autocmd Filetype php nmap <space>ep :Dispatch phpunit % --filter <C-R><C-W><CR>
+autocmd Filetype php nmap <buffer> <space>gt :exec "Rg " . expand('%:t:r') . "Test"<CR><CR>
+autocmd Filetype php nmap <buffer> <space>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<CR>
 
 " Vdebug
 if !exists('g:vdebug_options')
