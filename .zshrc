@@ -167,7 +167,7 @@ pkill() {
 
 # setup VPN commands
 export PATH="/usr/local/opt/openvpn/sbin:$PATH"
-vpnconnect() { sudo openvpn --config ~/.vpn/client.ovpn --auth-user-pass ~/.vpn/creds & }
+vpnconnect() { sudo openvpn --config ~/.vpn/client.ovpn --auth-user-pass ~/.vpn/creds &> /dev/null & }
 vpndisconnect() {
     local pid
     pid=$(ps -ef | sed 1d | grep "openvpn --config" | grep -v "sudo\|grep" | awk '{print $2}' | head -n 1)
