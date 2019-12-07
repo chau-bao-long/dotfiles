@@ -264,6 +264,7 @@ install_tool() {
     brew install pgcli
     brew install mycli
     brew install bat
+    brew install httpie
     success "Installed terminal search tool"
   fi
 }

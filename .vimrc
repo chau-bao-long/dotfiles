@@ -497,12 +497,11 @@ nmap zi <C-i>
 nmap zo <C-o>
 
 " Miscellaneous
-map <Leader>w :Dispatch ~/bin/api<CR>
-map <Leader>b :!git blame %<CR>
 map <space>cl :ts<CR>
 map <space>c] :tn<CR>
 map <space>c[ :tp<CR>
 imap zbt <Esc>a``<Esc>i
+imap zbs <Esc>a```<Esc>i
 nnoremap <leader>bd :bufdo bd<CR>
 nmap <space>8 :pwd<CR>
 nmap <space>7 :call GoToCurrentFile()<CR>
@@ -514,7 +513,15 @@ vmap / y:/<C-R>0<CR>
 nmap <space>e= ggvG=<C-o>
 nmap <space>er :e<cr>
 nmap <space>iu mf:UltiSnipsEdit<cr>
-nmap zp :call GotoJump()<CR>
+nmap zp :call GotoJump()<cr>
+nmap <space>h1 :tabnew ~/bin/personio.api<cr>
+nmap <space>h2 :tabnew ~/bin/admin-panel.api<cr>
+nmap <space>ew yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
+nmap <space>eW yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0 && sleep 9999<cr>
+vmap <space>ew y:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
+vmap <space>eW y:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0 && sleep 9999<cr>
+nmap <space>eq :Dispatch ~/bin/current-cmd<cr>
+nmap <space>eQ :Dispatch ~/bin/current-cmd && sleep 9999<cr>
 
 function GoBack()
   cd ..
@@ -644,7 +651,12 @@ autocmd Filetype php nmap <buffer> <space>ip :!echo "<?php" >> % && echo "" >> %
 autocmd Filetype php nmap <buffer> <space>is "1yiw<c-]>gg2jwvEh"2y<c-o><c-o>gg3jouse <esc>"2pA\<esc>"1pA;<esc><c-o>
 autocmd Filetype php nmap <buffer> <space>io yiwgg3jouse <esc>pA;<esc><c-o>
 autocmd Filetype php nmap <buffer> <space>il yiwgg3jo<esc>pASnip<c-space>
-autocmd Filetype php nmap <buffer> <space>ep /public function<cr>Nwwvey:Dispatch phpunit % --filter <c-r>0<CR>
-autocmd Filetype php nmap <buffer> <space>eP :Dispatch phpunit %<CR>
-autocmd Filetype php nmap <buffer> <space>gt :exec "Rg " . expand('%:t:r') . "Test"<CR>
-autocmd Filetype php nmap <buffer> <space>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<CR>
+autocmd Filetype php nmap <buffer> <space>ep /public function<cr>Nwwvey:Dispatch phpunit % --filter <c-r>0<cr>
+autocmd Filetype php nmap <buffer> <space>eP :Dispatch phpunit %<cr>
+autocmd Filetype php nmap <buffer> <space>gt :exec "Rg " . expand('%:t:r') . "Test"<cr>
+autocmd Filetype php nmap <buffer> <space>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<cr>
+autocmd Filetype php nmap <buffer> <leader>gr :Rg route<cr>
+autocmd Filetype php nmap <buffer> <leader>gc :Rg controllers<cr>
+autocmd Filetype php nmap <buffer> <leader>gm :Rg models<cr>
+autocmd Filetype php nmap <buffer> <leader>gd :Rg repositories<cr>
+autocmd Filetype php nmap <buffer> <leader>gs :Rg services<cr>
