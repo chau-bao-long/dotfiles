@@ -514,6 +514,7 @@ nmap <space>e= ggvG=<C-o>
 nmap <space>er :e<cr>
 nmap <space>iu mf:UltiSnipsEdit<cr>
 nmap zp :call GotoJump()<cr>
+nmap <space>tm <c-w>T
 nmap <space>h1 :tabnew ~/bin/personio.api<cr>
 nmap <space>h2 :tabnew ~/bin/admin-panel.api<cr>
 nmap <space>ew yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
@@ -588,7 +589,7 @@ let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
 map <space>gg :Git 
 map <space>gl :Glog<CR>
 map <space>gd :Gdiff 
-map <space>gp :Ggrep 
+map <space>gpr :Ggrep 
 map <space>gr :Gread! 
 map <space>gw :Gwrite<CR>
 map <space>gbl :Gblame<CR>
@@ -597,6 +598,12 @@ map <space>gs :Gstatus<CR>
 map <space>ge :Gedit 
 map <space>gvs :Gvsplit<CR>
 map <space>gsp :Gsplit<CR>
+map <space>gca :Gcommit --amend<CR>
+map <space>gci :Gcommit<CR>
+map <space>gpu :Gpush<CR>
+map <space>gpf :Gpush -f<CR>
+map <space>gfo :Gfetch origin<CR>
+map <space>gpl :Gpull<CR>
 
 " Vdebug
 if !exists('g:vdebug_options')
@@ -651,7 +658,7 @@ autocmd Filetype php nmap <buffer> <space>ip :!echo "<?php" >> % && echo "" >> %
 autocmd Filetype php nmap <buffer> <space>is "1yiw<c-]>gg2jwvEh"2y<c-o><c-o>gg3jouse <esc>"2pA\<esc>"1pA;<esc><c-o>
 autocmd Filetype php nmap <buffer> <space>io yiwgg3jouse <esc>pA;<esc><c-o>
 autocmd Filetype php nmap <buffer> <space>il yiwgg3jo<esc>pASnip<c-space>
-autocmd Filetype php nmap <buffer> <space>ep /public function<cr>Nwwvey:Dispatch phpunit % --filter <c-r>0<cr>
+autocmd Filetype php nmap <buffer> <space>ep /public function<cr>Nwwvey:!echo phpunit % --filter <c-r>0 > ~/bin/current-cmd<cr>:Dispatch phpunit % --filter <c-r>0<cr>
 autocmd Filetype php nmap <buffer> <space>eP :Dispatch phpunit %<cr>
 autocmd Filetype php nmap <buffer> <space>gt :exec "Rg " . expand('%:t:r') . "Test"<cr>
 autocmd Filetype php nmap <buffer> <space>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<cr>
