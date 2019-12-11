@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.  export ZSH=/home/framgia/.oh-my-zsh # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/ # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="trapd00r"
 
 plugins=(
   git
@@ -152,8 +152,8 @@ alias pc=~/Projects/personio/personio/perctl
 alias pa=~/Projects/personio/admin-panel-service/run.sh
 alias pro=~/Projects
 alias per=~/Projects/personio
-alias mono=~/Projects/personio/personio
-alias micro=~/Projects/personio/admin-panel-service
+alias mon=~/Projects/personio/personio
+alias mic=~/Projects/personio/admin-panel-service
 alias dot=~/Projects/dotfiles
 
 rgrep() { grep -rn --exclude-dir=.* --exclude=.* --exclude=tags --exclude-dir=asset* --exclude-dir=log* --exclude=*log* --exclude-dir=public --exclude=*.csv $1 . }

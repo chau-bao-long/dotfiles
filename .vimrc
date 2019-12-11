@@ -613,6 +613,7 @@ let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
 " Git
 map <space>gg :Git 
 map <space>gl :Glog<CR>
+map <space>g0l :0Glog<CR>
 map <space>gd :Gdiff 
 map <space>gpr :Ggrep 
 map <space>gr :Gread! 
