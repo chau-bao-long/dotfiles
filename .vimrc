@@ -37,6 +37,7 @@ Plug 'xolox/vim-session'
 Plug 'justinmk/vim-sneak'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-vdebug/vdebug'
 Plug 'idanarye/vim-vebugger', {'branch': 'develop'}
@@ -317,6 +318,28 @@ let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
 
+" ================ ALE ===============================
+let g:ale_linters = {
+\  'javascript': ['eslint', 'flow'],
+\  'ruby': ['rubocop'],
+\  'kotlin': ['ktlint'],
+\}
+highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
+highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
+let g:ale_enabled = 0
+let g:ale_fix_on_save = 1
+let g:ale_sign_error = 'X' " could use emoji
+let g:ale_sign_warning = '?' " could use emoji
+let g:ale_statusline_format = ['X %d', '? %d', '']
+" %linter% is the name of the linter that provided the message
+" %s is the error or warning message
+let g:ale_echo_msg_format = '%linter% says %s'
+" Map keys to navigate between lines with errors and warnings.
+nnoremap <leader>an :ALENextWrap<cr>
+nnoremap <leader>ap :ALEPreviousWrap<cr>
+nmap <leader>at :ALEToggle<CR>
+
+
 " ==================================================== COC
 set guicursor=n:blinkon1
 set updatetime=300
@@ -454,6 +477,8 @@ map <space>f :Ranger<CR>
 map <space>tn :RangerNewTab<CR>
 nmap <space>td :tabnew ~/todo<CR>
 nmap <space>ve :tabnew ~/.vimrc<CR>
+nmap <space>ze :tabnew ~/.zshrc<CR>
+nmap <space>te :tabnew ~/.tmux.conf.local<CR>
 nmap <space>vr :source ~/.vimrc<CR>
 
 
@@ -635,11 +660,19 @@ map <space>dl :VBGevalSelectedText<CR>
 autocmd BufWritePost ~/Projects/algorithm/*.c :Dispatch gcc % && ./a.out
 autocmd BufWritePost ~/suckless/*/*.h :Dispatch sudo make clean install
 
+" JavaScript commands
+autocmd Filetype javascript nmap <buffer> <space>elp :Dispatch! cd %:p:h && prettier --write **/*.*<cr>
+autocmd Filetype javascript nmap <buffer> <space>elP :Dispatch! prettier --write **/*.*<cr>
+autocmd Filetype javascript nmap <buffer> <space>elc :Dispatch eslint %:p:h<cr>
+autocmd Filetype javascript nmap <buffer> <space>elC :Dispatch pwd \| xargs eslint<cr>
+autocmd Filetype javascript nmap <buffer> <space>elf :Dispatch eslint --fix --max-warnings 7 %:p:h<cr>
+autocmd Filetype javascript nmap <buffer> <space>elf :Dispatch pwd \| xargs eslint --fix --max-warnings 7 <cr>
+
 " Kotlin commands
-autocmd Filetype kotlin nmap <buffer> <space>ek :Dispatch! ~/Projects/personio/admin-panel-service/run.sh reload<CR>
-autocmd Filetype kotlin nmap <buffer> <space>eK :Dispatch ~/Projects/personio/admin-panel-service/run.sh reload<CR>
-autocmd Filetype kotlin nmap <buffer> <space>ec :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew clean<CR>
-autocmd Filetype kotlin nmap <buffer> <space>eb :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew build<CR>
+autocmd Filetype kotlin nmap <buffer> <space>ek :Dispatch! ~/Projects/personio/admin-panel-service/run.sh reload<cr>
+autocmd Filetype kotlin nmap <buffer> <space>eK :Dispatch ~/Projects/personio/admin-panel-service/run.sh reload<cr>
+autocmd Filetype kotlin nmap <buffer> <space>ec :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew clean<cr>
+autocmd Filetype kotlin nmap <buffer> <space>eb :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew build<cr>
 autocmd Filetype kotlin nmap <buffer> <space>ej /@Test<cr>Njwvt(y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\*"<cr>
 autocmd Filetype kotlin nmap <buffer> <space>eJ /@Test<cr>Njwvt(y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\*"<cr>
 autocmd Filetype kotlin vmap <buffer> <space>ej y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
@@ -652,6 +685,8 @@ autocmd Filetype kotlin nmap <buffer> <space>gc :exec "Rg " . substitute(expand(
 autocmd Filetype kotlin nmap <buffer> <space>il yiwggjo<esc>pA<c-space>
 autocmd Filetype kotlin nmap <buffer> <space>is "1yiw<c-]>ggwvE"2y<c-o><c-o>ggjoimport <esc>"2pA.<esc>"1p<c-o>
 autocmd Filetype kotlin nmap <buffer> <space>ip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| sed 's/kotlin\.//g' \| sed 's/^/package /' >> %<CR>:e!<CR>
+autocmd Filetype kotlin nmap <buffer> <space>elc :Dispatch ktlint<cr>
+autocmd Filetype kotlin nmap <buffer> <space>elf :Dispatch! ktlint -F<cr>
 
 " PHP commands
 autocmd Filetype php nmap <buffer> <space>ip :!echo "<?php" >> % && echo "" >> % && echo %:h \| sed 's/\//\\/g' \| sed 's/^/namespace /' \| sed 's/$/; /' >> %<CR>:e!<CR>2jwvUGo<CR>

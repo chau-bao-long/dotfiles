@@ -124,6 +124,7 @@ alias kl='kubectl logs'
 alias ke='kubectl exec -it'
 alias kcontext='kubectl config set-context $(kubectl config current-context)' # add --namespace=<ns>
 alias kdelete='kubectl delete --grace-period=0 --force po'
+alias kwp='watch kubectl get pod -owide'
 kct () { kubectl config use-context $1 }
 kns () { kubectl config set-context $(kubectl config current-context) --namespace=$1 }
 kdevict() { kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod }
