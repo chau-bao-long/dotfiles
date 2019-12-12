@@ -268,3 +268,4 @@ wific() {
 
 # show system info at terminal startup
 neofetch
+export GPG_TTY=`tty`

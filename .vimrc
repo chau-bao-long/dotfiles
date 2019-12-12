@@ -295,15 +295,17 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " Finder mapping
-map <space>p :call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --cached'}))<CR>
-map <space>P :Files<CR>
-map <space>u :History<CR>
-map <space>b :Buffers<CR>
-map <space>c :Commands<CR>
-map <space>; :BLines<CR>
-map <space>w :Rg<CR>
+nmap <space>p :call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --cached'}))<CR>
+nmap <space>P :Files<CR>
+nmap <space>u :History<CR>
+nmap <space>b :Buffers<CR>
+nmap <space>c :Commands<CR>
+nmap <space>; :BLines<CR>
+nmap <space>w :Rg<CR>
 vmap <space>w y:Rg <C-R>0<CR>
-map W :Rg <C-R><C-W><CR>
+nmap W :Rg <C-R><C-W><CR>
+nmap E cpiw<space>p
+vmap E cp<space>p
 
 
 " ==================================================== Vim multiple cursors mapping
@@ -615,6 +617,7 @@ map <space>gg :Git
 map <space>gl :Glog<CR>
 map <space>g0l :0Glog<CR>
 map <space>gd :Gdiff 
+map <space>g3d :Gvdiffsplit!<CR>
 map <space>gpr :Ggrep 
 map <space>gr :Gread! 
 map <space>gw :Gwrite<CR>
