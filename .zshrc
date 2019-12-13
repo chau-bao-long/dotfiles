@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.  export ZSH=/home/framgia/.oh-my-zsh # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/ # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="trapd00r"
+ZSH_THEME="jnrowe"
 
 plugins=(
   git
@@ -32,6 +32,8 @@ export LC_ALL=en_US.UTF-8
 export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+export GPG_TTY=`tty`
 
 # Add android PATH
 export ANDROID_HOME=$HOME/Android/Sdk
@@ -194,7 +196,8 @@ fo() {
 # search content and open file
 fg() {
   if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
-  rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
+  filepath=$(rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}")
+  [[ -n "$filepath" ]] && ${EDITOR:-vim} "${filepath[@]}"
 }
 
 # search and kill proccess
@@ -268,4 +271,32 @@ wific() {
 
 # show system info at terminal startup
 neofetch
-export GPG_TTY=`tty`
+
+# Change Cursor Shape for Zsh Vi-mode
+# http://micahelliott.com/posts/2015-07-20-vim-zsh-tmux-cursor.html
+zle-line-init () {
+  zle -K viins
+  echo -ne "\033]12;Gray\007"
+  echo -ne "\033[4 q"
+}
+zle -N zle-line-init
+zle-keymap-select () {
+  if [[ $KEYMAP == vicmd ]]; then
+    if [[ -z $TMUX ]]; then
+      printf "\033]12;Green\007"
+      printf "\033[2 q"
+    else
+      printf "\033Ptmux;\033\033]12;red\007\033\\"
+      printf "\033Ptmux;\033\033[2 q\033\\"
+    fi
+  else
+    if [[ -z $TMUX ]]; then
+      printf "\033]12;Grey\007"
+      printf "\033[4 q"
+    else
+      printf "\033Ptmux;\033\033]12;grey\007\033\\"
+      printf "\033Ptmux;\033\033[4 q\033\\"
+    fi
+  fi
+}
+zle -N zle-keymap-select
