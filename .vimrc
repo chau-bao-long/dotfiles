@@ -304,8 +304,8 @@ nmap <space>; :BLines<CR>
 nmap <space>w :Rg<CR>
 vmap <space>w y:Rg <C-R>0<CR>
 nmap W :Rg <C-R><C-W><CR>
-nmap E cpiw<space>p
-vmap E cp<space>p
+nmap Q cpiw<space>p
+vmap Q cp<space>p
 
 
 " ==================================================== Vim multiple cursors mapping
