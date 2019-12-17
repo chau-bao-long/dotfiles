@@ -306,6 +306,7 @@ vmap <space>w y:Rg <C-R>0<CR>
 nmap W :Rg <C-R><C-W><CR>
 nmap Q cpiw<space>p
 vmap Q cp<space>p
+nmap co :let @+=expand("%:t")<CR>
 
 
 " ==================================================== Vim multiple cursors mapping
@@ -495,10 +496,10 @@ nmap _ gT
 nmap <space>- :tabnew<CR><space>f
 nmap <space>v :vs<CR><C-w>l<space>f
 nmap <space>x :split<CR><C-w>j<space>f
-map <space><S-l> <C-w>35>
-map <space><S-h> <C-w>35<
-map <space><S-k> <C-w>25+
-map <space><S-j> <C-w>25-
+map <space>H <C-w>35>
+map <space>L <C-w>35<
+map <space>K <C-w>25+
+map <space>J <C-w>25-
 map <space>= <C-w>=
 nmap <script> <silent> <space>3 :copen 1000<CR><s-g>
 nmap <script> <silent> <space>2 :call ToggleQuickfixList()<CR>
@@ -542,8 +543,8 @@ nmap <space>er :e<cr>
 nmap <space>iu mf:UltiSnipsEdit<cr>
 nmap zp :call GotoJump()<cr>
 nmap <space>tm <c-w>T
-nmap <space>h1 :tabnew ~/bin/personio.api<cr>
-nmap <space>h2 :tabnew ~/bin/admin-panel.api<cr>
+nmap <space>eh1 :tabnew ~/bin/personio.api<cr>
+nmap <space>eh2 :tabnew ~/bin/admin-panel.api<cr>
 nmap <space>ew yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
 nmap <space>eW yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0 && sleep 9999<cr>
 vmap <space>ew y:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
@@ -683,20 +684,25 @@ autocmd Filetype kotlin vmap <buffer> <space>ej y:exec "Dispatch ~/Projects/pers
 autocmd Filetype kotlin vmap <buffer> <space>eJ y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
 autocmd Filetype kotlin nmap <buffer> <space>eu :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4]<CR>
 autocmd Filetype kotlin nmap <buffer> <space>eU :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4]<CR>
-autocmd Filetype kotlin nmap <buffer> <space>gi :Rg override fun <C-R><C-W><CR><CR>
+autocmd Filetype kotlin nmap <buffer> <space>gi :Rg override fun <C-R><C-W><CR>
 autocmd Filetype kotlin nmap <buffer> <space>gt :exec "Rg " . expand('%:t:r') . "Test"<CR>
 autocmd Filetype kotlin nmap <buffer> <space>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<CR>
-autocmd Filetype kotlin nmap <buffer> <space>il yiwggjo<esc>pA<c-space>
+autocmd Filetype kotlin nmap <buffer> <space>il yiwggjo<esc>pA<c-space><tab><esc>zo
 autocmd Filetype kotlin nmap <buffer> <space>is "1yiw<c-]>ggwvE"2y<c-o><c-o>ggjoimport <esc>"2pA.<esc>"1p<c-o>
 autocmd Filetype kotlin nmap <buffer> <space>ip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| sed 's/kotlin\.//g' \| sed 's/^/package /' >> %<CR>:e!<CR>
 autocmd Filetype kotlin nmap <buffer> <space>elc :Dispatch ktlint<cr>
 autocmd Filetype kotlin nmap <buffer> <space>elf :Dispatch! ktlint -F<cr>
+autocmd Filetype kotlin nmap <buffer> <leader>gt :Files<cr>test
+autocmd Filetype kotlin nmap <buffer> <leader>ga :Files<cr>actions
+autocmd Filetype kotlin nmap <buffer> <leader>gr :Files<cr>respositories
+autocmd Filetype kotlin nmap <buffer> <leader>ge :Files<cr>endpoints
+autocmd Filetype kotlin nmap <buffer> <leader>gf :Files<cr>factories
 
 " PHP commands
 autocmd Filetype php nmap <buffer> <space>ip :!echo "<?php" >> % && echo "" >> % && echo %:h \| sed 's/\//\\/g' \| sed 's/^/namespace /' \| sed 's/$/; /' >> %<CR>:e!<CR>2jwvUGo<CR>
 autocmd Filetype php nmap <buffer> <space>is "1yiw<c-]>gg2jwvEh"2y<c-o><c-o>gg3jouse <esc>"2pA\<esc>"1pA;<esc><c-o>
 autocmd Filetype php nmap <buffer> <space>io yiwgg3jouse <esc>pA;<esc><c-o>
-autocmd Filetype php nmap <buffer> <space>il yiwgg3jo<esc>pASnip<c-space>
+autocmd Filetype php nmap <buffer> <space>il yiwgg3jo<esc>pASnip<c-space><tab><esc>zo<esc>
 autocmd Filetype php nmap <buffer> <space>ep /public function<cr>Nwwvey:!echo phpunit % --filter <c-r>0 > ~/bin/current-cmd<cr>:Dispatch phpunit % --filter <c-r>0<cr>
 autocmd Filetype php nmap <buffer> <space>eP :Dispatch phpunit %<cr>
 autocmd Filetype php nmap <buffer> <space>gt :exec "Rg " . expand('%:t:r') . "Test"<cr>
@@ -706,3 +712,4 @@ autocmd Filetype php nmap <buffer> <leader>gc :Rg controllers<cr>
 autocmd Filetype php nmap <buffer> <leader>gm :Rg models<cr>
 autocmd Filetype php nmap <buffer> <leader>gd :Rg repositories<cr>
 autocmd Filetype php nmap <buffer> <leader>gs :Rg services<cr>
+autocmd Filetype php nmap <buffer> <leader>gt :Rg test<cr>

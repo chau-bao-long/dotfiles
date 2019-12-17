@@ -1,0 +1,15 @@
+source ~/.vimide
+
+" refer action list here:
+" https://gist.github.com/zchee/9c78f91cc5ad771c1f5d
+
+nmap <space>da :action Debug<cr>
+nmap <space>ca :action CloseAllEditorsButActive<cr>
+nmap <space>vs :source ~/.ideavimrc<cr>
+nmap s :action AceAction<cr>?
+nmap <space>p :action GotoFile<CR>
+nmap <leader>c :action GotoClass<CR>
+nmap <leader>s :action GotoSymbol<CR>
+nmap <leader>p :action RecentFiles<CR>
+nmap zo :action Back<CR>
+nmap zi :action Forward<CR>
