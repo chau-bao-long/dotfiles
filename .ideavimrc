@@ -5,7 +5,7 @@ source ~/.vimide
 
 nmap <space>da :action Debug<cr>
 nmap <space>ca :action CloseAllEditorsButActive<cr>
-nmap <space>vs :source ~/.ideavimrc<cr>
+nmap <space>vr :source ~/.ideavimrc<cr>
 nmap s :action AceAction<cr>?
 nmap <space>p :action GotoFile<CR>
 nmap <leader>c :action GotoClass<CR>
@@ -13,3 +13,11 @@ nmap <leader>s :action GotoSymbol<CR>
 nmap <leader>p :action RecentFiles<CR>
 nmap zo :action Back<CR>
 nmap zi :action Forward<CR>
+nmap <F2> :action StepOver<cr>
+nmap <F3> :action StepInto<cr>
+nmap <F4> :action StepOut<cr>
+nmap <F5> :action Resume<cr>
+nmap <F6> :action Stop<cr>
+nmap <F10> :action ToggleLineBreakpoint<cr>
+nmap <space>dj :action EvaluateExpression<cr>
+vmap <space>dj :action EvaluateExpression<cr>
