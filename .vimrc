@@ -682,12 +682,12 @@ autocmd Filetype kotlin nmap <buffer> <space>ek :Dispatch! ~/Projects/personio/a
 autocmd Filetype kotlin nmap <buffer> <space>eK :Dispatch ~/Projects/personio/admin-panel-service/run.sh reload<cr>
 autocmd Filetype kotlin nmap <buffer> <space>ec :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew clean<cr>
 autocmd Filetype kotlin nmap <buffer> <space>eb :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew build<cr>
-autocmd Filetype kotlin nmap <buffer> <space>ej /@Test<cr>Njwvt(y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\*"<cr>
-autocmd Filetype kotlin nmap <buffer> <space>eJ /@Test<cr>Njwvt(y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\*"<cr>
+autocmd Filetype kotlin nmap <buffer> <space>ej /@Test<cr>Njwvt(y:exec "Dispatch echo \"~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>eq
+autocmd Filetype kotlin nmap <buffer> <space>eJ /@Test<cr>Njwvt(y:exec "Dispatch echo \"~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>eq
 autocmd Filetype kotlin vmap <buffer> <space>ej y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
 autocmd Filetype kotlin vmap <buffer> <space>eJ y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
-autocmd Filetype kotlin nmap <buffer> <space>eu :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4]<CR>
-autocmd Filetype kotlin nmap <buffer> <space>eU :exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4]<CR>
+autocmd Filetype kotlin nmap <buffer> <space>eu :exec "Dispatch echo ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . " > ~/bin/current-cmd"<cr><space>eq
+autocmd Filetype kotlin nmap <buffer> <space>eU :exec "Dispatch echo ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . " > ~/bin/current-cmd"<cr><space>eq
 autocmd Filetype kotlin nmap <buffer> <space>gi :Rg override fun <C-R><C-W><CR>
 autocmd Filetype kotlin nmap <buffer> <space>gt :exec "Rg " . expand('%:t:r') . "Test"<CR>
 autocmd Filetype kotlin nmap <buffer> <space>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<CR>
