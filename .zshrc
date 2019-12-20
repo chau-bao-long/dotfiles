@@ -265,7 +265,7 @@ export KEYTIMEOUT=1
 wifi() {
   if [ $1 = 'on' ]; then
     networksetup -setairportpower en0 on
-  elif [$1 = 'off' ]; then
+  elif [ $1 = 'off' ]; then
     networksetup -setairportpower en0 off
   fi
 }
