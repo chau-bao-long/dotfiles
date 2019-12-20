@@ -689,8 +689,9 @@ autocmd Filetype kotlin vmap <buffer> <space>eJ y:exec "Dispatch ~/Projects/pers
 autocmd Filetype kotlin nmap <buffer> <space>eu :exec "Dispatch echo ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . " > ~/bin/current-cmd"<cr><space>eq
 autocmd Filetype kotlin nmap <buffer> <space>eU :exec "Dispatch echo ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . " > ~/bin/current-cmd"<cr><space>eq
 autocmd Filetype kotlin nmap <buffer> <space>gi :Rg override fun <C-R><C-W><CR>
+autocmd Filetype kotlin nmap <buffer> <space>gI :exec "/I" . expand('%:t:r')<CR>n<c-]>
 autocmd Filetype kotlin nmap <buffer> <space>gt :exec "Rg " . expand('%:t:r') . "Test"<CR>
-autocmd Filetype kotlin nmap <buffer> <space>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<CR>
+autocmd Filetype kotlin nmap <buffer> <space>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<CR>class
 autocmd Filetype kotlin nmap <buffer> <space>il yiwggjo<esc>pA<c-space><tab><esc>zo
 autocmd Filetype kotlin nmap <buffer> <space>is "1yiw<c-]>ggwvE"2y<c-o><c-o>ggjoimport <esc>"2pA.<esc>"1p<c-o>
 autocmd Filetype kotlin nmap <buffer> <space>ip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| sed 's/kotlin\.//g' \| sed 's/^/package /' >> %<CR>:e!<CR>
@@ -710,7 +711,7 @@ autocmd Filetype php nmap <buffer> <space>il yiwgg3jo<esc>pASnip<c-space><tab><e
 autocmd Filetype php nmap <buffer> <space>ep /public function<cr>Nwwvey:!echo phpunit % --filter <c-r>0 > ~/bin/current-cmd<cr>:Dispatch phpunit % --filter <c-r>0<cr>
 autocmd Filetype php nmap <buffer> <space>eP :Dispatch phpunit %<cr>
 autocmd Filetype php nmap <buffer> <space>gt :exec "Rg " . expand('%:t:r') . "Test"<cr>
-autocmd Filetype php nmap <buffer> <space>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<cr>
+autocmd Filetype php nmap <buffer> <space>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<cr>class
 autocmd Filetype php nmap <buffer> <leader>gr :Rg route<cr>
 autocmd Filetype php nmap <buffer> <leader>gc :Rg controllers<cr>
 autocmd Filetype php nmap <buffer> <leader>gm :Rg models<cr>
