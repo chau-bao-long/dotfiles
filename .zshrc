@@ -245,6 +245,11 @@ fgs() {
 FZF-EOF"
 }
 
+# frequently used commands
+c() {
+  eval $(cat ~/frequently-used-commands | fzf-tmux) 
+}
+
 # lazy load
 loadnode() {
   export NVM_DIR="/Users/chau.bao.long/.nvm"

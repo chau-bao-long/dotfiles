@@ -4,13 +4,7 @@ let g:airline_powerline_fonts = 1
 set t_Co=256
 let g:airline_theme='deus'
 let g:gruvbox_contrast_dark='hard'
-" colorscheme darkest-space
-" colorscheme py-darcula
-" colorscheme deep-space
-" colorscheme jellybeans
-" colorscheme zerg
 colorscheme gruvbox
-
 
 " ==================================================== Plugin Config
 call plug#begin('~/.vim/plugged')
@@ -92,13 +86,11 @@ set hidden
 syntax on
 set nohlsearch
 
-
 " ==================================================== Turn Off Swap Files
 set noswapfile
 set nobackup
 set nowritebackup
 set nowb
-
 
 " ==================================================== Persistent Undo
 " Keep undo history across sessions, by storing in file.
@@ -108,7 +100,6 @@ if has('persistent_undo') && isdirectory(expand('~').'/.vim/backups')
   set undodir=~/.vim/backups
   set undofile
 endif
-
 
 " ==================================================== Indentation
 set autoindent
@@ -157,19 +148,16 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
-
 " ==================================================== Scrolling
 set scrolloff=3         "Start scrolling when we're 3 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
-
 
 " ==================================================== Search
 set incsearch       " Find the next match as we type the search
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 " set noignorecase      " Respect case sensitive when searching...
-
 
 " ==================================================== The Silver Searcher
 if executable('ag')
@@ -185,7 +173,6 @@ endif
 
 " bind K to grep word under cursor
 "nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
 
 " ==================================================== CtrlSF configuration
 let g:ctrlsf_auto_focus = {
@@ -206,7 +193,6 @@ inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 nnoremap K :CtrlSF <C-R><C-W><CR>
 vmap K <Plug>CtrlSFVwordExec
-
 
 " ==================================================== Ctags
 function CtagsRubyIncludeLib()
@@ -260,7 +246,6 @@ map <space>cJ :call CtagsJS()<CR>
 map <space>ch :call CtagsPHP()<CR>
 map <space>ck :call CtagsKotlin()<CR>
 
-
 " ==================================================== Fuzzy Finder
 " This is the default extra key bindings
 let g:fzf_action = {
@@ -308,7 +293,6 @@ nmap Q cpiw<space>p
 vmap Q cp<space>p
 nmap co :let @+=expand("%:t")<CR>
 
-
 " ==================================================== Vim multiple cursors mapping
 let g:multi_cursor_use_default_mapping = 0
 let g:multi_cursor_start_word_key =  '<C-m>m'
@@ -319,7 +303,6 @@ let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
-
 
 " ================ ALE ===============================
 let g:ale_linters = {
@@ -341,7 +324,6 @@ let g:ale_echo_msg_format = '%linter% says %s'
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
 nmap <leader>at :ALEToggle<CR>
-
 
 " ==================================================== COC
 set guicursor=n:blinkon1
@@ -450,7 +432,6 @@ nnoremap <silent> <space>ar  :CocRestart<CR>
 " Coc info
 nnoremap <silent> <space>ai  :CocInfo<CR>
 
-
 " ==================================================== Session management
 let g:session_directory = "~/.vim/session"
 let g:session_autoload = "no"
@@ -461,7 +442,6 @@ nnoremap <tab>s :SaveSession
 nnoremap <tab>d :DeleteSession<CR>
 nnoremap <tab>c :CloseSession<CR>
 
-
 " ==================================================== Better motion
 map s <Plug>Sneak_s
 map <space>s <Plug>Sneak_S
@@ -470,11 +450,9 @@ map F <Plug>Sneak_F
 map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 
-
 " ==================================================== Better copy/paste behavior
 set pastetoggle=<space>4
 xnoremap p "_dP
-
 
 " ==================================================== Ranger
 let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree
@@ -488,11 +466,9 @@ nmap <space>ze :tabnew ~/.zshrc<CR>
 nmap <space>te :tabnew ~/.tmux.conf.local<CR>
 nmap <space>vr :source ~/.vimrc<CR>
 
-
 " ==================================================== Goyo
 nmap zy :Goyo 280x850%<CR>
 nmap zu :Goyo!<CR>
-
 
 " ==================================================== My custom mapping
 nmap - gt
@@ -607,16 +583,6 @@ map <space>etp :Dispatch terraform plan<CR>
 map <space>eta :Dispatch terraform apply<CR>
 map <space>etd :Dispatch terraform destroy<CR>
 
-" Rspec
-map <space>ef :call RunCurrentSpecFile()<CR>
-map <space>ee :call RunNearestSpec()<CR>
-map <space>et :call RunLastSpec()<CR>
-map <space>ea :call RunAllSpecs()<CR>
-
-" let g:rspec_command = "!spring rspec {spec}"
-" let g:rspec_command = "Dispatch rspec {spec}"
-let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
-
 " Git
 map <space>gg :Git 
 map <space>gl :Glog<CR>
@@ -669,6 +635,13 @@ map <space>dl :VBGevalSelectedText<CR>
 autocmd BufWritePost ~/Projects/algorithm/*.c :Dispatch gcc % && ./a.out
 autocmd BufWritePost ~/suckless/*/*.h :Dispatch sudo make clean install
 
+" Ruby commands
+let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
+autocmd Filetype ruby nmap <buffer> <space>ef :call RunCurrentSpecFile()<CR>
+autocmd Filetype ruby nmap <buffer> <space>ee :call RunNearestSpec()<CR>
+autocmd Filetype ruby nmap <buffer> <space>et :call RunLastSpec()<CR>
+autocmd Filetype ruby nmap <buffer> <space>ea :call RunAllSpecs()<CR>
+
 " JavaScript commands
 autocmd Filetype javascript nmap <buffer> <space>elp :Dispatch! cd %:p:h && prettier --write **/*.*<cr>
 autocmd Filetype javascript nmap <buffer> <space>elP :Dispatch! prettier --write **/*.*<cr>
@@ -678,16 +651,16 @@ autocmd Filetype javascript nmap <buffer> <space>elf :Dispatch eslint --fix --ma
 autocmd Filetype javascript nmap <buffer> <space>elf :Dispatch pwd \| xargs eslint --fix --max-warnings 7 <cr>
 
 " Kotlin commands
+autocmd Filetype kotlin nmap <buffer> <space>ee /@Test<cr>Njwvt(y:exec "Dispatch echo \"~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>eq
+autocmd Filetype kotlin nmap <buffer> <space>eE /@Test<cr>Njwvt(y:exec "Dispatch echo \"~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>eq
+autocmd Filetype kotlin vmap <buffer> <space>ee y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
+autocmd Filetype kotlin vmap <buffer> <space>eE y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
+autocmd Filetype kotlin nmap <buffer> <space>ef :exec "Dispatch echo ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . " > ~/bin/current-cmd"<cr><space>eq
+autocmd Filetype kotlin nmap <buffer> <space>eF :exec "Dispatch echo ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . " > ~/bin/current-cmd"<cr><space>eq
 autocmd Filetype kotlin nmap <buffer> <space>ek :Dispatch! ~/Projects/personio/admin-panel-service/run.sh reload<cr>
 autocmd Filetype kotlin nmap <buffer> <space>eK :Dispatch ~/Projects/personio/admin-panel-service/run.sh reload<cr>
 autocmd Filetype kotlin nmap <buffer> <space>ec :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew clean<cr>
 autocmd Filetype kotlin nmap <buffer> <space>eb :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew build<cr>
-autocmd Filetype kotlin nmap <buffer> <space>ej /@Test<cr>Njwvt(y:exec "Dispatch echo \"~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>eq
-autocmd Filetype kotlin nmap <buffer> <space>eJ /@Test<cr>Njwvt(y:exec "Dispatch echo \"~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>eq
-autocmd Filetype kotlin vmap <buffer> <space>ej y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
-autocmd Filetype kotlin vmap <buffer> <space>eJ y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
-autocmd Filetype kotlin nmap <buffer> <space>eu :exec "Dispatch echo ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . " > ~/bin/current-cmd"<cr><space>eq
-autocmd Filetype kotlin nmap <buffer> <space>eU :exec "Dispatch echo ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . " > ~/bin/current-cmd"<cr><space>eq
 autocmd Filetype kotlin nmap <buffer> <space>gi :Rg override fun <C-R><C-W><CR>
 autocmd Filetype kotlin nmap <buffer> <space>gI :exec "/I" . expand('%:t:r')<CR>n<c-]>
 autocmd Filetype kotlin nmap <buffer> <space>gt :exec "Rg " . expand('%:t:r') . "Test"<CR>
@@ -704,12 +677,12 @@ autocmd Filetype kotlin nmap <buffer> <leader>ge :Files<cr>endpoints
 autocmd Filetype kotlin nmap <buffer> <leader>gf :Files<cr>factories
 
 " PHP commands
+autocmd Filetype php nmap <buffer> <space>ee /public function<cr>Nwwvey:!echo phpunit % --filter <c-r>0 > ~/bin/current-cmd<cr>:Dispatch phpunit % --filter <c-r>0<cr>
+autocmd Filetype php nmap <buffer> <space>eE :Dispatch phpunit %<cr>
 autocmd Filetype php nmap <buffer> <space>ip :!echo "<?php" >> % && echo "" >> % && echo %:h \| sed 's/\//\\/g' \| sed 's/^/namespace /' \| sed 's/$/; /' >> %<CR>:e!<CR>2jwvUGo<CR>
 autocmd Filetype php nmap <buffer> <space>is "1yiw<c-]>gg2jwvEh"2y<c-o><c-o>gg3jouse <esc>"2pA\<esc>"1pA;<esc><c-o>
 autocmd Filetype php nmap <buffer> <space>io yiwgg3jouse <esc>pA;<esc><c-o>
 autocmd Filetype php nmap <buffer> <space>il yiwgg3jo<esc>pASnip<c-space><tab><esc>zo<esc>
-autocmd Filetype php nmap <buffer> <space>ep /public function<cr>Nwwvey:!echo phpunit % --filter <c-r>0 > ~/bin/current-cmd<cr>:Dispatch phpunit % --filter <c-r>0<cr>
-autocmd Filetype php nmap <buffer> <space>eP :Dispatch phpunit %<cr>
 autocmd Filetype php nmap <buffer> <space>gt :exec "Rg " . expand('%:t:r') . "Test"<cr>
 autocmd Filetype php nmap <buffer> <space>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<cr>class
 autocmd Filetype php nmap <buffer> <leader>gr :Rg route<cr>

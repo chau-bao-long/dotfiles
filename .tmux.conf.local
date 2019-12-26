@@ -286,6 +286,8 @@ bind -n M-c kill-pane
 bind -n M-m resize-pane -Z
 bind -n -r M-i previous-window
 bind -n -r M-o next-window
+bind -T prefix - split-window -h -c "${pane_current_path}"
+bind -T prefix _ split-window -c "${pane_current_path}"
 
 # tmux-resurrect
 run-shell ~/.tmux/plugins/tmux-resurrect/resurrect.tmux
