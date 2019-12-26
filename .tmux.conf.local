@@ -286,8 +286,7 @@ bind -n M-c kill-pane
 bind -n M-m resize-pane -Z
 bind -n -r M-i previous-window
 bind -n -r M-o next-window
-bind -T prefix - split-window -h -c "${pane_current_path}"
-bind -T prefix _ split-window -c "${pane_current_path}"
+bind -T prefix \ split-window -h -c "${pane_current_path}"
 bind -T prefix e run-shell "sed -i '' -e '$ d' ~/local/current-cmd && echo $(cat ~/local/cmds | fzf-tmux) >> ~/local/current-cmd" \; send-keys ~/local/current-cmd Enter
 bind -T prefix r send-keys ~/local/current-cmd Enter
 
