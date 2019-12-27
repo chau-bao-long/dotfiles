@@ -287,8 +287,8 @@ bind -n M-m resize-pane -Z
 bind -n -r M-i previous-window
 bind -n -r M-o next-window
 bind -T prefix \ split-window -h -c "${pane_current_path}"
-bind -T prefix e run-shell "sed -i '' -e '$ d' ~/local/current-cmd && echo $(cat ~/local/cmds | fzf-tmux) >> ~/local/current-cmd" \; send-keys ~/local/current-cmd Enter
-bind -T prefix r send-keys ~/local/current-cmd Enter
+bind -T prefix e run-shell "sed -i '' -e '$ d' ~/bin/lastcmd && echo $(cat ~/local/cmds | fzf-tmux) >> ~/bin/lastcmd" \; send-keys lastcmd Enter
+bind -T prefix r send-keys lastcmd Enter
 
 # tmux-resurrect
 run-shell ~/.tmux/plugins/tmux-resurrect/resurrect.tmux
