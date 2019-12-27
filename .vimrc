@@ -292,6 +292,7 @@ nmap W :Rg <C-R><C-W><CR>
 nmap Q cpiw<space>p
 vmap Q cp<space>p
 nmap co :let @+=expand("%:t")<CR>
+nmap cO :let @+=expand("%:p")[-32:]<CR>
 
 " ==================================================== Vim multiple cursors mapping
 let g:multi_cursor_use_default_mapping = 0
@@ -649,6 +650,8 @@ autocmd Filetype javascript nmap <buffer> <space>elc :Dispatch eslint %:p:h<cr>
 autocmd Filetype javascript nmap <buffer> <space>elC :Dispatch pwd \| xargs eslint<cr>
 autocmd Filetype javascript nmap <buffer> <space>elf :Dispatch eslint --fix --max-warnings 7 %:p:h<cr>
 autocmd Filetype javascript nmap <buffer> <space>elf :Dispatch pwd \| xargs eslint --fix --max-warnings 7 <cr>
+autocmd Filetype javascript nmap <buffer> <space>ef :Dispatch ./node_modules/.bin/jest % && sleep 9999<cr>:!tmux swap-pane -D \; select-pane -U<cr>
+autocmd Filetype javascript nmap <buffer> <space>eF :Dispatch node --inspect-brk --inspect ./node_modules/.bin/jest --runInBand %<cr>
 
 " Kotlin commands
 autocmd Filetype kotlin nmap <buffer> <space>ee /@Test<cr>Njwvt(y:exec "Dispatch echo \"~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>eq
