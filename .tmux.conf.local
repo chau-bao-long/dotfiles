@@ -286,9 +286,10 @@ bind -n M-c kill-pane
 bind -n M-m resize-pane -Z
 bind -n -r M-i previous-window
 bind -n -r M-o next-window
-bind -T prefix \ split-window -h -c "${pane_current_path}"
-bind -T prefix n run-shell "sed -i '' -e '$ d' ~/bin/lastcmd && echo $(cat ~/local/cmds | fzf-tmux) >> ~/bin/lastcmd" \; send-keys lastcmd Enter
-bind -T prefix e send-keys lastcmd Enter
+bind-key -T prefix \ split-window -h -c "${pane_current_path}"
+bind-key -T prefix n run-shell "sed -i '' -e '$ d' ~/bin/lastcmd && echo $(cat ~/local/cmds | fzf-tmux) >> ~/bin/lastcmd" \; send-keys Escape ilastcmd Enter Escape u
+bind-key -T prefix b run-shell "sed -i '' -e '$ d' ~/bin/lastcmd && echo $(cat ~/local/cmds | fzf-tmux) >> ~/bin/lastcmd" \; send-keys Escape :Dispatch! ' ' lastcmd Enter \; run-shell "sleep 0.5" \; swap-pane -D \; select-pane -U
+bind-key -T prefix m split-window 'lastcmd'
 
 # tmux-resurrect
 run-shell ~/.tmux/plugins/tmux-resurrect/resurrect.tmux
