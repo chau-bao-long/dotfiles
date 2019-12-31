@@ -36,6 +36,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-vdebug/vdebug'
 Plug 'idanarye/vim-vebugger', {'branch': 'develop'}
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Ruby on Rails plugins
 Plug 'tpope/vim-rails'
@@ -128,15 +129,14 @@ set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
 
 " ==================================================== Folds
-
 set foldmethod=indent   "fold based on indent
 set foldnestmax=5       "deepest fold is 5 levels
 set nofoldenable        "dont fold by default
 
 " ==================================================== Completion
-
-set wildmode=list:longest
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildoptions+=pum
+set wildmenu
+set wildmode=longest:full,full
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set wildignore+=*vim/backups*
 set wildignore+=*sass-cache*
@@ -347,7 +347,6 @@ let g:fzf_action = {
 " Default fzf layout
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~40%' , 'window': 'call FloatingFZF()' }
-" let g:fzf_layout = { 'up': '~50%' }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -366,9 +365,6 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 " Enable per-command history.
-" CTRL-N and CTRL-P will be automatically bound to next-history and
-" previous-history instead of down and up. If you don't like the change,
-" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " Finder mapping
@@ -390,6 +386,109 @@ nmap Q cpiw<space>p
 vmap Q cp<space>p
 nmap co :let @+=expand("%:t")<CR>
 nmap cO :let @+=expand("%:p")[-32:]<CR>
+
+" ==================================================== Denite
+let s:denite_options = {
+            \ 'prompt' : '>',
+            \ 'split': 'floating',
+            \ 'start_filter': 1,
+            \ 'auto_resize': 1,
+            \ 'source_names': 'short',
+            \ 'direction': 'botright',
+            \ 'highlight_filter_background': 'CursorLine',
+            \ 'highlight_matched_char': 'Type',
+            \ }
+
+call denite#custom#option('default', s:denite_options)
+
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+    nnoremap <silent><buffer><expr> <CR>
+                \ denite#do_map('do_action')
+    nnoremap <silent><buffer><expr> d
+                \ denite#do_map('do_action', 'delete')
+    nnoremap <silent><buffer><expr> <c-t>
+                \ denite#do_map('do_action', 'tabopen')
+    nnoremap <silent><buffer><expr> <c-v>
+                \ denite#do_map('do_action', 'vsplit')
+    nnoremap <silent><buffer><expr> <c-x>
+                \ denite#do_map('do_action', 'split')
+    nnoremap <silent><buffer><expr> p
+                \ denite#do_map('do_action', 'preview')
+    nnoremap <silent><buffer><expr> q
+                \ denite#do_map('quit')
+    nnoremap <silent><buffer><expr> i
+                \ denite#do_map('open_filter_buffer')
+    nnoremap <silent><buffer><expr> V
+                \ denite#do_map('toggle_select').'j'
+endfunction
+
+autocmd FileType denite-filter call s:denite_filter_my_settings()
+function! s:denite_filter_my_settings() abort
+    imap <silent><buffer> <tab> <Plug>(denite_filter_quit)
+    inoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
+    inoremap <silent><buffer><expr> <c-t>
+                \ denite#do_map('do_action', 'tabopen')
+    inoremap <silent><buffer><expr> <c-v>
+                \ denite#do_map('do_action', 'vsplit')
+    inoremap <silent><buffer><expr> <c-x>
+                \ denite#do_map('do_action', 'split')
+    inoremap <silent><buffer><expr> <esc>
+                \ denite#do_map('quit')
+    inoremap <silent><buffer> <C-j>
+                \ <Esc><C-w>p:call cursor(line('.')+1,0)<CR><C-w>pA
+    inoremap <silent><buffer> <C-k>
+                \ <Esc><C-w>p:call cursor(line('.')-1,0)<CR><C-w>pA
+endfunction
+
+" Change matchers.
+call denite#custom#source(
+            \ 'file_mru', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
+call denite#custom#source(
+            \ 'file/rec', 'matchers', ['matcher/cpsm'])
+
+" Change sorters.
+call denite#custom#source(
+            \ 'file/rec', 'sorters', ['sorter/sublime'])
+
+" Ripgrep command on grep source
+call denite#custom#var('grep', 'command', ['rg'])
+call denite#custom#var('grep', 'default_opts',
+		\ ['-i', '--vimgrep', '--no-heading'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+
+" Add custom menus
+let s:menus = {}
+let s:menus.dotfiles = {
+	\ 'description': 'Config any dot files'
+	\ }
+let s:menus.dotfiles.file_candidates = [
+	\ ['zsh', '~/.zshrc'],
+    \ ['vim', '~/.vimrc'],
+    \ ['tmux', '~/.tmux.conf.local'],
+	\ ]
+let s:menus.commands = {
+	\ 'description': 'Frequently used commands'
+	\ }
+let s:menus.commands.command_candidates = [
+	\ ['Split the window', 'vnew'],
+	\ ['Open zsh menu', 'Denite menu:dotfiles'],
+	\ ['Format code', 'FormatCode', 'go,python'],
+	\ ]
+let s:menus.kotlin = {
+    \ 'description': 'Kolin project commands'
+    \ }
+let s:menus.kotlin.command_candidates = [
+    \ ['ktlint', 'Dispatch ktlint'],
+    \ ['ktfix', 'Dispatch! ktlint -F'],
+    \ ]
+
+call denite#custom#var('menu', 'menus', s:menus)
+
+nmap <space>m :Denite menu<cr>
 
 " ==================================================== Vim multiple cursors mapping
 let g:multi_cursor_use_default_mapping = 0
