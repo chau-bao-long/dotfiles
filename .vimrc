@@ -389,7 +389,7 @@ nmap cO :let @+=expand("%:p")[-32:]<CR>
 
 " ==================================================== Denite
 let s:denite_options = {
-            \ 'prompt' : '>',
+            \ 'prompt' : '🔑',
             \ 'split': 'floating',
             \ 'start_filter': 1,
             \ 'auto_resize': 1,
@@ -397,6 +397,7 @@ let s:denite_options = {
             \ 'direction': 'botright',
             \ 'highlight_filter_background': 'CursorLine',
             \ 'highlight_matched_char': 'Type',
+            \ 'filter-split-direction': 'floating',
             \ }
 
 call denite#custom#option('default', s:denite_options)
@@ -463,27 +464,43 @@ call denite#custom#var('grep', 'final_opts', [])
 " Add custom menus
 let s:menus = {}
 let s:menus.dotfiles = {
-	\ 'description': 'Config any dot files'
+	\ 'description': '🔆 Config any dot files'
 	\ }
 let s:menus.dotfiles.file_candidates = [
-	\ ['zsh', '~/.zshrc'],
-    \ ['vim', '~/.vimrc'],
-    \ ['tmux', '~/.tmux.conf.local'],
+	\ ['🔆 zsh', '~/.zshrc'],
+    \ ['🔆 vim', '~/.vimrc'],
+    \ ['🔆 tmux', '~/.tmux.conf.local'],
+    \ ['🔆 gitconfig', '~/.gitconfig'],
 	\ ]
+let s:menus.binfiles = {
+    \ 'description': '📄 Access bin files'
+    \ }
+let s:menus.binfiles.file_candidates = [
+    \ ['📄 currentcmd', '~/bin/current-cmd'],
+    \ ['📄 personio', '~/bin/personio.api'],
+    \ ['📄 adminpanel', '~/bin/admin-panel.api'],
+    \ ]
+let s:menus.directories = {
+	\ 'description': '📂 Frequently used directories'
+	\ }
+let s:menus.directories.directory_candidates = [
+    \ ['📂 vimplugin', '~/.vim/plugged/'],
+    \ ['📂 config', '~/.config/'],
+    \ ]
 let s:menus.commands = {
-	\ 'description': 'Frequently used commands'
+	\ 'description': '💾 Frequently used commands'
 	\ }
 let s:menus.commands.command_candidates = [
-	\ ['Split the window', 'vnew'],
-	\ ['Open zsh menu', 'Denite menu:dotfiles'],
-	\ ['Format code', 'FormatCode', 'go,python'],
+	\ ['💾 Split the window', 'vnew'],
+	\ ['💾 Open zsh menu', 'Denite menu:dotfiles'],
+	\ ['💾 Format code', 'FormatCode', 'go,python'],
 	\ ]
 let s:menus.kotlin = {
-    \ 'description': 'Kolin project commands'
+    \ 'description': '💾 Kolin project commands'
     \ }
 let s:menus.kotlin.command_candidates = [
-    \ ['ktlint', 'Dispatch ktlint'],
-    \ ['ktfix', 'Dispatch! ktlint -F'],
+    \ ['💾 ktlint', 'Dispatch ktlint'],
+    \ ['💾 ktfix', 'Dispatch! ktlint -F'],
     \ ]
 
 call denite#custom#var('menu', 'menus', s:menus)
@@ -660,8 +677,6 @@ map <space>f :Ranger<CR>
 map <space>tn :RangerNewTab<CR>
 nmap <space>td :tabnew ~/todo<CR>
 nmap <space>ve :tabnew ~/.vimrc<CR>
-nmap <space>ze :tabnew ~/.zshrc<CR>
-nmap <space>te :tabnew ~/.tmux.conf.local<CR>
 nmap <space>vr :source ~/.vimrc<CR>
 
 " ==================================================== Goyo
@@ -723,8 +738,6 @@ nmap <space>er :e<cr>
 nmap <space>iu mf:UltiSnipsEdit<cr>
 nmap zp :call GotoJump()<cr>
 nmap <space>tm <c-w>T
-nmap <space>eh1 :tabnew ~/bin/personio.api<cr>
-nmap <space>eh2 :tabnew ~/bin/admin-panel.api<cr>
 nmap <space>ew yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
 nmap <space>eW yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0 && sleep 9999<cr>
 vmap <space>ew y:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
