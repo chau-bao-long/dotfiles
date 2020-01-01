@@ -669,10 +669,8 @@ nmap zy :Goyo 280x850%<CR>
 nmap zu :Goyo!<CR>
 
 " ==================================================== My custom mapping
-nmap <esc>9 :tabprevious<cr>
-nmap <esc>0 :tabnext<cr>
-nmap ( :tabprevious<cr>
-nmap ) :tabnext<cr>
+nmap z9 :tabprevious<cr>
+nmap z0 :tabnext<cr>
 nmap <space>- :tabnew<CR><space>f
 nmap <space>v :vs<CR><C-w>l<space>f
 nmap <space>x :split<CR><C-w>j<space>f
