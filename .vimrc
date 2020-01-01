@@ -37,6 +37,7 @@ Plug 'vim-vdebug/vdebug'
 Plug 'idanarye/vim-vebugger', {'branch': 'develop'}
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'airblade/vim-gitgutter'
 
 " Ruby on Rails plugins
 Plug 'tpope/vim-rails'
@@ -134,7 +135,6 @@ set foldnestmax=5       "deepest fold is 5 levels
 set nofoldenable        "dont fold by default
 
 " ==================================================== Completion
-set wildoptions+=pum
 set wildmenu
 set wildmode=longest:full,full
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
@@ -489,6 +489,7 @@ let s:menus.kotlin.command_candidates = [
 call denite#custom#var('menu', 'menus', s:menus)
 
 nmap <space>m :Denite menu<cr>
+nmap <space>] :Denite 
 
 " ==================================================== Vim multiple cursors mapping
 let g:multi_cursor_use_default_mapping = 0
@@ -668,8 +669,10 @@ nmap zy :Goyo 280x850%<CR>
 nmap zu :Goyo!<CR>
 
 " ==================================================== My custom mapping
-nmap - gt
-nmap _ gT
+nmap <esc>9 :tabprevious<cr>
+nmap <esc>0 :tabnext<cr>
+nmap ( :tabprevious<cr>
+nmap ) :tabnext<cr>
 nmap <space>- :tabnew<CR><space>f
 nmap <space>v :vs<CR><C-w>l<space>f
 nmap <space>x :split<CR><C-w>j<space>f
@@ -684,10 +687,12 @@ nnoremap <space>h <C-w>h
 nnoremap <space>j <C-w>j
 nnoremap <space>k <C-w>k
 nnoremap <space>l <C-w>l
-nnoremap 'w :wa!<CR>
-nnoremap 'q :wq<CR>
-nnoremap 'e :q!<CR>
-nnoremap 'r :edit!<CR>
+nmap 'w :wa!<CR>
+nmap 'q :wq<CR>
+nmap 'e :q!<CR>
+nmap 'r :edit!<CR>
+nmap 't :tabclose<cr>
+nmap '2 'e'e
 nmap zj <C-d>
 nmap zk <C-u>
 nmap zh <C-e><C-e><C-e><C-e><C-e>jjjjj
@@ -781,26 +786,32 @@ map <space>eta :Dispatch terraform apply<CR>
 map <space>etd :Dispatch terraform destroy<CR>
 
 " Git
-map <space>gg :Git 
-map <space>gl :Glog<CR>
-map <space>g0l :0Glog<CR>
-map <space>gd :Gdiff 
-map <space>g3d :Gvdiffsplit!<CR>
-map <space>gpr :Ggrep 
-map <space>gr :Gread! 
-map <space>gw :Gwrite<CR>
-map <space>gbl :Gblame<CR>
-map <space>gbr :Gbrowse<CR>
-map <space>gs :Gstatus<CR>
-map <space>ge :Gedit 
-map <space>gvs :Gvsplit<CR>
-map <space>gsp :Gsplit<CR>
-map <space>gca :Gcommit --amend<CR>
-map <space>gci :Gcommit<CR>
-map <space>gpu :Gpush<CR>
-map <space>gpf :Gpush -f<CR>
-map <space>gfo :Gfetch origin<CR>
-map <space>gpl :Gpull<CR>
+nmap <space>gg :Git 
+nmap <space>gl :Glog<cr>
+nmap <space>g0l :0Glog<cr>
+nmap <space>gd :Gdiff 
+nmap <space>g3d :Gvdiffsplit!<cr>
+nmap <space>gpr :Ggrep 
+nmap <space>gr :Gread! 
+nmap <space>gw :Gwrite<cr>
+nmap <space>gbl :Gblame<cr>
+nmap <space>gbr :Gbrowse<cr>
+nmap <space>gs :Gstatus<cr>
+nmap <space>ge :Gedit 
+nmap <space>gvs :Gvsplit<cr>
+nmap <space>gsp :Gsplit<cr>
+nmap <space>gca :Gcommit --amend<cr>
+nmap <space>gci :Gcommit<cr>
+nmap <space>gpu :Gpush<cr>
+nmap <space>gpf :Gpush -f<cr>
+nmap <space>gfo :Gfetch origin<cr>
+nmap <space>gpl :Gpull<cr>
+nmap <space>gz :GitGutterFold<cr>
+nmap <space>g0 :GitGutterToggle<cr>
+nmap <space>gh :GitGutterLineHighlightsToggle<cr>
+nmap <space>gj :GitGutterPreviewHunk<cr>
+nmap <space>g] 'tjO
+nmap <space>g[ 'tkO
 
 " Vdebug
 if !exists('g:vdebug_options')

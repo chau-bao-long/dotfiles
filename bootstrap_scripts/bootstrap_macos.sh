@@ -265,7 +265,6 @@ install_tool() {
     brew install mycli
     brew install bat
     brew install httpie
-    brew install icdiff
     success "Installed terminal search tool"
   fi
 }
