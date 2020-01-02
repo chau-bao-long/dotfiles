@@ -95,9 +95,12 @@ let s:menus.directories = {
             \ 'description': '📂 Frequently used directories'
             \ }
 let s:menus.directories.directory_candidates = [
-            \ ['📂 vimplugin', '~/.vim/plugged/'],
-            \ ['📂 vimconfig', '~/Projects/dotfiles/.vim/config/'],
-            \ ['📂 config', '~/.config/'],
+            \ ['📂 vim config', '~/Projects/dotfiles/.vim/config/'],
+            \ ['📂 vim filetype', '~/.vim/ftplugin/'],
+            \ ]
+let s:menus.directories.command_candidates = [
+            \ ['📂 vim plugin', 'tabnew ~/.vim/plugged/'],
+            \ ['📂 user config', 'tabnew ~/.config/'],
             \ ]
 let s:menus.commands = {
             \ 'description': '💾 Frequently used commands'
@@ -105,7 +108,6 @@ let s:menus.commands = {
 let s:menus.commands.command_candidates = [
             \ ['💾 Split the window', 'vnew'],
             \ ['💾 Open zsh menu', 'Denite menu:dotfiles'],
-            \ ['💾 Format code', 'FormatCode', 'go,python'],
             \ ]
 let s:menus.kotlin = {
             \ 'description': '💾 Kolin project commands'
@@ -153,4 +155,4 @@ nmap <space>mj :Denite menu:js<cr>
 nmap <space>mk :Denite menu:kotlin<cr>
 nmap <space>mp :Denite menu:php<cr>
 nmap <space>mc :Denite menu:ctags<cr>
-nmap <space>md :Denite 
+nmap <space>md :Denite menu:directories<cr>

@@ -85,6 +85,8 @@ let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 
 " ==================================================== General Config
+filetype plugin indent on
+
 set nocompatible              " be iMproved, required filetype off
 " set number                      "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
@@ -277,70 +279,3 @@ endfunction
 " Auto commands
 autocmd BufWritePost ~/Projects/algorithm/*.c :Dispatch gcc % && ./a.out
 autocmd BufWritePost ~/suckless/*/*.h :Dispatch sudo make clean install
-
-" Terraform 
-map <space>etp :Dispatch terraform plan<CR>
-map <space>eta :Dispatch terraform apply<CR>
-map <space>etd :Dispatch terraform destroy<CR>
-
-" Ruby commands
-let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
-autocmd Filetype ruby nmap <buffer> <space>ef :call RunCurrentSpecFile()<CR>
-autocmd Filetype ruby nmap <buffer> <space>ee :call RunNearestSpec()<CR>
-autocmd Filetype ruby nmap <buffer> <space>et :call RunLastSpec()<CR>
-autocmd Filetype ruby nmap <buffer> <space>ea :call RunAllSpecs()<CR>
-autocmd Filetype ruby nmap <buffer> <space>elc :Dispatch rubocop --require rubocop-airbnb -a<CR> 
-
-" JavaScript commands
-autocmd Filetype javascript nmap <buffer> <space>elp :Dispatch! cd %:p:h && prettier --write **/*.*<cr>
-autocmd Filetype javascript nmap <buffer> <space>elP :Dispatch! prettier --write **/*.*<cr>
-autocmd Filetype javascript nmap <buffer> <space>elc :Dispatch eslint %:p:h<cr>
-autocmd Filetype javascript nmap <buffer> <space>elC :Dispatch pwd \| xargs eslint<cr>
-autocmd Filetype javascript nmap <buffer> <space>elf :Dispatch eslint --fix --max-warnings 7 %:p:h<cr>
-autocmd Filetype javascript nmap <buffer> <space>elf :Dispatch pwd \| xargs eslint --fix --max-warnings 7 <cr>
-autocmd Filetype javascript nmap <buffer> <space>ef :Dispatch ./node_modules/.bin/jest % && read<cr>:!tmux swap-pane -D \; select-pane -U<cr>
-autocmd Filetype javascript nmap <buffer> <space>eF :Dispatch node --inspect-brk --inspect ./node_modules/.bin/jest --runInBand %<cr>
-autocmd Filetype javascript nmap <buffer> <space>elt :Dispatch ./node_modules/.bin/flow %;read<cr>
-autocmd Filetype javascriptreact nmap <buffer> <space>elt :Dispatch ./node_modules/.bin/flow %;read<cr>
-
-" Kotlin commands
-autocmd Filetype kotlin nmap <buffer> <space>ee /@Test<cr>Njwvt(y:exec "Dispatch echo \"~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>eq
-autocmd Filetype kotlin nmap <buffer> <space>eE /@Test<cr>Njwvt(y:exec "Dispatch echo \"~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>eq
-autocmd Filetype kotlin vmap <buffer> <space>ee y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
-autocmd Filetype kotlin vmap <buffer> <space>eE y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
-autocmd Filetype kotlin nmap <buffer> <space>ef :exec "Dispatch echo ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . " > ~/bin/current-cmd"<cr><space>eq
-autocmd Filetype kotlin nmap <buffer> <space>eF :exec "Dispatch echo ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . " > ~/bin/current-cmd"<cr><space>eq
-autocmd Filetype kotlin nmap <buffer> <space>ek :Dispatch! ~/Projects/personio/admin-panel-service/run.sh reload<cr>
-autocmd Filetype kotlin nmap <buffer> <space>eK :Dispatch ~/Projects/personio/admin-panel-service/run.sh reload<cr>
-autocmd Filetype kotlin nmap <buffer> <space>ec :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew clean<cr>
-autocmd Filetype kotlin nmap <buffer> <space>eb :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew build<cr>
-autocmd Filetype kotlin nmap <buffer> <space>gi :Rg override fun <C-R><C-W><CR>
-autocmd Filetype kotlin nmap <buffer> <space>gI :exec "/I" . expand('%:t:r')<CR>n<c-]>
-autocmd Filetype kotlin nmap <buffer> <space>gt :exec "Rg " . expand('%:t:r') . "Test"<CR>
-autocmd Filetype kotlin nmap <buffer> <space>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<CR>class
-autocmd Filetype kotlin nmap <buffer> <space>il yiwggjo<esc>pA<c-space><tab><esc>zo
-autocmd Filetype kotlin nmap <buffer> <space>is "1yiw<c-]>ggwvE"2y<c-o><c-o>ggjoimport <esc>"2pA.<esc>"1p<c-o>
-autocmd Filetype kotlin nmap <buffer> <space>ip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| sed 's/kotlin\.//g' \| sed 's/^/package /' >> %<CR>:e!<CR>
-autocmd Filetype kotlin nmap <buffer> <space>elc :Dispatch ktlint<cr>
-autocmd Filetype kotlin nmap <buffer> <space>elf :Dispatch! ktlint -F<cr>
-autocmd Filetype kotlin nmap <buffer> <leader>gt :Files<cr>test
-autocmd Filetype kotlin nmap <buffer> <leader>ga :Files<cr>actions
-autocmd Filetype kotlin nmap <buffer> <leader>gr :Files<cr>respositories
-autocmd Filetype kotlin nmap <buffer> <leader>ge :Files<cr>endpoints
-autocmd Filetype kotlin nmap <buffer> <leader>gf :Files<cr>factories
-
-" PHP commands
-autocmd Filetype php nmap <buffer> <space>ee /public function<cr>Nwwvey:!echo phpunit % --filter <c-r>0 > ~/bin/current-cmd<cr>:Dispatch phpunit % --filter <c-r>0<cr>
-autocmd Filetype php nmap <buffer> <space>eE :Dispatch phpunit %<cr>
-autocmd Filetype php nmap <buffer> <space>ip :!echo "<?php" >> % && echo "" >> % && echo %:h \| sed 's/\//\\/g' \| sed 's/^/namespace /' \| sed 's/$/; /' >> %<CR>:e!<CR>2jwvUGo<CR>
-autocmd Filetype php nmap <buffer> <space>is "1yiw<c-]>gg2jwvEh"2y<c-o><c-o>gg3jouse <esc>"2pA\<esc>"1pA;<esc><c-o>
-autocmd Filetype php nmap <buffer> <space>io yiwgg3jouse <esc>pA;<esc><c-o>
-autocmd Filetype php nmap <buffer> <space>il yiwgg3jo<esc>pASnip<c-space><tab><esc>zo<esc>
-autocmd Filetype php nmap <buffer> <space>gt :exec "Rg " . expand('%:t:r') . "Test"<cr>
-autocmd Filetype php nmap <buffer> <space>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<cr>class
-autocmd Filetype php nmap <buffer> <leader>gr :Rg route<cr>
-autocmd Filetype php nmap <buffer> <leader>gc :Rg controllers<cr>
-autocmd Filetype php nmap <buffer> <leader>gm :Rg models<cr>
-autocmd Filetype php nmap <buffer> <leader>gd :Rg repositories<cr>
-autocmd Filetype php nmap <buffer> <leader>gs :Rg services<cr>
-autocmd Filetype php nmap <buffer> <leader>gt :Rg test<cr>
