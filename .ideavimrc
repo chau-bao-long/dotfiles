@@ -21,3 +21,5 @@ nmap <F6> :action Stop<cr>
 nmap <F10> :action ToggleLineBreakpoint<cr>
 nmap <space>dj :action EvaluateExpression<cr>
 vmap <space>dj :action EvaluateExpression<cr>
+nmap gk gT
+nmap gj gt

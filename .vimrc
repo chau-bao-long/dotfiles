@@ -502,11 +502,21 @@ let s:menus.kotlin.command_candidates = [
     \ ['💾 ktlint', 'Dispatch ktlint'],
     \ ['💾 ktfix', 'Dispatch! ktlint -F'],
     \ ]
+let s:menus.js = {
+    \ 'description': '💾 Javascript project commands'
+    \ }
+let s:menus.js.command_candidates = [
+    \ ['💾 flow current file', 'Dispatch ./node_modules/.bin/flow %;read'],
+    \ ['💾 eslint current file', 'Dispatch eslint %:p:h'],
+    \ ['💾 eslint all file', 'Dispatch pwd | xargs eslint'],
+    \ ]
 
 call denite#custom#var('menu', 'menus', s:menus)
 
-nmap <space>m :Denite menu<cr>
-nmap <space>o :Denite 
+nmap <space>mm :Denite menu<cr>
+nmap <space>mj :Denite menu:js<cr>
+nmap <space>mk :Denite menu:kotlin<cr>
+nmap <space>md :Denite 
 
 " ==================================================== Vim multiple cursors mapping
 let g:multi_cursor_use_default_mapping = 0
@@ -684,8 +694,8 @@ nmap zy :Goyo 280x850%<CR>
 nmap zu :Goyo!<CR>
 
 " ==================================================== My custom mapping
-nmap z9 :tabprevious<cr>
-nmap z0 :tabnext<cr>
+nmap gk :tabprevious<cr>
+nmap gj :tabnext<cr>
 nmap <space>- :tabnew<CR><space>f
 nmap <space>v :vs<CR><C-w>l<space>f
 nmap <space>x :split<CR><C-w>j<space>f
@@ -818,7 +828,7 @@ nmap <space>gpf :Gpush -f<cr>
 nmap <space>gfo :Gfetch origin<cr>
 nmap <space>gpl :Gpull<cr>
 nmap <space>gz :GitGutterFold<cr>
-nmap <space>g0 :GitGutterToggle<cr>
+nmap <space>g- :GitGutterToggle<cr>
 nmap <space>gh :GitGutterLineHighlightsToggle<cr>
 nmap <space>gj :GitGutterPreviewHunk<cr>
 nmap <space>g] 'tjO

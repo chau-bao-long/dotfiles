@@ -92,6 +92,7 @@ alias grs="git reset"
 alias grsh="git reset --hard"
 alias grss="git reset --soft"
 grsr() { git reset --hard HEAD@{$1} }
+grsn() { git reset HEAD~$1 }
 
 # search shortcut
 alias sa="s -p amazon"
