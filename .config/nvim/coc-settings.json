@@ -1,0 +1,13 @@
+{
+  "python.jediPath": "/Users/topcbl/.pyenv/versions/3.7.2/lib/python3.7/site-packages/",
+  "languageserver": {
+    "kotlin": {
+      "command": "~/Projects/kotlin-language-server/server/build/install/server/bin/kotlin-language-server",
+      "filetypes": ["kotlin"]
+    }
+  },
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.errorSign": "⛄",
+  "diagnostic.infoSign": "ℹ",
+  "diagnostic.hintSign": "✏"
+}

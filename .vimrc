@@ -501,6 +501,7 @@ let s:menus.kotlin = {
 let s:menus.kotlin.command_candidates = [
     \ ['💾 ktlint', 'Dispatch ktlint'],
     \ ['💾 ktfix', 'Dispatch! ktlint -F'],
+    \ ['💾 run all test', 'Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info'],
     \ ]
 let s:menus.js = {
     \ 'description': '💾 Javascript project commands'
