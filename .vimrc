@@ -1,11 +1,3 @@
-" ==================================================== Theme
-set background=dark
-let g:airline_powerline_fonts = 1
-set t_Co=256
-let g:airline_theme='deus'
-let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
-
 " ==================================================== Plugin Config
 call plug#begin('~/.vim/plugged')
 
@@ -67,6 +59,31 @@ Plug 'jparise/vim-graphql'
 
 call plug#end()
 
+" ==================================================== Config plugin
+source ~/Projects/dotfiles/.vim/config/float-term.vim
+source ~/Projects/dotfiles/.vim/config/fzf.vim
+source ~/Projects/dotfiles/.vim/config/ctrlfs.vim
+source ~/Projects/dotfiles/.vim/config/ctags.vim
+source ~/Projects/dotfiles/.vim/config/denite.vim
+source ~/Projects/dotfiles/.vim/config/multicursor.vim
+source ~/Projects/dotfiles/.vim/config/ale.vim
+source ~/Projects/dotfiles/.vim/config/coc.vim
+source ~/Projects/dotfiles/.vim/config/session.vim
+source ~/Projects/dotfiles/.vim/config/sneak.vim
+source ~/Projects/dotfiles/.vim/config/ranger.vim
+source ~/Projects/dotfiles/.vim/config/goyo.vim
+source ~/Projects/dotfiles/.vim/config/tree.vim
+source ~/Projects/dotfiles/.vim/config/git.vim
+source ~/Projects/dotfiles/.vim/config/debug.vim
+
+" ==================================================== Theme
+set background=dark
+let g:airline_powerline_fonts = 1
+set t_Co=256
+let g:airline_theme='deus'
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
+
 " ==================================================== General Config
 set nocompatible              " be iMproved, required filetype off
 " set number                      "Line numbers are good
@@ -123,9 +140,6 @@ nnoremap P P=`]
 filetype plugin on
 filetype indent on
 
-" Display tabs and trailing spaces visually
-"set list listchars=tab:\ \ ,trail:·
-
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
 
@@ -159,542 +173,7 @@ set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 " set noignorecase      " Respect case sensitive when searching...
 
-" ==================================================== The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
-
-" bind K to grep word under cursor
-"nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
-" ==================================================== CtrlSF configuration
-let g:ctrlsf_auto_focus = {
-    \ "at": "start"
-    \ }
-let g:ctrlsf_auto_close = {
-    \ "normal" : 1,
-    \ "compact": 1
-    \}
-nmap     <C-F>f <Plug>CtrlSFPrompt
-vmap     <C-F>f <Plug>CtrlSFVwordPath
-vmap     <C-F>F <Plug>CtrlSFVwordExec
-nmap     <C-F>n <Plug>CtrlSFCwordPath
-nmap     <C-F>p <Plug>CtrlSFPwordPath
-nnoremap <C-F>o :CtrlSFOpen<CR>
-nnoremap <C-F>t :CtrlSFToggle<CR>
-inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
-
-nnoremap K :CtrlSF <C-R><C-W><CR>
-vmap K <Plug>CtrlSFVwordExec
-
-" ==================================================== Ctags
-function CtagsRubyIncludeLib()
-  call GoBackToRoot()
-  Dispatch! ctags -R --languages=Ruby --exclude=.git --exclude=log . $(bundle list --paths)
-endfunction
-
-function CtagsRuby()
-  call GoBackToRoot()
-  Dispatch! ctags -R --languages=Ruby --exclude=.git --exclude=log .
-endfunction
-
-function CtagsJSIncludeLib()
-  call GoBackToRoot()
-  Dispatch! ctags -R --languages=JavaScript --exclude=.git --exclude=dist --exclude=log .
-endfunction
-
-function CtagsJS()
-  call GoBackToRoot()
-  Dispatch! ctags -R --languages=JavaScript --exclude=.git --exclude=log --exclude=node_modules --exclude=dist .
-endfunction
-
-function CtagsPythonIncludeLib()
-  call GoBackToRoot()
-  Dispatch! ctags -R --languages=Python --exclude=.git --exclude=log . $(pip show pip | grep Location | cut -d ":" -f 2)
-endfunction
-
-function CtagsPython()
-  call GoBackToRoot()
-  Dispatch! ctags -R --languages=Python --exclude=.git --exclude=log .
-endfunction
-
-function CtagsPHP()
-  call GoBackToRoot()
-  Dispatch! ctags -R --languages=PHP --exclude=.git --exclude=log .
-endfunction
-
-function CtagsKotlin()
-  call GoBackToRoot()
-  Dispatch! ctags -R --languages=kotlin --exclude=.git --exclude=log --exclude=.gradle --exclude=.gradle-home --exclude=data .
-endfunction
-
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <leader><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-map <space>cr :call CtagsRubyIncludeLib()<CR>
-map <space>cR :call CtagsRuby()<CR>
-map <space>cp :call CtagsPythonIncludeLib()<CR>
-map <space>cP :call CtagsPython()<CR>
-map <space>cj :call CtagsJSIncludeLib()<CR>
-map <space>cJ :call CtagsJS()<CR>
-map <space>ch :call CtagsPHP()<CR>
-map <space>ck :call CtagsKotlin()<CR>
-
-" ==================================================== Float Term
-let s:float_term_border_win = 0
-let s:float_term_win = 0
-
-function! FloatTerm(...)
-  " Configuration
-  let height = float2nr((&lines - 2) * 0.6)
-  let row = float2nr((&lines - height) / 2)
-  let width = float2nr(&columns * 0.6)
-  let col = float2nr((&columns - width) / 2)
-  " Border Window
-  let border_opts = {
-        \ 'relative': 'editor',
-        \ 'row': row - 1,
-        \ 'col': col - 2,
-        \ 'width': width + 4,
-        \ 'height': height + 2,
-        \ 'style': 'minimal'
-        \ }
-  " Terminal Window
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': row,
-        \ 'col': col,
-        \ 'width': width,
-        \ 'height': height,
-        \ 'style': 'minimal'
-        \ }
-  let top = "╭" . repeat("─", width + 2) . "╮"
-  let mid = "│" . repeat(" ", width + 2) . "│"
-  let bot = "╰" . repeat("─", width + 2) . "╯"
-  let lines = [top] + repeat([mid], height) + [bot]
-  let bbuf = nvim_create_buf(v:false, v:true)
-  call nvim_buf_set_lines(bbuf, 0, -1, v:true, lines)
-  let s:float_term_border_win = nvim_open_win(bbuf, v:true, border_opts)
-  let buf = nvim_create_buf(v:false, v:true)
-  let s:float_term_win = nvim_open_win(buf, v:true, opts)
-  " Styling
-  call setwinvar(s:float_term_border_win, '&winhl', 'Normal:Normal')
-  call setwinvar(s:float_term_win, '&winhl', 'Normal:Normal')
-  if a:0 == 0
-    terminal
-  else
-    call termopen(a:1)
-  endif
-  startinsert
-  " Close border window when terminal window close
-  autocmd TermClose * ++once :bd! | call nvim_win_close(s:float_term_border_win, v:true)
-endfunction
-
-function! FloatingFZF()
-  let height = float2nr((&lines - 2) / 1.5)
-  let row = float2nr((&lines - height) / 2)
-  let width = float2nr(&columns / 1.5)
-  let col = float2nr((&columns - width) / 2)
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': row,
-        \ 'col': col,
-        \ 'width': width,
-        \ 'height':height,
-        \ }
-  " Border Window
-  let border_opts = {
-              \ 'relative': 'editor',
-              \ 'row': row - 1,
-              \ 'col': col - 2,
-              \ 'width': width + 4,
-              \ 'height': height + 2,
-              \ 'style': 'minimal'
-              \ }
-  let top = "╭" . repeat("─", width + 2) . "╮"
-  let mid = "│" . repeat(" ", width + 2) . "│"
-  let bot = "╰" . repeat("─", width + 2) . "╯"
-  let lines = [top] + repeat([mid], height) + [bot]
-  let bbuf = nvim_create_buf(v:false, v:true)
-  call nvim_buf_set_lines(bbuf, 0, -1, v:true, lines)
-  let s:float_term_border_win = nvim_open_win(bbuf, v:true, border_opts)
-  call setwinvar(s:float_term_border_win, '&winhl', 'Normal:Normal')
-
-  let buf = nvim_create_buf(v:false, v:true)
-  call setbufvar(buf, 'number', 'no')
-  let win =  nvim_open_win(buf, v:true, opts)
-  call setwinvar(win, '&number', 0)
-  call setwinvar(win, '&relativenumber', 0)
-  " Close border window when terminal window close
-  autocmd TermClose * ++once :bd! | call nvim_win_close(s:float_term_border_win, v:true)
-endfunction
-
-nnoremap <space>[ :call FloatTerm()<cr>
-
-" ==================================================== Fuzzy Finder
-" This is the default extra key bindings
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" Default fzf layout
-" - down / up / left / right
-let g:fzf_layout = { 'down': '~40%' , 'window': 'call FloatingFZF()' }
-
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" Enable per-command history.
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-
-" Finder mapping
-let g:rg_command="rg --column --line-number --no-heading --color=always --hidden --follow --glob '!.git/*' --smart-case "
-
-command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:80%'), <bang>0)
-command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, fzf#vim#with_preview('down:80%'), <bang>0)
-
-nmap <space>P :call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --cached'}))<CR>
-nmap <space>p :Files<CR>
-nmap <space>u :History<CR>
-nmap <space>b :Buffers<CR>
-nmap <space>c :Commands<CR>
-nmap <space>; :BLines<CR>
-nmap <space>w :Rg<CR>
-vmap <space>w y:Rg <C-R>0<CR>
-nmap W :Rg <C-R><C-W><CR>
-nmap Q cpiw<space>p
-vmap Q cp<space>p
-nmap co :let @+=expand("%:t")<CR>
-nmap cO :let @+=expand("%:p")[-32:]<CR>
-
-" ==================================================== Denite
-let s:denite_options = {
-            \ 'prompt' : '🔑',
-            \ 'split': 'floating',
-            \ 'start_filter': 1,
-            \ 'auto_resize': 1,
-            \ 'source_names': 'short',
-            \ 'direction': 'botright',
-            \ 'highlight_filter_background': 'CursorLine',
-            \ 'highlight_matched_char': 'Type',
-            \ 'filter-split-direction': 'floating',
-            \ }
-
-call denite#custom#option('default', s:denite_options)
-
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-    nnoremap <silent><buffer><expr> <CR>
-                \ denite#do_map('do_action')
-    nnoremap <silent><buffer><expr> d
-                \ denite#do_map('do_action', 'delete')
-    nnoremap <silent><buffer><expr> <c-t>
-                \ denite#do_map('do_action', 'tabopen')
-    nnoremap <silent><buffer><expr> <c-v>
-                \ denite#do_map('do_action', 'vsplit')
-    nnoremap <silent><buffer><expr> <c-x>
-                \ denite#do_map('do_action', 'split')
-    nnoremap <silent><buffer><expr> p
-                \ denite#do_map('do_action', 'preview')
-    nnoremap <silent><buffer><expr> q
-                \ denite#do_map('quit')
-    nnoremap <silent><buffer><expr> i
-                \ denite#do_map('open_filter_buffer')
-    nnoremap <silent><buffer><expr> V
-                \ denite#do_map('toggle_select').'j'
-endfunction
-
-autocmd FileType denite-filter call s:denite_filter_my_settings()
-function! s:denite_filter_my_settings() abort
-    imap <silent><buffer> <tab> <Plug>(denite_filter_quit)
-    inoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
-    inoremap <silent><buffer><expr> <c-t>
-                \ denite#do_map('do_action', 'tabopen')
-    inoremap <silent><buffer><expr> <c-v>
-                \ denite#do_map('do_action', 'vsplit')
-    inoremap <silent><buffer><expr> <c-x>
-                \ denite#do_map('do_action', 'split')
-    inoremap <silent><buffer><expr> <esc>
-                \ denite#do_map('quit')
-    inoremap <silent><buffer> <C-j>
-                \ <Esc><C-w>p:call cursor(line('.')+1,0)<CR><C-w>pA
-    inoremap <silent><buffer> <C-k>
-                \ <Esc><C-w>p:call cursor(line('.')-1,0)<CR><C-w>pA
-endfunction
-
-" Change matchers.
-call denite#custom#source(
-            \ 'file_mru', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
-call denite#custom#source(
-            \ 'file/rec', 'matchers', ['matcher/cpsm'])
-
-" Change sorters.
-call denite#custom#source(
-            \ 'file/rec', 'sorters', ['sorter/sublime'])
-
-" Ripgrep command on grep source
-call denite#custom#var('grep', 'command', ['rg'])
-call denite#custom#var('grep', 'default_opts',
-		\ ['-i', '--vimgrep', '--no-heading'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-
-" Add custom menus
-let s:menus = {}
-let s:menus.dotfiles = {
-	\ 'description': '🔆 Config any dot files'
-	\ }
-let s:menus.dotfiles.file_candidates = [
-	\ ['🔆 zsh', '~/.zshrc'],
-    \ ['🔆 vim', '~/.vimrc'],
-    \ ['🔆 tmux', '~/.tmux.conf.local'],
-    \ ['🔆 gitconfig', '~/.gitconfig'],
-	\ ]
-let s:menus.binfiles = {
-    \ 'description': '📄 Access bin files'
-    \ }
-let s:menus.binfiles.file_candidates = [
-    \ ['📄 currentcmd', '~/bin/current-cmd'],
-    \ ['📄 personio', '~/bin/personio.api'],
-    \ ['📄 adminpanel', '~/bin/admin-panel.api'],
-    \ ]
-let s:menus.directories = {
-	\ 'description': '📂 Frequently used directories'
-	\ }
-let s:menus.directories.directory_candidates = [
-    \ ['📂 vimplugin', '~/.vim/plugged/'],
-    \ ['📂 config', '~/.config/'],
-    \ ]
-let s:menus.commands = {
-	\ 'description': '💾 Frequently used commands'
-	\ }
-let s:menus.commands.command_candidates = [
-	\ ['💾 Split the window', 'vnew'],
-	\ ['💾 Open zsh menu', 'Denite menu:dotfiles'],
-	\ ['💾 Format code', 'FormatCode', 'go,python'],
-	\ ]
-let s:menus.kotlin = {
-    \ 'description': '💾 Kolin project commands'
-    \ }
-let s:menus.kotlin.command_candidates = [
-    \ ['💾 ktlint', 'Dispatch ktlint'],
-    \ ['💾 ktfix', 'Dispatch! ktlint -F'],
-    \ ['💾 run all test', 'Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info'],
-    \ ]
-let s:menus.js = {
-    \ 'description': '💾 Javascript project commands'
-    \ }
-let s:menus.js.command_candidates = [
-    \ ['💾 flow current file', 'Dispatch ./node_modules/.bin/flow %;read'],
-    \ ['💾 eslint current file', 'Dispatch eslint %:p:h'],
-    \ ['💾 eslint all file', 'Dispatch pwd | xargs eslint'],
-    \ ]
-
-call denite#custom#var('menu', 'menus', s:menus)
-
-nmap <space>mm :Denite menu<cr>
-nmap <space>mj :Denite menu:js<cr>
-nmap <space>mk :Denite menu:kotlin<cr>
-nmap <space>md :Denite 
-
-" ==================================================== Vim multiple cursors mapping
-let g:multi_cursor_use_default_mapping = 0
-let g:multi_cursor_start_word_key =  '<C-m>m'
-let g:multi_cursor_select_all_word_key = '<C-m>a'
-let g:multi_cursor_start_key           = 'g<C-n>'
-let g:multi_cursor_select_all_key      = 'g<A-n>'
-let g:multi_cursor_next_key            = '<C-n>'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
-
-" ================ ALE ===============================
-let g:ale_linters = {
-\  'javascript': ['eslint', 'flow'],
-\  'ruby': ['rubocop'],
-\  'kotlin': ['ktlint'],
-\}
-highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
-highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
-let g:ale_enabled = 0
-let g:ale_fix_on_save = 1
-let g:ale_sign_error = 'X' " could use emoji
-let g:ale_sign_warning = '?' " could use emoji
-let g:ale_statusline_format = ['X %d', '? %d', '']
-" %linter% is the name of the linter that provided the message
-" %s is the error or warning message
-let g:ale_echo_msg_format = '%linter% says %s'
-" Map keys to navigate between lines with errors and warnings.
-nnoremap <leader>an :ALENextWrap<cr>
-nnoremap <leader>ap :ALEPreviousWrap<cr>
-nmap <leader>at :ALEToggle<CR>
-
-" ==================================================== COC
-set guicursor=n:blinkon1
-set updatetime=300
-set shortmess+=c
-
-let g:coc_global_extensions = [
-   \'coc-ultisnips',
-   \'coc-tag',
-   \'coc-phpls',
-   \'coc-json',
-   \'coc-tsserver',
-   \'coc-css',
-   \'coc-html',
-   \'coc-solargraph',
-   \'coc-yaml',
-   \'coc-python',
-   \'coc-svg',
-   \'coc-flow'
-\]
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-nmap <silent> g[ <Plug>(coc-diagnostic-prev)
-nmap <silent> g] <Plug>(coc-diagnostic-next)
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Show documentation in preview window
-nnoremap <space>ad :call <SID>show_documentation()<CR>
-
-nnoremap <silent> <space>ay  :<C-u>CocList -A --normal yank<cr>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-" Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Create mappings for function text object, requires document symbols feature of languageserver.
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
-
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-" Using CocList
-" Show all diagnostics
-nnoremap <silent> <space>aa  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>ae  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <space>ac  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent> <space>ao  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <space>as  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>aj  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>ak  :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <space>ap  :<C-u>CocListResume<CR>
-" Restart coc
-nnoremap <silent> <space>ar  :CocRestart<CR>
-" Coc info
-nnoremap <silent> <space>ai  :CocInfo<CR>
-
-" ==================================================== Session management
-let g:session_directory = "~/.vim/session"
-let g:session_autoload = "no"
-let g:session_autosave = "no"
-let g:session_command_aliases = 1
-nnoremap <tab>o :OpenSession<CR>
-nnoremap <tab>s :SaveSession
-nnoremap <tab>d :DeleteSession<CR>
-nnoremap <tab>c :CloseSession<CR>
-
-" ==================================================== Better motion
-map s <Plug>Sneak_s
-map <space>s <Plug>Sneak_S
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
-
-" ==================================================== Better copy/paste behavior
-set pastetoggle=<space>4
-xnoremap p "_dP
-
-" ==================================================== Ranger
-let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree
-let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
-let g:ranger_map_keys = 0
-map <space>f :Ranger<CR>
-map <space>tn :RangerNewTab<CR>
-nmap <space>td :tabnew ~/todo<CR>
-nmap <space>ve :tabnew ~/.vimrc<CR>
-nmap <space>vr :source ~/.vimrc<CR>
-
-" ==================================================== Goyo
-nmap zy :Goyo 280x850%<CR>
-nmap zu :Goyo!<CR>
-
-" ==================================================== My custom mapping
+" ==================================================== Custom mapping
 nmap gk :tabprevious<cr>
 nmap gj :tabnext<cr>
 nmap <space>- :tabnew<CR><space>f
@@ -729,6 +208,14 @@ nmap mb 'F
 nmap mf mF
 nmap zi <C-i>
 nmap zo <C-o>
+nmap co :let @+=expand("%:t")<CR>
+nmap cO :let @+=expand("%:p")[-32:]<CR>
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <leader><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" Better copy/paste behavior
+set pastetoggle=<space>4
+xnoremap p "_dP
 
 " Miscellaneous
 map <space>cl :ts<CR>
@@ -787,85 +274,14 @@ function! GotoJump()
   endif
 endfunction
 
-" NerdTree & UndoTree
-map <space>n :NERDTreeToggle<CR>
-map <space>r :NERDTreeFind<CR>
-let NERDTreeQuitOnOpen = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let g:NERDTreeFileExtensionHighlightFullName = 1
-let g:NERDTreeExactMatchHighlightFullName = 1
-let g:NERDTreePatternMatchHighlightFullName = 1
-nnoremap <space>5 :UndotreeToggle<cr>
-
-" Linter
-map <Leader>cr :Dispatch rubocop --require rubocop-airbnb -a<CR>
-map <Leader>cj :Dispatch yarn lint --fix<CR>
+" Auto commands
+autocmd BufWritePost ~/Projects/algorithm/*.c :Dispatch gcc % && ./a.out
+autocmd BufWritePost ~/suckless/*/*.h :Dispatch sudo make clean install
 
 " Terraform 
 map <space>etp :Dispatch terraform plan<CR>
 map <space>eta :Dispatch terraform apply<CR>
 map <space>etd :Dispatch terraform destroy<CR>
-
-" Git
-nmap <space>gg :Git 
-nmap <space>gl :Glog<cr>
-nmap <space>g0l :0Glog<cr>
-nmap <space>gd :Gdiff 
-nmap <space>g3d :Gvdiffsplit!<cr>
-nmap <space>gpr :Ggrep 
-nmap <space>gr :Gread! 
-nmap <space>gw :Gwrite<cr>
-nmap <space>gbl :Gblame<cr>
-nmap <space>gbr :Gbrowse<cr>
-nmap <space>gs :Gstatus<cr>
-nmap <space>ge :Gedit 
-nmap <space>gvs :Gvsplit<cr>
-nmap <space>gsp :Gsplit<cr>
-nmap <space>gca :Gcommit --amend<cr>
-nmap <space>gci :Gcommit<cr>
-nmap <space>gpu :Gpush<cr>
-nmap <space>gpf :Gpush -f<cr>
-nmap <space>gfo :Gfetch origin<cr>
-nmap <space>gpl :Gpull<cr>
-nmap <space>gz :GitGutterFold<cr>
-nmap <space>g- :GitGutterToggle<cr>
-nmap <space>gh :GitGutterLineHighlightsToggle<cr>
-nmap <space>gj :GitGutterPreviewHunk<cr>
-nmap <space>g] 'tjO
-nmap <space>g[ 'tkO
-nmap <space>g, [c:GitGutterPreviewHunk<cr>
-nmap <space>g. ]c:GitGutterPreviewHunk<cr>
-
-" Vdebug
-if !exists('g:vdebug_options')
-    let g:vdebug_options = {}
-endif
-let g:vdebug_options.port = 9001
-nmap <space>de :VdebugEval 
-nmap <space>dt :VdebugTrace 
-vmap <space>de y:VdebugEval <C-R>0<CR>
-vmap <space>dt y:VdebugTrace <C-R>0<CR>
-
-" Vebugger
-map <space>da :call vebugger#jdb#attach('admin.dev.personio.de:30691', {'srcpath':['~/Projects/personio/admin-panel-service/app/src/test/kotlin']})<CR>:sleep 500m<CR>:VBGcontinue<CR>
-map <space>dA :call vebugger#jdb#attach('admin.dev.personio.de:30691', {'srcpath':['~/Projects/personio/admin-panel-service/app/src/main/kotlin']})<CR>:sleep 500m<CR>:VBGcontinue<CR>
-map <space>db :VBGtoggleBreakpointThisLine<CR>
-map <space>d2 :VBGstepOver<CR>
-map <space>d3 :VBGstepIn<CR>
-map <space>d4 :VBGstepOut<CR>
-map <space>d5 :VBGcontinue<CR>
-map <space>d6 :VBGkill<CR>
-map <space>d; :VBGtoggleTerminalBuffer<CR>
-map <space>dw :VBGrawWrite 
-map <space>ds :VBGrawWrite list<CR>
-map <space>dj :VBGeval 
-map <space>dk :VBGevalWordUnderCursor<CR>
-map <space>dl :VBGevalSelectedText<CR>
-
-" Auto commands
-autocmd BufWritePost ~/Projects/algorithm/*.c :Dispatch gcc % && ./a.out
-autocmd BufWritePost ~/suckless/*/*.h :Dispatch sudo make clean install
 
 " Ruby commands
 let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
@@ -873,6 +289,7 @@ autocmd Filetype ruby nmap <buffer> <space>ef :call RunCurrentSpecFile()<CR>
 autocmd Filetype ruby nmap <buffer> <space>ee :call RunNearestSpec()<CR>
 autocmd Filetype ruby nmap <buffer> <space>et :call RunLastSpec()<CR>
 autocmd Filetype ruby nmap <buffer> <space>ea :call RunAllSpecs()<CR>
+autocmd Filetype ruby nmap <buffer> <space>elc :Dispatch rubocop --require rubocop-airbnb -a<CR> 
 
 " JavaScript commands
 autocmd Filetype javascript nmap <buffer> <space>elp :Dispatch! cd %:p:h && prettier --write **/*.*<cr>
