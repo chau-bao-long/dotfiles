@@ -506,7 +506,7 @@ let s:menus.kotlin.command_candidates = [
 call denite#custom#var('menu', 'menus', s:menus)
 
 nmap <space>m :Denite menu<cr>
-nmap <space>] :Denite 
+nmap <space>o :Denite 
 
 " ==================================================== Vim multiple cursors mapping
 let g:multi_cursor_use_default_mapping = 0
@@ -739,11 +739,11 @@ nmap <space>iu mf:UltiSnipsEdit<cr>
 nmap zp :call GotoJump()<cr>
 nmap <space>tm <c-w>T
 nmap <space>ew yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
-nmap <space>eW yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0 && sleep 9999<cr>
+nmap <space>eW yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0 && read<cr>
 vmap <space>ew y:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
-vmap <space>eW y:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0 && sleep 9999<cr>
+vmap <space>eW y:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0 && read<cr>
 nmap <space>eq :Dispatch ~/bin/current-cmd<cr>
-nmap <space>eQ :Dispatch ~/bin/current-cmd && sleep 9999<cr>
+nmap <space>eQ :Dispatch ~/bin/current-cmd && read<cr>
 
 function GoBack()
   cd ..
@@ -823,6 +823,8 @@ nmap <space>gh :GitGutterLineHighlightsToggle<cr>
 nmap <space>gj :GitGutterPreviewHunk<cr>
 nmap <space>g] 'tjO
 nmap <space>g[ 'tkO
+nmap <space>g, [c:GitGutterPreviewHunk<cr>
+nmap <space>g. ]c:GitGutterPreviewHunk<cr>
 
 " Vdebug
 if !exists('g:vdebug_options')
@@ -868,8 +870,10 @@ autocmd Filetype javascript nmap <buffer> <space>elc :Dispatch eslint %:p:h<cr>
 autocmd Filetype javascript nmap <buffer> <space>elC :Dispatch pwd \| xargs eslint<cr>
 autocmd Filetype javascript nmap <buffer> <space>elf :Dispatch eslint --fix --max-warnings 7 %:p:h<cr>
 autocmd Filetype javascript nmap <buffer> <space>elf :Dispatch pwd \| xargs eslint --fix --max-warnings 7 <cr>
-autocmd Filetype javascript nmap <buffer> <space>ef :Dispatch ./node_modules/.bin/jest % && sleep 9999<cr>:!tmux swap-pane -D \; select-pane -U<cr>
+autocmd Filetype javascript nmap <buffer> <space>ef :Dispatch ./node_modules/.bin/jest % && read<cr>:!tmux swap-pane -D \; select-pane -U<cr>
 autocmd Filetype javascript nmap <buffer> <space>eF :Dispatch node --inspect-brk --inspect ./node_modules/.bin/jest --runInBand %<cr>
+autocmd Filetype javascript nmap <buffer> <space>elt :Dispatch ./node_modules/.bin/flow %;read<cr>
+autocmd Filetype javascriptreact nmap <buffer> <space>elt :Dispatch ./node_modules/.bin/flow %;read<cr>
 
 " Kotlin commands
 autocmd Filetype kotlin nmap <buffer> <space>ee /@Test<cr>Njwvt(y:exec "Dispatch echo \"~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>eq
