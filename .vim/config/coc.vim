@@ -100,6 +100,6 @@ nnoremap <silent> <space>ak  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>ap  :<C-u>CocListResume<CR>
 " Restart coc
-nnoremap <silent> <space>ar  :CocRestart<CR>
+nnoremap <silent> <space>ar  :CocDisable<cr>:sleep 1<cr>:CocEnable<cr>
 " Coc info
 nnoremap <silent> <space>ai  :CocInfo<CR>

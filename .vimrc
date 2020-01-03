@@ -212,8 +212,12 @@ nmap zi <C-i>
 nmap zo <C-o>
 nmap co :let @+=expand("%:t")<CR>
 nmap cO :let @+=expand("%:p")[-32:]<CR>
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <leader><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nmap ca :let @+=expand("%:p")<CR>
+nmap cu viwcp
+nmap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+nmap <leader><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nmap gv :vs<cr><c-w>lgd
+nmap gs :tabnew<cr>zogd
 
 " Better copy/paste behavior
 set pastetoggle=<space>4
