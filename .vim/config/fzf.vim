@@ -32,16 +32,19 @@ let g:rg_command="rg --column --line-number --no-heading --color=always --hidden
 
 command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:80%'), <bang>0)
 command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, fzf#vim#with_preview('down:80%'), <bang>0)
+command! -bang -nargs=* MRU call fzf#vim#history(fzf#vim#with_preview())
 
-nmap <space>P :call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --cached'}))<CR>
-nmap <space>p :Files<CR>
-nmap <space>u :History<CR>
-nmap <space>b :Buffers<CR>
-nmap <space>cm :Commands<CR>
-nmap <space>ck :Maps<CR>
-nmap <space>; :BLines<CR>
-nmap <space>w :Rg<CR>
-vmap <space>w y:Rg <C-R>0<CR>
-nmap W :Rg <C-R><C-W><CR>
+nmap <space>P :call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --cached'}))<cr>
+nmap <space>p :Files<cr>
+nmap <space>y :History<cr>
+nmap <space>u :MRU<cr>
+nmap <space>b :Buffers<cr>
+nmap <space>cm :Commands<cr>
+nmap <space>ck :Maps<cr>
+nmap <space>; :BLines<cr>
+nmap <space>w :Rg<cr>
+vmap <space>w y:Rg <C-R>0<cr>
+nmap <space>ch :Helptags<cr>
+nmap W :Rg <c-r><c-w><cr>
 nmap Q cpiw<space>p
 vmap Q cp<space>p

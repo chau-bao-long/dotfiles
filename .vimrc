@@ -63,7 +63,6 @@ call plug#end()
 source ~/Projects/dotfiles/.vim/config/float-term.vim
 source ~/Projects/dotfiles/.vim/config/fzf.vim
 source ~/Projects/dotfiles/.vim/config/ctrlfs.vim
-source ~/Projects/dotfiles/.vim/config/ctags.vim
 source ~/Projects/dotfiles/.vim/config/denite.vim
 source ~/Projects/dotfiles/.vim/config/multicursor.vim
 source ~/Projects/dotfiles/.vim/config/ale.vim
@@ -229,7 +228,7 @@ map <space>c] :tn<CR>
 map <space>c[ :tp<CR>
 imap zbt <Esc>a``<Esc>i
 imap zbs <Esc>a```<Esc>i
-nnoremap <leader>bd :bufdo bd<CR>
+nmap <space>cb :bufdo bd<CR>
 nmap <space>8 :pwd<CR>
 nmap <space>7 :call GoToCurrentFile()<CR>
 nmap <space>9 :call GoBack()<CR>
