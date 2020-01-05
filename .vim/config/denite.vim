@@ -85,6 +85,9 @@ let s:menus.dotfiles.file_candidates = [
             \ ['🔆 gitconfig', '~/.gitconfig'],
             \ ['🔆 coc-setting', '~/.config/nvim/coc-settings.json'],
             \ ]
+let s:menus.dotfiles.command_candidates = [
+            \ ['🔆 dotfiles project', 'tabnew ~/Projects/dotfiles'],
+            \ ]
 let s:menus.binfiles = {
             \ 'description': '📄 Access bin files'
             \ }
