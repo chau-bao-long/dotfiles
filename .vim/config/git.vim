@@ -1,8 +1,8 @@
 nmap <space>gg :Git 
 nmap <space>gl :Glog<cr>
 nmap <space>g0l :0Glog<cr>
-nmap <space>gd :Gdiff 
-nmap <space>g3d :Gvdiffsplit!<cr>
+nmap <space>gdd :Gdiff 
+nmap <space>gds :Gvdiffsplit!<cr>
 nmap <space>gpr :Ggrep 
 nmap <space>gr :Gread! 
 nmap <space>gw :Gwrite<cr>
