@@ -111,7 +111,7 @@ let s:menus.commands = {
             \ 'description': '💾 Frequently used commands'
             \ }
 let s:menus.commands.command_candidates = [
-            \ ['💾 Split the window', 'vnew'],
+            \ ['💾 Edit snippet', 'UltiSnipsEdit'],
             \ ['💾 Open zsh menu', 'Denite menu:dotfiles'],
             \ ]
 let s:menus.kotlin = {

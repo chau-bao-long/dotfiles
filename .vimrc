@@ -1,6 +1,7 @@
 " ==================================================== Plugin Config
 call plug#begin('~/.vim/plugged')
 
+" General plugins
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/goyo.vim'
 Plug 'mbbill/undotree'
@@ -30,6 +31,7 @@ Plug 'idanarye/vim-vebugger', {'branch': 'develop'}
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
+Plug 'luochen1990/rainbow'
 
 " Ruby on Rails plugins
 Plug 'tpope/vim-rails'
@@ -59,7 +61,7 @@ Plug 'jparise/vim-graphql'
 
 call plug#end()
 
-" ==================================================== Config plugin
+" ==================================================== Config Plugin
 source ~/Projects/dotfiles/.vim/config/float-term.vim
 source ~/Projects/dotfiles/.vim/config/fzf.vim
 source ~/Projects/dotfiles/.vim/config/ctrlfs.vim
@@ -74,6 +76,10 @@ source ~/Projects/dotfiles/.vim/config/goyo.vim
 source ~/Projects/dotfiles/.vim/config/tree.vim
 source ~/Projects/dotfiles/.vim/config/git.vim
 source ~/Projects/dotfiles/.vim/config/debug.vim
+
+" ==================================================== Minor Plugin Config
+nmap <space>iu mf:UltiSnipsEdit<cr>
+let g:rainbow_active = 1
 
 " ==================================================== Theme
 set background=dark
@@ -178,8 +184,8 @@ set smartcase       " ...unless we type a capital
 nmap gk :tabprevious<cr>
 nmap gj :tabnext<cr>
 nmap <space>- :tabnew<CR><space>f
-nmap <space>v :vs<CR><C-w>l<space>f
-nmap <space>x :split<CR><C-w>j<space>f
+nmap <space>vv :vs<CR><C-w>l<space>f
+nmap <space>xx :split<CR><C-w>j<space>f
 map <space>H <C-w>35>
 map <space>L <C-w>35<
 map <space>K <C-w>25+
@@ -238,7 +244,6 @@ nmap g= :tabm +1<CR>
 vmap / y:/<C-R>0<CR>
 nmap <space>e= ggvG=<C-o>
 nmap <space>er :e<cr>
-nmap <space>iu mf:UltiSnipsEdit<cr>
 nmap zp :call GotoJump()<cr>
 nmap <space>tm <c-w>T
 nmap <space>ew yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
