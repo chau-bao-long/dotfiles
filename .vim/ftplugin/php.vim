@@ -1,5 +1,5 @@
 nmap <space>ee /public function<cr>Nwwvey:!echo phpunit % --filter <c-r>0 > ~/bin/current-cmd<cr>:Dispatch phpunit % --filter <c-r>0<cr>
-nmap <space>eE :Dispatch phpunit %<cr>
+nmap <space>ef :Dispatch phpunit %<cr>
 nmap <space>ip :!echo "<?php" >> % && echo "" >> % && echo %:h \| sed 's/\//\\/g' \| sed 's/^/namespace /' \| sed 's/$/; /' >> %<CR>:e!<CR>2jwvUGo<CR>
 nmap <space>is "1yiw<c-]>gg2jwvEh"2y<c-o><c-o>gg3jouse <esc>"2pA\<esc>"1pA;<esc><c-o>
 nmap <space>io yiwgg3jouse <esc>pA;<esc><c-o>

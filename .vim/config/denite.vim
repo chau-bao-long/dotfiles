@@ -120,7 +120,7 @@ let s:menus.kotlin = {
 let s:menus.kotlin.command_candidates = [
             \ ['💾 ktlint', 'Dispatch ktlint'],
             \ ['💾 ktfix', 'Dispatch! ktlint -F'],
-            \ ['💾 run all test', 'Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info'],
+            \ ['💾 run all test', 'Dispatch cd app && ./gradlew.local cleanTest test --info'],
             \ ['💾 patch admin panel', 'Dispatch! git apply ../patches-admin-panel/*'],
             \ ['💾 unpatch admin panel', 'Dispatch! git apply -R ../patches-admin-panel/*'],
             \ ]
