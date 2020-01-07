@@ -32,6 +32,7 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'luochen1990/rainbow'
+Plug 'liuchengxu/vim-which-key'
 
 " Ruby on Rails plugins
 Plug 'tpope/vim-rails'
@@ -80,6 +81,8 @@ source ~/Projects/dotfiles/.vim/config/debug.vim
 " ==================================================== Minor Plugin Config
 nmap <space>iu mf:UltiSnipsEdit<cr>
 let g:rainbow_active = 1
+nnoremap <silent> <space> :WhichKey '<Space>'<CR>
+set timeoutlen=200
 
 " ==================================================== Theme
 set background=dark
