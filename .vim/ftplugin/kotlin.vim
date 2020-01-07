@@ -1,13 +1,13 @@
-nmap <space>ee /@Test<cr>Njwvt(y:exec "Dispatch echo \"~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>eq
-nmap <space>eE /@Test<cr>Njwvt(y:exec "Dispatch echo \"~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>eq
-vmap <space>ee y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
-vmap <space>eE y:exec "Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
-nmap <space>ef :exec "Dispatch echo ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --info --tests " . expand('%:t')[:-4] . " > ~/bin/current-cmd"<cr><space>eq
-nmap <space>eF :exec "Dispatch echo ~/Projects/personio/admin-panel-service/run.sh gradlew cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . " > ~/bin/current-cmd"<cr><space>eq
-nmap <space>ek :Dispatch! ~/Projects/personio/admin-panel-service/run.sh reload<cr>
-nmap <space>eK :Dispatch ~/Projects/personio/admin-panel-service/run.sh reload<cr>
-nmap <space>ec :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew clean<cr>
-nmap <space>eb :Dispatch ~/Projects/personio/admin-panel-service/run.sh gradlew build<cr>
+nmap <space>ee /@Test<cr>Njwvt(y:exec "Dispatch echo \"cd app && ./gradlew.local cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>eq
+nmap <space>eE /@Test<cr>Njwvt(y:exec "Dispatch echo \"cd app && ./gradlew.local cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>eq
+vmap <space>ee y:exec "Dispatch cd app && ./gradlew.local cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
+vmap <space>eE y:exec "Dispatch cd app && ./gradlew.local cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
+nmap <space>ef :exec "Dispatch echo \"cd app && ./gradlew.local cleanTest test --info --tests " . expand('%:t')[:-4] . "\" > ~/bin/current-cmd"<cr><space>eq
+nmap <space>eF :exec "Dispatch echo \"cd app && ./gradlew.local cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . "\" > ~/bin/current-cmd"<cr><space>eq
+nmap <space>ek :Dispatch! cd app && ./reload<cr>
+nmap <space>eK :Dispatch cd app && ./reload<cr>
+nmap <space>ec :Dispatch cd app && ./gradlew.local clean<cr>
+nmap <space>eb :Dispatch cd app && ./gradlew.local build<cr>
 nmap <space>gi :Rg override fun <C-R><C-W><CR>
 nmap <space>gI :exec "/I" . expand('%:t:r')<CR>n<c-]>
 nmap <space>gt :exec "Rg " . expand('%:t:r') . "Test"<CR>
