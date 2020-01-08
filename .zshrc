@@ -252,7 +252,7 @@ FZF-EOF"
 
 # frequently used commands
 c() {
-  eval $(cat ~/frequently-used-commands | fzf-tmux) 
+  eval $(cat ~/local/cmds | fzf-tmux)
 }
 
 # lazy load
