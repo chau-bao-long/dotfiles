@@ -4,8 +4,8 @@ vmap <space>ee y:exec "Dispatch cd app && ./gradlew.local cleanTest test --info 
 vmap <space>eE y:exec "Dispatch cd app && ./gradlew.local cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
 nmap <space>ef :exec "Dispatch echo \"cd app && ./gradlew.local cleanTest test --info --tests " . expand('%:t')[:-4] . "\" > ~/bin/current-cmd"<cr><space>eq
 nmap <space>eF :exec "Dispatch echo \"cd app && ./gradlew.local cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . "\" > ~/bin/current-cmd"<cr><space>eq
-nmap <space>ek :Dispatch! cd app && ./reload<cr>
-nmap <space>eK :Dispatch cd app && ./reload<cr>
+nmap <space>ek :Dispatch! cd app && ./gradlew.local classes<cr>
+nmap <space>eK :Dispatch cd app && ./gradlew.local classes<cr>
 nmap <space>ec :Dispatch cd app && ./gradlew.local clean<cr>
 nmap <space>eb :Dispatch cd app && ./gradlew.local build<cr>
 nmap <space>gi :Rg override fun <C-R><C-W><CR>

@@ -59,10 +59,6 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 # User bin folder to PATH
 export PATH="$HOME/bin:$PATH"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
@@ -150,13 +146,9 @@ alias zd="unset RAILS_ENV; zeus destroy"
 alias zt="unset RAILS_ENV; zeus test"
 
 # some custom alias and functions
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-alias f='ranger'
-alias m='neomutt'
-alias ms='mailsync'
-alias pdf='zathura'
-alias v='nvim'
-alias ping='prettyping'
+alias v=nvim
+alias pdf=zathura
+alias ping=prettyping
 alias pc=~/Projects/personio/personio/perctl
 alias pa=~/Projects/personio/admin-panel-service/run.sh
 alias pro=~/Projects
@@ -165,11 +157,6 @@ alias mon=~/Projects/personio/personio
 alias mic=~/Projects/personio/admin-panel-service
 alias dot=~/Projects/dotfiles
 
-rgrep() { grep -rn --exclude-dir=.* --exclude=.* --exclude=tags --exclude-dir=asset* --exclude-dir=log* --exclude=*log* --exclude-dir=public --exclude=*.csv $1 . }
-agrep() { grep -rn --exclude=tags --exclude-dir=build --exclude-dir=.idea $1 . }
-findfile () { find -name "*$1*" }
-dm () { docker-machine $1 $2 $3 $4 $5 $6 $7 $8 $9 }
-dcp () { docker-compose -f docker-compose.yml -f docker-compose.prod.yml $1 $2 $3 $4 $5 $6 }
 pkill() {
   ps aux | grep $1 | awk '{print $2}' | xargs kill -9
 }
@@ -251,8 +238,8 @@ FZF-EOF"
 }
 
 # frequently used commands
-c() {
-  eval $(cat ~/local/cmds | fzf-tmux)
+cmds() {
+  eval $(cat ~/local/cmds | fzf)
 }
 
 # lazy load
@@ -260,7 +247,6 @@ loadnode() {
   export NVM_DIR="/Users/chau.bao.long/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 }
-loadnode
 
 loadk8s() {
   if [ $commands[kubectl] ]; then
@@ -285,34 +271,8 @@ wific() {
   networksetup -setairportnetwork en0 $1 $2
 }
 
-# show system info at terminal startup
-neofetch
-
-# Change Cursor Shape for Zsh Vi-mode
-# http://micahelliott.com/posts/2015-07-20-vim-zsh-tmux-cursor.html
-zle-line-init () {
-  zle -K viins
-  echo -ne "\033]12;Gray\007"
-  echo -ne "\033[4 q"
-}
-zle -N zle-line-init
-zle-keymap-select () {
-  if [[ $KEYMAP == vicmd ]]; then
-    if [[ -z $TMUX ]]; then
-      printf "\033]12;Green\007"
-      printf "\033[2 q"
-    else
-      printf "\033Ptmux;\033\033]12;red\007\033\\"
-      printf "\033Ptmux;\033\033[2 q\033\\"
-    fi
-  else
-    if [[ -z $TMUX ]]; then
-      printf "\033]12;Grey\007"
-      printf "\033[4 q"
-    else
-      printf "\033Ptmux;\033\033]12;grey\007\033\\"
-      printf "\033Ptmux;\033\033[4 q\033\\"
-    fi
-  fi
-}
-zle -N zle-keymap-select
+# zsh frequently key binding
+zle -N cmds
+bindkey "^k" cmds
+bindkey -s "^[f" "ranger\n"
+bindkey -s "^[n" "nvim\n"

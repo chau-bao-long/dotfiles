@@ -161,3 +161,4 @@ nmap <space>mk :Denite menu:kotlin<cr>
 nmap <space>mp :Denite menu:php<cr>
 nmap <space>mc :Denite menu:ctags<cr>
 nmap <space>md :Denite menu:directories<cr>
+nmap <space>mb :Denite menu:binfiles<cr>
