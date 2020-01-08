@@ -72,7 +72,6 @@ source ~/Projects/dotfiles/.vim/config/coc.vim
 source ~/Projects/dotfiles/.vim/config/session.vim
 source ~/Projects/dotfiles/.vim/config/sneak.vim
 source ~/Projects/dotfiles/.vim/config/ranger.vim
-source ~/Projects/dotfiles/.vim/config/goyo.vim
 source ~/Projects/dotfiles/.vim/config/tree.vim
 source ~/Projects/dotfiles/.vim/config/git.vim
 source ~/Projects/dotfiles/.vim/config/debug.vim
@@ -80,6 +79,8 @@ source ~/Projects/dotfiles/.vim/config/debug.vim
 " ==================================================== Minor Plugin Config
 nmap <space>iu mf:UltiSnipsEdit<cr>
 let g:rainbow_active = 1
+nmap zy :Goyo 280x850%<CR>
+nmap zu :Goyo!<CR>
 
 " ==================================================== Theme
 set background=dark
