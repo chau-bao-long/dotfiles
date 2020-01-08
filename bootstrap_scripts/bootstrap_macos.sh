@@ -269,6 +269,18 @@ install_tool() {
   fi
 }
 
+install_maccy() {
+    read -r -p "Do you want to setup maccy - smarter copy/paste tool? [y|N] " response
+    if [[ $response =~ (y|yes|Y) ]];then
+        brew cask install maccy
+        defaults write org.p0deje.Maccy historySize 100
+        defaults write org.p0deje.Maccy hotKey command+shift+v
+        defaults write org.p0deje.Maccy pasteByDefault true
+        defaults write org.p0deje.Maccy fuzzySearch true
+        success "Installed maccy"
+    fi
+}
+
 install_zathura_pdf() {
   read -r -p "Do you want to install zathura to read pdf file? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
