@@ -228,6 +228,10 @@ nmap <leader><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<cr>
 nmap gv :vs<cr><c-w>lgd
 nmap gs :tabnew<cr>zogd
 
+" Better search experiences
+set hlsearch
+nmap z/ /turn-off-search-highlight<cr>
+
 " Better copy/paste behavior
 set pastetoggle=<space>4
 xnoremap p "_dP
