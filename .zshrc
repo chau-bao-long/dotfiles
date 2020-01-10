@@ -33,6 +33,7 @@ export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source /Users/topcbl/Library/Preferences/org.dystroy.broot/launcher/bash/br
 
 export GPG_TTY=`tty`
 
@@ -277,3 +278,4 @@ zle -N cmds
 bindkey "^k" cmds
 bindkey -s "^[f" "ranger\n"
 bindkey -s "^[n" "nvim\n"
+bindkey -s "^[b" "br\n"
