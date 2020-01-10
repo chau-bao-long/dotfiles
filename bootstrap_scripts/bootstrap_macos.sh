@@ -177,6 +177,9 @@ install_zsh() {
     if [ ! -d ~/.zsh/zsh-autosuggestions ]; then
       git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
     fi
+    if [ ! -d ~/.zsh/zsh-syntax-highlighting ]; then
+      git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+    fi
     if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-completions ]; then
       git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
     fi

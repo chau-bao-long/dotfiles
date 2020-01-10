@@ -87,3 +87,4 @@ function! FloatingFZF()
 endfunction
 
 nnoremap <space>[ :call FloatTerm()<cr>
+nnoremap <space>] <c-w>w
