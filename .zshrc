@@ -33,7 +33,8 @@ export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-source /Users/topcbl/Library/Preferences/org.dystroy.broot/launcher/bash/br
+source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export GPG_TTY=`tty`
 
@@ -158,12 +159,6 @@ alias per=~/Projects/personio
 alias mon=~/Projects/personio/personio
 alias mic=~/Projects/personio/admin-panel-service
 alias dot=~/Projects/dotfiles
-
-pkill() {
-  ps aux | grep $1 | awk '{print $2}' | xargs kill -9
-}
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # setup VPN commands
 export PATH="/usr/local/opt/openvpn/sbin:$PATH"

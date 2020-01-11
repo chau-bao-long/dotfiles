@@ -179,14 +179,15 @@ set sidescroll=1
 set incsearch       " Find the next match as we type the search
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
-" set noignorecase      " Respect case sensitive when searching...
+set hlsearch
+nmap z/ /turn-off-search-highlight<cr>
 
 " ==================================================== Custom mapping
 nmap gk :tabprevious<cr>
 nmap gj :tabnext<cr>
 nmap <space>- :tabnew<CR><space>f
-nmap <space>vv :vs<CR><C-w>l<space>f
-nmap <space>xx :split<CR><C-w>j<space>f
+nmap <space>vv :vs<CR><C-w>l
+nmap <space>xx :split<CR><C-w>j
 map <space>H <C-w>35>
 map <space>L <C-w>35<
 map <space>K <C-w>25+
@@ -227,10 +228,6 @@ nmap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<cr>
 nmap <leader><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<cr>
 nmap gv :vs<cr><c-w>lgd
 nmap gs :tabnew<cr>zogd
-
-" Better search experiences
-set hlsearch
-nmap z/ /turn-off-search-highlight<cr>
 
 " Better copy/paste behavior
 set pastetoggle=<space>4
