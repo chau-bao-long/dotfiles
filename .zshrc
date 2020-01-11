@@ -87,11 +87,13 @@ alias gtd="git tag -d "
 alias gprb="git pull --rebase"
 alias gcod="git fetch origin && git checkout origin/develop"
 alias gcom="git fetch origin && git checkout origin/master"
+alias gd="git diff"
 alias grs="git reset"
 alias grsh="git reset --hard"
 alias grss="git reset --soft"
 grsr() { git reset --hard HEAD@{$1} }
 grsn() { git reset HEAD~$1 }
+gdb() { git diff HEAD~$1..HEAD~$2 }
 
 # search shortcut
 alias sa="s -p amazon"
@@ -222,8 +224,8 @@ fco() {
   git checkout $(awk '{print $2}' <<<"$target" )
 }
 
-# fgs - git commit browser
-fgs() {
+# fgit - git commit browser
+fgit() {
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
   fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \

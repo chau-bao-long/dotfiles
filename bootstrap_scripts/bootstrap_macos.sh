@@ -246,6 +246,18 @@ setup_git() {
   if [[ $response =~ (y|yes|Y) ]];then
     git config --global user.email "chau.bao.long.vn@gmail.com" 
     git config --global user.name "Chau Bao Long" 
+    git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+    git config --global color.ui true
+    git config --global color.diff-highlight.oldNormal "red bold"
+    git config --global color.diff-highlight.oldHighlight "red bold 52"
+    git config --global color.diff-highlight.newNormal "green bold"
+    git config --global color.diff.meta "11"
+    git config --global color.diff.frag "magenta bold"
+    git config --global color.diff.commit "yellow bold"
+    git config --global color.diff.old "red bold"
+    git config --global color.diff.new "green bold"
+    git config --global color.diff.whitespace "red reverse"
+
     success "Setup git with user.email chau.bao.long.vn@gmail.com and name is Chau Bao Long."
   fi
 }
@@ -259,7 +271,7 @@ install_terminal() {
 }
 
 install_tool() {
-  read -r -p "Do you want to setup search? [y|N] " response
+  read -r -p "Do you want to install some fancy tools ? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     brew install s-search
     brew install ripgrep
@@ -269,7 +281,8 @@ install_tool() {
     brew install bat
     brew install httpie
     brew install broot
-    success "Installed terminal search tool"
+    brew install diff-so-fancy
+    success "Installed some fancy tools"
   fi
 }
 
