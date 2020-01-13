@@ -100,6 +100,7 @@ set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
+set guicursor=n:blinkon1        "Fix bug cursor of COC
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set encoding=utf-8
