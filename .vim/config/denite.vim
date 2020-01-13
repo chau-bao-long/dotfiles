@@ -128,7 +128,7 @@ let s:menus.js = {
             \ 'description': '💾 Javascript project commands'
             \ }
 let s:menus.js.command_candidates = [
-            \ ['💾 flow current file', 'Dispatch ./node_modules/.bin/flow %;read'],
+            \ ['💾 flow current file', 'Dispatch ./node_modules/.bin/flow %'],
             \ ['💾 eslint current file', 'Dispatch eslint %:p:h'],
             \ ['💾 eslint all file', 'Dispatch pwd | xargs eslint'],
             \ ]
