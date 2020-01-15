@@ -230,7 +230,11 @@ nmap cu viwcp
 nmap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<cr>
 nmap <leader><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<cr>
 nmap gv :vs<cr><c-w>lgd
-nmap gs :tabnew<cr>zogd
+nmap gV :vs<cr><c-w>lgf
+nmap gs :sp<cr><c-w>lgd
+nmap gS :sp<cr><c-w>lgf
+nmap gt :tabnew<cr>zogd
+nmap gT :tabnew<cr>zogf
 
 " Better copy/paste behavior
 set pastetoggle=<space>4
