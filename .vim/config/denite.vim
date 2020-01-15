@@ -130,6 +130,9 @@ let s:menus.js = {
 let s:menus.js.command_candidates = [
             \ ['💾 flow current file', 'Dispatch ./node_modules/.bin/flow %'],
             \ ['💾 eslint current file', 'Dispatch eslint %:p:h'],
+            \ ['💾 eslint fix current file', 'Dispatch eslint --fix %:p:h'],
+            \ ['💾 prettier current file', 'Dispatch prettier --write %:p'],
+            \ ['💾 prettier all file', 'Dispatch yarn prettier'],
             \ ['💾 eslint all file', 'Dispatch pwd | xargs eslint'],
             \ ]
 let s:menus.php = {
