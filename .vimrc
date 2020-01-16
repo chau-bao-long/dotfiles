@@ -91,7 +91,7 @@ set background=dark
 set termguicolors
 let g:airline_powerline_fonts = 1
 set t_Co=256
-let g:airline_theme='gruvbox_material'
+let g:airline_theme='wombat'
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_material_background = 'hard'
 colorscheme gruvbox-material
