@@ -112,7 +112,6 @@ set hidden
 
 "turn on syntax highlighting
 syntax on
-set nohlsearch
 
 " ==================================================== Turn Off Swap Files
 set noswapfile
@@ -185,6 +184,13 @@ set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 set hlsearch
 nmap z/ /turn-off-search-highlight<cr>
+
+" ==================================================== Highlight
+hi Search cterm=NONE ctermfg=NONE ctermbg=239
+hi DiffAdd cterm=NONE ctermfg=NONE ctermbg=238
+hi DiffChange cterm=NONE ctermfg=NONE ctermbg=242
+hi DiffDelete cterm=reverse ctermfg=Black ctermbg=88
+hi DiffText cterm=NONE ctermfg=NONE ctermbg=23
 
 " ==================================================== Custom mapping
 nmap gk :tabprevious<cr>
