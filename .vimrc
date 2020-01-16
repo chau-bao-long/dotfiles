@@ -2,11 +2,12 @@
 call plug#begin('~/.vim/plugged')
 
 " General plugins
+Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/goyo.vim'
 Plug 'mbbill/undotree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-system-copy'
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -32,6 +33,7 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'luochen1990/rainbow'
+Plug 'chrisbra/Colorizer'
 
 " Ruby on Rails plugins
 Plug 'tpope/vim-rails'
@@ -79,16 +81,20 @@ source ~/Projects/dotfiles/.vim/config/debug.vim
 " ==================================================== Minor Plugin Config
 nmap <space>iu mf:UltiSnipsEdit<cr>
 let g:rainbow_active = 1
-nmap zy :Goyo 280x850%<CR>
-nmap zu :Goyo!<CR>
+nmap zy :Goyo 280x850%<cr>
+nmap zu :Goyo!<cr>
+nmap <space>ch :ColorHighlight!<cr>
+nmap <space>ct :ColorToggle<cr>
 
 " ==================================================== Theme
 set background=dark
+set termguicolors
 let g:airline_powerline_fonts = 1
 set t_Co=256
-let g:airline_theme='deus'
+let g:airline_theme='gruvbox_material'
 let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
+let g:gruvbox_material_background = 'hard'
+colorscheme gruvbox-material
 
 " ==================================================== General Config
 filetype plugin indent on
@@ -186,11 +192,11 @@ set hlsearch
 nmap z/ /turn-off-search-highlight<cr>
 
 " ==================================================== Highlight
-hi Search cterm=NONE ctermfg=NONE ctermbg=239
-hi DiffAdd cterm=NONE ctermfg=NONE ctermbg=238
-hi DiffChange cterm=NONE ctermfg=NONE ctermbg=242
-hi DiffDelete cterm=reverse ctermfg=Black ctermbg=88
-hi DiffText cterm=NONE ctermfg=NONE ctermbg=23
+hi Search cterm=NONE ctermfg=NONE ctermbg=240 guifg=NONE guibg=#585858
+hi DiffAdd cterm=NONE ctermfg=NONE ctermbg=236 guifg=NONE guibg=#303030
+hi DiffChange cterm=NONE ctermfg=NONE ctermbg=238 guifg=NONE guibg=#444444
+hi DiffDelete cterm=reverse ctermfg=0 ctermbg=88 guibg=#3c1f1e
+hi DiffText cterm=NONE ctermfg=NONE ctermbg=23 guifg=NONE guibg=#005f5f
 
 " ==================================================== Custom mapping
 nmap gk :tabprevious<cr>
@@ -203,8 +209,8 @@ map <space>L <C-w>35<
 map <space>K <C-w>25+
 map <space>J <C-w>25-
 map <space>= <C-w>=
-nmap <script> <silent> <space>3 :copen 1000<CR><s-g>
-nmap <script> <silent> <space>2 :call ToggleQuickfixList()<CR>
+nmap <script> <silent> <space>3 :copen 1000<cr>G:ColorHighlight!<cr>
+nmap <script> <silent> <space>2 :call ToggleQuickfixList()<cr>
 nmap <space>h <c-w>h
 nmap <space>j <c-w>j
 nmap <space>k <c-w>k
