@@ -86,16 +86,6 @@ nmap zu :Goyo!<cr>
 nmap <space>ch :ColorHighlight!<cr>
 nmap <space>ct :ColorToggle<cr>
 
-" ==================================================== Theme
-set background=dark
-set termguicolors
-let g:airline_powerline_fonts = 1
-set t_Co=256
-let g:airline_theme='wombat'
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_material_background = 'hard'
-colorscheme gruvbox-material
-
 " ==================================================== General Config
 filetype plugin indent on
 
@@ -118,6 +108,24 @@ set hidden
 
 "turn on syntax highlighting
 syntax on
+
+" ==================================================== Theme
+set background=dark
+set termguicolors
+let g:airline_powerline_fonts = 1
+set t_Co=256
+let g:airline_theme='wombat'
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_material_background = 'hard'
+colorscheme gruvbox-material
+
+" ==================================================== Highlight
+hi Search cterm=NONE ctermfg=NONE ctermbg=240 guifg=NONE guibg=#585858
+hi DiffAdd cterm=NONE ctermfg=NONE ctermbg=236 guifg=NONE guibg=#303030
+hi DiffChange cterm=NONE ctermfg=NONE ctermbg=238 guifg=NONE guibg=#444444
+hi DiffDelete cterm=reverse ctermfg=0 ctermbg=88 guibg=#3c1f1e
+hi DiffText cterm=NONE ctermfg=NONE ctermbg=23 guifg=NONE guibg=#005f5f
+hi Normal guibg=#000000
 
 " ==================================================== Turn Off Swap Files
 set noswapfile
@@ -190,13 +198,6 @@ set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 set hlsearch
 nmap z/ /turn-off-search-highlight<cr>
-
-" ==================================================== Highlight
-hi Search cterm=NONE ctermfg=NONE ctermbg=240 guifg=NONE guibg=#585858
-hi DiffAdd cterm=NONE ctermfg=NONE ctermbg=236 guifg=NONE guibg=#303030
-hi DiffChange cterm=NONE ctermfg=NONE ctermbg=238 guifg=NONE guibg=#444444
-hi DiffDelete cterm=reverse ctermfg=0 ctermbg=88 guibg=#3c1f1e
-hi DiffText cterm=NONE ctermfg=NONE ctermbg=23 guifg=NONE guibg=#005f5f
 
 " ==================================================== Custom mapping
 nmap gk :tabprevious<cr>
