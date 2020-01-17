@@ -204,9 +204,9 @@ nmap z/ /turn-off-search-highlight<cr>
 " ==================================================== Custom mapping
 nmap gk :tabprevious<cr>
 nmap gj :tabnext<cr>
-nmap <space>- :tabnew<CR><space>f
-nmap <space>vv :vs<CR><C-w>l
-nmap <space>xx :split<CR><C-w>j
+nmap <space>tt :tabnew<cr><space>f
+nmap <space>vv :vs<cr><C-w>l
+nmap <space>xx :split<cr><C-w>j
 map <space>H <C-w>35>
 map <space>L <C-w>35<
 map <space>K <C-w>25+

@@ -3,13 +3,13 @@
 " https://jonasjacek.github.io/colors/
 
 highlight OK ctermbg=green guibg=#5fff5f
-highlight Error ctermbg=red guibg=#ff0000
+highlight Error ctermbg=1 guibg=#800000
 highlight Success ctermfg=46 guifg=#00ff00
 highlight Task ctermfg=214 guifg=#ffaf00
 highlight Info ctermfg=45 guifg=#00d7ff
 highlight Debug ctermfg=97 guifg=#875faf
 highlight Warn ctermfg=yellow guifg=#ffff00
-highlight Fail ctermfg=red guifg=#00ff00
+highlight Fail ctermfg=1 guifg=#800000
 highlight Brace ctermfg=30 guifg=#008787
 highlight Bracket ctermfg=138 guifg=#af8787
 highlight Tick ctermfg=grey guifg=#808080

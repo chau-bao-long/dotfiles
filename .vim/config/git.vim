@@ -1,6 +1,8 @@
 nmap <space>gg :Git 
-nmap <space>gl :Glog<cr>
-nmap <space>g0l :0Glog<cr>
+nmap <space>gl :Glog -n 100<cr>
+nmap <space>gL :Glog<cr>
+nmap <space>g0l :0Glog -n 100<cr>
+nmap <space>g0L :0Glog<cr>
 nmap <space>gdd :Gdiff 
 nmap <space>gds :Gvdiffsplit!<cr>
 nmap <space>gpr :Ggrep 
@@ -9,7 +11,7 @@ nmap <space>gw :Gwrite<cr>
 nmap <space>gbl :Gblame<cr>
 nmap <space>gbr :Gbrowse<cr>
 nmap <space>gs :Gstatus<cr>
-nmap <space>ge :Gedit 
+nmap <space>ge :Gedit<cr>
 nmap <space>gvs :Gvsplit<cr>
 nmap <space>gsp :Gsplit<cr>
 nmap <space>gca :Gcommit --amend<cr>

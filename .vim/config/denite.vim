@@ -128,12 +128,12 @@ let s:menus.js = {
             \ 'description': '💾 Javascript project commands'
             \ }
 let s:menus.js.command_candidates = [
-            \ ['💾 eslint current file', 'Dispatch eslint %:p'],
-            \ ['💾 eslint fix current file', 'Dispatch eslint --fix %:p'],
-            \ ['💾 eslint fix all file', 'Dispatch pwd | xargs eslint --fix'],
             \ ['💾 eslint all file', 'Dispatch pwd | xargs eslint'],
-            \ ['💾 prettier current file', 'Dispatch prettier --write %:p'],
+            \ ['💾 eslint current file', 'Dispatch eslint %:p'],
+            \ ['💾 eslint fix all file', 'Dispatch pwd | xargs eslint --fix'],
+            \ ['💾 eslint fix current file', 'Dispatch eslint --fix %:p'],
             \ ['💾 prettier all file', 'Dispatch yarn prettier'],
+            \ ['💾 prettier current file', 'Dispatch prettier --write %:p'],
             \ ['💾 flow current file', 'Dispatch ./node_modules/.bin/flow %'],
             \ ]
 let s:menus.php = {
