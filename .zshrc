@@ -160,8 +160,9 @@ alias pro=~/Projects
 alias per=~/Projects/personio
 alias mon=~/Projects/personio/personio
 alias mic=~/Projects/personio/admin-panel-service
-alias pmf=~/Projects/personio/payroll-dashboard-ui
+alias mfp=~/Projects/personio/payroll-dashboard-ui
 alias dot=~/Projects/dotfiles
+alias jci=~/Projects/JobChat_Infra
 
 # setup VPN commands
 export PATH="/usr/local/opt/openvpn/sbin:$PATH"

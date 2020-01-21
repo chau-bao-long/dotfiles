@@ -240,8 +240,8 @@ nmap zo <C-o>
 nmap co :let @+=expand("%:t")<cr>
 nmap cl :let @+=expand("%:t")<cr>:Dispatch! osascript ~/Projects/dotfiles/mac_scripts/intelliJ.scpt<cr>
 nmap cO :let @+=expand("%:p")[-32:]<cr>
-nmap cP :let @+=expand("%:p")<cr>
-nmap cH :let @+=expand("%:h")<cr>
+nmap cy :let @+=expand("%:p")<cr>
+nmap ch :let @+=expand("%:h")<cr>
 nmap cu viwcp
 nmap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<cr>
 nmap <leader><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<cr>
