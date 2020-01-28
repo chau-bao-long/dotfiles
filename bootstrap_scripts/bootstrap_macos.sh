@@ -138,6 +138,16 @@ install_nvim() {
   fi
 }
 
+install_emacs() {
+  read -r -p "Do you want to install emacs? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    brew cask install emacs
+    brew install coreutils git ripgrep fd llvm
+    git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
+    ~/.emacs.d/bin/doom install
+  fi
+}
+
 setup_nvim() {
   read -r -p "Do you want to install vim plugins now? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
@@ -314,6 +324,7 @@ install_zathura_pdf() {
 setup_git
 install_homebrew
 install_nvim
+install_emacs
 install_ranger
 install_tmux
 install_browser

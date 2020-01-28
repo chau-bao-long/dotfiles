@@ -158,6 +158,7 @@ autocmd Filetype javascriptreact setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype python setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype bash setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype sh setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype yaml setlocal ts=2 sw=2 sts=0 expandtab
 
 " Auto indent pasted text
