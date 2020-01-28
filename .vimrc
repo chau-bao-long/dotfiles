@@ -214,11 +214,7 @@ map <space>J <C-w>25-
 map <space>= <C-w>=
 nmap <script> <silent> <space>3 :copen 1000<cr>G:ColorHighlight!<cr>
 nmap <script> <silent> <space>2 :call ToggleQuickfixList()<cr>
-nmap <space>h <c-w>h
-nmap <space>j <c-w>j
-nmap <space>k <c-w>k
-nmap <space>l <c-w>l
-nmap <space>M <c-w>o
+nmap <space>w <c-w>
 nmap 'w :wa!<CR>
 nmap 'q :wq<CR>
 nmap 'e :q!<CR>

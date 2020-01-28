@@ -42,8 +42,8 @@ nmap <space>b :Buffers<cr>
 nmap <space>cm :Commands<cr>
 nmap <space>ck :Maps<cr>
 nmap <space>; :BLines<cr>
-nmap <space>w :Rg<cr>
-vmap <space>w y:Rg <C-R>0<cr>
+nmap <space>q :Rg<cr>
+vmap <space>q y:Rg <C-R>0<cr>
 nmap <space>ch :Helptags<cr>
 nmap W :Rg <c-r><c-w><cr>
 nmap Q cpiw<space>p
