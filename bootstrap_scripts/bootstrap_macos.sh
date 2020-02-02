@@ -308,16 +308,13 @@ install_maccy() {
     fi
 }
 
-install_zathura_pdf() {
-  read -r -p "Do you want to install zathura to read pdf file? [y|N] " response
+install_mail_client() {
+  read -r -p "Do you want to install mail client? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    brew cask install xquartz
-    brew tap zegervdv/zathura
-    brew install zathura
-    brew install zathura-pdf-poppler
-    mkdir -p $(brew --prefix zathura)/lib/zathura
-    ln -s $(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib $(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib
-    success "Installed zathura successfully"
+    brew install mu
+    brew install isync
+    brew install gnutls
+    success "Installed mail client, you still need to do further manual jobs to make it really work!!"
   fi
 }
 
@@ -337,8 +334,7 @@ install_tool
 install_zsh
 copy_dotfiles
 setup_nvim
-install_zathura_pdf
-copy_dotfiles
+install_mail_client
 
 echo "---" 
 

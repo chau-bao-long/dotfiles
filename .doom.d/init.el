@@ -14,6 +14,8 @@
 ;;      Alternatively, press 'gd' (or 'C-c g d') on a module to browse its
 ;;      directory (for easy access to its source code).
 
+;; This is needed because emacs won't pick up mu4e otherwise:
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu/mu4e/")
 (doom! :input
        ;;chinese
        ;;japanese
@@ -165,7 +167,7 @@
        ;;web               ; the tubes
 
        :email
-       ;;(mu4e +gmail)
+       (mu4e +gmail)
        ;;notmuch
        ;;(wanderlust +gmail)
 

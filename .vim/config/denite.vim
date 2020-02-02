@@ -159,7 +159,7 @@ let s:menus.ctags.command_candidates = [
 
 call denite#custom#var('menu', 'menus', s:menus)
 
-nmap <space>mm :Denite menu<cr>
+nmap <space><space> :Denite menu<cr>
 nmap <space>mj :Denite menu:js<cr>
 nmap <space>mk :Denite menu:kotlin<cr>
 nmap <space>mp :Denite menu:php<cr>
