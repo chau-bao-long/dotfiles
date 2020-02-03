@@ -53,3 +53,4 @@
 
 (package! kotlin-mode)
 (package! org-super-agenda)
+(package! org-gcal)
