@@ -22,7 +22,7 @@
                  ("/personio/[Gmail]/Sent Mail" . ?s))
 
                ;; Message Formatting and sending
-               message-send-mail-function 'smtpmail-send-it
+               message-send-mail-function 'mailclient-send-it
                message-signature-file "~/.doom.d/.mailsignature"
                message-citation-line-format "On %a %d %b %Y at %R, %f wrote:\n"
                message-citation-line-function 'message-insert-formatted-citation-line
