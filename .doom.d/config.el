@@ -23,9 +23,9 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. These are the defaults.
-(setq doom-theme 'doom-one)
-(add-hook 'org-super-agenda-mode-hook
-          (lambda () (set-background-color "black")))
+(require 'doom-themes)
+(load-theme 'doom-one t)
+(set-face-background 'default "black")
 
 ;; If you intend to use org, it is recommended you change this!
 (setq org-directory "~/org/")
