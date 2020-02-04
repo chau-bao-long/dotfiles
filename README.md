@@ -12,6 +12,7 @@ $ make install_softwares #install mostly used softwares
 - zsh + oh-my-zsh + completion + suggestion + theme
 - vim
 - tmux
+- emacs
 - alacritty (terminal)
 - ranger
 - suckless tools (dwm + dmenu + slstatus + st)
@@ -23,8 +24,6 @@ $ make install_softwares #install mostly used softwares
 - skhd (simple hotkey daemon for macos)
 - qutebrowser
 - brave (browser)
-- zathura (pdf viewer)
-- s-search (search from terminal)
 - telegram
 - sxiv (image viewer)
 - cmus (music player)

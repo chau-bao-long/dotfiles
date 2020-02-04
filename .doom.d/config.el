@@ -54,3 +54,4 @@
 (load "~/.doom.d/local/org-gcal.el")
 (load "~/.doom.d/mail.el")
 (load "~/.doom.d/org-mode.el")
+(load "~/.doom.d/notification.el")

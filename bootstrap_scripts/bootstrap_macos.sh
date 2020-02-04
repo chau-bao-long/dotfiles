@@ -283,7 +283,6 @@ install_terminal() {
 install_tool() {
   read -r -p "Do you want to install some fancy tools ? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    brew install s-search
     brew install ripgrep
     brew install neofetch
     brew install pgcli
@@ -292,6 +291,7 @@ install_tool() {
     brew install httpie
     brew install broot
     brew install diff-so-fancy
+    brew install terminal-notifier
     success "Installed some fancy tools"
   fi
 }

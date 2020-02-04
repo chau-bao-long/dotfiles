@@ -54,3 +54,5 @@
 (package! kotlin-mode)
 (package! org-super-agenda)
 (package! org-gcal)
+(package! mu4e-alert)
+(package! org-wild-notifier)

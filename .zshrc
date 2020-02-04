@@ -95,20 +95,6 @@ grsr() { git reset --hard HEAD@{$1} }
 grsn() { git reset HEAD~$1 }
 gdb() { git diff HEAD~$1..HEAD~$2 }
 
-# search shortcut
-alias sa="s -p amazon"
-alias sw="s -p wikipedia"
-alias sc="s -p codepen"
-alias sd="s -p dockerhub"
-alias sg="s -p github"
-alias si="s -p imdb"
-alias sim="s -p imgur"
-alias sm="s -p medium"
-alias sn="s -p nhaccuatui"
-alias sq="s -p quora"
-alias ssc="s -p soundcloud"
-alias sy="s -p youtube"
-
 # docker shortcut
 alias d='docker'
 alias dc="docker-compose $1"
