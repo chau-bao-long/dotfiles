@@ -1,8 +1,8 @@
 (after! mu4e
-        (setq! mu4e-maildir "~/.Mail/personio"
-               mu4e-drafts-folder "/[Gmail]/Drafts"
-               mu4e-sent-folder   "/[Gmail]/Sent Mail"
-               mu4e-trash-folder  "/[Gmail]/Bin"
+        (setq! mu4e-maildir "~/.Mail"
+               mu4e-drafts-folder "/personio/[Gmail]/Drafts"
+               mu4e-sent-folder   "/personio/[Gmail]/Sent Mail"
+               mu4e-trash-folder  "/personio/[Gmail]/Bin"
                mu4e-get-mail-command "mbsync -a"
                mu4e-index-update-in-background t
                mu4e-compose-signature-auto-include t
@@ -13,13 +13,13 @@
                mu4e-change-filenames-when-moving t
                mu4e-update-interval 300
                mu4e-maildir-shortcuts
-               '( ("/INBOX" . ?i)
-                 ("/[Gmail]/All Mail" . ?a)
-                 ("/[Gmail]/Important" . ?I)
-                 ("/[Gmail]/Drafts" . ?d)
-                 ("/[Gmail]/Starred" . ?S)
-                 ("/[Gmail]/Bin" . ?b)
-                 ("/[Gmail]/Sent Mail" . ?s))
+               '( ("/personio/INBOX" . ?i)
+                 ("/personio/[Gmail]/All Mail" . ?a)
+                 ("/personio/[Gmail]/Important" . ?I)
+                 ("/personio/[Gmail]/Drafts" . ?d)
+                 ("/personio/[Gmail]/Starred" . ?S)
+                 ("/personio/[Gmail]/Bin" . ?b)
+                 ("/personio/[Gmail]/Sent Mail" . ?s))
 
                ;; Message Formatting and sending
                message-send-mail-function 'smtpmail-send-it
