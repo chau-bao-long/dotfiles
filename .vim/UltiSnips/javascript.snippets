@@ -4,8 +4,36 @@ snippet d "Debugger"
 debugger
 endsnippet
 
+snippet f "Flow annotation"
+/* @flow */
+endsnippet
+
+snippet ffm "Flow fix me"
+// $FlowFixMe
+endsnippet
+
+snippet esld
+/* eslint-disable */
+$0
+/* eslint-enable */
+endsnippet
+
 snippet ct "Console table log"
 console.table($0);
+endsnippet
+
+snippet cl "Console log"
+console.log($0);
+endsnippet
+
+snippet it "Test it"
+it('$0', () => {
+})
+endsnippet
+
+snippet des "Test describe"
+describe('$0', () => {
+})
 endsnippet
 
 snippet scp "Style component props theme"
@@ -17,7 +45,11 @@ ${tw$0};
 endsnippet
 
 snippet ip "Import module" b
-import $0 from '$1';
+import $1 from '$0';
+endsnippet
+
+snippet ips "Import module and spread object" b
+import { $1 } from '$0';
 endsnippet
 
 snippet i18 "Import i18n" b
@@ -63,44 +95,22 @@ const ${1:ComponentName} = styled.${2:View}.attrs({
 \`;
 endsnippet
 
-snippet rc "Create a new component"
-// @flow
+snippet rnc "Create a new stateless component"
 import React from 'react';
 import styled from 'styled-components';
 
-type Props = {
+type TProps = {
+	$0
 }
 
-export default class ${1:className} extends React.Component<Props> {
-	render() {
-		return (
-			$0
-		);
-	}
-}
-endsnippet
-
-snippet rnpc "Create a new pure component"
-// @flow
-import React from 'react';
-import styled from 'styled-components';
-
-export default class ${1:className} extends React.PureComponent<$FlowFixMeProps> {
-	render() {
-		return (
-			$0
-		);
-	}
-}
-endsnippet
-
-snippet rnsc "Create a new stateless component"
-import React from 'react';
-import styled from 'styled-components';
-import tw from 'tailwind.macro';
-
-export default ({ $0 }) => (
+export default ({ $1 }: TProps) => (
 )
+endsnippet
+
+snippet rntc "Create component test"
+/* @flow */
+import React from 'react'
+import { render, fireEvent } from '@testing-library/react'
 endsnippet
 
 snippet rnp "Define prop"
@@ -114,4 +124,45 @@ snippet rns "Define state"
 type State = {
 	$0
 }
+endsnippet
+
+snippet ft
+type $0 = {
+}
+endsnippet
+
+snippet ipc "Import personio components"
+import { $0 } from '@personio/ui-components';
+endsnippet
+
+snippet ipr "Import personio request"
+import { $0 } from '@personio/request';
+endsnippet
+
+snippet ipm "Import personio redux create module"
+import createModule from '@personio/redux-create-module';
+endsnippet
+
+snippet icn "Import classnames"
+import classnames from 'classnames';
+endsnippet
+
+snippet ise "Import saga effect"
+import { $0 } from 'redux-saga/effects';
+endsnippet
+
+snippet ist "Import saga type"
+import type { Saga } from 'redux-saga';
+endsnippet
+
+snippet irr "Import react redux"
+import { useDispatch, useSelector } from 'react-redux';
+endsnippet
+
+snippet irs "Import reselect"
+import { createSelector } from 'reselect';
+endsnippet
+
+snippet its "Import test saga"
+import { testSaga } from 'redux-saga-test-plan';
 endsnippet

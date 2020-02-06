@@ -6,5 +6,6 @@
 (use-package! org-wild-notifier
   :defer t
   :config
+  (add-hook! 'after-init-hook 'org-wild-notifier-mode)
   (setq org-wild-notifier-alert-time 10
         alert-default-style (if IS-MAC 'osx-notifier 'libnotify)))
