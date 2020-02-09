@@ -6,6 +6,8 @@
 (map! :ne "SPC e" #'execute-extended-command)
 (map! :ne "SPC o n" #'treemacs-add-and-display-current-project)
 (map! :ne "SPC o m" #'mu4e)
+(map! :ne "SPC o l" #'list-processes)
 (map! :ne "SPC TAB j" #'+workspace:switch-next)
 (map! :ne "SPC TAB k" #'+workspace:switch-previous)
 (map! :ne "'w" #'save-buffer)
+(map! :ne "'q" #'+workspace/close-window-or-workspace)
