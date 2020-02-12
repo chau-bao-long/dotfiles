@@ -43,8 +43,8 @@ nmap <space>cm :Commands<cr>
 nmap <space>ck :Maps<cr>
 nmap <space>; :BLines<cr>
 nmap <space>q :Rg<cr>
-vmap <space>q y:Rg <C-R>0<cr>
 nmap <space>ch :Helptags<cr>
-nmap W :Rg <c-r><c-w><cr>
-nmap Q cpiw<space>p
-vmap Q cp<space>p
+nmap Q :Rg <c-r><c-w><cr>
+vmap Q y:Rg <C-R>0<cr>
+nmap W cpiw<space>p
+vmap W cp<space>p

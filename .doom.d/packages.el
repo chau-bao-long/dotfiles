@@ -57,3 +57,5 @@
 (package! mu4e-alert)
 (package! org-wild-notifier)
 (package! bongo)
+(package! restclient)
+(package! ejc-sql)

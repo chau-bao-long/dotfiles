@@ -55,3 +55,4 @@
 (load "~/.doom.d/mail.el")
 (load "~/.doom.d/org-mode.el")
 (load "~/.doom.d/notification.el")
+(load "~/.doom.d/local/sql.el")
