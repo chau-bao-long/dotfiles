@@ -11,3 +11,7 @@
 (map! :ne "SPC TAB k" #'+workspace:switch-previous)
 (map! :ne "'w" #'save-buffer)
 (map! :ne "'q" #'+workspace/close-window-or-workspace)
+(map! :ne "SPC 2" #'balance-windows-area)
+(defun maximize-window-area() (interactive) (balance-windows-area) (maximize-window))
+(map! :ne "SPC 3" #'maximize-window-area)
+(map! :ne "SPC w f" #'transpose-frame)

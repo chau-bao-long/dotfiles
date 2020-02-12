@@ -59,3 +59,4 @@
 (package! bongo)
 (package! restclient)
 (package! ejc-sql)
+(package! transpose-frame)
