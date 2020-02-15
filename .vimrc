@@ -219,7 +219,7 @@ nmap <space>w <c-w>
 nmap 'w :wa!<CR>
 nmap 'q :wq<CR>
 nmap 'e :q!<CR>
-nmap 'r :edit!<CR>
+nmap 'r :edit!<cr>
 nmap 't :tabclose<cr>
 nmap '2 'e'e
 nmap zj <C-d>
