@@ -26,6 +26,8 @@
 (require 'doom-themes)
 (load-theme 'doom-one t)
 (set-face-background 'default "black")
+(set-frame-parameter (selected-frame) 'alpha '(90 50))
+(add-to-list 'default-frame-alist '(alpha 90 50))
 
 ;; If you intend to use org, it is recommended you change this!
 (setq org-directory "~/org/")
