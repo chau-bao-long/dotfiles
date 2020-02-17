@@ -281,6 +281,7 @@ bind -n M-l resize-pane -R 20
 bind -n M-k swap-pane -U
 bind -n M-j swap-pane -D
 bind -n M-Enter swap-pane -D \; select-pane -L
+bind -n M-\ swap-pane -D \; select-pane -L \; resize-pane -Z
 bind -n M-p swap-pane -D \; select-pane -U
 bind -n M-c kill-pane
 bind -n M-m resize-pane -Z
