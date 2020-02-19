@@ -29,3 +29,5 @@ nmap <space>g[ 'tkO
 nmap <space>g, [c:GitGutterPreviewHunk<cr>
 nmap <space>g. ]c:GitGutterPreviewHunk<cr>
 nmap <space>gm <c-w>o:Gedit<cr>
+
+let g:gitgutter_enabled = 0
