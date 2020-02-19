@@ -240,6 +240,8 @@ nmap cO :let @+=expand("%:p")[-32:]<cr>
 nmap cy :let @+=expand("%:p")<cr>
 nmap ch :let @+=expand("%:h")<cr>
 nmap cu viwcp
+nmap c' vi'cp
+nmap c" vi"cp
 nmap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<cr>
 nmap <leader><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<cr>
 nmap gv :vs<cr><c-w>lgd
