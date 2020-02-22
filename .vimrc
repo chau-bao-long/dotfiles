@@ -208,8 +208,8 @@ nmap gj :tabnext<cr>
 nmap <space>tt :tabnew<cr><space>f
 nmap <space>vv :vs<cr><C-w>l
 nmap <space>xx :split<cr><C-w>j
-map <space>H <C-w>35>
-map <space>L <C-w>35<
+map <space>L <C-w>35>
+map <space>H <C-w>35<
 map <space>K <C-w>25+
 map <space>J <C-w>25-
 map <space>= <C-w>=
@@ -230,8 +230,14 @@ nmap <C-j> <C-d>
 nmap <C-k> <C-u>
 nmap <C-h> <C-e><C-e><C-e><C-e><C-e>jjj
 nmap <C-l> <C-y><C-y><C-y><C-y><C-y>kkk
-nmap mb 'F
 nmap mf mF
+nmap md mD
+nmap ms mS
+nmap ma mA
+nmap mb 'F
+nmap mv 'D
+nmap mc 'S
+nmap mx 'A
 nmap zi <C-i>
 nmap zo <C-o>
 nmap co :let @+=expand("%:t")<cr>
@@ -269,16 +275,16 @@ nmap <space>0 :call GoBackToRoot()<CR>
 nmap g- :tabm -1<CR>
 nmap g= :tabm +1<CR>
 vmap / y:/<C-R>0<CR>
-nmap <space>e= ggvG=<C-o>
+nmap <space>e= 20kV40j=<c-o>
 nmap <space>er :e<cr>
 nmap zp :call GotoJump()<cr>
 nmap <space>tm <c-w>T
-nmap <space>ew yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
-nmap <space>eW yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0 && read<cr>
-vmap <space>ew y:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
-vmap <space>eW y:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0 && read<cr>
-nmap <space>eq :Dispatch ~/bin/current-cmd<cr>
-nmap <space>eQ :Dispatch ~/bin/current-cmd && read<cr>
+nmap <space>eq yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
+nmap <space>eQ yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0 && read<cr>
+vmap <space>eq y:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
+vmap <space>eQ y:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0 && read<cr>
+nmap <space>ew :Dispatch ~/bin/current-cmd<cr>
+nmap <space>eW :Dispatch ~/bin/current-cmd && read<cr>
 
 function GoBack()
   cd ..

@@ -2,9 +2,9 @@ set guicursor=n:blinkon1
 set updatetime=300
 set shortmess+=c
 
+" \'coc-ultisnips',
+" \'coc-tag',
 let g:coc_global_extensions = [
-            \'coc-ultisnips',
-            \'coc-tag',
             \'coc-phpls',
             \'coc-json',
             \'coc-tsserver',
@@ -98,8 +98,8 @@ nnoremap <silent> <space>aj  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent> <space>ak  :<C-u>CocPrev<CR>
 " Resume latest coc list
-nnoremap <silent> <space>ap  :<C-u>CocListResume<CR>
+nnoremap <silent> <space>ap  :<C-u>CocListResume<cr>
 " Restart coc
-nnoremap <silent> <space>ar  :CocDisable<cr>:sleep 1<cr>:CocEnable<cr>
+nnoremap <silent> <space>ar  :CocRestart<cr>
 " Coc info
 nnoremap <silent> <space>ai  :CocInfo<CR>

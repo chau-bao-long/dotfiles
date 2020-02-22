@@ -1,33 +1,43 @@
-snippet ns "declare namespace at beginning of the file"
-<?php
-
-namespace $0;
+snippet t
+$this->$0
 endsnippet
 
-snippet mc
+snippet s
+self::$0
+endsnippet
+
+snippet cm
 /**
  * $0
  */
 endsnippet
 
-snippet sc
+snippet cs
 /** $0 */
 endsnippet
 
-snippet vc
+snippet cv
 /** @var $0 */
 endsnippet
 
-snippet pa
+snippet cp
 @param $0
 endsnippet
 
-snippet re
+snippet cr
 @return $0
 endsnippet
 
-snippet th
+snippet ct
 @throws $0
+endsnippet
+
+snippet cc
+@covers $0
+endsnippet
+
+snippet cdp
+@dataProvider $0
 endsnippet
 
 snippet TestCaseSnip
@@ -40,4 +50,37 @@ endsnippet
 
 snippet ResponseSnip
 use Illuminate\Http\Response;
+endsnippet
+
+snippet Faker
+use Faker\Generator as Faker;
+endsnippet
+
+snippet CollectionSnip
+use Illuminate\Support\Collection;
+endsnippet
+
+snippet EventSnip
+use Illuminate\Support\Facades\Event;
+endsnippet
+
+snippet DB
+use Illuminate\Support\Facades\DB;
+endsnippet
+
+snippet con
+public function __construct($0)
+{
+}
+endsnippet
+
+snippet fun
+/**
+ * @param 
+ * @return 
+ */
+public function $0()
+{
+
+}
 endsnippet
