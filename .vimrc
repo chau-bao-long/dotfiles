@@ -6,7 +6,6 @@ Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
-Plug 'junegunn/goyo.vim'
 Plug 'mbbill/undotree'
 Plug 'christoomey/vim-system-copy'
 Plug 'scrooloose/nerdtree'
@@ -82,8 +81,6 @@ source ~/Projects/dotfiles/.vim/config/debug.vim
 " ==================================================== Minor Plugin Config
 nmap <space>iu mf:UltiSnipsEdit<cr>
 let g:rainbow_active = 1
-nmap zy :Goyo 280x850%<cr>
-nmap zu :Goyo!<cr>
 nmap <space>ch :ColorHighlight!<cr>
 nmap <space>ct :ColorToggle<cr>
 
