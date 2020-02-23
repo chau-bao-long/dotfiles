@@ -2,9 +2,9 @@ set guicursor=n:blinkon1
 set updatetime=300
 set shortmess+=c
 
-" \'coc-ultisnips',
 " \'coc-tag',
 let g:coc_global_extensions = [
+            \'coc-ultisnips',
             \'coc-phpls',
             \'coc-json',
             \'coc-tsserver',

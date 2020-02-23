@@ -205,11 +205,11 @@ nmap gj :tabnext<cr>
 nmap <space>tt :tabnew<cr><space>f
 nmap <space>vv :vs<cr><C-w>l
 nmap <space>xx :split<cr><C-w>j
-map <space>L <C-w>35>
-map <space>H <C-w>35<
-map <space>K <C-w>25+
-map <space>J <C-w>25-
-map <space>= <C-w>=
+map <space>wL <C-w>30>
+map <space>wH <C-w>30<
+map <space>wK <C-w>25+
+map <space>wJ <C-w>25-
+map <space>w= <C-w>=
 nmap <script> <silent> <space>3 :copen 1000<cr>G:ColorHighlight!<cr>
 nmap <script> <silent> <space>2 :call ToggleQuickfixList()<cr>
 nmap <space>w <c-w>
