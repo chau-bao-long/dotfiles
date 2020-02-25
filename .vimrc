@@ -145,18 +145,13 @@ endif
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-set expandtab ts=4 sw=4 ai
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab ts=2 sw=2 ai
 
-autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
-autocmd Filetype javascriptreact setlocal ts=2 sw=2 sts=0 expandtab
-autocmd Filetype ruby setlocal ts=2 sw=2 sts=0 expandtab
-autocmd Filetype python setlocal ts=2 sw=2 sts=0 expandtab
-autocmd Filetype bash setlocal ts=2 sw=2 sts=0 expandtab
-autocmd Filetype sh setlocal ts=2 sw=2 sts=0 expandtab
-autocmd Filetype yaml setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype php setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype kotlin setlocal ts=4 sw=4 sts=0 expandtab
 
 " Auto indent pasted text
 nnoremap p p=`]
@@ -207,12 +202,13 @@ nmap <space>vv :vs<cr><C-w>l
 nmap <space>xx :split<cr><C-w>j
 map <space>wL <C-w>30>
 map <space>wH <C-w>30<
-map <space>wK <C-w>25+
-map <space>wJ <C-w>25-
+map <space>wJ <C-w>25+
+map <space>wK <C-w>25-
 map <space>w= <C-w>=
 nmap <script> <silent> <space>3 :copen 1000<cr>G:ColorHighlight!<cr>
 nmap <script> <silent> <space>2 :call ToggleQuickfixList()<cr>
 nmap <space>w <c-w>
+nmap <space>w<cr> <c-w>r<c-w>h<c-w>60>
 nmap 'w :wa!<CR>
 nmap 'q :wq<CR>
 nmap 'e :q!<CR>
@@ -272,7 +268,7 @@ nmap <space>0 :call GoBackToRoot()<CR>
 nmap g- :tabm -1<CR>
 nmap g= :tabm +1<CR>
 vmap / y:/<C-R>0<CR>
-nmap <space>e= 20kV40j=<c-o>
+nmap <space>e= 15kV30j=15j
 nmap <space>er :e<cr>
 nmap zp :call GotoJump()<cr>
 nmap <space>tm <c-w>T
