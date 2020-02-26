@@ -99,3 +99,6 @@ nnoremap <silent> <space>ar  :CocRestart<cr>
 nnoremap <silent> <space>ai  :CocInfo<CR>
 " Coc source config file
 nnoremap <space>al :source ~/Projects/dotfiles/.vim/config/coc.vim<cr>
+
+" Delay load coc config again, which fix the bug with coc completion does not work at first time start
+autocmd VimEnter * call timer_start(200, { tid -> execute('source ~/Projects/dotfiles/.vim/config/coc.vim')})
