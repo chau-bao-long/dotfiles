@@ -151,19 +151,6 @@ alias dot=~/Projects/dotfiles
 alias jci=~/Projects/JobChat_Infra
 alias org=~/org
 
-# setup VPN commands
-export PATH="/usr/local/opt/openvpn/sbin:$PATH"
-vpnconnect() {
-    rm /tmp/vpn.log &> /dev/null
-    sudo openvpn --config ~/.vpn/client.ovpn --auth-user-pass ~/.vpn/creds &> /tmp/vpn.log & 
-    tail -f /tmp/vpn.log
-}
-vpndisconnect() {
-    local pid
-    pid=$(ps -ef | sed 1d | grep "openvpn --config" | grep -v "sudo\|grep" | awk '{print $2}' | head -n 1)
-    sudo kill -9 $pid
-}
-
 # cd faster
 fd() {
   local dir
@@ -257,6 +244,35 @@ wifi() {
 # connect to wifi by $1 is ssid and $2 is pass
 wific() {
   networksetup -setairportnetwork en0 $1 $2
+}
+
+# setup VPN commands
+export PATH="/usr/local/opt/openvpn/sbin:$PATH"
+vpnconnect() {
+  rm /tmp/vpn.log &> /dev/null
+  sudo openvpn --config ~/.vpn/client.ovpn --auth-user-pass ~/.vpn/creds &> /tmp/vpn.log & 
+  tail -f /tmp/vpn.log
+}
+vpndisconnect() {
+  local pid
+  pid=$(ps -ef | sed 1d | grep "openvpn --config" | grep -v "sudo\|grep" | awk '{print $2}' | head -n 1)
+  sudo kill -9 $pid
+}
+vpnresetconnect() {
+  echo "Disconnect VPN"
+  vpndisconnect
+  sleep 0.5
+  echo "Turn off wifi"
+  wifi off
+  sleep 1.5
+  echo "Flush route"
+  sudo route flush
+  sleep 1
+  echo "Turn on wifi"
+  wifi on
+  sleep 2
+  echo "Connect VPN"
+  vpnconnect
 }
 
 # Change Cursor Shape for Zsh Vi-mode

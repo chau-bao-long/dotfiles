@@ -33,6 +33,7 @@ Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'luochen1990/rainbow'
 Plug 'chrisbra/Colorizer'
+Plug 'airblade/vim-rooter'
 
 " Ruby on Rails plugins
 Plug 'tpope/vim-rails'
@@ -61,6 +62,9 @@ Plug 'jason0x43/vim-js-indent'
 Plug 'jparise/vim-graphql'
 Plug 'Galooshi/vim-import-js'
 
+" PHP Plugins
+Plug 'Rican7/php-doc-modded'
+
 call plug#end()
 
 " ==================================================== Config Plugin
@@ -83,6 +87,7 @@ nmap <space>iu mf:UltiSnipsEdit<cr>
 let g:rainbow_active = 1
 nmap <space>ch :ColorHighlight!<cr>
 nmap <space>ct :ColorToggle<cr>
+let g:rooter_change_directory_for_non_project_files = 'current'
 
 " ==================================================== General Config
 filetype plugin indent on
