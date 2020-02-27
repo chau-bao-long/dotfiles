@@ -83,7 +83,7 @@ source ~/Projects/dotfiles/.vim/config/git.vim
 source ~/Projects/dotfiles/.vim/config/debug.vim
 
 " ==================================================== Minor Plugin Config
-nmap <space>iu mf:UltiSnipsEdit<cr>
+nmap <space>iu m0:UltiSnipsEdit<cr>
 let g:rainbow_active = 1
 nmap <space>ch :ColorHighlight!<cr>
 nmap <space>ct :ColorToggle<cr>

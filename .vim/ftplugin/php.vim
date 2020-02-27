@@ -12,6 +12,7 @@ nmap <leader>gm :Rg models<cr>
 nmap <leader>gd :Rg repositories<cr>
 nmap <leader>gs :Rg services<cr>
 nmap <leader>gt :Rg test<cr>
+nmap <leader>gv :Rg view<cr>
 nmap <space>lc ggVGd:w<cr>
 nmap <space>lf :%s/\/var\/www\/html\///g<cr>
 nmap <space>lr :edit!<cr>G
