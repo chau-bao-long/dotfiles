@@ -26,7 +26,7 @@ snippet cl "Console log"
 console.log($0);
 endsnippet
 
-snippet it "Test it"
+snippet its "Test it"
 it('$0', () => {
 })
 endsnippet
@@ -52,16 +52,16 @@ snippet ips "Import module and spread object" b
 import { $1 } from '$0';
 endsnippet
 
+snippet ipst "Import style scss"
+import styles from './index.module.scss';
+endsnippet
+
 snippet i18 "Import i18n" b
 import { withNamespaces } from 'react-i18next';
 endsnippet
 
 snippet isc "Import style components" b
 import styled from 'styled-components';
-endsnippet
-
-snippet itw "Import tailwind" b
-import tw from 'tailwind.macro';
 endsnippet
 
 snippet irn "import react native" b
@@ -95,9 +95,9 @@ const ${1:ComponentName} = styled.${2:View}.attrs({
 \`;
 endsnippet
 
-snippet rnc "Create a new stateless component"
+snippet rnsl "Bootstrap a react stateless component"
+/* @flow */
 import React from 'react';
-import styled from 'styled-components';
 
 type TProps = {
 	$0
@@ -105,6 +105,16 @@ type TProps = {
 
 export default ({ $1 }: TProps) => (
 )
+endsnippet
+
+snippet rnsf "Bootstrap a react stateful container"
+/* @flow */
+import { useDispatch } from 'react-redux';
+import React from 'react';
+
+export default () => {
+	const dispatch = useDispatch();
+};
 endsnippet
 
 snippet rntc "Create component test"
@@ -143,26 +153,6 @@ snippet ipm "Import personio redux create module"
 import createModule from '@personio/redux-create-module';
 endsnippet
 
-snippet icn "Import classnames"
-import classnames from 'classnames';
-endsnippet
-
-snippet ise "Import saga effect"
+snippet ipse "Import saga effect"
 import { $0 } from 'redux-saga/effects';
-endsnippet
-
-snippet ist "Import saga type"
-import type { Saga } from 'redux-saga';
-endsnippet
-
-snippet irr "Import react redux"
-import { useDispatch, useSelector } from 'react-redux';
-endsnippet
-
-snippet irs "Import reselect"
-import { createSelector } from 'reselect';
-endsnippet
-
-snippet its "Import test saga"
-import { testSaga } from 'redux-saga-test-plan';
 endsnippet

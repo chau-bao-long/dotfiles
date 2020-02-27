@@ -12,6 +12,7 @@ nmap <space>gbl :Gblame<cr>
 nmap <space>gbr :Gbrowse<cr>
 nmap <space>gs :Gstatus<cr>
 nmap <space>ge :Gedit 
+nmap <space>gt .tabnew<cr>
 nmap <space>gvs :Gvsplit<cr>
 nmap <space>gsp :Gsplit<cr>
 nmap <space>gca :Gcommit --amend<cr>
@@ -29,5 +30,6 @@ nmap <space>g[ 'tkO
 nmap <space>g, [c:GitGutterPreviewHunk<cr>
 nmap <space>g. ]c:GitGutterPreviewHunk<cr>
 nmap <space>gm <c-w>o:Gedit<cr>
+nmap <space>gu :GitGutterUndoHunk<cr>
 
 let g:gitgutter_enabled = 0

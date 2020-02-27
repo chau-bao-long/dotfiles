@@ -219,7 +219,6 @@ nmap 'q :wq<CR>
 nmap 'e :q!<CR>
 nmap 'r :edit!<cr>
 nmap 't :tabclose<cr>
-nmap '2 'e'e
 nmap zj <C-d>
 nmap zk <C-u>
 nmap zh <C-e><C-e><C-e><C-e><C-e>jjjjj
@@ -228,14 +227,6 @@ nmap <C-j> <C-d>
 nmap <C-k> <C-u>
 nmap <C-h> <C-e><C-e><C-e><C-e><C-e>jjj
 nmap <C-l> <C-y><C-y><C-y><C-y><C-y>kkk
-nmap mf mF
-nmap md mD
-nmap ms mS
-nmap ma mA
-nmap mb 'F
-nmap mv 'D
-nmap mc 'S
-nmap mx 'A
 nmap zi <C-i>
 nmap zo <C-o>
 nmap co :let @+=expand("%:t")<cr>

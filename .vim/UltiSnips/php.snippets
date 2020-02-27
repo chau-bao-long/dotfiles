@@ -2,6 +2,10 @@ snippet t
 $this->$0
 endsnippet
 
+snippet d
+dd($0);
+endsnippet
+
 snippet s
 self::$0
 endsnippet
@@ -68,13 +72,13 @@ snippet DB
 use Illuminate\Support\Facades\DB;
 endsnippet
 
-snippet con
+snippet con "Generate a php constructor"
 public function __construct($0)
 {
 }
 endsnippet
 
-snippet fun
+snippet pub "Generate a php public function"
 /**
  * @param 
  * @return 
@@ -84,3 +88,16 @@ public function $0()
 
 }
 endsnippet
+
+snippet pri "Generate a php private function"
+private function $0()
+{
+
+}
+endsnippet
+
+snippet logdb "description"
+DB::connection()->enableQueryLog();
+dd(DB::getQueryLog());
+endsnippet
+	
