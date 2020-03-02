@@ -145,10 +145,10 @@ alias pa=~/Projects/personio/admin-panel-service/run.sh
 alias pro=~/Projects
 alias per=~/Projects/personio
 alias mon=~/Projects/personio/personio
-alias mic=~/Projects/personio/admin-panel-service
+alias msa=~/Projects/personio/admin-panel-service
+alias msi=~/Projects/personio/invoice-service
 alias mfp=~/Projects/personio/payroll-dashboard-ui
 alias dot=~/Projects/dotfiles
-alias jci=~/Projects/JobChat_Infra
 alias org=~/org
 
 # cd faster
