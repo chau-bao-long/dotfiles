@@ -15,10 +15,11 @@ nmap <space>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<CR>cla
 nmap <space>il yiwggjo<esc>pA<c-space><tab><esc>zo
 nmap <space>is "1yiw<c-]>ggwvE"2y<c-o><c-o>ggjoimport <esc>"2pA.<esc>"1p<c-o>
 nmap <space>ip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| sed 's/kotlin\.//g' \| sed 's/^/package /' >> %<CR>:e!<CR>
-nmap <space>elc :Dispatch ktlint<cr>
-nmap <space>elf :Dispatch! ktlint -F<cr>
 nmap <leader>gt :Files<cr>test
 nmap <leader>ga :Files<cr>actions
 nmap <leader>gr :Files<cr>respositories
 nmap <leader>ge :Files<cr>endpoints
 nmap <leader>gf :Files<cr>factories
+
+" Easy switching between vim and intelliJ
+nnoremap <space>oi :exec "Dispatch! idea --line " . line('.') . " " . expand('%:p')<cr>

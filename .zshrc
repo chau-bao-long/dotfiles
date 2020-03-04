@@ -310,3 +310,4 @@ bindkey "^k" cmds
 bindkey -s "^[f" "ranger\n"
 bindkey -s "^[n" "nvim\n"
 bindkey -s "^[b" "br\n"
+bindkey -s "^[r" "./run.sh "

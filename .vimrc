@@ -82,6 +82,11 @@ source ~/Projects/dotfiles/.vim/config/tree.vim
 source ~/Projects/dotfiles/.vim/config/git.vim
 source ~/Projects/dotfiles/.vim/config/debug.vim
 
+" ==================================================== Utility Functions
+source ~/Projects/dotfiles/.vim/functions/clipboard_file_open.vim
+source ~/Projects/dotfiles/.vim/functions/change_root.vim
+source ~/Projects/dotfiles/.vim/functions/jump_to_file_in_history.vim
+
 " ==================================================== Minor Plugin Config
 nmap <space>iu m0:UltiSnipsEdit<cr>
 let g:rainbow_active = 1
@@ -266,7 +271,6 @@ nmap g= :tabm +1<CR>
 vmap / y:/<C-R>0<CR>
 nmap <space>e= 15kV30j=15j
 nmap <space>er :e<cr>
-nmap zp :call GotoJump()<cr>
 nmap <space>tm <c-w>T
 nmap <space>eq yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
 nmap <space>eQ yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0 && read<cr>
@@ -274,37 +278,6 @@ vmap <space>eq y:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
 vmap <space>eQ y:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0 && read<cr>
 nmap <space>ew :Dispatch ~/bin/current-cmd<cr>
 nmap <space>eW :Dispatch ~/bin/current-cmd && read<cr>
-
-function GoBack()
-  cd ..
-  pwd
-endfunction
-
-function GoBackToRoot()
-  while stridx(execute(":!ls -a"), ".git") < 0 && strlen(execute(":pwd")) > 2
-    cd ..
-  endwhile
-  pwd
-endfunction
-
-function GoToCurrentFile()
-  cd %:p:h
-  pwd
-endfunction
-
-function! GotoJump()
-  jumps
-  let j = input("Please select your jump: ")
-  if j != ''
-    let pattern = '\v\c^\+'
-    if j =~ pattern
-      let j = substitute(j, pattern, '', 'g')
-      execute "normal " . j . "\<c-i>"
-    else
-      execute "normal " . j . "\<c-o>"
-    endif
-  endif
-endfunction
 
 " Auto commands
 autocmd BufWritePost ~/Projects/algorithm/*.c :Dispatch gcc % && ./a.out
