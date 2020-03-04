@@ -16,6 +16,8 @@ function! OpenFilesFromClipboard(command)
 
       if file_parts[1] =~ '^\d\+$'
         let file_line = file_parts[1]
+      elseif file_parts[2] =~ '^\d\+$'
+        let file_line = file_parts[2]
       endif
     endif
 
