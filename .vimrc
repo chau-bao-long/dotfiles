@@ -162,6 +162,8 @@ set expandtab ts=2 sw=2 ai
 
 autocmd Filetype php setlocal ts=4 sw=4 sts=0 expandtab
 autocmd Filetype kotlin setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype java setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype xml setlocal ts=4 sw=4 sts=0 expandtab
 
 " Auto indent pasted text
 nnoremap p p=`]
@@ -278,7 +280,3 @@ vmap <space>eq y:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
 vmap <space>eQ y:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0 && read<cr>
 nmap <space>ew :Dispatch ~/bin/current-cmd<cr>
 nmap <space>eW :Dispatch ~/bin/current-cmd && read<cr>
-
-" Auto commands
-autocmd BufWritePost ~/Projects/algorithm/*.c :Dispatch gcc % && ./a.out
-autocmd BufWritePost ~/suckless/*/*.h :Dispatch sudo make clean install

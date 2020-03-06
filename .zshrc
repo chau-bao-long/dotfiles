@@ -275,6 +275,17 @@ vpnresetconnect() {
   vpnconnect
 }
 
+# Extract source java/kotlin to archive folder
+function syncjavasource() {
+  rm -rf ~/Projects/lib/java
+  mkdir ~/Projects/lib/java
+  for file in $(find ~/.gradle/caches -type f -name '*-sources.jar'); do
+    tar -C ~/Projects/lib/java -zvxf $file
+  done
+  unzip /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/src.zip -d ~/Projects/lib/java/
+  cd ~/Projects/lib/java && git init
+}
+
 # Change Cursor Shape for Zsh Vi-mode
 # http://micahelliott.com/posts/2015-07-20-vim-zsh-tmux-cursor.html
 zle-line-init () {

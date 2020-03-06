@@ -102,10 +102,11 @@ let s:menus.directories = {
 let s:menus.directories.directory_candidates = [
             \ ['📂 vim config', '~/Projects/dotfiles/.vim/config/'],
             \ ['📂 vim filetype', '~/.vim/ftplugin/'],
+            \ ['📂 vim functions', '~/Projects/dotfiles/.vim/functions/'],
             \ ]
 let s:menus.directories.command_candidates = [
-            \ ['📂 vim plugin', 'tabnew ~/.vim/plugged/'],
-            \ ['📂 user config', 'tabnew ~/.config/'],
+            \ ['📂 folder vim pluged', 'tabnew ~/.vim/plugged/'],
+            \ ['📂 folder user config', 'tabnew ~/.config/'],
             \ ]
 let s:menus.commands = {
             \ 'description': '💾 Frequently used commands'
@@ -123,6 +124,10 @@ let s:menus.kotlin.command_candidates = [
             \ ['💾 run all test', 'Dispatch cd app && ./gradlew.local cleanTest test --info'],
             \ ['💾 patch admin panel', 'Dispatch! git apply ../patches-admin-panel/*'],
             \ ['💾 unpatch admin panel', 'Dispatch! git apply -R ../patches-admin-panel/*'],
+            \ ['💾 classes', 'Dispatch! cd app && ./gradlew.local classes'],
+            \ ['💾 classes with log', 'Dispatch cd app && ./gradlew.local classes'],
+            \ ['💾 build', 'Dispatch cd app && ./gradlew.local build'],
+            \ ['💾 clean', 'Dispatch cd app && ./gradlew.local clean'],
             \ ]
 let s:menus.js = {
             \ 'description': '💾 Javascript project commands'
@@ -155,7 +160,7 @@ let s:menus.ctags.command_candidates = [
             \[ '📌 python with lib', 'Dispatch! ctags -R --languages=Python --exclude=.git --exclude=log . $(pip show pip | grep Location | cut -d ":" -f 2)'],
             \[ '📌 python', 'Dispatch! ctags -R --languages=Python --exclude=.git --exclude=log .'],
             \[ '📌 php', 'Dispatch! ctags -R --languages=PHP --exclude=.git --exclude=log .'],
-            \[ '📌 kotlin', 'Dispatch! ctags -R --languages=kotlin --exclude=.git --exclude=log --exclude=.gradle --exclude=.gradle-home --exclude=data .'],
+            \[ '📌 kotlin', 'Dispatch! ctags -R --languages=java,kotlin --exclude=.git --exclude=log --exclude=.gradle --exclude=.gradle-home --exclude=data . ~/Projects/lib/java'],
             \]
 
 call denite#custom#var('menu', 'menus', s:menus)

@@ -4,10 +4,6 @@ vmap <space>ee y:exec "Dispatch cd app && ./gradlew.local cleanTest test --info 
 vmap <space>eE y:exec "Dispatch cd app && ./gradlew.local cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
 nmap <space>ef :exec "Dispatch echo \"cd app && ./gradlew.local cleanTest test --info --tests " . expand('%:t')[:-4] . "\" > ~/bin/current-cmd"<cr><space>eq
 nmap <space>eF :exec "Dispatch echo \"cd app && ./gradlew.local cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . "\" > ~/bin/current-cmd"<cr><space>eq
-nmap <space>ek :Dispatch! cd app && ./gradlew.local classes<cr>
-nmap <space>eK :Dispatch cd app && ./gradlew.local classes<cr>
-nmap <space>ec :Dispatch cd app && ./gradlew.local clean<cr>
-nmap <space>eb :Dispatch cd app && ./gradlew.local build<cr>
 nmap <space>gi :Rg override fun <C-R><C-W><CR>
 nmap <space>gI :exec "/I" . expand('%:t:r')<CR>n<c-]>
 nmap <space>gt :exec "Rg " . expand('%:t:r') . "Test"<CR>
@@ -23,3 +19,6 @@ nmap <leader>gf :Files<cr>factories
 
 " Easy switching between vim and intelliJ
 nnoremap <space>oi :exec "Dispatch! idea --line " . line('.') . " " . expand('%:p')<cr>
+
+" Beter GF in kotlin and java
+source ~/Projects/dotfiles/.vim/functions/gf_java_kotlin.vim
