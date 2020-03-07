@@ -102,7 +102,7 @@ let s:menus.directories = {
 let s:menus.directories.directory_candidates = [
             \ ['📂 vim config', '~/Projects/dotfiles/.vim/config/'],
             \ ['📂 vim filetype', '~/.vim/ftplugin/'],
-            \ ['📂 vim functions', '~/Projects/dotfiles/.vim/functions/'],
+            \ ['📂 vim functions', '~/Projects/dotfiles/.vim/autoload/'],
             \ ]
 let s:menus.directories.command_candidates = [
             \ ['📂 folder vim pluged', 'tabnew ~/.vim/plugged/'],
@@ -128,6 +128,7 @@ let s:menus.kotlin.command_candidates = [
             \ ['💾 classes with log', 'Dispatch cd app && ./gradlew.local classes'],
             \ ['💾 build', 'Dispatch cd app && ./gradlew.local build'],
             \ ['💾 clean', 'Dispatch cd app && ./gradlew.local clean'],
+            \ ['💾 library', 'tabnew ~/Projects/lib/java/Debug.kt'],
             \ ]
 let s:menus.js = {
             \ 'description': '💾 Javascript project commands'
@@ -169,6 +170,7 @@ nmap <space><space> :Denite menu<cr>
 autocmd Filetype javascript nmap <buffer> <space>k :Denite menu:js<cr>
 autocmd Filetype javascriptreact nmap <buffer> <space>k :Denite menu:js<cr>
 autocmd Filetype kotlin nmap <buffer> <space>k :Denite menu:kotlin<cr>
+autocmd Filetype java nmap <buffer> <space>k :Denite menu:kotlin<cr>
 autocmd Filetype php nmap <buffer> <space>k :Denite menu:php<cr>
 nmap <space>mc :Denite menu:ctags<cr>
 nmap <space>md :Denite menu:directories<cr>

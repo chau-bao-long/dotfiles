@@ -1,4 +1,18 @@
-function! OpenFilesFromClipboard(command)
+function! common#gotoJump()
+  jumps
+  let j = input("Please select your jump: ")
+  if j != ''
+    let pattern = '\v\c^\+'
+    if j =~ pattern
+      let j = substitute(j, pattern, '', 'g')
+      execute "normal " . j . "\<c-i>"
+    else
+      execute "normal " . j . "\<c-o>"
+    endif
+  endif
+endfunction
+
+function! common#openFilesFromClipboard(command)
   let clipboard = @*
   if clipboard =~ '^\s*$'
     let clipboard = @+
@@ -27,10 +41,22 @@ function! OpenFilesFromClipboard(command)
 
     execute a:command . ' ' printf('+%d', file_line) ifile
   endfor
-
 endfunction
 
-nnoremap <space>ot :call OpenFilesFromClipboard("tabnew")<cr>
-nnoremap <space>oo :call OpenFilesFromClipboard("e")<cr>
-nnoremap <space>os :call OpenFilesFromClipboard("split")<cr>
-nnoremap <space>ov :call OpenFilesFromClipboard("vs")<cr>
+function common#goBack()
+  cd ..
+  pwd
+endfunction
+
+function common#goBackToRoot()
+  while stridx(execute(":!ls -a"), ".git") < 0 && strlen(execute(":pwd")) > 2
+    cd ..
+  endwhile
+  pwd
+endfunction
+
+function common#goToCurrentFile()
+  cd %:p:h
+  pwd
+endfunction
+

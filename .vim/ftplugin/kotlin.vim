@@ -18,7 +18,8 @@ nmap <leader>ge :Files<cr>endpoints
 nmap <leader>gf :Files<cr>factories
 
 " Easy switching between vim and intelliJ
-nnoremap <space>oi :exec "Dispatch! idea --line " . line('.') . " " . expand('%:p')<cr>
+nnoremap <silent> <space>oi :exec "Dispatch! idea --line " . line('.') . " " . expand('%:p')<cr>
 
 " Beter GF in kotlin and java
-source ~/Projects/dotfiles/.vim/functions/gf_java_kotlin.vim
+nmap gf :call javafunctions#openFile('e')<cr>
+nmap gF :call javafunctions#openFile('tabedit')<cr>

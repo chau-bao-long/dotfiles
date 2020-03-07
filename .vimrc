@@ -82,11 +82,6 @@ source ~/Projects/dotfiles/.vim/config/tree.vim
 source ~/Projects/dotfiles/.vim/config/git.vim
 source ~/Projects/dotfiles/.vim/config/debug.vim
 
-" ==================================================== Utility Functions
-source ~/Projects/dotfiles/.vim/functions/clipboard_file_open.vim
-source ~/Projects/dotfiles/.vim/functions/change_root.vim
-source ~/Projects/dotfiles/.vim/functions/jump_to_file_in_history.vim
-
 " ==================================================== Minor Plugin Config
 nmap <space>iu m0:UltiSnipsEdit<cr>
 let g:rainbow_active = 1
@@ -265,9 +260,9 @@ imap zbt <Esc>a``<Esc>i
 imap zbs <Esc>a```<Esc>i
 nmap <space>cb :bufdo bd<CR>
 nmap <space>8 :pwd<CR>
-nmap <space>7 :call GoToCurrentFile()<CR>
-nmap <space>9 :call GoBack()<CR>
-nmap <space>0 :call GoBackToRoot()<CR>
+nmap <space>7 :call common#goToCurrentFile()<CR>
+nmap <space>9 :call common#goBack()<CR>
+nmap <space>0 :call common#goBackToRoot()<CR>
 nmap g- :tabm -1<CR>
 nmap g= :tabm +1<CR>
 vmap / y:/<C-R>0<CR>
@@ -280,3 +275,10 @@ vmap <space>eq y:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0<cr>
 vmap <space>eQ y:!echo <c-r>0 > ~/bin/current-cmd<cr>:Dispatch <c-r>0 && read<cr>
 nmap <space>ew :Dispatch ~/bin/current-cmd<cr>
 nmap <space>eW :Dispatch ~/bin/current-cmd && read<cr>
+
+" Common functions
+nnoremap zp :call common#gotoJump()<cr>
+nnoremap <space>ot :call common#openFilesFromClipboard("tabnew")<cr>
+nnoremap <space>oo :call common#openFilesFromClipboard("e")<cr>
+nnoremap <space>os :call common#openFilesFromClipboard("split")<cr>
+nnoremap <space>ov :call common#openFilesFromClipboard("vs")<cr>
