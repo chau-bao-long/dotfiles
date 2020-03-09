@@ -166,7 +166,7 @@ let s:menus.ctags.command_candidates = [
 
 call denite#custom#var('menu', 'menus', s:menus)
 
-nmap <space><space> :Denite menu<cr>
+nmap <space>mm :Denite menu<cr>
 autocmd Filetype javascript nmap <buffer> <space>k :Denite menu:js<cr>
 autocmd Filetype javascriptreact nmap <buffer> <space>k :Denite menu:js<cr>
 autocmd Filetype kotlin nmap <buffer> <space>k :Denite menu:kotlin<cr>

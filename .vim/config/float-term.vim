@@ -86,5 +86,4 @@ function! FloatingFZF()
     autocmd TermClose * ++once :bd! | call nvim_win_close(s:float_term_border_win, v:true)
 endfunction
 
-nnoremap <space>[ :call FloatTerm()<cr>
-nnoremap <space>] <c-w>w
+nnoremap <space><space> :call FloatTerm()<cr>

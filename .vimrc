@@ -15,6 +15,7 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'milkypostman/vim-togglelist'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-peekaboo'
 Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'SirVer/ultisnips'
@@ -204,7 +205,7 @@ nmap z/ /turn-off-search-highlight<cr>
 " ==================================================== Custom mapping
 nmap gk :tabprevious<cr>
 nmap gj :tabnext<cr>
-nmap <space>tt :tabnew<cr><space>f
+nmap <space>tt :tabnew<cr><space>wf
 nmap <space>vv :vs<cr><C-w>l
 nmap <space>xx :split<cr><C-w>j
 map <space>wL <C-w>30>
