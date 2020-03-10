@@ -3,9 +3,9 @@ let s:float_term_win = 0
 
 function! FloatTerm(...)
     " Configuration
-    let height = float2nr((&lines - 2) * 0.6)
+    let height = float2nr((&lines - 2) * 0.9)
     let row = float2nr((&lines - height) / 2)
-    let width = float2nr(&columns * 0.6)
+    let width = float2nr(&columns * 0.8)
     let col = float2nr((&columns - width) / 2)
     " Border Window
     let border_opts = {
@@ -48,9 +48,9 @@ function! FloatTerm(...)
 endfunction
 
 function! FloatingFZF()
-    let height = float2nr((&lines - 2) / 1.5)
+    let height = float2nr((&lines - 2) / 1.1)
     let row = float2nr((&lines - height) / 2)
-    let width = float2nr(&columns / 1.5)
+    let width = float2nr(&columns / 1.3)
     let col = float2nr((&columns - width) / 2)
     let opts = {
                 \ 'relative': 'editor',
