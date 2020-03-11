@@ -8,7 +8,7 @@ nmap <space>gi :Rg override fun <C-R><C-W><CR>
 nmap <space>gI :exec "/I" . expand('%:t:r')<CR>n<c-]>
 nmap <space>gt :exec "Rg " . expand('%:t:r') . "Test"<CR>
 nmap <space>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<CR>class
-nmap <space>il yiwggjo<esc>pA<c-space><tab><esc>zo
+nmap <space>il yiwggjo<esc>pA<c-space>
 nmap <space>is "1yiw<c-]>ggwvE"2y<c-o><c-o>ggjoimport <esc>"2pA.<esc>"1p<c-o>
 nmap <space>ip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| sed 's/kotlin\.//g' \| sed 's/^/package /' >> %<CR>:e!<CR>
 
