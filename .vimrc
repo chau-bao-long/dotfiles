@@ -35,6 +35,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'luochen1990/rainbow'
 Plug 'chrisbra/Colorizer'
 Plug 'airblade/vim-rooter'
+Plug 'Yggdroot/indentLine'
 
 " Ruby on Rails plugins
 Plug 'tpope/vim-rails'
@@ -89,6 +90,7 @@ let g:rainbow_active = 1
 nmap <space>ch :ColorHighlight!<cr>
 nmap <space>ct :ColorToggle<cr>
 let g:rooter_change_directory_for_non_project_files = 'current'
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 " ==================================================== General Config
 filetype plugin indent on
