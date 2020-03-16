@@ -285,3 +285,4 @@ nnoremap <space>ot :call common#openFilesFromClipboard("tabnew")<cr>
 nnoremap <space>oo :call common#openFilesFromClipboard("e")<cr>
 nnoremap <space>os :call common#openFilesFromClipboard("split")<cr>
 nnoremap <space>ov :call common#openFilesFromClipboard("vs")<cr>
+

@@ -18,18 +18,5 @@ nmap <space>lf :%s/\/var\/www\/html\///g<cr>
 nmap <space>lr :edit!<cr>G
 nmap <space>lo :tabnew app/storage-local/logs/laravel.log<cr>
 
-" Generates PHP docblocks
-nnoremap <space>ed :call UpdatePhpDocIfExists()<cr>/End function<cr>bhD<c-o>
-function! UpdatePhpDocIfExists()
-    normal! k
-    if getline('.') =~ '/'
-        normal! V%d
-    else
-        normal! j
-    endif
-    call PhpDocSingle()
-    normal! k^%k$
-    if getline('.') =~ ';'
-        exe "normal! $svoid"
-    endif
-endfunction
+nnoremap <space>ed :call phpfunctions#UpdatePhpDocIfExists()<cr>/End function<cr>bhD<c-o>
+nnoremap cfp :call phpfunctions#CopyPhpClassFullPath()<cr><c-o>
