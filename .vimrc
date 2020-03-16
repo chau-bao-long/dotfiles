@@ -239,6 +239,7 @@ nmap cl :let @+=expand("%:t")<cr>:Dispatch! osascript ~/Projects/dotfiles/mac_sc
 nmap cO :let @+=expand("%:p")[-32:]<cr>
 nmap cy :let @+=expand("%:p")<cr>
 nmap ch :let @+=expand("%:h")<cr>
+nmap cn :let @+=expand("%:t:r")<cr>
 nmap cu viwcp
 nmap c' vi'cp
 nmap c" vi"cp

@@ -1,6 +1,6 @@
 function! phpfunctions#CopyPhpClassFullPath()
-  execute "normal! /namespace\<cr>wyt;"
-  let @+=@0 . expand('%:t:r')
+  execute "silent! normal! /namespace\<cr>wyt;"
+  let @+=@0 . '\' . expand('%:t:r')
 endfunction
 
 function! phpfunctions#UpdatePhpDocIfExists()
