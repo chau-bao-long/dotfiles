@@ -1,9 +1,9 @@
-nmap <space>ee /@Test<cr>Njwvt(y:exec "Dispatch echo \"cd app && ./gradlew.local cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>eq
-nmap <space>eE /@Test<cr>Njwvt(y:exec "Dispatch echo \"cd app && ./gradlew.local cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>eq
-vmap <space>ee y:exec "Dispatch cd app && ./gradlew.local cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
-vmap <space>eE y:exec "Dispatch cd app && ./gradlew.local cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
-nmap <space>ef :exec "Dispatch echo \"cd app && ./gradlew.local cleanTest test --info --tests " . expand('%:t')[:-4] . "\" > ~/bin/current-cmd"<cr><space>eq
-nmap <space>eF :exec "Dispatch echo \"cd app && ./gradlew.local cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . "\" > ~/bin/current-cmd"<cr><space>eq
+nmap <space>ee /@Test<cr>Njwvt(y:exec "Dispatch echo \"cd app && ./gradlew.test cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>ew
+nmap <space>eE /@Test<cr>Njwvt(y:exec "Dispatch echo \"cd app && ./gradlew.test cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>ew
+vmap <space>ee y:exec "Dispatch cd app && ./gradlew.test cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
+vmap <space>eE y:exec "Dispatch cd app && ./gradlew.test cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
+nmap <space>ef :exec "Dispatch echo \"cd app && ./gradlew.local cleanTest test --info --tests " . expand('%:t')[:-4] . "\" > ~/bin/current-cmd"<cr><space>ew
+nmap <space>eF :exec "Dispatch echo \"cd app && ./gradlew.local cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . "\" > ~/bin/current-cmd"<cr><space>ew
 nmap <space>gi :Rg override fun <C-R><C-W><CR>
 nmap <space>gI :exec "/I" . expand('%:t:r')<CR>n<c-]>
 nmap <space>gt :exec "Rg " . expand('%:t:r') . "Test"<CR>

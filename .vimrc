@@ -112,8 +112,12 @@ set encoding=utf-8
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
-"turn on syntax highlighting
+" Turn on syntax highlighting
 syntax on
+
+" Faster cursor and typing
+set timeoutlen=500
+set ttimeoutlen=0
 
 " ==================================================== Theme
 set background=dark
@@ -286,4 +290,3 @@ nnoremap <space>ot :call common#openFilesFromClipboard("tabnew")<cr>
 nnoremap <space>oo :call common#openFilesFromClipboard("e")<cr>
 nnoremap <space>os :call common#openFilesFromClipboard("split")<cr>
 nnoremap <space>ov :call common#openFilesFromClipboard("vs")<cr>
-
