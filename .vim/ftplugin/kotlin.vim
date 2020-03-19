@@ -4,10 +4,9 @@ vmap <space>ee y:exec "Dispatch cd app && ./gradlew.test cleanTest test --info -
 vmap <space>eE y:exec "Dispatch cd app && ./gradlew.test cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
 nmap <space>ef :exec "Dispatch echo \"cd app && ./gradlew.local cleanTest test --info --tests " . expand('%:t')[:-4] . "\" > ~/bin/current-cmd"<cr><space>ew
 nmap <space>eF :exec "Dispatch echo \"cd app && ./gradlew.local cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . "\" > ~/bin/current-cmd"<cr><space>ew
-nmap <space>gi :Rg override fun <C-R><C-W><CR>
-nmap <space>gI :exec "/I" . expand('%:t:r')<CR>n<c-]>
-nmap <space>gt :exec "Rg " . expand('%:t:r') . "Test"<CR>
-nmap <space>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<CR>class
+nmap <leader>gi :Rg override fun <C-R><C-W><CR>
+nmap <leader>gt :exec "Rg " . expand('%:t:r') . "Test"<CR>
+nmap <leader>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<CR>class
 nmap <space>il yiwggjo<esc>pA<c-space>
 nmap <space>is "1yiw<c-]>ggwvE"2y<c-o><c-o>ggjoimport <esc>"2pA.<esc>"1p<c-o>
 nmap <space>ip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| sed 's/kotlin\.//g' \| sed 's/^/package /' >> %<CR>:e!<CR>

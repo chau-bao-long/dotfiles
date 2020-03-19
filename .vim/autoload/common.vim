@@ -59,4 +59,3 @@ function common#goToCurrentFile()
   cd %:p:h
   pwd
 endfunction
-

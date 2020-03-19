@@ -212,6 +212,11 @@ fgit() {
 FZF-EOF"
 }
 
+# fetch and checkout remote branch by name
+gcor() {
+  git fetch origin && git branch -r | grep $1 | xargs git checkout
+}
+
 # frequently used commands
 cmds() {
   eval $(cat ~/local/cmds | fzf)
@@ -276,7 +281,7 @@ vpnresetconnect() {
 }
 
 # Extract source java/kotlin to archive folder
-function syncjavasource() {
+syncjavasource() {
   rm -rf ~/Projects/lib/java
   mkdir ~/Projects/lib/java
   for file in $(find ~/.gradle/caches -type f -name '*-sources.jar'); do

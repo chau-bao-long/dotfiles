@@ -1,7 +1,6 @@
 " ==================================================== Plugin Config
 call plug#begin('~/.vim/plugged')
 
-" General plugins
 Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -18,7 +17,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
+
 Plug 'SirVer/ultisnips'
+nmap <space>iu m0:UltiSnipsEdit<cr>
+
 Plug 'honza/vim-snippets'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
@@ -32,12 +34,24 @@ Plug 'idanarye/vim-vebugger', {'branch': 'develop'}
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
-Plug 'luochen1990/rainbow'
-Plug 'chrisbra/Colorizer'
-Plug 'airblade/vim-rooter'
-Plug 'Yggdroot/indentLine'
 
-" Ruby on Rails plugins
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1
+
+Plug 'chrisbra/Colorizer'
+nmap <space>ch :ColorHighlight!<cr>
+nmap <space>ct :ColorToggle<cr>
+
+Plug 'airblade/vim-rooter'
+let g:rooter_change_directory_for_non_project_files = 'current'
+
+Plug 'Yggdroot/indentLine'
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+Plug 'pechorin/any-jump.vim'
+nnoremap <space>j :AnyJump<CR>
+xnoremap <space>j :AnyJumpVisual<CR>
+
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-bundler'
@@ -51,20 +65,15 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
 Plug 'thoughtbot/vim-rspec'
-
-" Javascript plugins
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'isruslan/vim-es6'
-Plug 'styled-components/vim-styled-components'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'jason0x43/vim-js-indent'
 Plug 'jparise/vim-graphql'
 Plug 'Galooshi/vim-import-js'
-
-" PHP Plugins
 Plug 'Rican7/php-doc-modded'
 
 call plug#end()
@@ -83,14 +92,6 @@ source ~/Projects/dotfiles/.vim/config/ranger.vim
 source ~/Projects/dotfiles/.vim/config/tree.vim
 source ~/Projects/dotfiles/.vim/config/git.vim
 source ~/Projects/dotfiles/.vim/config/debug.vim
-
-" ==================================================== Minor Plugin Config
-nmap <space>iu m0:UltiSnipsEdit<cr>
-let g:rainbow_active = 1
-nmap <space>ch :ColorHighlight!<cr>
-nmap <space>ct :ColorToggle<cr>
-let g:rooter_change_directory_for_non_project_files = 'current'
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 " ==================================================== General Config
 filetype plugin indent on
@@ -116,7 +117,7 @@ set hidden
 syntax on
 
 " Faster cursor and typing
-set timeoutlen=500
+set timeoutlen=1000
 set ttimeoutlen=0
 
 " ==================================================== Theme
