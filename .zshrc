@@ -217,6 +217,28 @@ gcor() {
   git fetch origin && git branch -r | grep $1 | xargs git checkout
 }
 
+# Open merge request on gitlab
+gmr() {
+  local gitlab=https://gitlab.personio-internal.de
+  local project=$(pwd | grep -Eo "/personio/.*$" | cut -d "/" -f3)
+  local team
+  if [[ "$project" == "personio" ]]; then
+    team="personio"
+  else
+    team="personio/customer-operations"
+  fi
+
+  if [ -z "$1" ]; then
+    git describe --all | grep -Eo "\d+" | xargs -I {} open $gitlab/$team/$project/merge_requests\?state=all\&search\=\{\}
+  else
+    local keyword=''
+    for var in "$@"; do
+      keyword=$keyword" "$var
+    done
+    open $gitlab/$team/$project/merge_requests\?state=all\&search\=$keyword
+  fi
+}
+
 # frequently used commands
 cmds() {
   eval $(cat ~/local/cmds | fzf)
