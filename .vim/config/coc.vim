@@ -14,7 +14,8 @@ let g:coc_global_extensions = [
             \'coc-yaml',
             \'coc-python',
             \'coc-svg',
-            \'coc-flow'
+            \'coc-flow',
+            \'coc-go'
             \]
 
 " Improve the completion experience
