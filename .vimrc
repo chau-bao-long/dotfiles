@@ -4,7 +4,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'mhinz/vim-startify'
 Plug 'mbbill/undotree'
 Plug 'christoomey/vim-system-copy'
 Plug 'scrooloose/nerdtree'
