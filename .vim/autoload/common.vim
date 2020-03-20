@@ -18,7 +18,9 @@ function! common#openFilesFromClipboard(command)
     let clipboard = @+
   endif
 
-  let lines = split(clipboard, "\n")
+  let path=s:correctPathOfJarFile(clipboard)
+
+  let lines = split(path, "\n")
   for line in lines
     let ifile     = line
     let file_line = 0
@@ -41,6 +43,11 @@ function! common#openFilesFromClipboard(command)
 
     execute a:command . ' ' printf('+%d', file_line) ifile
   endfor
+endfunction
+
+function! s:correctPathOfJarFile(path)
+  let lines = split(a:path, "jar!")
+  return len(lines) > 1 ?  "~/Projects/lib/java/" . lines[1] : a:path
 endfunction
 
 function common#goBack()
