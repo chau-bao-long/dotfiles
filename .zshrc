@@ -247,6 +247,11 @@ gmr() {
   fi
 }
 
+gjr() {
+  local jira=https://personio.atlassian.net
+  git describe --all | grep -Eo "..-\d+" | xargs -I {} open $jira/browse/\{\}
+}
+
 # frequently used commands
 cmds() {
   eval $(cat ~/local/cmds | fzf)
