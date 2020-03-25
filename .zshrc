@@ -214,7 +214,15 @@ FZF-EOF"
 
 # fetch and checkout remote branch by name
 gcor() {
-  git fetch origin && git branch -r | grep $1 | xargs git checkout
+  local branches=$(git fetch origin && git branch -r | grep $1)
+  local count=$(echo $branches | wc -l)
+  echo "=> Found following branches:"
+  echo $branches
+  if [ $count -gt 1 ]; then
+    echo " "
+    read "ans?=> Please pick which branch to check out [1, 2, 3 or ...]: "
+  fi
+  echo $branches | head -n"${ans:-1}" | tail -n1 | xargs git checkout
 }
 
 # Open merge request on gitlab
