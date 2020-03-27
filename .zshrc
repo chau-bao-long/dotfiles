@@ -232,12 +232,20 @@ gmr() {
   local team
   if [[ "$project" == "personio" ]]; then
     team="personio"
+  elif [[ "$project" == "rundeck" || "$project" == "terraform-aws" ]]; then
+    team="sre"
   else
     team="personio/customer-operations"
   fi
 
   if [ -z "$1" ]; then
-    git describe --all | grep -Eo "\d+" | xargs -I {} open $gitlab/$team/$project/merge_requests\?state=all\&search\=\{\}
+    ticket=$(git describe --all | grep -Eo "\d+")
+
+    if [ -n "$ticket" ]; then
+      echo "$ticket" | xargs -I {} open $gitlab/$team/$project/merge_requests\?state=all\&search\=\{\}
+    else
+      open $gitlab/$team/$project/merge_requests
+    fi
   else
     local keyword=''
     for var in "$@"; do
