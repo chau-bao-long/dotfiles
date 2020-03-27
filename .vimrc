@@ -261,6 +261,7 @@ set pastetoggle=<space>4
 xnoremap p "_dP
 
 " Miscellaneous
+tnoremap <c-o> <c-\><c-n>
 map <space>cl :ts<CR>
 map <space>c] :tn<CR>
 map <space>c[ :tp<CR>
