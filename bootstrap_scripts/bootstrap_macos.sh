@@ -212,7 +212,11 @@ install_font() {
     ./install.sh
     cd ..
     rm -rf fonts
-    success "Installed font powerline!"
+
+    brew tap homebrew/cask-fonts
+    brew cask install font-hack-nerd-font
+
+    success "Installed font!"
   fi
 }
 

@@ -8,6 +8,7 @@ Plug 'mbbill/undotree'
 Plug 'christoomey/vim-system-copy'
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'milkypostman/vim-togglelist'
@@ -91,6 +92,7 @@ source ~/Projects/dotfiles/.vim/config/ranger.vim
 source ~/Projects/dotfiles/.vim/config/tree.vim
 source ~/Projects/dotfiles/.vim/config/git.vim
 source ~/Projects/dotfiles/.vim/config/debug.vim
+source ~/Projects/dotfiles/.vim/config/devicons.vim
 
 " ==================================================== General Config
 filetype plugin indent on
