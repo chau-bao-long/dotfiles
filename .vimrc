@@ -2,8 +2,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'mbbill/undotree'
 Plug 'christoomey/vim-system-copy'
 Plug 'scrooloose/nerdtree'
@@ -111,6 +110,8 @@ set guicursor=n:blinkon1        "Fix bug cursor of COC
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set encoding=utf-8
+set lazyredraw
+set cursorline
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -127,11 +128,12 @@ set ttimeoutlen=0
 " ==================================================== Theme
 set background=dark
 set termguicolors
-let g:airline_powerline_fonts = 1
 set t_Co=256
-let g:airline_theme='wombat'
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_material_background = 'hard'
+let g:lightline = {
+  \ 'colorscheme': 'solarized',
+  \ }
 colorscheme gruvbox-material
 
 " ==================================================== Highlight
