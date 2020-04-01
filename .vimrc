@@ -19,7 +19,9 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
 
 Plug 'SirVer/ultisnips'
-nmap <space>iu m0:UltiSnipsEdit<cr>
+let g:UltiSnipsSnippetDirectories = [ "~/Projects/dotfiles/.vim/UltiSnips/" ]
+let g:UltiSnipsEditSplit = 'tabdo'
+nmap <space>iu :UltiSnipsEdit<cr>
 
 Plug 'honza/vim-snippets'
 Plug 'xolox/vim-misc'
