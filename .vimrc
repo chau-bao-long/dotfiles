@@ -1,7 +1,7 @@
 " ==================================================== Plugin Config
 call plug#begin('~/.vim/plugged')
 
-Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
+Plug 'joshdick/onedark.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mbbill/undotree'
 Plug 'christoomey/vim-system-copy'
@@ -128,12 +128,10 @@ set ttimeoutlen=0
 set background=dark
 set termguicolors
 set t_Co=256
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_material_background = 'hard'
 let g:lightline = {
-  \ 'colorscheme': 'solarized',
+  \ 'colorscheme': 'onedark',
   \ }
-colorscheme gruvbox-material
+colorscheme onedark
 
 " ==================================================== Highlight
 hi Search cterm=NONE ctermfg=NONE ctermbg=240 guifg=NONE guibg=#585858

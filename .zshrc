@@ -1,7 +1,12 @@
-# Path to your oh-my-zsh installation.  export ZSH=/home/framgia/.oh-my-zsh # Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/ # Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="jnrowe"
+# Backup good themes:
+# ZSH_THEME="jnrowe"
+# ZSH_THEME="spaceship"
+
+# Current theme         https://github.com/sindresorhus/pure
+# How to install        npm install --global pure-prompt
+zstyle :prompt:pure:path color white
+zstyle ':prompt:pure:prompt:*' color cyan
+zstyle :prompt:pure:git:stash show yes
 
 plugins=(
   git
@@ -370,3 +375,7 @@ bindkey -s "^[f" "ranger\n"
 bindkey -s "^[n" "nvim\n"
 bindkey -s "^[b" "br\n"
 bindkey -s "^[r" "./run.sh "
+
+# Load pure theme afterward
+autoload -U promptinit; promptinit
+prompt pure
