@@ -32,6 +32,8 @@ $ make install_softwares #install mostly used softwares
 - pipes.sh (terminal screensaver)
 - neofetch (command-line system information)
 - cava (console-based audio visualizer)
+- mbsync (to sync mailbox)
+- mu4e (mail client)
 
 # More infos!
 ### Install Git on CentOS 7

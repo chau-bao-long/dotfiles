@@ -10,7 +10,7 @@ let NERDTreeDirArrowCollapsible = "⇊"
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
-let g:NERDTreeWinSize=50
+let g:NERDTreeWinSize=45
 
 " open a NERDTree automatically when vim starts up
 autocmd StdinReadPre * let s:std_in=1

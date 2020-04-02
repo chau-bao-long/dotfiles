@@ -3,7 +3,7 @@
                mu4e-drafts-folder "/personio/[Gmail]/Drafts"
                mu4e-sent-folder   "/personio/[Gmail]/Sent Mail"
                mu4e-trash-folder  "/personio/[Gmail]/Bin"
-               mu4e-get-mail-command "mbsync -a"
+               mu4e-get-mail-command "mbsync personio fram chaubaolongvn"
                mu4e-index-update-in-background t
                mu4e-compose-signature-auto-include t
                mu4e-use-fancy-chars t
@@ -42,7 +42,7 @@
                          (when msg
                            (string-match-p "^/chaubaolongvn" (mu4e-message-field msg :maildir))))
            :vars '( ( user-mail-address . "chau.bao.long.vn@gmail.com"  )
-                    ( mu4e-get-mail-command . "mbsync -a" )
+                    ( mu4e-get-mail-command . "mbsync personio fram chaubaolongvn" )
                     ( mu4e-update-interval . 60 )
                     ( user-full-name . "Long Chau Bao" )))
          ,(make-mu4e-context
