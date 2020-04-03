@@ -270,11 +270,11 @@ cmds() {
   local cmd=$(cat ~/local/cmds | fzf)
   if [ -n "$cmd" ]; then
     echo ""
-    printf "\033[32m> %s\033[0m\n" "$cmd"
+    echo $fg[yellow] "$cmd"
     echo ""
     eval $cmd
   else
-    printf "\033[32m> %s\033[0m\n" "Run nothing!"
+    echo $fg[red] "Run nothing!"
   fi
 }
 
