@@ -377,11 +377,12 @@ zle-keymap-select () {
 zle -N zle-keymap-select
 
 # zsh frequently key binding
-bindkey -s "^[f" "ranger\n"
-bindkey -s "^[n" "nvim\n"
-bindkey -s "^[b" "br\n"
-bindkey -s "^[r" "./run.sh "
-bindkey -s "^k" "\eddddddddddicmds\n"
+# prefix edddddddddd to remove all current text lines before execute command
+bindkey -s "^[f" "\edddddddddd iranger\n"
+bindkey -s "^[n" "\edddddddddd invim\n"
+bindkey -s "^[b" "\edddddddddd ibr\n"
+bindkey -s "^[r" "\edddddddddd i./run.sh "
+bindkey -s "^k" "\edddddddddd icmds\n"
 
 # Load pure theme afterward
 autoload -U promptinit; promptinit
