@@ -267,7 +267,15 @@ gjr() {
 
 # frequently used commands
 cmds() {
-  eval $(cat ~/local/cmds | fzf)
+  local cmd=$(cat ~/local/cmds | fzf)
+  if [ -n "$cmd" ]; then
+    echo ""
+    printf "\033[32m> %s\033[0m\n" "$cmd"
+    echo ""
+    eval $cmd
+  else
+    printf "\033[32m> %s\033[0m\n" "Run nothing!"
+  fi
 }
 
 # lazy load
@@ -369,12 +377,11 @@ zle-keymap-select () {
 zle -N zle-keymap-select
 
 # zsh frequently key binding
-zle -N cmds
-bindkey "^k" cmds
 bindkey -s "^[f" "ranger\n"
 bindkey -s "^[n" "nvim\n"
 bindkey -s "^[b" "br\n"
 bindkey -s "^[r" "./run.sh "
+bindkey -s "^k" "\eddddddddddicmds\n"
 
 # Load pure theme afterward
 autoload -U promptinit; promptinit
