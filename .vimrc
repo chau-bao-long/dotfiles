@@ -69,6 +69,10 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'MaxMEllon/vim-jsx-pretty'
+
+Plug 'editorconfig/editorconfig-vim'
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
 Plug 'isruslan/vim-es6'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
