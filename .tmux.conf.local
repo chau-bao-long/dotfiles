@@ -281,13 +281,11 @@ bind -n M-l resize-pane -R 20
 bind -n M-k swap-pane -U
 bind -n M-j swap-pane -D
 bind -n M-Enter swap-pane -D \; select-pane -L
-bind -n M-\ swap-pane -D \; select-pane -L \; resize-pane -Z
 bind -n M-p swap-pane -D \; select-pane -U
 bind -n M-c kill-pane
 bind -n M-m resize-pane -Z
 bind -n -r M-i previous-window
 bind -n -r M-o next-window
-bind-key -T prefix \ split-window -h -c "${pane_current_path}"
 bind-key -T prefix 0 switch-client -n
 bind-key -T prefix 9 switch-client -p
 

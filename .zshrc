@@ -383,6 +383,7 @@ bindkey -s "^[n" "\edddddddddd invim\n"
 bindkey -s "^[b" "\edddddddddd ibr\n"
 bindkey -s "^[r" "\edddddddddd i./run.sh "
 bindkey -s "^k" "\edddddddddd icmds\n"
+bindkey -s "^i" "\edddddddddd i"
 
 # Load pure theme afterward
 autoload -U promptinit; promptinit
