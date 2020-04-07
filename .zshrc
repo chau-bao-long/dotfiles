@@ -70,6 +70,7 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
 # Git shortcut
 alias g='git'
@@ -145,7 +146,6 @@ alias zt="unset RAILS_ENV; zeus test"
 # some custom alias and functions
 alias v=nvim
 alias p=pass
-alias pcp='pass -c '
 alias pdf=zathura
 alias ping=prettyping
 alias pc=~/Projects/personio/personio/perctl
@@ -157,6 +157,14 @@ alias msi=~/Projects/personio/invoice-service
 alias mfp=~/Projects/personio/payroll-dashboard-ui
 alias dot=~/Projects/dotfiles
 alias org=~/org
+
+pf() {
+  local pass=$(ls ~/.password-store | fzf +m | sed "s/.gpg//g")
+  local info=$(pass tail $pass)
+  echo $fg[yellow] $info
+  echo $info | pbcopy
+  pass -c $pass | xargs -I {} echo $fg[blue] {};
+}
 
 # cd faster
 fd() {
