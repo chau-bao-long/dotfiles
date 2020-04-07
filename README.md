@@ -34,6 +34,7 @@ $ make install_softwares #install mostly used softwares
 - cava (console-based audio visualizer)
 - mbsync (to sync mailbox)
 - mu4e (mail client)
+- pass (manage all passwords using gpg key)
 
 # More infos!
 ### Install Git on CentOS 7
@@ -87,3 +88,19 @@ $ fc-match -s "San" | less
 - Install vimidea plugin, make sure ~/.ideavimrc is copied
 - Install referencer plugin, change keyboard shortcut for easier to type
 - Create idea bin for vim to interact with IDEA, go to tools -> create command-line launcher
+
+### Setup pass
+- Clone pass repository from github to ~/.password-store
+- Export gpg-key from old machine (key-id from `gpg --list-keys | grep -n1 topcbl`)
+```bash
+gpg --export-secret-keys key-id > private.key
+```
+- Import gpg-key to new machine
+```bash
+gpg --import private.key
+```
+- Trust the new key
+```bash
+gpg --edit-key key-id
+gpg> trust
+```

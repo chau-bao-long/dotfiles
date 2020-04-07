@@ -12,6 +12,7 @@ plugins=(
   git
   osx
   zsh-completions
+  pass
   vi-mode
 )
 
@@ -143,10 +144,11 @@ alias zt="unset RAILS_ENV; zeus test"
 
 # some custom alias and functions
 alias v=nvim
+alias p=pass
+alias pcp='pass -c '
 alias pdf=zathura
 alias ping=prettyping
 alias pc=~/Projects/personio/personio/perctl
-alias pa=~/Projects/personio/admin-panel-service/run.sh
 alias pro=~/Projects
 alias per=~/Projects/personio
 alias mon=~/Projects/personio/personio

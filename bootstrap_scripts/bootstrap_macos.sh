@@ -312,13 +312,11 @@ install_maccy() {
     fi
 }
 
-install_mail_client() {
-  read -r -p "Do you want to install mail client? [y|N] " response
+install_pass() {
+  read -r -p "Do you want to install pass (manage all your password by gpg)? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    brew install mu
-    brew install isync
-    brew install gnutls
-    success "Installed mail client, you still need to do further manual jobs to make it really work!!"
+    brew install pass
+    success "Installed pass! Consult README.md to know further step to set it up."
   fi
 }
 
@@ -338,7 +336,7 @@ install_tool
 install_zsh
 copy_dotfiles
 setup_nvim
-install_mail_client
+install_pass
 
 echo "---" 
 
