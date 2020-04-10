@@ -1,5 +1,4 @@
-# https://github.com/gpakosz/.tmux # (‑●‑●)> released under the WTFPL v2 license, by Gregory Pakosz (@gpakosz) # -- navigation ---------------------------------------------------------------- # if you're running tmux within iTerm2 #   - and tmux is 1.9 or 1.9a #   - and iTerm2 is configured to let option key act as +Esc
-#   - and iTerm2 is configured to send [1;9A -> [1;9D for option + arrow keys
+# https://github.com/gpakosz/.tmux # (‑●‑●)> released under the WTFPL v2 license, by Gregory Pakosz (@gpakosz) # -- navigation ---------------------------------------------------------------- # if you're running tmux within iTerm2 #   - and tmux is 1.9 or 1.9a #   - and iTerm2 is configured to let option key act as +Esc - and iTerm2 is configured to send [1;9A -> [1;9D for option + arrow keys
 # then uncomment the following line to make Meta + arrow keys mapping work
 #set -ga terminal-overrides "*:kUP3=\e[1;9A,*:kDN3=\e[1;9B,*:kRIT3=\e[1;9C,*:kLFT3=\e[1;9D"
 
@@ -289,8 +288,24 @@ bind -n -r M-o next-window
 bind-key -T prefix 0 switch-client -n
 bind-key -T prefix 9 switch-client -p
 
-# tmux-resurrect
+# Config tmux-resurrect
 run-shell ~/.tmux/plugins/tmux-resurrect/resurrect.tmux
+
+# Config tmux-thumbs
+#
+# == How to add more regex
+#  - Go to ~/.tmux/plugins/tmux-thumbs/src/state.rs
+#  - Add more PATTERNS
+#  - cd ~/.tmux/plugins/tmux-thumbs && cargo build --release
+#
+# == How to install tmux thumbs
+#  - git clone https://github.com/fcsonline/tmux-thumbs ~/.tmux/plugins/tmux-thumbs
+#  - brew install rust
+#  - cd ~/.tmux/plugins/tmux-thumbs && cargo build --release
+#
+set -g @thumbs-key u
+set -g @thumbs-command 'echo -n {} | pbcopy'
+run-shell ~/.tmux/plugins/tmux-thumbs/tmux-thumbs.tmux
 
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
