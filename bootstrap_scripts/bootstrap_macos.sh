@@ -164,6 +164,14 @@ install_tmux() {
   if [[ $response =~ (y|yes|Y) ]];then
     info "Installing tmux"
     brew install tmux
+    git clone https://github.com/tmux-plugins/tmux-sensible ~/.tmux/plugins/tmux-sensible
+    git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/plugins/tmux-resurrect
+    git clone https://github.com/tmux-plugins/tmux-yank ~/.tmux/plugins/tmux-yank
+    git clone https://github.com/fcsonline/tmux-thumbs ~/.tmux/plugins/tmux-thumbs
+    brew install bash 
+    brew install gawk
+    git clone --recursive https://github.com/Morantron/tmux-fingers ~/.tmux/plugins/tmux-fingers
+
     success "Installed tmux"
   fi
 }

@@ -288,30 +288,16 @@ bind -n -r M-o next-window
 bind-key -T prefix 0 switch-client -n
 bind-key -T prefix 9 switch-client -p
 
-# Config tmux-resurrect
+# tmux-resurrect
 run-shell ~/.tmux/plugins/tmux-resurrect/resurrect.tmux
 
-# Config tmux-thumbs
-#
-# == How to add more regex
-#  - Go to ~/.tmux/plugins/tmux-thumbs/src/state.rs
-#  - Add more PATTERNS
-#  - cd ~/.tmux/plugins/tmux-thumbs && cargo build --release
-#
-# == How to install tmux thumbs
-#  - git clone https://github.com/fcsonline/tmux-thumbs ~/.tmux/plugins/tmux-thumbs
-#  - brew install rust
-#  - cd ~/.tmux/plugins/tmux-thumbs && cargo build --release
-#
-set -g @thumbs-key u
-set -g @thumbs-command 'echo -n {} | pbcopy'
-run-shell ~/.tmux/plugins/tmux-thumbs/tmux-thumbs.tmux
+# tmux-sensible
+run-shell ~/.tmux/plugins/tmux-sensible/sensible.tmux
 
-# List of plugins
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-yank'
+# tmux-yank
+run-shell ~/.tmux/plugins/tmux-yank/yank.tmux
 
-# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run '~/.tmux/plugins/tpm/tpm'
+# tmux-fingers
+set -g @fingers-key u
+set -g @fingers-pattern-0 '\w+-\w+-\w+' # pattern for kubernetes
+run-shell ~/.tmux/plugins/tmux-fingers/tmux-fingers.tmux
