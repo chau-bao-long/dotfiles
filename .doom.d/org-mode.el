@@ -17,3 +17,18 @@
     :config
     (org-super-agenda-mode)
 )
+
+;; use org-bullets-mode for utf8 symbols as org bullets
+(require 'org-bullets)
+;; make available "org-bullet-face" such that I can control the font size individually
+(setq org-bullets-face-name (quote org-bullet-face))
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(setq org-bullets-bullet-list '("" "" "" "" "" "" "" "" "" ""))
+
+(custom-set-faces
+  '(org-level-1 ((t (:font "Hack" :height 1.1 :foreground "cyan"))))
+  '(org-level-2 ((t (:font "Hack" :height 1.0 :foreground "yellow"))))
+  '(org-level-3 ((t (:font "Hack" :height 1.0 :foreground "green"))))
+  '(org-level-4 ((t (:inherit outline-4 :height 1.0))))
+  '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
+)
