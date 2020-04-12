@@ -172,7 +172,7 @@ install_tmux() {
     brew install bash 
     brew install gawk
     git clone --recursive https://github.com/Morantron/tmux-fingers ~/.tmux/plugins/tmux-fingers
-    git clone git@github.com:dracula/tmux.git ~/.tmux/themes/dracula
+    git clone git@github.com:chau-bao-long/tmux.git ~/.tmux/themes/dracula
 
     success "Installed tmux"
   fi
