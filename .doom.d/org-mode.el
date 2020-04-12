@@ -26,9 +26,9 @@
 (setq org-bullets-bullet-list '("" "" "" "" "" "" "" "" "" ""))
 
 (custom-set-faces
-  '(org-level-1 ((t (:font "Hack" :height 1.1 :foreground "cyan"))))
-  '(org-level-2 ((t (:font "Hack" :height 1.0 :foreground "yellow"))))
-  '(org-level-3 ((t (:font "Hack" :height 1.0 :foreground "green"))))
+  '(org-level-1 ((t (:font "Hack" :height 1.1 :foreground "#ff79c6"))))
+  '(org-level-2 ((t (:font "Hack" :height 1.0 :foreground "#f1fa8c"))))
+  '(org-level-3 ((t (:font "Hack" :height 1.0 :foreground "#50fa7b"))))
   '(org-level-4 ((t (:inherit outline-4 :height 1.0))))
   '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
 )
