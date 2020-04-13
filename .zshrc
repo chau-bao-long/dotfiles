@@ -240,6 +240,11 @@ gcor() {
   echo $branches | head -n"${ans:-1}" | tail -n1 | xargs git checkout
 }
 
+gh() {
+  local repo=$(git remote -v | head -n1 | cut -d ':' -f2 | sed 's/.git (fetch)//g')
+  open "https://github.com/$repo"
+}
+
 # Open merge request on gitlab
 gmr() {
   local gitlab=https://gitlab.personio-internal.de
