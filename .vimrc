@@ -50,8 +50,9 @@ Plug 'Yggdroot/indentLine'
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 Plug 'pechorin/any-jump.vim'
-nnoremap <space>j :AnyJump<CR>
-xnoremap <space>j :AnyJumpVisual<CR>
+nnoremap <space>jk :AnyJump<CR>
+nnoremap <space>jl :AnyJumpLastResults<CR>
+xnoremap <space>jc :AnyJumpVisual<CR>
 
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
