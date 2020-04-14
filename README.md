@@ -103,4 +103,8 @@ gpg --import private.key
 ```bash
 gpg --edit-key key-id
 gpg> trust
+
+- To change passphrase for the key
+```bash
+gpg --change-passphrase topcbl
 ```
