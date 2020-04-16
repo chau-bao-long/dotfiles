@@ -330,15 +330,6 @@ install_pass() {
   fi
 }
 
-install_input_source() {
-  read -r -p "Do you want to install Open Key (to type vietnamese)? [y|N] " response
-  if [[ $response =~ (y|yes|Y) ]];then
-    brew cask install openkey
-    success "Installed openkey!"
-  fi
-
-}
-
 setup_git
 install_homebrew
 install_nvim
