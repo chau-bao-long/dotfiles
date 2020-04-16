@@ -4,15 +4,8 @@ nmap <space>ip :!echo "<?php" >> % && echo "" >> % && echo %:h \| sed 's/\//\\/g
 nmap <space>is "1yiw<c-]>gg2jwvEh"2y<c-o><c-o>gg3jouse <esc>"2pA\<esc>"1pA;<esc><c-o>
 nmap <space>io yiwgg3jouse <esc>pA;<esc><c-o>
 nmap <space>il yiwgg3jo<esc>pASnip<c-space><tab><esc>zo<esc>
-nmap <leader>gj :exec "Rg " . expand('%:t:r') . "Test"<cr>
-nmap <leader>gk :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<cr>class
-nmap <leader>gr :Rg route<cr>
-nmap <leader>gc :Rg controllers<cr>
-nmap <leader>gm :Rg models<cr>
-nmap <leader>gd :Rg repositories<cr>
-nmap <leader>gs :Rg services<cr>
-nmap <leader>gt :Rg test<cr>
-nmap <leader>gv :Rg view<cr>
+nmap <leader>gt :exec "Rg " . expand('%:t:r') . "Test"<cr>
+nmap <leader>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<cr>class
 nmap <space>lc ggVGd:w<cr>
 nmap <space>lf :%s/\/var\/www\/html\///g<cr>
 nmap <space>lr :edit!<cr>G
