@@ -116,6 +116,8 @@ set autoread                    "Reload files changed outside vim
 set encoding=utf-8
 set lazyredraw
 set cursorline
+set ttimeout
+set ttimeoutlen=2
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.

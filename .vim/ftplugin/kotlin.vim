@@ -1,5 +1,5 @@
-nmap <space>ee /@Test<cr>Njwvt(y:exec "Dispatch echo \"cd app && ./gradlew.test cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>ew
-nmap <space>eE /@Test<cr>Njwvt(y:exec "Dispatch echo \"cd app && ./gradlew.test cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>ew
+nmap <space>ee /fun <cr>Nwvt(y:exec "Dispatch echo \"cd app && ./gradlew.test cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>ew
+nmap <space>eE /fun <cr>Nwvt(y:exec "Dispatch echo \"cd app && ./gradlew.test cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<c-r>0\\* \" > ~/bin/current-cmd"<cr><space>ew
 vmap <space>ee y:exec "Dispatch cd app && ./gradlew.test cleanTest test --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
 vmap <space>eE y:exec "Dispatch cd app && ./gradlew.test cleanTest test --debug-jvm --info --tests " . expand('%:t')[:-4] . ".\\*<C-R>0\\*"<CR>
 nmap <space>ef :exec "Dispatch echo \"cd app && ./gradlew.local cleanTest test --info --tests " . expand('%:t')[:-4] . "\" > ~/bin/current-cmd"<cr><space>ew
