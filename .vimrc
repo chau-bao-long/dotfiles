@@ -125,7 +125,9 @@ set ttimeoutlen=2
 set hidden
 
 " Turn on syntax highlighting
-syntax on
+if !exists('g:syntax_on')
+	syntax enable
+endif
 
 " Faster cursor and typing
 set timeoutlen=1000
@@ -225,11 +227,11 @@ nmap gj :tabnext<cr>
 nmap <space>tt :tabnew<cr><space>wf
 nmap <space>vv :vs<cr><C-w>l
 nmap <space>xx :split<cr><C-w>j
-map <space>wL <C-w>30>
-map <space>wH <C-w>30<
-map <space>wJ <C-w>25+
-map <space>wK <C-w>25-
-map <space>w= <C-w>=
+nmap <space>wL <c-w>30>
+nmap <space>wH <c-w>30<
+nmap <space>wJ <c-w>25+
+nmap <space>wK <c-w>25-
+nnoremap <space>wt <c-w>h<c-w>h<c-w>h<c-w>h<c-w>999<<c-w>45><c-w>=
 nmap <script> <silent> <space>3 :copen 1000<cr>G:ColorHighlight!<cr>
 nmap <script> <silent> <space>2 :call ToggleQuickfixList()<cr>
 nmap <space>w <c-w>
