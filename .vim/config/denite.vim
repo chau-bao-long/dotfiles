@@ -81,7 +81,7 @@ let s:menus.dotfiles = {
 let s:menus.dotfiles.file_candidates = [
             \ ['🔆 zsh', '~/.zshrc'],
             \ ['🔆 vim', '~/.vimrc'],
-            \ ['🔆 tmux', '~/.tmux.conf.local'],
+            \ ['🔆 tmux', '~/.tmux.conf'],
             \ ['🔆 gitconfig', '~/.gitconfig'],
             \ ['🔆 coc-setting', '~/.config/nvim/coc-settings.json'],
             \ ]
