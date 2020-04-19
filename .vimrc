@@ -231,7 +231,6 @@ nmap <space>wL <c-w>30>
 nmap <space>wH <c-w>30<
 nmap <space>wJ <c-w>25+
 nmap <space>wK <c-w>25-
-nnoremap <space>wt <c-w>h<c-w>h<c-w>h<c-w>h<c-w>999<<c-w>45><c-w>=
 nmap <script> <silent> <space>3 :copen 1000<cr>G:ColorHighlight!<cr>
 nmap <script> <silent> <space>2 :call ToggleQuickfixList()<cr>
 nmap <space>w <c-w>
@@ -304,3 +303,7 @@ nnoremap <space>ot :call common#openFilesFromClipboard("tabnew")<cr>
 nnoremap <space>oo :call common#openFilesFromClipboard("e")<cr>
 nnoremap <space>os :call common#openFilesFromClipboard("split")<cr>
 nnoremap <space>ov :call common#openFilesFromClipboard("vs")<cr>
+nnoremap <space>? :call common#google(expand("<cWORD>"), 0)<cr>
+nnoremap <space>! :call common#google(expand("<cWORD>"), 1)<cr>
+xnoremap <space>? "gy:call common#google(@g, 0)<cr>gv
+xnoremap <space>! "gy:call common#google(@g, 1)<cr>gv

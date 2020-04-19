@@ -6,11 +6,11 @@ let g:fzf_action = {
 
 " Default fzf layout
 " - down / up / left / right
-let g:fzf_layout = { 'down': '~40%' , 'window': 'call FloatingFZF()' }
+let g:fzf_layout = { 'up': '~75%' }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
-            \ { 'fg':      ['fg', 'Normal'],
+            \ { 'fg':    ['fg', 'Normal'],
             \ 'bg':      ['bg', 'Normal'],
             \ 'hl':      ['fg', 'Comment'],
             \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
