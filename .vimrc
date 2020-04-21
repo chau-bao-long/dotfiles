@@ -290,9 +290,9 @@ vmap / y:/<C-R>0<CR>
 nmap <space>e= 15kV30j=15j
 nmap <space>er :e<cr>
 nmap <space>tm <c-w>T
-nmap <space>eq yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:terminal <c-r>0<cr>G
-vmap <space>eq y:!echo <c-r>0 > ~/bin/current-cmd<cr>:terminal <c-r>0<cr>G
-nmap <space>ew :tabnew<cr>:terminal ~/bin/current-cmd<cr>G
+nmap <space>eq yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
+vmap <space>eq y:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
+nmap <space>ew :tabnew \| terminal ~/bin/current-cmd<cr>G
 
 " Common functions
 nnoremap zp :call common#gotoJump()<cr>
