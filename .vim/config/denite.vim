@@ -119,15 +119,15 @@ let s:menus.kotlin = {
             \ 'description': '💾 Kolin project commands'
             \ }
 let s:menus.kotlin.command_candidates = [
-            \ ['💾 ktlint', 'Dispatch ktlint'],
+            \ ['💾 ktlint', 'terminal ktlint'],
             \ ['💾 ktfix', 'Dispatch! ktlint -F'],
-            \ ['💾 run all test', 'Dispatch cd app && ./gradlew.local cleanTest test --info'],
+            \ ['💾 run all test', 'terminal cd app && ./gradlew.local cleanTest test --info'],
             \ ['💾 patch admin panel', 'Dispatch! git apply ../patches-admin-panel/*'],
             \ ['💾 unpatch admin panel', 'Dispatch! git apply -R ../patches-admin-panel/*'],
             \ ['💾 classes', 'Dispatch! cd app && ./gradlew.local classes'],
-            \ ['💾 classes with log', 'Dispatch cd app && ./gradlew.local classes'],
-            \ ['💾 build', 'Dispatch cd app && ./gradlew.local build'],
-            \ ['💾 clean', 'Dispatch cd app && ./gradlew.local clean'],
+            \ ['💾 classes with log', 'terminal cd app && ./gradlew.local classes'],
+            \ ['💾 build', 'terminal cd app && ./gradlew.local build'],
+            \ ['💾 clean', 'terminal cd app && ./gradlew.local clean'],
             \ ['💾 library', 'tabnew ~/Projects/lib/java/Debug.kt'],
             \ ]
 let s:menus.js = {
