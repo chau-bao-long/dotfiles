@@ -14,5 +14,5 @@ nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
-nnoremap K :CtrlSF <C-R><C-W><CR>
+nnoremap <C-F>s :CtrlSF <C-R><C-W><CR>
 vmap K <Plug>CtrlSFVwordExec
