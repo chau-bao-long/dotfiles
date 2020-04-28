@@ -119,16 +119,15 @@ let s:menus.kotlin = {
             \ 'description': '💾 Kolin project commands'
             \ }
 let s:menus.kotlin.command_candidates = [
-            \ ['💾 ktlint', 'terminal ktlint'],
+            \ ['💾 ktlint', 'tabnew | terminal ktlint'],
             \ ['💾 ktfix', 'Dispatch! ktlint -F'],
-            \ ['💾 run all test', 'terminal cd app && ./gradlew.local cleanTest test --info'],
-            \ ['💾 patch admin panel', 'Dispatch! git apply ../patches-admin-panel/*'],
-            \ ['💾 unpatch admin panel', 'Dispatch! git apply -R ../patches-admin-panel/*'],
-            \ ['💾 classes', 'Dispatch! cd app && ./gradlew.local classes'],
-            \ ['💾 classes with log', 'terminal cd app && ./gradlew.local classes'],
-            \ ['💾 build', 'terminal cd app && ./gradlew.local build'],
-            \ ['💾 clean', 'terminal cd app && ./gradlew.local clean'],
+            \ ['💾 run all test', 'tabnew | terminal ./gradlew cleanTest test --info'],
+            \ ['💾 classes', 'Dispatch! ./gradlew classes'],
+            \ ['💾 classes with log', 'tabnew | terminal ./gradlew classes'],
+            \ ['💾 build', 'tabnew | terminal ./gradlew build'],
+            \ ['💾 clean', 'tabnew | terminal ./gradlew clean'],
             \ ['💾 library', 'tabnew ~/Projects/lib/java/Debug.kt'],
+            \ ['💾 setup test', '!~/Projects/personio/bin/invoice-service/setup-test.sh'],
             \ ]
 let s:menus.js = {
             \ 'description': '💾 Javascript project commands'

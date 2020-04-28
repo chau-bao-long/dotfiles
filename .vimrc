@@ -45,6 +45,8 @@ nmap <space>ct :ColorToggle<cr>
 
 Plug 'airblade/vim-rooter'
 let g:rooter_change_directory_for_non_project_files = 'current'
+let g:rooter_manual_only = 1
+nnoremap <space>cr :Rooter<cr>
 
 Plug 'Yggdroot/indentLine'
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
