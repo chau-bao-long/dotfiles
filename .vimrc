@@ -8,8 +8,7 @@ Plug 'christoomey/vim-system-copy'
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
-Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
+Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 Plug 'milkypostman/vim-togglelist'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -226,6 +225,8 @@ nmap z/ /turn-off-search-highlight<cr>
 " ==================================================== Custom mapping
 nmap gk :tabprevious<cr>
 nmap gj :tabnext<cr>
+nmap <space>ve :tabnew ~/.vimrc<CR>
+nmap <space>vr :source ~/.vimrc<CR>
 nmap <space>tt :tabnew<cr><space>wf
 nmap <space>vv :vs<cr><C-w>l
 nmap <space>xx :split<cr><C-w>j

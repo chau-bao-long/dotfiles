@@ -1,6 +1,7 @@
-nnoremap <space>n :NERDTreeToggle<CR>
-nnoremap <space>r :NERDTreeFind<CR>
+nnoremap <space>n :NERDTreeToggle<cr>
+nnoremap <space>r :NERDTreeFind<cr>
 nnoremap <space>5 :UndotreeToggle<cr>
+nnoremap <space>cd :NERDTreeCWD<cr>
 
 let NERDTreeQuitOnOpen = 0
 let NERDTreeMinimalUI = 1
