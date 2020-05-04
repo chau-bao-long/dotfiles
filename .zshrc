@@ -145,7 +145,6 @@ alias zt="unset RAILS_ENV; zeus test"
 
 # some custom alias and functions
 alias v=nvim
-alias p=pass
 alias pdf=zathura
 alias ping=prettyping
 alias pc=~/Projects/personio/personio/perctl
