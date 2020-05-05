@@ -255,6 +255,8 @@ gmr() {
     team="personio/payroll"
   elif [[ "$project" == "rundeck" || "$project" == "terraform-aws" ]]; then
     team="sre"
+  elif [[ "$project" == "sqs-listener" ]]; then
+    team="personio/internal"
   else
     team="personio/customer-operations"
   fi
