@@ -271,6 +271,8 @@ nmap gs :sp<cr><c-w>lgd
 nmap gS :sp<cr><c-w>lgf
 nmap gt :tabnew<cr>zogd
 nmap gT :tabnew<cr>zogf
+nmap g] :vs<cr><c-w>l<c-]>
+nmap g} :tabnew<cr>zo<c-]>
 
 " Better copy/paste behavior
 set pastetoggle=<space>4

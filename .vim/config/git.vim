@@ -30,6 +30,7 @@ nmap <space>g[ 'tkO
 nmap <space>g, [c:GitGutterPreviewHunk<cr>
 nmap <space>g. ]c:GitGutterPreviewHunk<cr>
 nmap <space>gm <c-w>o:Gedit<cr>
+nmap <space>go :tabnew<cr><c-o>:Gedit<cr>:NERDTreeFind<cr><c-w>l
 nmap <space>gu :GitGutterUndoHunk<cr>
 
 let g:gitgutter_enabled = 0
