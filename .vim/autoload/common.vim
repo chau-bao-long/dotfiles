@@ -59,7 +59,6 @@ function common#goBackToRoot()
   while stridx(execute(":!ls -a"), ".git") < 0 && strlen(execute(":pwd")) > 2
     cd ..
   endwhile
-  pwd
 endfunction
 
 function common#goToCurrentFile()
