@@ -252,6 +252,8 @@ gmr() {
   local team
   if [[ "$project" == "personio" ]]; then
     team="personio"
+  elif [[ "$project" == "payroll-dashboard-ui" ]]; then
+    team="personio/customer-operations"
   elif [[ "$project" == *"payroll"* ]]; then
     team="personio/payroll"
   elif [[ "$project" == "rundeck" || "$project" == "terraform-aws" ]]; then

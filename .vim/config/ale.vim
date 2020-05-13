@@ -14,6 +14,6 @@ let g:ale_statusline_format = ['⛄ %d', '⚠ %d', '']
 " %s is the error or warning message
 let g:ale_echo_msg_format = '%linter% says %s'
 " Map keys to navigate between lines with errors and warnings.
-nnoremap <leader>an :ALENextWrap<cr>
-nnoremap <leader>ap :ALEPreviousWrap<cr>
+nnoremap ]a :ALENextWrap<cr>
+nnoremap [a :ALEPreviousWrap<cr>
 nmap <leader>at :ALEToggle<CR>
