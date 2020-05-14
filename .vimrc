@@ -271,8 +271,9 @@ nmap gs :sp<cr><c-w>lgd
 nmap gS :sp<cr><c-w>lgf
 nmap gt :tabnew<cr>zogd
 nmap gT :tabnew<cr>zogf
-nmap g] :vs<cr><c-w>l<c-]>
-nmap g} :tabnew<cr>zo<c-]>
+nnoremap g' :vs<cr><c-w>l<c-]>
+nnoremap g" :sp<cr><c-w>l<c-]>
+nnoremap g\ :tabnew<cr><c-o><c-]>
 
 " Better copy/paste behavior
 set pastetoggle=<space>4
@@ -280,12 +281,13 @@ xnoremap p "_dP
 
 " Miscellaneous
 tnoremap <c-o> <c-\><c-n>
-map <space>cl :ts<CR>
-map <space>c] :tn<CR>
-map <space>c[ :tp<CR>
-imap zbt <Esc>a``<Esc>i
-imap zbs <Esc>a```<Esc>i
-nmap <space>cb :bufdo bd<CR>
+nnoremap g] <c-]>
+noremap <space>cl :ts<CR>
+noremap <space>c] :tn<CR>
+noremap <space>c[ :tp<CR>
+inoremap zbt <Esc>a``<Esc>i
+inoremap zbs <Esc>a```<Esc>i
+nnoremap <space>cb :bufdo bd<CR>
 nmap <space>8 :pwd<CR>
 nmap <space>7 :call common#goToCurrentFile()<CR>
 nmap <space>9 :call common#goBack()<CR>

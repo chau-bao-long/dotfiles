@@ -126,7 +126,7 @@ let s:menus.kotlin.command_candidates = [
             \ ['💾 classes with log', 'tabnew | terminal ./gradlew classes'],
             \ ['💾 build', 'tabnew | terminal ./gradlew build'],
             \ ['💾 clean', 'tabnew | terminal ./gradlew clean'],
-            \ ['💾 library', 'tabnew ~/Projects/lib/java/Debug.kt'],
+            \ ['💾 library', 'cd ~/Projects/lib/java/'],
             \ ['💾 setup test', '!~/Projects/personio/bin/invoice-service/setup-test.sh'],
             \ ]
 let s:menus.js = {
@@ -161,7 +161,8 @@ let s:menus.ctags.command_candidates = [
             \[ '📌 python with lib', 'Dispatch! ctags -R --languages=Python --exclude=.git --exclude=log . $(pip show pip | grep Location | cut -d ":" -f 2)'],
             \[ '📌 python', 'Dispatch! ctags -R --languages=Python --exclude=.git --exclude=log .'],
             \[ '📌 php', 'Dispatch! ctags -R --languages=PHP --exclude=.git --exclude=log .'],
-            \[ '📌 kotlin', 'Dispatch! ctags -R --languages=java,kotlin --exclude=.git --exclude=log --exclude=.gradle --exclude=.gradle-home --exclude=data . ~/Projects/lib/java'],
+            \[ '📌 java with lib', 'Dispatch! ctags -R --languages=java,kotlin --exclude=.git --exclude=log --exclude=.gradle --exclude=.gradle-home --exclude=data . ~/Projects/lib/java'],
+            \[ '📌 java', 'Dispatch! ctags -R --languages=java,kotlin --exclude=.git --exclude=log --exclude=.gradle --exclude=.gradle-home --exclude=data .'],
             \]
 
 call denite#custom#var('menu', 'menus', s:menus)
