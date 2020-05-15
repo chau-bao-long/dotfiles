@@ -281,7 +281,6 @@ xnoremap p "_dP
 
 " Miscellaneous
 tnoremap <c-o> <c-\><c-n>
-nnoremap g] <c-]>
 noremap <space>cl :ts<CR>
 noremap <space>c] :tn<CR>
 noremap <space>c[ :tp<CR>
