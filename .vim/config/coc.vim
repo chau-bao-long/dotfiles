@@ -5,6 +5,7 @@ set shortmess+=c
 " \'coc-tag',
 let g:coc_global_extensions = [
             \'coc-ultisnips',
+            \'coc-tabnine',
             \'coc-phpls',
             \'coc-json',
             \'coc-tsserver',
