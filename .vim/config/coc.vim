@@ -3,7 +3,7 @@ set updatetime=300
 set shortmess+=c
 
 " \'coc-tag',
-let g:coc_global_extensions = [
+let g:global_extensions = [
             \'coc-ultisnips',
             \'coc-tabnine',
             \'coc-phpls',
@@ -80,15 +80,17 @@ omap af <Plug>(coc-funcobj-a)
 
 " Using CocList
 " Show all diagnostics
-nnoremap <silent> <space>aa  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>aa  :CocFzfList diagnostics<cr>
 " Manage extensions
-nnoremap <silent> <space>ae  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>ae  :CocFzfList extensions<cr>
 " Show commands
-nnoremap <silent> <space>ac  :<C-u>CocList commands<cr>
+nnoremap <silent> <space>ac  :CocFzfList commands<cr>
 " Find symbol of current document
-nnoremap <silent> <space>ao  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>ao  :CocFzfList outline<cr>
 " Search workspace symbols
-nnoremap <silent> <space>as  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>as  :CocFzfList symbols<cr>
+" Actions
+nnoremap <silent> <space>af  :CocFzfList actions<cr>
 " Do default action for next item.
 nnoremap <silent> <space>aj  :<C-u>CocNext<CR>
 " Do default action for previous item.

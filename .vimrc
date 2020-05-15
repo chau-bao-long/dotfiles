@@ -18,6 +18,10 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
+Plug 'liuchengxu/vim-clap'
+nnoremap <space>f :Clap<cr>
+let g:clap_theme = 'material_design_dark'
+
 Plug 'SirVer/ultisnips'
 let g:UltiSnipsSnippetDirectories = [ "~/Projects/dotfiles/.vim/UltiSnips/" ]
 let g:UltiSnipsEditSplit = 'tabdo'
@@ -31,6 +35,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'antoinemadec/coc-fzf'
 Plug 'vim-vdebug/vdebug'
 Plug 'idanarye/vim-vebugger', {'branch': 'develop'}
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
@@ -264,6 +269,8 @@ nmap cn :let @+=expand("%:t:r")<cr>
 nmap cu viwcp
 nmap c' vi'cp
 nmap c" vi"cp
+nmap c$ T v$cp
+nmap c<space> T vt cp
 nmap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<cr>
 nmap <leader><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<cr>
 nmap gv :vs<cr><c-w>lgd
