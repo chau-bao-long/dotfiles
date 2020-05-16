@@ -88,6 +88,10 @@ Plug 'jparise/vim-graphql'
 Plug 'Galooshi/vim-import-js'
 Plug 'Rican7/php-doc-modded'
 
+Plug 'rizzatti/dash.vim'
+nnoremap <space>df :Dash<cr>
+vnoremap <space>df y:Dash <c-r>0<cr>
+
 call plug#end()
 
 " ==================================================== Config Plugin
@@ -260,6 +264,7 @@ nmap <C-h> <C-e><C-e><C-e><C-e><C-e>jjj
 nmap <C-l> <C-y><C-y><C-y><C-y><C-y>kkk
 nmap zi <C-i>
 nmap zo <C-o>
+nmap z[ <c-^>
 nmap co :let @+=expand("%:t")<cr>
 nmap cl :let @+=expand("%:t")<cr>:Dispatch! osascript ~/Projects/dotfiles/mac_scripts/intelliJ.scpt<cr>
 nmap cO :let @+=expand("%:p")[-32:]<cr>
