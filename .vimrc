@@ -17,10 +17,8 @@ Plug 'junegunn/gv.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-
+Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-clap'
-nnoremap <space>f :Clap<cr>
-let g:clap_theme = 'material_design_dark'
 
 Plug 'SirVer/ultisnips'
 let g:UltiSnipsSnippetDirectories = [ "~/Projects/dotfiles/.vim/UltiSnips/" ]
@@ -107,6 +105,7 @@ source ~/Projects/dotfiles/.vim/config/tree.vim
 source ~/Projects/dotfiles/.vim/config/git.vim
 source ~/Projects/dotfiles/.vim/config/debug.vim
 source ~/Projects/dotfiles/.vim/config/devicons.vim
+source ~/Projects/dotfiles/.vim/config/clap.vim
 
 " ==================================================== General Config
 filetype plugin indent on

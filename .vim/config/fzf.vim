@@ -41,7 +41,6 @@ nmap <space>u :MRU<cr>
 nmap <space>b :Buffers<cr>
 nmap <space>cm :Commands<cr>
 nmap <space>ck :Maps<cr>
-nmap <space>; :BLines<cr>
 nmap <space>q :Rg<cr>
 nmap <space>ch :Helptags<cr>
 nmap Q :Rg <c-r><c-w><cr>

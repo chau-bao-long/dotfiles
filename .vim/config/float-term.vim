@@ -1,3 +1,23 @@
+let g:floaterm_gitcommit='floaterm'
+let g:floaterm_autoinsert=1
+let g:floaterm_width=0.75
+let g:floaterm_height=0.75
+let g:floaterm_autoclose=1
+let g:floaterm_winblend=15
+
+nnoremap <space>t; :FloatermNew<cr>
+nnoremap <space>td :FloatermNew git diff<cr>
+nnoremap <space>ts :FloatermNew ncdu<cr>
+nnoremap <space>th :FloatermNew htop<cr>
+nnoremap <space>ty :FloatermNew ytop<cr>
+nnoremap <space>tn :FloatermNew node<cr>
+nnoremap <space>tp :FloatermNew python<cr>
+nnoremap <space>tu :FloatermToggle<cr>
+nnoremap <space>tk :FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>
+tnoremap <c-d> <c-\><c-n>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>
+tnoremap <c-h> <c-\><c-n>:FloatermPrev<cr>i
+tnoremap <c-l> <c-\><c-n>:FloatermNext<cr>i
+ 
 let s:float_term_border_win = 0
 let s:float_term_win = 0
 
