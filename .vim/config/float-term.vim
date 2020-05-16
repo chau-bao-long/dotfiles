@@ -3,7 +3,7 @@ let g:floaterm_autoinsert=1
 let g:floaterm_width=0.75
 let g:floaterm_height=0.75
 let g:floaterm_autoclose=1
-let g:floaterm_winblend=15
+let g:floaterm_winblend=0
 
 nnoremap <space>t; :FloatermNew<cr>
 nnoremap <space>tgd :FloatermNew git diff<cr>
@@ -18,7 +18,7 @@ tnoremap <c-d> <c-\><c-n>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:Flo
 tnoremap <c-h> <c-\><c-n>:FloatermPrev<cr>i
 tnoremap <c-l> <c-\><c-n>:FloatermNext<cr>i
 tnoremap <c-y> <c-\><c-n>:FloatermToggle<cr>
- 
+
 function! FloatingFZF()
     let height = float2nr((&lines - 2) / 1.5)
     let row = float2nr((&lines - height) / 2)
