@@ -10,10 +10,12 @@ nnoremap <space>tg :FloatermNew lazygit<cr>
 nnoremap <space>ts :FloatermNew ncdu<cr>
 nnoremap <space>th :FloatermNew htop<cr>
 nnoremap <space>ty :FloatermNew ytop<cr>
-nnoremap <space>tn :FloatermNew node<cr>
-nnoremap <space>tp :FloatermNew python<cr>
+nnoremap <space>tcn :FloatermNew node<cr>
+nnoremap <space>tcp :FloatermNew python<cr>
+nnoremap <space>tch :FloatermNew php artisan tinker<cr>
 nnoremap <space>tu :FloatermToggle<cr>
-nnoremap <space>tk :FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>
+nnoremap <space>tkk :FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>
+nnoremap <space>tks :FloatermNew watch kubectl get pod -owide -A<cr>
 tnoremap <c-d> <c-\><c-n>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>
 tnoremap <c-h> <c-\><c-n>:FloatermPrev<cr>i
 tnoremap <c-l> <c-\><c-n>:FloatermNext<cr>i
