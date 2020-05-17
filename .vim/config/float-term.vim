@@ -6,7 +6,7 @@ let g:floaterm_autoclose=1
 let g:floaterm_winblend=0
 
 nnoremap <space>t; :FloatermNew<cr>
-nnoremap <space>tgd :FloatermNew git diff<cr>
+nnoremap <space>tg :FloatermNew lazygit<cr>
 nnoremap <space>ts :FloatermNew ncdu<cr>
 nnoremap <space>th :FloatermNew htop<cr>
 nnoremap <space>ty :FloatermNew ytop<cr>
