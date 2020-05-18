@@ -1,12 +1,13 @@
 let g:floaterm_gitcommit='floaterm'
 let g:floaterm_autoinsert=1
-let g:floaterm_width=0.75
-let g:floaterm_height=0.75
+let g:floaterm_width=0.7
+let g:floaterm_height=0.7
 let g:floaterm_autoclose=1
 let g:floaterm_winblend=0
 
 nnoremap <space>t; :FloatermNew<cr>
 nnoremap <space>tg :FloatermNew lazygit<cr>
+nnoremap <space>td :FloatermNew lazydocker<cr>
 nnoremap <space>ts :FloatermNew ncdu<cr>
 nnoremap <space>th :FloatermNew htop<cr>
 nnoremap <space>ty :FloatermNew ytop<cr>
