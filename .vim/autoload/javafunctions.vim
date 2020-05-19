@@ -10,7 +10,7 @@ function! javafunctions#openFile(command)
     return
   else
     " try again to looking for import line corresponding to current word
-    execute "silent! normal! /import .*" . expand('<cword>') . "$\<cr>$"
+    execute "silent! normal! /import .*" . expand('<cword>') . "$\<cr>"
 
     if s:jumpToExactMatchPath(a:command, path, projectPath)
       return
@@ -44,8 +44,12 @@ endfunction
 function s:jumpToFileInSamePackage(command)
   let javaPath = expand("%:p:h") . '/' . expand('<cword>') . '.java'
   let kotlinPath = expand("%:p:h") . '/' . expand('<cword>') . '.kt'
+  let javaTestPath = substitute(expand("%:p:h"), "main", "test", "") . '/' . expand('<cword>') . '.java'
+  let javaMainPath = substitute(expand("%:p:h"), "test", "main", "") . '/' . expand('<cword>') . '.java'
+  let kotlinTestPath = substitute(expand("%:p:h"), "main", "test", "") . '/' . expand('<cword>') . '.kt'
+  let kotlinMainPath = substitute(expand("%:p:h"), "test", "main", "") . '/' . expand('<cword>') . '.kt'
 
-  for path in [javaPath, kotlinPath]
+  for path in [javaPath, kotlinPath, javaTestPath, javaMainPath, kotlinTestPath, kotlinMainPath]
     if filereadable(expand(l:path))
       execute a:command . ' ' . path
       return 1
@@ -59,6 +63,7 @@ function s:jumpToFileByFuzzySearch(command, path)
   let queryStringExactName = "find " . a:path . " -type f -name '" . expand('<cword>'). ".java' -o -name '" . expand('<cword>'). ".kt'"
   let resultsFromFind = system(expand(l:queryStringExactName))
   let results = split(resultsFromFind, "\n")
+
   if len(results) == 0
     let queryStringFuzzyTheEnd = "find " . a:path . " -type f -name '" . expand('<cword>'). "*'"
     let resultsFromFind = system(expand(l:queryStringFuzzyTheEnd))
