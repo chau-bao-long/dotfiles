@@ -3,7 +3,7 @@ nmap <space>gl :Glog -n 100<cr>
 nmap <space>gL :Glog<cr>
 nmap <space>g0l :0Glog -n 100<cr>
 nmap <space>g0L :0Glog<cr>
-nmap <space>gdd :Gdiff 
+nmap <space>gdd :Gdiff<cr>
 nmap <space>gds :Gvdiffsplit!<cr>
 nmap <space>gpr :Ggrep 
 nmap <space>gr :Gread! 

@@ -1,7 +1,7 @@
 let g:floaterm_gitcommit='floaterm'
 let g:floaterm_autoinsert=1
-let g:floaterm_width=0.7
-let g:floaterm_height=0.7
+let g:floaterm_width=0.69
+let g:floaterm_height=0.69
 let g:floaterm_autoclose=1
 let g:floaterm_winblend=0
 
@@ -17,7 +17,7 @@ nnoremap <space>tch :FloatermNew php artisan tinker<cr>
 nnoremap <space>tu :FloatermToggle<cr>
 nnoremap <space>tkk :FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>
 nnoremap <space>tks :FloatermNew watch kubectl get pod -owide -A<cr>
-tnoremap <c-d> <c-\><c-n>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>
+tnoremap <c-d> <c-\><c-n>:FloatermKill<cr>
 tnoremap <c-h> <c-\><c-n>:FloatermPrev<cr>i
 tnoremap <c-l> <c-\><c-n>:FloatermNext<cr>i
 tnoremap <c-y> <c-\><c-n>:FloatermToggle<cr>
