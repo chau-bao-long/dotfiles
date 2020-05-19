@@ -1,7 +1,7 @@
 let g:floaterm_gitcommit='floaterm'
 let g:floaterm_autoinsert=1
-let g:floaterm_width=0.69
-let g:floaterm_height=0.69
+let g:floaterm_width=0.7
+let g:floaterm_height=0.7
 let g:floaterm_autoclose=1
 let g:floaterm_winblend=0
 
@@ -23,9 +23,9 @@ tnoremap <c-l> <c-\><c-n>:FloatermNext<cr>i
 tnoremap <c-y> <c-\><c-n>:FloatermToggle<cr>
 
 function! FloatingFZF()
-    let height = float2nr((&lines - 2) / 1.5)
+    let height = float2nr((&lines - 2) / 1.42)
     let row = float2nr((&lines - height) / 2)
-    let width = float2nr(&columns / 1.5)
+    let width = float2nr(&columns / 1.42)
     let col = float2nr((&columns - width) / 2)
     let opts = {
                 \ 'relative': 'editor',

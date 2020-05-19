@@ -34,7 +34,7 @@ command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim
 command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, fzf#vim#with_preview('down:70%'), <bang>0)
 command! -bang -nargs=* MRU call fzf#vim#history(fzf#vim#with_preview())
 
-nmap <space>P :call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --cached'}))<cr>
+nmap <space>P :GitFiles<cr>
 nmap <space>p :Files<cr>
 nmap <space>y :History<cr>
 nmap <space>u :MRU<cr>
