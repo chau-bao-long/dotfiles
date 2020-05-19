@@ -9,7 +9,7 @@ nmap <leader>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<cr>cl
 nmap <space>lc ggVGd:w<cr>
 nmap <space>lf :%s/\/var\/www\/html\///g<cr>
 nmap <space>lr :edit!<cr>G
-nmap <space>lo :tabnew app/storage-local/logs/laravel.log<cr>
+nmap <space>lo :tabnew app/storage-local/logs/laravel.log<cr><space>ar
 
 nnoremap <space>ed :call phpfunctions#UpdatePhpDocIfExists()<cr>/End function<cr>bhD<c-o>
 nnoremap cfp :call phpfunctions#CopyPhpClassFullPath()<cr><c-o>

@@ -97,10 +97,6 @@ nnoremap <silent> <space>aj  :<C-u>CocNext<CR>
 nnoremap <silent> <space>ak  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>ap  :<C-u>CocListResume<cr>
-" Restart coc
-nnoremap <silent> <space>ar  :CocRestart<cr>
-" Coc info
-nnoremap <silent> <space>ai  :CocInfo<CR>
 " Coc source config file
 nnoremap <space>al :source ~/Projects/dotfiles/.vim/config/coc.vim<cr>
 
