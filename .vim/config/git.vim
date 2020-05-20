@@ -1,9 +1,8 @@
-nmap <space>gg :Git 
 nmap <space>gl :Glog -n 100<cr>
 nmap <space>gL :Glog<cr>
 nmap <space>g0l :0Glog -n 100<cr>
 nmap <space>g0L :0Glog<cr>
-nmap <space>gdd :Gdiff<cr>
+nmap <space>gdd :Gdiff<cr><c-w>l<c-w>r
 nmap <space>gds :Gvdiffsplit!<cr>
 nmap <space>gpr :Ggrep 
 nmap <space>gr :Gread! 
@@ -11,6 +10,7 @@ nmap <space>gw :Gwrite<cr>
 nmap <space>gbl :Gblame<cr>
 nmap <space>gbr :Gbrowse<cr>
 nmap <space>gs :Gstatus<cr>
+nmap <space>gg :Gstatus<cr><c-w>o
 nmap <space>ge :Gedit 
 nmap <space>gt .tabnew<cr>
 nmap <space>gvs :Gvsplit<cr>
@@ -28,6 +28,8 @@ nmap <space>gh :GitGutterLineHighlightsToggle<cr>
 nmap <space>gj :GitGutterPreviewHunk<cr>
 nmap <space>g] 'tjO
 nmap <space>g[ 'tkO
+nmap ]d 'tjO:Gdiff<cr><c-w>l<c-w>r<space>cd
+nmap [d 'tkO:Gdiff<cr><c-w>l<c-w>r<space>cd
 nmap <space>g, [c:GitGutterPreviewHunk<cr>
 nmap <space>g. ]c:GitGutterPreviewHunk<cr>
 nmap <space>gm <c-w>o:Gedit<cr>
