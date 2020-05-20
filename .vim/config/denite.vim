@@ -148,6 +148,7 @@ let s:menus.php.command_candidates = [
             \[ 'unpatch personio', 'Dispatch! git apply -R ../patches/*'],
             \[ 'patch personio', 'Dispatch! git apply ../patches/*'],
             \[ 'php cs fixer', 'Dispatch! php-cs-fixer fix %:p'],
+            \[ 'perctl lint fix', 'Dispatch! ./perctl lint-fix'],
             \[ 'library', 'execute "Rooter" | execute "cd vendor"'],
             \]
 let s:menus.ctags = {

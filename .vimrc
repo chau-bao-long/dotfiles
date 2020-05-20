@@ -39,10 +39,7 @@ Plug 'idanarye/vim-vebugger', {'branch': 'develop'}
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
-
-Plug 'jaxbot/semantic-highlight.vim'
-let g:semanticGUIColors = ['#bd93f9', '#ff5555', '#6272a4', '#8be9fd', '#50fa7b', '#ffb86c', '#ff79c6', '#f1fa8c', '#91C9C4','#C2DD8E', '#F7C871', '#91D4EF', '#E3747A', '#E98C6E','#E65A65', '#F44336', '#EF5350', '#EC407A', '#E91E63', '#AB47BC', '#7E57C2', '#5C6BC0', '#3F51B5', '#64B5F6', '#2196F3', '#4FC3F7', '#29B6F6', '#4DD0E1', '#26C6DA', '#81C784', "#EDD528", "#FA6BB2", "#47F2D4", "#F47F86", "#2ED8FF", "#B8E01C", "#C5A127", "#D386F1", "#97DFD6", "#EF874A", "#48EDF0", "#C0AE50", "#89AAB6", "#D7D1EB", "#57F0AC", "#8BE289", "#D38AC6", "#C8EE63", "#ED9C36", "#9DEA74", "#40B7E5", "#EEA3C2", "#7CE9B6", "#8CEC58", "#D8A66C", "#51C03B", "#C4CE64", "#45E648", "#63A5F3", "#EA8C66", "#D2D43E",  "#E4B7CB", "#B092F4", "#44C58C", "#D1E998", "#76E4F2", "#E19392", "#A8E5A4", "#BF9FD6", "#E8C25B", "#58F596", "#6BAEAC","#7EF1DB", "#E8D65C", "#A7EA38", "#D38AE0", "#ECF453", "#5CD8B8", "#B6BF6B", "#BEE1F1", "#B1D43E", "#EBE77B", "#84A5CD", "#CFEF7A", "#A3C557", "#E4BB34", "#ECB151", "#BDC9F2", "#5EB0E9", "#E09764", "#9BE3C8", "#B3ADDC", "#B2AC36", "#C8CD4F", '#93a1a1', '#8a8a8a', '#e4e4e4', '#fdf6e3',  '#cb4b16', '#d33682', '#5f5faf','#d75f00', '#268bd2', '#0087ff', '#2aa198', '#00afaf']
-nnoremap <Leader>s :SemanticHighlightToggle<cr>
+Plug 'chau-bao-long/semantic-highlight.vim'
 
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
