@@ -39,7 +39,9 @@ Plug 'idanarye/vim-vebugger', {'branch': 'develop'}
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
+
 Plug 'chau-bao-long/semantic-highlight.vim'
+nnoremap <Leader>s :SemanticHighlightToggle<cr>
 
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
