@@ -22,7 +22,8 @@ nmap <space>gpf :Gpush -f<cr>
 nmap <space>gfo :Gfetch origin<cr>
 nmap <space>gpl :Gpull<cr>
 nmap <space>gz :GitGutterFold<cr>
-nmap <space>g- :GitGutterToggle<cr>
+nmap <space>g- :GitGutterEnable<cr>
+nmap <space>g_ :GitGutterDisable<cr>
 nmap <space>gh :GitGutterLineHighlightsToggle<cr>
 nmap <space>gj :GitGutterPreviewHunk<cr>
 nmap <space>g] 'tjO
