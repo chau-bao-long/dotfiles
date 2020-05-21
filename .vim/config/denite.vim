@@ -167,6 +167,9 @@ let s:menus.ctags.command_candidates = [
             \[ '📌 java', 'Dispatch! ctags -R --languages=java,kotlin --exclude=.git --exclude=log --exclude=.gradle --exclude=.gradle-home --exclude=data .'],
             \]
 
+let s:menus.database = { 'description': '📄 Access database' }
+let s:menus.database.command_candidates = g:databases
+
 call denite#custom#var('menu', 'menus', s:menus)
 
 autocmd Filetype javascript nmap <buffer> <space>k :Denite menu:js<cr>

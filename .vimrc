@@ -75,6 +75,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-dadbod'
 Plug 'thoughtbot/vim-rspec'
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
@@ -98,6 +99,7 @@ vnoremap <space>df y:Dash <c-r>0<cr>
 call plug#end()
 
 " ==================================================== Config Plugin
+source ~/Projects/dotfiles/.vim/config/secrets.vim
 source ~/Projects/dotfiles/.vim/config/float-term.vim
 source ~/Projects/dotfiles/.vim/config/fzf.vim
 source ~/Projects/dotfiles/.vim/config/ctrlfs.vim
