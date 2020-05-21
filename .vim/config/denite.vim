@@ -127,6 +127,7 @@ let s:menus.kotlin.command_candidates = [
             \ ['💾 build', 'tabnew | terminal ./gradlew build'],
             \ ['💾 clean', 'tabnew | terminal ./gradlew clean'],
             \ ['💾 library', 'cd ~/Projects/lib/java/'],
+            \ ['💾 gradle root', 'call javafunctions#goToNearestGradleFolder()'],
             \ ['💾 setup test', '!~/Projects/personio/bin/invoice-service/setup-test.sh'],
             \ ]
 let s:menus.js = {
