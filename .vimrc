@@ -40,6 +40,9 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 
+Plug 'chau-bao-long/vim-dadbod'
+nnoremap <space>st :DBL g:cur show tables<cr>
+
 Plug 'chau-bao-long/semantic-highlight.vim'
 nnoremap <Leader>s :SemanticHighlightToggle<cr>
 
@@ -75,7 +78,6 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-dadbod'
 Plug 'thoughtbot/vim-rspec'
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
