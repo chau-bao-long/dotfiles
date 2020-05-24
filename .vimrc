@@ -101,7 +101,6 @@ vnoremap <space>df y:Dash <c-r>0<cr>
 call plug#end()
 
 " ==================================================== Config Plugin
-source ~/Projects/dotfiles/.vim/config/secrets.vim
 source ~/Projects/dotfiles/.vim/config/float-term.vim
 source ~/Projects/dotfiles/.vim/config/fzf.vim
 source ~/Projects/dotfiles/.vim/config/ctrlfs.vim
@@ -117,6 +116,10 @@ source ~/Projects/dotfiles/.vim/config/git.vim
 source ~/Projects/dotfiles/.vim/config/debug.vim
 source ~/Projects/dotfiles/.vim/config/devicons.vim
 source ~/Projects/dotfiles/.vim/config/clap.vim
+
+if filereadable(expand("~/Projects/dotfiles/.vim/config/secrets.vim"))
+  source ~/Projects/dotfiles/.vim/config/secrets.vim
+endif
 
 " ==================================================== General Config
 filetype plugin indent on

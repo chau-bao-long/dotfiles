@@ -167,8 +167,10 @@ let s:menus.ctags.command_candidates = [
             \[ '📌 java', 'Dispatch! ctags -R --languages=java,kotlin --exclude=.git --exclude=log --exclude=.gradle --exclude=.gradle-home --exclude=data .'],
             \]
 
-let s:menus.database = { 'description': '📄 Access database' }
-let s:menus.database.command_candidates = g:databases
+if get(g:, "databases", "defaultval") != "defaultval"
+  let s:menus.database = { 'description': '📄 Access database' }
+  let s:menus.database.command_candidates = g:databases
+endif
 
 call denite#custom#var('menu', 'menus', s:menus)
 
