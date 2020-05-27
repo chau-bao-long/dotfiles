@@ -41,7 +41,8 @@ Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 
 Plug 'chau-bao-long/vim-dadbod'
-nnoremap <space>st :DBL g:cur show tables<cr>
+nnoremap <space>st :DBSelectTable<cr>
+nnoremap <space>sd :DBDescribeTables<cr>
 
 Plug 'chau-bao-long/semantic-highlight.vim'
 nnoremap <Leader>s :SemanticHighlightToggle<cr>
@@ -101,6 +102,9 @@ vnoremap <space>df y:Dash <c-r>0<cr>
 call plug#end()
 
 " ==================================================== Config Plugin
+if filereadable(expand("~/Projects/dotfiles/.vim/config/secrets.vim"))
+  source ~/Projects/dotfiles/.vim/config/secrets.vim
+endif
 source ~/Projects/dotfiles/.vim/config/float-term.vim
 source ~/Projects/dotfiles/.vim/config/fzf.vim
 source ~/Projects/dotfiles/.vim/config/ctrlfs.vim
@@ -116,10 +120,6 @@ source ~/Projects/dotfiles/.vim/config/git.vim
 source ~/Projects/dotfiles/.vim/config/debug.vim
 source ~/Projects/dotfiles/.vim/config/devicons.vim
 source ~/Projects/dotfiles/.vim/config/clap.vim
-
-if filereadable(expand("~/Projects/dotfiles/.vim/config/secrets.vim"))
-  source ~/Projects/dotfiles/.vim/config/secrets.vim
-endif
 
 " ==================================================== General Config
 filetype plugin indent on
