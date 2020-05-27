@@ -183,3 +183,4 @@ nmap <space><space> :Denite menu<cr>
 nmap <space>mc :Denite menu:ctags<cr>
 nmap <space>md :Denite menu:directories<cr>
 nmap <space>mb :Denite menu:binfiles<cr>
+nmap <space>ms :Denite menu:database<cr>
