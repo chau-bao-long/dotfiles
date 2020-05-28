@@ -39,6 +39,7 @@ Plug 'idanarye/vim-vebugger', {'branch': 'develop'}
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
+Plug 'chrisbra/Colorizer'
 
 Plug 'chau-bao-long/vim-dadbod'
 nnoremap <space>st :DBSelectTable<cr>
@@ -49,10 +50,6 @@ nnoremap <Leader>s :SemanticHighlightToggle<cr>
 
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
-
-Plug 'chrisbra/Colorizer'
-nmap <space>ch :ColorHighlight!<cr>
-nmap <space>ct :ColorToggle<cr>
 
 Plug 'airblade/vim-rooter'
 let g:rooter_change_directory_for_non_project_files = 'current'
@@ -94,6 +91,7 @@ Plug 'jason0x43/vim-js-indent'
 Plug 'jparise/vim-graphql'
 Plug 'Galooshi/vim-import-js'
 Plug 'Rican7/php-doc-modded'
+Plug 'metakirby5/codi.vim'
 
 Plug 'rizzatti/dash.vim'
 nnoremap <space>df :Dash<cr>
