@@ -13,7 +13,3 @@ nmap <space>ip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| 
 
 " Easy switching between vim and intelliJ
 nnoremap <silent> <space>oi :exec "Dispatch! idea --line " . line('.') . " " . expand('%:p')<cr>
-
-" Beter GF in kotlin and java
-nmap gf :call javafunctions#openFile('e')<cr>
-nmap gF :call javafunctions#openFile('tabedit')<cr>

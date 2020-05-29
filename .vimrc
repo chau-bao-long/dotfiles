@@ -41,6 +41,7 @@ Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/Colorizer'
 
+Plug 'chau-bao-long/java-kotlin-gf'
 Plug 'chau-bao-long/vim-dadbod'
 nnoremap <space>st :DBSelectTable<cr>
 nnoremap <space>sd :DBDescribeTables<cr>

@@ -129,6 +129,7 @@ let s:menus.kotlin.command_candidates = [
             \ ['💾 library', 'cd ~/Projects/lib/java/'],
             \ ['💾 gradle root', 'call javafunctions#goToNearestGradleFolder()'],
             \ ['💾 setup test', '!~/Projects/personio/bin/invoice-service/setup-test.sh'],
+            \ ['💾 run', 'execute "Rooter" | tabnew | terminal ./run.sh'],
             \ ]
 let s:menus.js = {
             \ 'description': '💾 Javascript project commands'
