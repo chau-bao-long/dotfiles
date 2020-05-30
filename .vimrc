@@ -1,7 +1,7 @@
 " ==================================================== Plugin Config
 call plug#begin('~/.vim/plugged')
 
-Plug 'joshdick/onedark.vim'
+Plug 'ayu-theme/ayu-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mbbill/undotree'
 Plug 'christoomey/vim-system-copy'
@@ -150,10 +150,11 @@ endif
 set background=dark
 set termguicolors
 set t_Co=256
+let ayucolor="dark"
 let g:lightline = {
-  \ 'colorscheme': 'onedark',
+  \ 'colorscheme': 'ayu',
   \ }
-colorscheme onedark
+colorscheme ayu
 
 " ==================================================== Highlight
 hi Search cterm=NONE ctermfg=NONE ctermbg=240 guifg=NONE guibg=#585858
