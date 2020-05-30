@@ -55,7 +55,7 @@ let g:rainbow_active = 1
 Plug 'airblade/vim-rooter'
 let g:rooter_change_directory_for_non_project_files = 'current'
 let g:rooter_manual_only = 1
-nnoremap <space>cr :Rooter<cr>
+nnoremap <space>r :Rooter<cr>
 
 Plug 'Yggdroot/indentLine'
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
@@ -133,7 +133,6 @@ set guicursor=n:blinkon1        "Fix bug cursor of COC
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set encoding=utf-8
-set lazyredraw
 set cursorline
 
 " This makes vim act like all other editors, buffers can
