@@ -123,8 +123,7 @@ source ~/Projects/dotfiles/.vim/config/clap.vim
 " ==================================================== General Config
 filetype plugin indent on
 
-set nocompatible              " be iMproved, required filetype off
-" set number                      "Line numbers are good
+set nocompatible                " be iMproved, required filetype off
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
@@ -136,8 +135,6 @@ set autoread                    "Reload files changed outside vim
 set encoding=utf-8
 set lazyredraw
 set cursorline
-set ttimeout
-set ttimeoutlen=2
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -148,10 +145,6 @@ set hidden
 if !exists('g:syntax_on')
 	syntax enable
 endif
-
-" Faster cursor and typing
-set timeoutlen=1000
-set ttimeoutlen=0
 
 " ==================================================== Theme
 set background=dark
