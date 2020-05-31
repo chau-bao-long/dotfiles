@@ -9,3 +9,4 @@ map gr moveTabRight
 map e Vomnibar.activateBookmarksInNewTab
 unmap r
 map rr reload
+map a LinkHints.activateMode

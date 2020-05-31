@@ -19,8 +19,8 @@ $ make install_softwares #install mostly used softwares
 - font
 - link and copy all config files
 - homebrew & homecask (package manager for macos)
-- Übersicht (status bar for mac os)
-- Amethyst (window manager for macos)
+- Spacebar (status bar for mac os)
+- Yabai (window manager for macos)
 - skhd (simple hotkey daemon for macos)
 - qutebrowser
 - brave (browser)

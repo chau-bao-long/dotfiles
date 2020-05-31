@@ -243,30 +243,19 @@ install_browser() {
   fi
 }
 
-install_skhd() {
-  read -r -p "Do you want to install simple hotkey daemon? [y|N] " response
-  if [[ $response =~ (y|yes|Y) ]];then
-    brew install koekeishiya/formulae/skhd
-    brew services start skhd
-    success "Installed simple hotkey daemon"
-  fi
-}
-
 install_window_manager() {
   read -r -p "Do you want to install window manager? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    brew cask install amethyst
-    cp ./mac_config/Amethyst/com.amethyst.Amethyst.plist ~/Library/Preferences/com.amethyst.Amethyst.plist
-    success "Installed window manager"
-  fi
-}
+    brew install koekeishiya/formulae/yabai
+    sudo yabai --install-sa
+    brew services start yabai
+    killall Dock
+    brew install somdoron/formulae/spacebar
+    brew services start spacebar
+    brew install koekeishiya/formulae/skhd
+    brew services start skhd
 
-install_ubersicht() {
-  read -r -p "Do you want to install ubersicht status bar? [y|N] " response
-  if [[ $response =~ (y|yes|Y) ]];then
-    brew cask install ubersicht
-    cp -r mac_config/Ubersicht/* ~/Library/Application Support/Übersicht
-    success "Installed ubersicht status bar"
+    success "Installed window manager! Remember to disable System Integrity Protection (SIP)"
   fi
 }
 
@@ -342,9 +331,7 @@ install_emacs
 install_ranger
 install_tmux
 install_browser
-install_skhd
 install_window_manager
-install_ubersicht
 install_font
 install_terminal
 install_tool
