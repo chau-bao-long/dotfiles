@@ -1,5 +1,5 @@
 nnoremap <space>n :NERDTreeToggle<cr>
-nnoremap <space>nf :NERDTreeFind<cr>
+nnoremap <space>N :NERDTreeFind<cr>
 nnoremap <space>5 :UndotreeToggle<cr>
 nmap <space>cd :NERDTreeCWD<cr><c-w>l:NERDTreeFind<cr><c-w>l
 

@@ -5,3 +5,43 @@ function! javafunctions#goToNearestGradleFolder()
     execute 'chdir! ' . gradleRoot
   endif
 endfunction
+
+function! javafunctions#runOneTest(isDebug)
+  call javafunctions#goToNearestGradleFolder()
+  call system("eval $(SHELL=bash minikube -p minikube docker-env)")
+
+  execute "silent! normal! /fun \<cr>Nwvt(y"
+
+  if a:isDebug 
+    let debugCmd = "--debug-jvm"
+  else
+    let debugCmd = ""
+  endif
+
+  let testCmd = "GATEWAY=dev.personio.de ./gradlew cleanTest test " . debugCmd . " --info --tests " . expand('%:t')[:-4] . ".\\*" . @0 . "\\*"
+  let keepCurrentCmd = "echo \"" . testCmd . "\" > ~/bin/current-cmd" 
+
+  call system(expand(l:keepCurrentCmd))
+
+  execute "tabnew | terminal ~/bin/current-cmd"
+  execute "normal! \<cr>G"
+endfunction
+
+function! javafunctions#runAllTestsInFile(isDebug)
+  call javafunctions#goToNearestGradleFolder()
+  call system("eval $(SHELL=bash minikube -p minikube docker-env)")
+
+  if a:isDebug 
+    let debugCmd = "--debug-jvm"
+  else
+    let debugCmd = ""
+  endif
+
+  let testCmd = "GATEWAY=dev.personio.de ./gradlew cleanTest test " . debugCmd . " --info --tests " . expand('%:t')[:-4]
+  let keepCurrentCmd = "echo \"" . testCmd . "\" > ~/bin/current-cmd" 
+
+  call system(expand(l:keepCurrentCmd))
+
+  execute "tabnew | terminal ~/bin/current-cmd"
+  execute "normal! \<cr>G"
+endfunction

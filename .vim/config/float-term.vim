@@ -14,6 +14,7 @@ nnoremap <space>ty :FloatermNew ytop<cr>
 nnoremap <space>tcn :FloatermNew node<cr>
 nnoremap <space>tcp :FloatermNew python<cr>
 nnoremap <space>tch :FloatermNew php artisan tinker<cr>
+nnoremap <space>tck :FloatermNew kotlin<cr>
 nnoremap <space>tu :FloatermToggle<cr>
 nnoremap <space>tkk :FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>
 nnoremap <space>tks :FloatermNew watch kubectl get pod -owide -A<cr>
