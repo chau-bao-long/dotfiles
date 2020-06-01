@@ -8,7 +8,7 @@ let g:floaterm_winblend=0
 nnoremap <space>t; :FloatermNew<cr>
 nnoremap <space>tg :FloatermNew lazygit<cr>
 nnoremap <space>td :FloatermNew lazydocker<cr>
-nnoremap <space>ts :FloatermNew ncdu<cr>
+nnoremap <space>tn :FloatermNew ncdu<cr>
 nnoremap <space>th :FloatermNew htop<cr>
 nnoremap <space>ty :FloatermNew ytop<cr>
 nnoremap <space>tcn :FloatermNew node<cr>
