@@ -2,7 +2,7 @@ nmap <space>gl :Glog -n 100<cr>
 nmap <space>gL :Glog<cr>
 nmap <space>g0l :0Glog -n 100<cr>
 nmap <space>g0L :0Glog<cr>
-nmap <space>gdd :Gdiff<cr><c-w>l<c-w>r
+nmap <space>gdd :Gdiff<cr><c-w>l
 nmap <space>gds :Gvdiffsplit!<cr>
 nmap <space>gpr :Ggrep 
 nmap <space>gr :Gread! 
@@ -28,8 +28,8 @@ nmap <space>gh :GitGutterLineHighlightsToggle<cr>
 nmap <space>gj :GitGutterPreviewHunk<cr>
 nmap <space>g] 'tjO
 nmap <space>g[ 'tkO
-nmap ]d 'tjO:Gdiff<cr><c-w>l<c-w>r<space>cd<c-w>=
-nmap [d 'tkO:Gdiff<cr><c-w>l<c-w>r<space>cd<c-w>=
+nmap ]d 'tjO:Gdiff<cr><c-w>l
+nmap [d 'tkO:Gdiff<cr><c-w>l
 nmap <space>g, [c:GitGutterPreviewHunk<cr>
 nmap <space>g. ]c:GitGutterPreviewHunk<cr>
 nmap <space>gm <c-w>o:Gedit<cr>
