@@ -11,3 +11,6 @@ nmap <space>ip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| 
 
 " Easy switching between vim and intelliJ
 nnoremap <silent> <space>oi :exec "Dispatch! idea --line " . line('.') . " " . expand('%:p')<cr>
+
+" Quick run kotlin script
+nnoremap <space>ek :exec "Dispatch kotlinc -script " . expand('%:p')<cr>

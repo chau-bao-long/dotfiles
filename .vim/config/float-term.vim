@@ -23,8 +23,6 @@ tnoremap <c-h> <c-\><c-n>:FloatermPrev<cr>i
 tnoremap <c-l> <c-\><c-n>:FloatermNext<cr>i
 tnoremap <c-y> <c-\><c-n>:FloatermToggle<cr>
 
-autocmd Filetype kotlin nnoremap <space>tr :exec "tabnew \| terminal kotlinc -script " . expand('%:p')<cr>
-
 function! FloatingFZF()
     let height = float2nr((&lines - 2) / 1.42)
     let row = float2nr((&lines - height) / 2)
