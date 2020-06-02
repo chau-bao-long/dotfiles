@@ -28,8 +28,8 @@ nmap <space>gh :GitGutterLineHighlightsToggle<cr>
 nmap <space>gj :GitGutterPreviewHunk<cr>
 nmap <space>g] 'tjO
 nmap <space>g[ 'tkO
-nmap ]d 'tjO:Gdiff<cr><c-w>l<c-w>r<space>cd
-nmap [d 'tkO:Gdiff<cr><c-w>l<c-w>r<space>cd
+nmap ]d 'tjO:Gdiff<cr><c-w>l<c-w>r<space>cd<c-w>=
+nmap [d 'tkO:Gdiff<cr><c-w>l<c-w>r<space>cd<c-w>=
 nmap <space>g, [c:GitGutterPreviewHunk<cr>
 nmap <space>g. ]c:GitGutterPreviewHunk<cr>
 nmap <space>gm <c-w>o:Gedit<cr>

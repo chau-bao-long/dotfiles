@@ -289,6 +289,7 @@ nmap gT :tabnew<cr>zogf
 nnoremap g' :vs<cr><c-w>l<c-]>
 nnoremap g" :sp<cr><c-w>l<c-]>
 nnoremap g\ :tabnew<cr><c-o><c-]>
+nnoremap ma ggVG
 
 " Better copy/paste behavior
 set pastetoggle=<space>4

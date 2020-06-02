@@ -8,8 +8,6 @@ endfunction
 
 function! javafunctions#runOneTest(isDebug)
   call javafunctions#goToNearestGradleFolder()
-  call system("eval $(SHELL=bash minikube -p minikube docker-env)")
-
   execute "silent! normal! /fun \<cr>Nwvt(y"
 
   if a:isDebug 
@@ -29,7 +27,6 @@ endfunction
 
 function! javafunctions#runAllTestsInFile(isDebug)
   call javafunctions#goToNearestGradleFolder()
-  call system("eval $(SHELL=bash minikube -p minikube docker-env)")
 
   if a:isDebug 
     let debugCmd = "--debug-jvm"
