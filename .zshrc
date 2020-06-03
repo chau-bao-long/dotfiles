@@ -1,3 +1,8 @@
+# lazyload zsh - boost zsh startup time
+source ~/.zsh-defer/zsh-defer.plugin.zsh
+PS1="%F{12}%~%f "
+RPS1="%F{240}Loading...%f"
+
 # Backup good themes:
 # ZSH_THEME="jnrowe"
 # ZSH_THEME="spaceship"
@@ -37,10 +42,10 @@ autoload -U compinit && compinit
 export LC_ALL=en_US.UTF-8
 export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+zsh-defer source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+zsh-defer source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+zsh-defer source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br
+[ -f ~/.fzf.zsh ] && zsh-defer source ~/.fzf.zsh
 
 export GPG_TTY=`tty`
 
@@ -57,7 +62,7 @@ export PATH="$PATH:$HOME/.local/bin"
 
 # Python to PATH
 export PATH="$HOME/.pyenv:$PATH"
-eval "$(pyenv init -)"
+zsh-defer -c "eval $(pyenv init -)"
 
 # PHP to PATH
 export PATH="/usr/local/opt/php@7.3/bin:$PATH"
@@ -247,37 +252,22 @@ gh() {
 
 # Open merge request on gitlab
 gmr() {
-  local gitlab=https://gitlab.personio-internal.de
-  local project=$(pwd | grep -Eo "/personio/.*$" | cut -d "/" -f3)
-  local team
-  if [[ "$project" == "personio" ]]; then
-    team="personio"
-  elif [[ "$project" == "payroll-dashboard-ui" ]]; then
-    team="personio/customer-operations"
-  elif [[ "$project" == *"payroll"* ]]; then
-    team="personio/payroll"
-  elif [[ "$project" == "rundeck" || "$project" == "terraform-aws" ]]; then
-    team="sre"
-  elif [[ "$project" == "sqs-listener" ]]; then
-    team="personio/internal"
-  else
-    team="personio/customer-operations"
-  fi
+  local gitlab=$(git remote -v | head -n1 | awk '{print $2}' | cut -d'@' -f2 | sed 's/.git//g' | sed 's/:/\//g')
 
   if [ -z "$1" ]; then
     ticket=$(git describe --all | grep -Eo "\d+")
 
     if [ -n "$ticket" ]; then
-      echo "$ticket" | xargs -I {} open $gitlab/$team/$project/merge_requests\?state=all\&search\=\{\}
+      echo "$ticket" | xargs -I {} open https://$gitlab/merge_requests\?state=all\&search\=\{\}
     else
-      open $gitlab/$team/$project/merge_requests
+      open https://$gitlab/$team/$project/merge_requests
     fi
   else
     local keyword=''
     for var in "$@"; do
       keyword=$keyword" "$var
     done
-    open $gitlab/$team/$project/merge_requests\?state=all\&search\=$keyword
+    open https://$gitlab/merge_requests\?state=all\&search\=$keyword
   fi
 }
 
@@ -299,17 +289,10 @@ cmds() {
   fi
 }
 
-# lazy load
-loadnode() {
-  export NVM_DIR="/Users/chau.bao.long/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-}
 
-loadk8s() {
-  if [ $commands[kubectl] ]; then
-    source <(kubectl completion zsh)
-  fi
-}
+if [ $commands[kubectl] ]; then
+  zsh-defer -c "source <(kubectl completion zsh)"
+fi
 
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
@@ -399,3 +382,5 @@ bindkey -s "^[a" "\edddddddddd ifpass\n"
 # Load pure theme afterward
 autoload -U promptinit; promptinit
 prompt pure
+
+zsh-defer -c 'RPS1="%F{240}%f"'

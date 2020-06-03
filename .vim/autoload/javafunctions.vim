@@ -16,7 +16,7 @@ function! javafunctions#runOneTest(isDebug)
     let debugCmd = ""
   endif
 
-  let testCmd = "GATEWAY=dev.personio.de ./gradlew cleanTest test " . debugCmd . " --info --tests " . expand('%:t')[:-4] . ".\\*" . @0 . "\\*"
+  let testCmd = "./gradlew cleanTest test " . debugCmd . " --info --tests " . expand('%:t')[:-4] . ".\\*" . @0 . "\\*"
   let keepCurrentCmd = "echo \"" . testCmd . "\" > ~/bin/current-cmd" 
 
   call system(expand(l:keepCurrentCmd))
@@ -34,7 +34,7 @@ function! javafunctions#runAllTestsInFile(isDebug)
     let debugCmd = ""
   endif
 
-  let testCmd = "GATEWAY=dev.personio.de ./gradlew cleanTest test " . debugCmd . " --info --tests " . expand('%:t')[:-4]
+  let testCmd = "./gradlew cleanTest test " . debugCmd . " --info --tests " . expand('%:t')[:-4]
   let keepCurrentCmd = "echo \"" . testCmd . "\" > ~/bin/current-cmd" 
 
   call system(expand(l:keepCurrentCmd))

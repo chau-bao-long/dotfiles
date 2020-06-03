@@ -92,4 +92,7 @@ ctrl + alt - t : yabai -m window --toggle float;\
 #           yabai -m window --toggle topmost;\
 #           yabai -m window --toggle pip
 
+# restart yabai
+cmd + alt + ctrl - r: brew services restart yabai
+
 cmd + shift - return : open -na /Applications/alacritty.app

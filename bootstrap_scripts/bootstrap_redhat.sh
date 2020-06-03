@@ -175,6 +175,9 @@ install_zsh() {
     sudo yum install -y zsh
     sudo chsh -s $(which zsh) root
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    if [ ! -d ~/.zsh-defer ]; then
+      git clone https://github.com/romkatv/zsh-defer.git ~/.zsh-defer
+    fi
     if [ ! -d ~/.zsh/zsh-autosuggestions ]; then
       git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
     fi

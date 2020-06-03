@@ -270,7 +270,7 @@ nmap zo <C-o>
 nmap z[ <c-^>
 nmap co :let @+=expand("%:t")<cr>
 nmap cy :let @+=expand("%:p")<cr>
-nmap cf :let @+=expand("%:p:h")<cr>
+nmap cH :let @+=expand("%:p:h")<cr>
 nmap ch :let @+=expand("%:h")<cr>
 nmap cn :let @+=expand("%:t:r")<cr>
 nmap cu viwcp
