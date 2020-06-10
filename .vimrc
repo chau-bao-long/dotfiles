@@ -6,7 +6,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'mbbill/undotree'
 Plug 'christoomey/vim-system-copy'
 Plug 'scrooloose/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 Plug 'milkypostman/vim-togglelist'

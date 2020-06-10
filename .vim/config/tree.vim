@@ -4,14 +4,13 @@ nnoremap <space>5 :UndotreeToggle<cr>
 nmap <space>fs :NERDTreeCWD<cr><c-w>l:NERDTreeFind<cr><c-w>l
 nmap <space>fS :NERDTreeCWD<cr><c-w>l<c-w>l:NERDTreeFind<cr><c-w>l<c-w>l
 
+let g:NERDTreeIgnore = ['^build$']
+
 let NERDTreeQuitOnOpen = 0
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 0
 let NERDTreeDirArrowExpandable = "+"
 let NERDTreeDirArrowCollapsible = "-"
-let g:NERDTreeFileExtensionHighlightFullName = 1
-let g:NERDTreeExactMatchHighlightFullName = 1
-let g:NERDTreePatternMatchHighlightFullName = 1
 let g:NERDTreeWinSize=45
 
 " close a tab if the only remaining window is NerdTree
