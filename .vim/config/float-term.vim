@@ -3,7 +3,7 @@ let g:floaterm_autoinsert=1
 let g:floaterm_width=0.7
 let g:floaterm_height=0.7
 let g:floaterm_autoclose=1
-let g:floaterm_winblend=0
+let g:floaterm_winblend=15
 
 nnoremap <space>t; :FloatermNew<cr>
 nnoremap <space>tg :FloatermNew lazygit<cr>
@@ -58,6 +58,7 @@ function! FloatingFZF()
     let win =  nvim_open_win(buf, v:true, opts)
     call setwinvar(win, '&number', 0)
     call setwinvar(win, '&relativenumber', 0)
+    call setwinvar(win, '&winblend', 15)
     " Close border window when terminal window close
     autocmd TermClose * ++once :bd! | call nvim_win_close(s:float_term_border_win, v:true)
 endfunction

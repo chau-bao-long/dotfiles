@@ -4,7 +4,7 @@ nnoremap <space>5 :UndotreeToggle<cr>
 nmap <space>fs :NERDTreeCWD<cr><c-w>l:NERDTreeFind<cr><c-w>l
 nmap <space>fS :NERDTreeCWD<cr><c-w>l<c-w>l:NERDTreeFind<cr><c-w>l<c-w>l
 
-let g:NERDTreeIgnore = ['^build$']
+let g:NERDTreeIgnore = ['^data$']
 
 let NERDTreeQuitOnOpen = 0
 let NERDTreeMinimalUI = 1
