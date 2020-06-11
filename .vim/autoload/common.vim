@@ -47,7 +47,7 @@ endfunction
 
 function! s:correctPathOfJarFile(path)
   let lines = split(a:path, "jar!")
-  return len(lines) > 1 ?  "~/Projects/lib/java/" . lines[1] : a:path
+  return len(lines) > 1 ? g:libPath . lines[1] : a:path
 endfunction
 
 function common#goBack()
