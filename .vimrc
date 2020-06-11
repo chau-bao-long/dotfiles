@@ -164,7 +164,7 @@ hi DiffDelete cterm=reverse ctermfg=0 ctermbg=88 guibg=#000000 guifg=#3c1f1e
 hi DiffText cterm=NONE ctermfg=NONE ctermbg=23 guifg=NONE guibg=#005f5f
 hi Normal guibg=#000000
 hi EndOfBuffer guibg=#000000
-hi FloatermBorder guifg=#5FFF87
+hi FloatermBorder guifg=#616161
 
 " ==================================================== Turn Off Swap Files
 set noswapfile

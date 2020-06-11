@@ -51,7 +51,7 @@ function! FloatingFZF()
     let bbuf = nvim_create_buf(v:false, v:true)
     call nvim_buf_set_lines(bbuf, 0, -1, v:true, lines)
     let s:float_term_border_win = nvim_open_win(bbuf, v:true, border_opts)
-    call setwinvar(s:float_term_border_win, '&winhl', 'Normal:Normal')
+    call setwinvar(s:float_term_border_win, '&winhl', 'Normal:FloatermBorder')
 
     let buf = nvim_create_buf(v:false, v:true)
     call setbufvar(buf, 'number', 'no')
