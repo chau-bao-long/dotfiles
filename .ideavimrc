@@ -3,6 +3,8 @@ source ~/.vimide
 " refer action list here:
 " https://gist.github.com/zchee/9c78f91cc5ad771c1f5d
 
+nmap <space>dr :action Resume<cr>
+nmap <space>ds :action Stop<cr>
 nmap <space>da :action Debug<cr>
 nmap <space>ar :action Run<cr>
 nmap <space>ca :action CloseAllEditorsButActive<cr>
@@ -17,8 +19,6 @@ nmap zi :action Forward<CR>
 nmap <F2> :action StepOver<cr>
 nmap <F3> :action StepInto<cr>
 nmap <F4> :action StepOut<cr>
-nmap <F5> :action Resume<cr>
-nmap <F6> :action Stop<cr>
 nmap <F10> :action ToggleLineBreakpoint<cr>
 nmap <space>dj :action EvaluateExpression<cr>
 vmap <space>dj :action EvaluateExpression<cr>
