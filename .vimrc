@@ -52,6 +52,9 @@ nnoremap <Leader>s :SemanticHighlightToggle<cr>
 
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
+let g:rainbow_conf = {
+      \ 'nerdtree': 0,
+      \ }
 
 Plug 'airblade/vim-rooter'
 let g:rooter_change_directory_for_non_project_files = 'current'
