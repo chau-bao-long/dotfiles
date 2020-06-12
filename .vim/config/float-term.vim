@@ -18,10 +18,12 @@ nnoremap <space>tck :FloatermNew kotlin<cr>
 nnoremap <space>tu :FloatermToggle!<cr>
 nnoremap <space>tkk :FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>
 nnoremap <space>tks :FloatermNew watch kubectl get pod -owide -A<cr>
-tnoremap <c-d> <c-\><c-n>:FloatermKill<cr>
+tnoremap <c-d> <c-\><c-n>:FloatermKill!<cr>
+tnoremap <c-c> <c-\><c-n>:FloatermKill<cr>:FloatermToggle<cr>
 tnoremap <c-h> <c-\><c-n>:FloatermPrev<cr>i
 tnoremap <c-l> <c-\><c-n>:FloatermNext<cr>i
 tnoremap <c-y> <c-\><c-n>:FloatermToggle!<cr>
+tnoremap <c-x> <c-\><c-n>:FloatermNew<cr>i
 
 function! FloatingFZF()
     let height = float2nr((&lines - 2) / 1.42)
