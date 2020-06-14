@@ -2,7 +2,7 @@ let g:floaterm_gitcommit='floaterm'
 let g:floaterm_autoinsert=1
 let g:floaterm_width=0.7
 let g:floaterm_height=0.7
-let g:floaterm_autoclose=1
+let g:floaterm_autoclose=0
 let g:floaterm_winblend=15
 
 nnoremap <space>t; :FloatermNew<cr>

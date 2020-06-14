@@ -96,7 +96,6 @@ Plug 'jason0x43/vim-js-indent'
 Plug 'jparise/vim-graphql'
 Plug 'Galooshi/vim-import-js'
 Plug 'Rican7/php-doc-modded'
-Plug 'metakirby5/codi.vim'
 
 Plug 'rizzatti/dash.vim'
 nnoremap <space>df :Dash<cr>
@@ -320,7 +319,6 @@ nmap g= :tabm +1<CR>
 vmap / y:/<C-R>0<CR>
 nmap <space>e= 15kV30j=15j
 nmap <space>er :e<cr>
-nmap <space>tm <c-w>T
 nmap <space>eq yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
 vmap <space>eq y:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
 nmap <space>ew :tabnew \| terminal ~/bin/current-cmd<cr>G

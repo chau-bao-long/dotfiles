@@ -104,6 +104,7 @@ alias gd="git diff"
 alias grs="git reset"
 alias grsh="git reset --hard"
 alias grss="git reset --soft"
+alias gfo="git fetch origin"
 grsr() { git reset --hard HEAD@{$1} }
 grsn() { git reset HEAD~$1 }
 gdb() { git diff HEAD~$1..HEAD~$2 }
