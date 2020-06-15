@@ -6,6 +6,7 @@ let g:floaterm_autoclose=0
 let g:floaterm_winblend=15
 
 nnoremap <space>t; :FloatermNew<cr>
+nnoremap <space>tr :FloatermNew ranger<cr>
 nnoremap <space>tg :FloatermNew lazygit<cr>
 nnoremap <space>td :FloatermNew lazydocker<cr>
 nnoremap <space>tn :FloatermNew ncdu<cr>
@@ -19,11 +20,11 @@ nnoremap <space>tu :FloatermToggle!<cr>
 nnoremap <space>tkk :FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>
 nnoremap <space>tks :FloatermNew watch kubectl get pod -owide -A<cr>
 tnoremap <c-d> <c-\><c-n>:FloatermKill!<cr>
-tnoremap <c-c> <c-\><c-n>:FloatermKill<cr>:FloatermToggle<cr>
-tnoremap <c-h> <c-\><c-n>:FloatermPrev<cr>i
-tnoremap <c-l> <c-\><c-n>:FloatermNext<cr>i
+tnoremap <c-q> <c-\><c-n>:FloatermKill<cr>:FloatermToggle<cr>
+tnoremap <c-h> <c-\><c-n>:FloatermPrev<cr>
+tnoremap <c-l> <c-\><c-n>:FloatermNext<cr>
 tnoremap <c-y> <c-\><c-n>:FloatermToggle!<cr>
-tnoremap <c-x> <c-\><c-n>:FloatermNew<cr>i
+tnoremap <c-s> <c-\><c-n>:FloatermNew<cr>
 
 function! FloatingFZF()
     let height = float2nr((&lines - 2) / 1.42)

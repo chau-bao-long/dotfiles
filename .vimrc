@@ -7,7 +7,6 @@ Plug 'mbbill/undotree'
 Plug 'christoomey/vim-system-copy'
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 Plug 'milkypostman/vim-togglelist'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -116,7 +115,6 @@ source ~/Projects/dotfiles/.vim/config/ale.vim
 source ~/Projects/dotfiles/.vim/config/coc.vim
 source ~/Projects/dotfiles/.vim/config/session.vim
 source ~/Projects/dotfiles/.vim/config/sneak.vim
-source ~/Projects/dotfiles/.vim/config/ranger.vim
 source ~/Projects/dotfiles/.vim/config/tree.vim
 source ~/Projects/dotfiles/.vim/config/git.vim
 source ~/Projects/dotfiles/.vim/config/debug.vim
