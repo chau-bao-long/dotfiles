@@ -308,7 +308,7 @@ noremap <space>cl :ts<CR>
 noremap <space>c] :tn<CR>
 noremap <space>c[ :tp<CR>
 inoremap zbt <Esc>a``<Esc>i
-inoremap zbs <Esc>a```<Esc>i
+inoremap zbs <Esc>a```<cr>```<Esc>O
 nnoremap <space>cb :bufdo bd<CR>
 nmap <space>8 :pwd<CR>
 nmap <space>7 :call common#goToCurrentFile()<CR>
@@ -319,6 +319,7 @@ nmap g= :tabm +1<CR>
 vmap / y:/<C-R>0<CR>
 nmap <space>e= 15kV30j=15j
 nmap <space>er :e<cr>
+nmap <space>eR :e!<cr>
 nmap <space>eq yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
 vmap <space>eq y:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
 nmap <space>ew :tabnew \| terminal ~/bin/current-cmd<cr>G
