@@ -26,10 +26,10 @@ nmap <space>g- :GitGutterEnable<cr>
 nmap <space>g_ :GitGutterDisable<cr>
 nmap <space>gh :GitGutterLineHighlightsToggle<cr>
 nmap <space>gj :GitGutterPreviewHunk<cr>
-nmap <space>g] 'tjO
-nmap <space>g[ 'tkO
-nmap ]d 'tjO:Gdiff<cr><c-w>l
-nmap [d 'tkO:Gdiff<cr><c-w>l
+nmap ]w 't:tabfirst<cr>jO
+nmap [w 't:tabfirst<cr>kO
+nmap ]d 't:tabfirst<cr>jO:Gdiff<cr><c-w>l
+nmap [d 't:tabfirst<cr>kO:Gdiff<cr><c-w>l
 nmap <space>g, [c:GitGutterPreviewHunk<cr>
 nmap <space>g. ]c:GitGutterPreviewHunk<cr>
 nmap <space>gm <c-w>o:Gedit<cr>
