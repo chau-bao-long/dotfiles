@@ -6,6 +6,7 @@ let g:floaterm_autoclose=0
 let g:floaterm_winblend=15
 
 nnoremap <space>t; :FloatermNew<cr>
+nnoremap <space>te :FloatermNew quick-cmds<cr>
 nnoremap <space>tr :FloatermNew ranger<cr>
 nnoremap <space>tg :FloatermNew lazygit<cr>
 nnoremap <space>td :FloatermNew lazydocker<cr>
