@@ -295,8 +295,8 @@ nnoremap g' :vs<cr><c-w>l<c-]>
 nnoremap g" :sp<cr><c-w>l<c-]>
 nnoremap g\ :tabnew<cr><c-o><c-]>
 vnoremap m <esc>ggVG
-vnoremap u <esc>T vt 
-vnoremap U <esc>T v$
+vnoremap o <esc>T vt 
+vnoremap O <esc>T v$
 
 " Better copy/paste behavior
 set pastetoggle=<space>4

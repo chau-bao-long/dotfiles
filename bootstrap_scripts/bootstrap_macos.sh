@@ -153,6 +153,14 @@ install_emacs() {
   fi
 }
 
+install_vim_motion_app() {
+  read -r -p "Do you want to install VimMotion app? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    brew tap dwarvesf/homebrew-tap
+    brew cask install vimmotion
+  fi
+}
+
 setup_nvim() {
   read -r -p "Do you want to install vim plugins now? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
@@ -331,6 +339,7 @@ setup_git
 install_homebrew
 install_nvim
 install_emacs
+install_vim_motion_app
 install_ranger
 install_tmux
 install_browser
