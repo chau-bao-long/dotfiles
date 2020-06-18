@@ -91,10 +91,8 @@ let s:menus.dotfiles.command_candidates = [
 let s:menus.binfiles = {
             \ 'description': '📄 Access bin files'
             \ }
-let s:menus.binfiles.file_candidates = [
-            \ ['📄 currentcmd', '~/bin/current-cmd'],
-            \ ['📄 personio', '~/bin/personio.api'],
-            \ ['📄 adminpanel', '~/bin/admin-panel.api'],
+let s:menus.binfiles.directory_candidates = [
+            \ ['📄 user bin', '~/bin'],
             \ ]
 let s:menus.directories = {
             \ 'description': '📂 Frequently used directories'

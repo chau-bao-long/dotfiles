@@ -5,6 +5,7 @@ set shortmess+=c
 " \'coc-tag',
 let g:global_extensions = [
             \'coc-ultisnips',
+            \'coc-highlight',
             \'coc-tabnine',
             \'coc-phpls',
             \'coc-json',
@@ -18,6 +19,10 @@ let g:global_extensions = [
             \'coc-flow',
             \'coc-go'
             \]
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+hi CocHighlightText guibg=#363636
 
 " Improve the completion experience
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
