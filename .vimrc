@@ -155,8 +155,20 @@ set t_Co=256
 let ayucolor="dark"
 let g:lightline = {
   \ 'colorscheme': 'ayu',
+  \ 'component_function': {
+  \   'filename': 'LightlineFilename',
+  \ }
   \ }
 colorscheme ayu
+
+function! LightlineFilename()
+  let root = fnamemodify(get(b:, 'git_dir'), ':h')
+  let path = expand('%:p')
+  if path[:len(root)-1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
+endfunction
 
 " ==================================================== Highlight
 hi Search cterm=NONE ctermfg=NONE ctermbg=240 guifg=NONE guibg=#585858
