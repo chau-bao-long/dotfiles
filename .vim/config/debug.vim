@@ -9,8 +9,8 @@ vmap <space>de y:VdebugEval <C-R>0<CR>
 vmap <space>dt y:VdebugTrace <C-R>0<CR>
 
 " Vebugger
-map <space>da :call vebugger#jdb#attach('localhost:5005', {'srcpath':['~/Projects/personio/admin-panel-service/app/src/test/kotlin']})<CR>:sleep 500m<CR>:VBGcontinue<CR>
-map <space>dA :call vebugger#jdb#attach('localhost:5005', {'srcpath':['~/Projects/personio/admin-panel-service/app/src/main/kotlin']})<CR>:sleep 500m<CR>:VBGcontinue<CR>
+map <space>da :call vebugger#jdb#attach('localhost:5005', {'srcpath':['~/Projects/personio/authentication-service/app/src/test/kotlin']})<CR>:sleep 500m<CR>:VBGcontinue<CR>
+map <space>dA :call vebugger#jdb#attach('localhost:5005', {'srcpath':['~/Projects/personio/authentication-service/app/src/main/kotlin']})<CR>:sleep 500m<CR>:VBGcontinue<CR>
 map <space>db :VBGtoggleBreakpointThisLine<CR>
 map <space>d2 :VBGstepOver<CR>
 map <space>d3 :VBGstepIn<CR>
