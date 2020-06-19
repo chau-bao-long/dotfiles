@@ -294,6 +294,7 @@ nmap cu viwcp
 nmap c' vi'cp
 nmap c" vi"cp
 nmap c$ T v$cp
+nmap cl Vcp
 nmap c<space> T vt cp
 nmap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<cr>
 nmap <leader><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<cr>
