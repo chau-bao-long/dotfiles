@@ -164,6 +164,11 @@ alias mfp=~/Projects/personio/payroll-dashboard-ui
 alias dot=~/Projects/dotfiles
 alias org=~/org
 
+# quickly go to project
+fper() { cd ~/Projects/personio/$(ls ~/Projects/personio/ | fzf) }
+fpro() { cd ~/Projects/$(ls ~/Projects/ | fzf) }
+ff() { cd ./$(ls | fzf) }
+
 fpass() {
   local pass=$(ls ~/.password-store | fzf +m | sed "s/.gpg//g")
   local info=$(pass tail $pass)

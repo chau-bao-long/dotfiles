@@ -137,6 +137,7 @@ set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set encoding=utf-8
 set cursorline
+set number
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
