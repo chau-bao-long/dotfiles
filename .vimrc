@@ -336,7 +336,7 @@ nmap <space>er :e<cr>
 nmap <space>eR :e!<cr>
 nmap <space>eq yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
 vmap <space>eq y:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
-nmap <space>ew :tabnew \| terminal ~/bin/current-cmd<cr>G
+nmap <space>ew :call common#runCurrentCommand()<cr>
 
 " Common functions
 nnoremap zp :call common#gotoJump()<cr>

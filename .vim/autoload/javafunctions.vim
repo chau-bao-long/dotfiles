@@ -25,8 +25,7 @@ function! javafunctions#runOneTest(isDebug, ...)
 
   call system(expand(l:keepCurrentCmd))
 
-  execute "tabnew | terminal ~/bin/current-cmd"
-  execute "normal! \<cr>G"
+  call common#runCurrentCommand()
 endfunction
 
 function! javafunctions#runAllTestsInFile(isDebug, ...)
@@ -45,6 +44,5 @@ function! javafunctions#runAllTestsInFile(isDebug, ...)
 
   call system(expand(l:keepCurrentCmd))
 
-  execute "tabnew | terminal ~/bin/current-cmd"
-  execute "normal! \<cr>G"
+  call common#runCurrentCommand()
 endfunction

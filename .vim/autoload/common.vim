@@ -73,3 +73,22 @@ function! common#google(pat, lucky)
   call system(printf('open "https://www.google.com/search?%sq=%s"',
         \ a:lucky ? 'btnI&' : '', q))
 endfunction
+
+fu! common#runCurrentCommand()
+  if &filetype != ""
+    tabnext
+  end
+
+  if &filetype == ""
+    tabnew
+    terminal ~/bin/current-cmd
+    tabprevious
+    tabclose
+  else
+    tabprevious
+    tabnew
+    terminal ~/bin/current-cmd
+  end
+
+  execute "normal G"
+endfu
