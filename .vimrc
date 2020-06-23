@@ -179,7 +179,7 @@ hi DiffDelete cterm=reverse ctermfg=0 ctermbg=88 guibg=#000000 guifg=#3c1f1e
 hi DiffText cterm=NONE ctermfg=NONE ctermbg=23 guifg=NONE guibg=#005f5f
 hi Normal guibg=#000000
 hi EndOfBuffer guibg=#000000
-hi FloatermBorder guifg=#616161
+hi FloatermBorder guifg=#55E579
 
 " ==================================================== Turn Off Swap Files
 set noswapfile
@@ -324,10 +324,10 @@ noremap <space>c[ :tp<CR>
 inoremap zbt <Esc>a``<Esc>i
 inoremap zbs <Esc>a```<cr>```<Esc>O
 nnoremap <space>cb :bufdo bd<CR>
-nmap <space>8 :pwd<CR>
-nmap <space>7 :call common#goToCurrentFile()<CR>
-nmap <space>9 :call common#goBack()<CR>
-nmap <space>0 :call common#goBackToRoot()<CR>
+nmap <space>9 :pwd<cr>
+nmap <space>8 :call common#goToCurrentFile()<cr>
+nmap <space>0 :call common#goBack()<cr>
+nmap <space>R :call common#goToCurrentFile()<cr>:call common#goBack()<cr>
 nmap g- :tabm -1<CR>
 nmap g= :tabm +1<CR>
 vmap / y:/<C-R>0<CR>

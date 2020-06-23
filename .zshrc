@@ -157,10 +157,6 @@ alias ping=prettyping
 alias pc=~/Projects/personio/personio/perctl
 alias pro=~/Projects
 alias per=~/Projects/personio
-alias mon=~/Projects/personio/personio
-alias msa=~/Projects/personio/admin-panel-service
-alias msi=~/Projects/personio/invoice-service
-alias mfp=~/Projects/personio/payroll-dashboard-ui
 alias dot=~/Projects/dotfiles
 alias org=~/org
 
