@@ -5,8 +5,10 @@ let g:floaterm_height=0.7
 let g:floaterm_autoclose=0
 let g:floaterm_winblend=15
 
+nnoremap <space>y :FloatermToggle!<cr>
 nnoremap <space>t; :FloatermNew<cr>
 nnoremap <space>te :FloatermNew quickrun<cr>
+nnoremap <space>tp :FloatermNew quickpass<cr>
 nnoremap <space>tr :FloatermNew ranger<cr>
 nnoremap <space>tg :FloatermNew lazygit<cr>
 nnoremap <space>td :FloatermNew lazydocker<cr>
@@ -17,7 +19,6 @@ nnoremap <space>tcn :FloatermNew node<cr>
 nnoremap <space>tcp :FloatermNew python<cr>
 nnoremap <space>tch :FloatermNew php artisan tinker<cr>
 nnoremap <space>tck :FloatermNew kotlin<cr>
-nnoremap <space>tu :FloatermToggle!<cr>
 nnoremap <space>tkk :FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>
 nnoremap <space>tks :FloatermNew watch kubectl get pod -owide -A<cr>
 tnoremap <c-d> <c-\><c-n>:FloatermKill!<cr>

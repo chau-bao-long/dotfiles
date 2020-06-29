@@ -45,10 +45,10 @@ command! -bang -nargs=* MRU call fzf#vim#history(fzf#vim#with_preview())
 
 nmap <space>P :call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --cached'}))<cr>
 nmap <space>p :Files<cr>
-nmap <space>y :History<cr>
-nmap <space>u :MRU<cr>
+nmap <space>u :History<cr>
 nmap <space>U :GitFiles<cr>
 nmap <space>b :Buffers<cr>
+nmap <space>B :MRU<cr>
 nmap <space>cm :Commands<cr>
 nmap <space>ck :Maps<cr>
 nmap <space>q :Rg<cr>
