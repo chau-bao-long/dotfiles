@@ -42,6 +42,10 @@ Plug 'chrisbra/Colorizer'
 Plug 'chau-bao-long/java-kotlin-gf'
 let g:srcPath = ["/app/build/generated-jooq/"]
 
+Plug 'chau-bao-long/vim-import-kotlin'
+let g:learn_path = $HOME . "/Projects/personio"
+autocmd Filetype kotlin nnoremap <space>ij :KotlinImport<cr>
+
 Plug 'chau-bao-long/vim-dadbod'
 nnoremap <space>st :DBSelectTable<cr>
 nnoremap <space>sd :DBDescribeTables<cr>
