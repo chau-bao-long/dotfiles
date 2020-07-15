@@ -134,11 +134,11 @@ let s:menus.js = {
             \ }
 let s:menus.js.command_candidates = [
             \ ['💾 eslint all file', 'Dispatch pwd | xargs eslint'],
-            \ ['💾 eslint current file', 'Dispatch eslint %:p'],
+            \ ['💾 eslint current file', 'Dispatch! eslint %:p'],
             \ ['💾 eslint fix all file', 'Dispatch pwd | xargs eslint --fix'],
             \ ['💾 eslint fix current file', 'Dispatch eslint --fix %:p'],
             \ ['💾 prettier all file', 'Dispatch yarn prettier'],
-            \ ['💾 prettier current file', 'Dispatch prettier --write %:p'],
+            \ ['💾 prettier current file', 'Dispatch! prettier --write %:p'],
             \ ['💾 flow current file', 'Dispatch ./node_modules/.bin/flow %'],
             \ ]
 let s:menus.php = {
@@ -173,8 +173,7 @@ endif
 
 call denite#custom#var('menu', 'menus', s:menus)
 
-autocmd Filetype javascript nmap <buffer> <space>k :Denite menu:js<cr>
-autocmd Filetype javascriptreact nmap <buffer> <space>k :Denite menu:js<cr>
+autocmd Filetype javascript,javascriptreact,typescript,typescriptreact nmap <buffer> <space>k :Denite menu:js<cr>
 autocmd Filetype kotlin,java,groovy nmap <buffer> <space>k :Denite menu:kotlin<cr>
 autocmd Filetype php nmap <buffer> <space>k :Denite menu:php<cr>
 
