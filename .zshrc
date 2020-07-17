@@ -379,6 +379,7 @@ bindkey -s "^[r" "\edddddddddd i./run.sh "
 bindkey -s "^k" "\edddddddddd icmds\n"
 bindkey -s "^u" "\edddddddddd i"
 bindkey -s "^[a" "\edddddddddd ifpass\n"
+bindkey '^l' forward-word
 
 # Load pure theme afterward
 autoload -U promptinit; promptinit
