@@ -282,7 +282,10 @@ gjr() {
 cmds() {
   local cmd=$(cat ~/local/cmds | fzf)
   if [ -n "$cmd" ]; then
-    echo $cmd > ~/local/lastcmd
+    sed "s/$cmd//g" ~/local/cmds &> /dev/null
+    if [ $? -eq 0 ]; then
+      echo -e "$cmd\n$(cat ~/local/cmds | sed "s/$cmd//g" | sed '/^$/d')" > ~/local/cmds
+    fi
     echo ""
     echo $fg[yellow] "$cmd"
     echo ""
@@ -290,14 +293,6 @@ cmds() {
   else
     echo $fg[red] "Run nothing!"
   fi
-}
-lastcmd() {
-  local cmd=$(cat ~/local/lastcmd)
-  echo $cmd > ~/local/lastcmd
-  echo ""
-  echo $fg[yellow] "$cmd"
-  echo ""
-  eval $cmd
 }
 
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
@@ -382,7 +377,6 @@ bindkey -s "^[n" "\edddddddddd invim\n"
 bindkey -s "^[b" "\edddddddddd ibr\n"
 bindkey -s "^[r" "\edddddddddd i./run.sh "
 bindkey -s "^k" "\edddddddddd icmds\n"
-bindkey -s "^b" "\edddddddddd ilastcmd\n"
 bindkey -s "^u" "\edddddddddd i"
 bindkey -s "^[a" "\edddddddddd ifpass\n"
 bindkey '^f' forward-word
