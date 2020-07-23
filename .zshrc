@@ -153,11 +153,12 @@ alias zt="unset RAILS_ENV; zeus test"
 alias v=nvim
 alias pdf=zathura
 alias ping=prettyping
-alias pc=~/Projects/personio/personio/perctl
 alias pro=~/Projects
 alias per=~/Projects/personio
 alias dot=~/Projects/dotfiles
 alias org=~/org
+alias pc=~/Projects/personio/personio/perctl
+plog() { echo "" > ~/Projects/personio/personio/app/storage-local/logs/laravel.log; lnav ~/Projects/personio/personio/app/storage-local/logs/laravel.log }
 
 # quickly go to project
 fper() { cd ~/Projects/personio/$(ls ~/Projects/personio/ | fzf) }
@@ -281,6 +282,7 @@ gjr() {
 cmds() {
   local cmd=$(cat ~/local/cmds | fzf)
   if [ -n "$cmd" ]; then
+    echo $cmd > ~/local/lastcmd
     echo ""
     echo $fg[yellow] "$cmd"
     echo ""
@@ -289,11 +291,14 @@ cmds() {
     echo $fg[red] "Run nothing!"
   fi
 }
-
-
-if [ $commands[kubectl] ]; then
-  zsh-defer -c "source <(kubectl completion zsh)"
-fi
+lastcmd() {
+  local cmd=$(cat ~/local/lastcmd)
+  echo $cmd > ~/local/lastcmd
+  echo ""
+  echo $fg[yellow] "$cmd"
+  echo ""
+  eval $cmd
+}
 
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
@@ -377,9 +382,10 @@ bindkey -s "^[n" "\edddddddddd invim\n"
 bindkey -s "^[b" "\edddddddddd ibr\n"
 bindkey -s "^[r" "\edddddddddd i./run.sh "
 bindkey -s "^k" "\edddddddddd icmds\n"
+bindkey -s "^b" "\edddddddddd ilastcmd\n"
 bindkey -s "^u" "\edddddddddd i"
 bindkey -s "^[a" "\edddddddddd ifpass\n"
-bindkey '^l' forward-word
+bindkey '^f' forward-word
 
 # Load pure theme afterward
 autoload -U promptinit; promptinit
