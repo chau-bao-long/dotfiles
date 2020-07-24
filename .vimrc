@@ -349,6 +349,10 @@ nnoremap <space>ot :call common#openFilesFromClipboard("tabnew")<cr>
 nnoremap <space>oo :call common#openFilesFromClipboard("e")<cr>
 nnoremap <space>os :call common#openFilesFromClipboard("split")<cr>
 nnoremap <space>ov :call common#openFilesFromClipboard("vs")<cr>
+nnoremap <space>oT :call common#openZipFilesFromClipboard("tabnew")<cr>
+nnoremap <space>oO :call common#openZipFilesFromClipboard("e")<cr>
+nnoremap <space>oS :call common#openZipFilesFromClipboard("split")<cr>
+nnoremap <space>oV :call common#openZipFilesFromClipboard("vs")<cr>
 nnoremap <space>? :call common#google(expand("<cWORD>"), 0)<cr>
 nnoremap <space>! :call common#google(expand("<cWORD>"), 1)<cr>
 xnoremap <space>? "gy:call common#google(@g, 0)<cr>gv

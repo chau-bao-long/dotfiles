@@ -9,5 +9,19 @@ nmap <space>ip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| 
 
 " Easy switching between vim and intelliJ
 nnoremap <silent> <space>oi :exec "Dispatch! idea --line " . line('.') . " " . expand('%:p')<cr>
-" Quick run kotlin script
-nnoremap <space>ek :w<cr>:exec "vs \| terminal kotlinc -script " . expand('%:p')<cr>i
+
+command! -bang VintellijEnableAutoRefreshFile call vintellij#EnableAutoRefreshFile(<bang>0)
+command! -bang VintellijEnableHealthCheckOnLoad call vintellij#EnableHealthCheckOnLoad(<bang>0)
+
+if get(g:, 'vintellij_refresh_on_save', 1) == 1
+  VintellijEnableAutoRefreshFile
+endif
+
+if get(g:, 'vintellij_health_check_on_load', 1) == 1
+  VintellijEnableHealthCheckOnLoad
+endif
+
+nnoremap gd :call vintellij#GoToDefinition()<cr>
+nnoremap gh :call vintellij#FindHierarchy()<cr>
+nnoremap go :call vintellij#OpenFile()<cr>
+nnoremap <space>ci :call vintellij#SuggestImports()<cr>

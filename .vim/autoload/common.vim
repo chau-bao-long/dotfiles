@@ -12,6 +12,20 @@ function! common#gotoJump()
   endif
 endfunction
 
+fu! common#openZipFilesFromClipboard(command)
+  let clipboard = @*
+  if clipboard =~ '^\s*$'
+    let clipboard = @+
+  endif
+
+  let zipPath = split(clipboard, "!/")
+  let classPath = split(zipPath[1], "::")[0]
+  let lineNo = split(zipPath[1], "::")[1]
+  let vimPath = "zipfile:" . zipPath[0] . "::" . classPath
+
+  exe a:command . ' +' . lineNo . ' ' . vimPath
+endfu
+
 function! common#openFilesFromClipboard(command)
   let clipboard = @*
   if clipboard =~ '^\s*$'
