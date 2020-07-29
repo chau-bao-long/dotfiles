@@ -188,6 +188,8 @@ hi DiffText cterm=NONE ctermfg=NONE ctermbg=23 guifg=NONE guibg=#005f5f
 hi Normal guibg=#000000
 hi EndOfBuffer guibg=#000000
 hi FloatermBorder guifg=#55E579
+hi Pmenu ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#16181C gui=NONE
+hi PmenuSel ctermfg=NONE ctermbg=24 cterm=NONE guifg=#000000 guibg=#55E579 gui=NONE
 
 " ==================================================== Turn Off Swap Files
 set noswapfile
