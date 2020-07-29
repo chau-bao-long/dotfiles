@@ -12,6 +12,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/gv.vim'
+
+Plug 'junegunn/vim-easy-align'
+xmap a= <Plug>(EasyAlign)
+
 Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
