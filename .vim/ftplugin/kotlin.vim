@@ -22,6 +22,9 @@ if get(g:, 'vintellij_health_check_on_load', 1) == 1
 endif
 
 nnoremap gd :call vintellij#GoToDefinition()<cr>
-nnoremap gh :call vintellij#FindHierarchy()<cr>
+nnoremap gi :call vintellij#FindHierarchy()<cr>
 nnoremap go :call vintellij#OpenFile()<cr>
-nnoremap <space>ci :call vintellij#SuggestImports()<cr>
+nnoremap gr :call vintellij#FindUsage()<cr>
+nnoremap <space>si :call vintellij#SuggestImports()<cr>
+
+set omnifunc=vintellij#Autocomplete

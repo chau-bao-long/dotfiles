@@ -4,6 +4,14 @@ set cpo&vim
 let s:channel_id = 0
 let s:map = {}
 
+function! s:GetCompleteResult() abort
+  if exists('b:vintellij_completion_result')
+    return b:vintellij_completion_result
+  endif
+
+  return v:null
+endfunction
+
 function! s:DetectKotlinFile(file) abort
   if a:file =~ 'kotlin-sdtlib' || a:file =~ '::kotlin'
     setfiletype kotlin
@@ -24,17 +32,19 @@ function! s:AddImport(import)
   call append(1, 'import ' . a:import)
 endfunction
 
-function! s:GoToFile(fileName)
-  execute 'edit ' . s:map[a:fileName].path
-  execute 'goto ' . (s:map[a:fileName].offset + 1)
-  call s:DetectKotlinFile(s:map[a:fileName].path)
+function! s:GoToFile(file, offset)
+  execute 'edit ' . a:file
+  execute 'goto ' . a:offset
+  call s:DetectKotlinFile(a:file)
+endfunction
+
+function! s:HandleGoToFile(preview)
+  call s:GoToFile(s:map[a:preview].file, s:map[a:preview].offset + 1)
 endfunction
 
 function! s:HandleGoToEvent(data) abort
   if has_key(a:data, 'file')
-    execute 'edit ' . a:data.file
-    execute 'goto ' . (a:data.offset + 1)
-    call s:DetectKotlinFile(a:data.file)
+    call s:GoToFile(a:data.file, a:data.offset + 1)
   else
     echo '[vintellij] Definition not found'
   endif
@@ -53,26 +63,51 @@ function! s:HandleImportEvent(data) abort
 endfunction
 
 function! s:HandleFindHierarchyEvent(data) abort
-  let l:classes = a:data.classes
-  if empty(l:classes)
+  let l:hierarchies = a:data.hierarchies
+  if empty(l:hierarchies)
     echo '[vintellij] No hierarchy found'
+    return
+  elseif len(l:hierarchies) == 1
+    call s:GoToFile(l:hierarchies[0].file, l:hierarchies[0].offset + 1)
     return
   endif
 
-  let l:subclasses = []
+  let l:hierarchyPreviews = []
   let s:map = {}
-  for class in l:classes
-    let s:map = extend(s:map, { class.name: { 'path': class.file, 'offset': class.offset } })
-    let l:subclasses = add(l:subclasses, class.name)
+  for hierarchy in l:hierarchies
+    let s:map = extend(s:map, { hierarchy.preview: { 'file': hierarchy.file, 'offset': hierarchy.offset } })
+    let l:hierarchyPreviews = add(l:hierarchyPreviews, hierarchy.preview)
   endfor
-  if len(l:subclasses) == 1
-    call s:GoToFile(l:subclasses[0])
+  call fzf#run(fzf#wrap({
+        \ 'source': l:hierarchyPreviews,
+        \ 'sink': function('s:HandleGoToFile')
+        \ }))
+endfunction
+
+function! s:HandleFindUsageEvent(data) abort
+  let l:usages = a:data.usages
+  if empty(l:usages)
+    echo '[vintellij] No usage found'
+    return
+  elseif len(l:usages) == 1
+    call s:GoToFile(l:usages[0].file, l:usages[0].offset + 1)
     return
   endif
+
+  let l:usagePreviews = []
+  let s:map = {}
+  for usage in l:usages
+    let s:map = extend(s:map, { usage.preview: { 'file': usage.file, 'offset': usage.offset } })
+    let l:usagePreviews = add(l:usagePreviews, usage.preview)
+  endfor
   call fzf#run(fzf#wrap({
-        \ 'source': l:subclasses,
-        \ 'sink': function('s:GoToFile')
+        \ 'source': l:usagePreviews,
+        \ 'sink': function('s:HandleGoToFile')
         \ }))
+endfunction
+
+function! s:HandleAutocompleteEvent(data) abort
+  let b:vintellij_completion_result = a:data.completions
 endfunction
 
 function! s:HandleOpenEvent(data) abort
@@ -110,6 +145,10 @@ function! s:OnReceiveData(channel_id, data, event) abort
     call s:HandleImportEvent(l:json_data.data)
   elseif l:handler ==# 'find-hierarchy'
     call s:HandleFindHierarchyEvent(l:json_data.data)
+  elseif l:handler ==# 'find-usage'
+    call s:HandleFindUsageEvent(l:json_data.data)
+  elseif l:handler ==# 'autocomplete'
+    call s:HandleAutocompleteEvent(l:json_data.data)
   elseif l:handler ==# 'open'
     call s:HandleOpenEvent(l:json_data.data)
   elseif l:handler ==# 'refresh'
@@ -182,6 +221,13 @@ function! vintellij#FindHierarchy() abort
         \ })
 endfunction
 
+function! vintellij#FindUsage() abort
+  call s:SendRequest('find-usage', {
+        \ 'file': expand('%:p'),
+        \ 'offset': s:GetCurrentOffset(),
+        \ })
+endfunction
+
 function! vintellij#RefreshFile() abort
   call s:SendRequest('refresh', {
         \ 'file': expand('%:p'),
@@ -190,6 +236,38 @@ endfunction
 
 function! vintellij#HealthCheck() abort
   call s:SendRequest('health-check', {})
+endfunction
+
+function! vintellij#Autocomplete(findstart, base) abort
+  if a:findstart
+    " The function is called to find the start of the text to be completed
+    let l:start = col('.') - 1
+    let l:line = getline('.')
+    while l:start > 0 && l:line[l:start - 1] =~# '\a'
+      let l:start -= 1
+    endwhile
+
+    return l:start
+  endif
+
+  " The function is called to actually find the matches
+  echo '[vintellij] Getting completions...'
+  unlet! b:vintellij_completion_result
+  call s:SendRequest('autocomplete', {
+        \ 'file': expand('%:p'),
+        \ 'offset': s:GetCurrentOffset() - 1,
+        \ 'base': a:base,
+        \ })
+
+  let l:result = s:GetCompleteResult()
+  while l:result is v:null && !complete_check()
+    sleep 2ms
+    let l:result = s:GetCompleteResult()
+  endwhile
+
+  let l:completions = l:result isnot v:null ? l:result : []
+  echo '[vintellij] Found ' . len(l:completions) . ' completion(s)'
+  return l:completions
 endfunction
 
 function! vintellij#EnableAutoRefreshFile(isDisable)
