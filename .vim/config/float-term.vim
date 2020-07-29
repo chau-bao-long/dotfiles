@@ -22,7 +22,7 @@ nnoremap <space>tck :FloatermNew kotlin<cr>
 nnoremap <space>tkk :FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>
 nnoremap <space>tks :FloatermNew watch kubectl get pod -owide -A<cr>
 tnoremap <c-d> <c-\><c-n>:FloatermKill!<cr>
-tnoremap <c-q> <c-\><c-n>:FloatermKill<cr>:FloatermToggle<cr>
+tnoremap <c-b> <c-\><c-n>:FloatermKill<cr>:FloatermToggle<cr>
 tnoremap <c-h> <c-\><c-n>:FloatermPrev<cr>
 tnoremap <c-l> <c-\><c-n>:FloatermNext<cr>
 tnoremap <c-y> <c-\><c-n>:FloatermToggle!<cr>

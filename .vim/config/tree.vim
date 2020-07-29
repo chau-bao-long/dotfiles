@@ -1,8 +1,18 @@
 nnoremap <space>n :NERDTreeToggle<cr>
 nnoremap <space>N :NERDTreeFind<cr>
 nnoremap <space>5 :UndotreeToggle<cr>
-nmap <space>fs :NERDTreeCWD<cr><c-w>l:NERDTreeFind<cr><c-w>l
-nmap <space>fS :NERDTreeCWD<cr><c-w>l<c-w>l:NERDTreeFind<cr><c-w>l<c-w>l
+
+fu! s:findPositionOnTree()
+  NERDTreeClose
+  let l:currentWindow = winnr() + 1
+  NERDTreeCWD
+  exe l:currentWindow . "wincmd w"
+  NERDTreeFind
+  exe 'normal! zz'
+  exe l:currentWindow . "wincmd w"
+endfu
+
+nmap <space>fs :call <SID>findPositionOnTree()<cr>
 
 let g:NERDTreeIgnore = ['^data$']
 
