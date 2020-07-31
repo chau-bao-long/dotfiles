@@ -7,6 +7,7 @@ let s:denite_options = {
             \ 'direction': 'botright',
             \ 'highlight_filter_background': 'CursorLine',
             \ 'highlight_matched_char': 'Type',
+            \ 'highlight_window_background': 'DeniteBackground',
             \ 'filter-split-direction': 'floating',
             \ }
 
