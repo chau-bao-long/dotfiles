@@ -14,8 +14,6 @@ endfu
 
 nmap <space>fs :call <SID>findPositionOnTree()<cr>
 
-let g:NERDTreeIgnore = ['^data$']
-
 let NERDTreeQuitOnOpen = 0
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 0

@@ -42,6 +42,7 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/Colorizer'
+Plug 'chrisbra/NrrwRgn'
 
 Plug 'chau-bao-long/java-kotlin-gf'
 let g:srcPath = ["/app/build/generated-jooq/"]
