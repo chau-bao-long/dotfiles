@@ -18,7 +18,6 @@ xmap a= <Plug>(EasyAlign)
 
 Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-clap'
 
@@ -26,6 +25,18 @@ Plug 'SirVer/ultisnips'
 let g:UltiSnipsSnippetDirectories = [ "~/Projects/dotfiles/.vim/UltiSnips/" ]
 let g:UltiSnipsEditSplit = 'tabdo'
 nmap <space>iu :UltiSnipsEdit<cr>
+
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+let g:firenvim_config = {
+    \ 'localSettings': {
+        \ '.*': {
+            \ 'cmdline': 'neovim',
+            \ 'priority': 0,
+            \ 'selector': 'textarea',
+            \ 'takeover': 'never',
+        \ },
+    \ }
+\ }
 
 Plug 'honza/vim-snippets'
 Plug 'xolox/vim-misc'
