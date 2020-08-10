@@ -342,6 +342,12 @@ vpnresetconnect() {
   vpnconnect
 }
 
+k8s() {
+  if [ $commands[kubectl] ]; then
+    source <(kubectl completion zsh)
+  fi
+}
+
 # Change Cursor Shape for Zsh Vi-mode
 # http://micahelliott.com/posts/2015-07-20-vim-zsh-tmux-cursor.html
 zle-line-init () {

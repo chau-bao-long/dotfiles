@@ -16,3 +16,18 @@ function! phpfunctions#UpdatePhpDocIfExists()
     exe "normal! $svoid"
   endif
 endfunction
+
+fu! phpfunctions#runOneTest()
+  exe "silent! normal! /public function \<cr>Nwwvey"
+  let testCmd = "phpunit " . expand('%:p') . " --filter " . @0
+  let keepCurrentCmd = "echo \"" . testCmd . "\" > ~/bin/current-cmd"
+  call system(expand(l:keepCurrentCmd))
+  call common#runCurrentCommand()
+endfu
+
+fu! phpfunctions#runAllTestsInFile()
+  let testCmd = "phpunit " . expand('%:p')
+  let keepCurrentCmd = "echo \"" . testCmd . "\" > ~/bin/current-cmd"
+  call system(expand(l:keepCurrentCmd))
+  call common#runCurrentCommand()
+endfu
