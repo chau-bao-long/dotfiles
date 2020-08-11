@@ -308,7 +308,7 @@ nmap <C-h> <C-e><C-e><C-e><C-e><C-e>jjj
 nmap <C-l> <C-y><C-y><C-y><C-y><C-y>kkk
 nmap zi <C-i>
 nmap zo <C-o>
-nmap z[ <c-^>
+nmap z; :e #<cr>
 nmap co :let @+=expand("%:t")<cr>
 nmap cy :let @+=expand("%:p")<cr>
 nmap cH :let @+=expand("%:p:h")<cr>
