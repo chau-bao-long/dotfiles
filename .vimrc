@@ -94,7 +94,10 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-projectionist'
+
 Plug 'tpope/vim-surround'
+xmap cs <Plug>VSurround
+
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
