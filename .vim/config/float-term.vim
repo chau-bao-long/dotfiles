@@ -11,7 +11,6 @@ nnoremap <space>te :FloatermNew quickrun<cr>
 nnoremap <space>tp :FloatermNew quickpass<cr>
 nnoremap <space>tr :FloatermNew ranger<cr>
 nnoremap <space>tg :FloatermNew lazygit<cr>
-nnoremap <space>gd :FloatermNew git diff<cr>G<c-\><c-n>
 nnoremap <space>td :FloatermNew lazydocker<cr>
 nnoremap <space>tn :FloatermNew ncdu<cr>
 nnoremap <space>th :FloatermNew htop<cr>
