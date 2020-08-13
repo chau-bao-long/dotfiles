@@ -3,6 +3,7 @@
 (define-key evil-normal-state-map "zo" 'evil-jump-backward)
 (define-key evil-normal-state-map "zi" 'evil-jump-forward)
 (define-key evil-normal-state-map "'q" 'evil-save-and-close)
+(define-key evil-motion-state-map "z;" 'evil-buffer)
 (map! :ne "SPC e" #'execute-extended-command)
 (map! :ne "SPC o l" #'list-processes)
 (map! :ne "SPC TAB j" #'+workspace:switch-next)
