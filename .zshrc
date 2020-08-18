@@ -79,12 +79,12 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
 # Git shortcut
 alias g='git'
-alias gca="git add . && git commit --amend"
+alias gca="git add . && git commit --allow-empty --amend"
 alias gst="git status"
 alias gls="git log --oneline --no-merges"
 alias gll="git log --graph"
 alias grl="git reflog"
-alias gci="git add . && git commit -m "
+alias gci="git add . && git commit --allow-empty -m "
 alias gcf="git add . && git commit --fixup HEAD"
 alias grbi="git rebase -i --autosquash "
 alias grbm="git pull origin master --rebase"
