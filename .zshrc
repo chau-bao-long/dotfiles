@@ -235,6 +235,11 @@ fgit() {
 FZF-EOF"
 }
 
+# fetch and checkout origin branch
+gcoo() {
+  git fetch origin $1 && git checkout origin/$1
+}
+
 # fetch and checkout remote branch by name
 gcor() {
   local branches=$(git fetch origin && git branch -r | grep $1)
