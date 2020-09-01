@@ -3,8 +3,8 @@ cmd - k: yabai -m window --focus prev
 cmd - j: yabai -m window --focus next
 
 # swap managed window
-cmd - return: yabai -m window --swap east; yabai -m window --focus west
-alt + cmd - return: yabai -m window --swap west
+alt + cmd - return: yabai -m window --swap east; yabai -m window --focus west
+cmd - return: yabai -m window --swap west
 
 # adjust window size
 cmd - h: yabai -m window --resize right:-100:0
