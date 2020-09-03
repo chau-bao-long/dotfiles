@@ -2,7 +2,35 @@ let s:cpo_save = &cpo
 set cpo&vim
 
 let s:channel_id = 0
-let s:map = {}
+let s:auto_refresh_enabled = 0
+
+function! s:SaveCurrentBuffer() abort
+  unlet! b:vintellij_refresh_done
+  silent! w
+  if !s:auto_refresh_enabled
+    call vintellij#RefreshFile()
+  endif
+endfunction
+
+function! s:IsRefreshDone() abort
+  return exists('b:vintellij_refresh_done')
+endfunction
+
+function! s:SaveBufferAndWaitForRefresh()
+  call s:SaveCurrentBuffer()
+
+  let l:num_tries = 0
+  echo '[vintellij] Waiting to refresh file in intellij...'
+  " Waiting for refreshing the file
+  while !s:IsRefreshDone() && l:num_tries < 100 " Only wait for 100 * 2 = 200ms
+    sleep 2ms
+    let l:num_tries += 1
+  endwhile
+
+  " Clear messages
+  redraw
+  echo
+endfunction
 
 function! s:GetCompleteResult() abort
   if exists('b:vintellij_completion_result')
@@ -24,12 +52,14 @@ function! s:AddImport(import)
   while l:lineNumber <= l:maxLine
     let l:line = getline(l:lineNumber)
     if l:line =~# '^import '
-      call append(l:lineNumber - 1, 'import ' . a:import)
+      call append(l:lineNumber - 1,  a:import)
       return
     endif
     let l:lineNumber += 1
   endwhile
-  call append(1, 'import ' . a:import)
+
+  call append(1, @a)
+  call append(2, a:import)
 endfunction
 
 function! s:GoToFile(file, offset)
@@ -39,7 +69,7 @@ function! s:GoToFile(file, offset)
 endfunction
 
 function! s:HandleGoToFile(preview)
-  call s:GoToFile(s:map[a:preview].file, s:map[a:preview].offset + 1)
+  call s:GoToFile(b:map[a:preview].file, b:map[a:preview].offset + 1)
 endfunction
 
 function! s:HandleGoToEvent(data) abort
@@ -73,9 +103,9 @@ function! s:HandleFindHierarchyEvent(data) abort
   endif
 
   let l:hierarchyPreviews = []
-  let s:map = {}
+  let b:map = {}
   for hierarchy in l:hierarchies
-    let s:map = extend(s:map, { hierarchy.preview: { 'file': hierarchy.file, 'offset': hierarchy.offset } })
+    let b:map = extend(b:map, { hierarchy.preview: { 'file': hierarchy.file, 'offset': hierarchy.offset } })
     let l:hierarchyPreviews = add(l:hierarchyPreviews, hierarchy.preview)
   endfor
   call fzf#run(fzf#wrap({
@@ -95,9 +125,9 @@ function! s:HandleFindUsageEvent(data) abort
   endif
 
   let l:usagePreviews = []
-  let s:map = {}
+  let b:map = {}
   for usage in l:usages
-    let s:map = extend(s:map, { usage.preview: { 'file': usage.file, 'offset': usage.offset } })
+    let b:map = extend(b:map, { usage.preview: { 'file': usage.file, 'offset': usage.offset } })
     let l:usagePreviews = add(l:usagePreviews, usage.preview)
   endfor
   call fzf#run(fzf#wrap({
@@ -115,6 +145,8 @@ function! s:HandleOpenEvent(data) abort
 endfunction
 
 function! s:HandleRefreshEvent(data) abort
+  let b:vintellij_refresh_done = 1
+  redraw
   echo '[vintellij] File successfully refreshed: ' . a:data.file
 endfunction
 
@@ -135,7 +167,8 @@ function! s:OnReceiveData(channel_id, data, event) abort
     return
   endtry
   if !l:json_data.success
-    throw '[vintellij] ' . l:json_data.message
+    echo '[vintellij] ' . l:json_data.message
+    return
   endif
 
   let l:handler = l:json_data.handler
@@ -184,7 +217,8 @@ endfunction
 function! s:SendRequest(handler, data) abort
   if !s:IsConnected()
     if s:OpenConnection() == 0
-      throw '[vintellij] Can not connect to the plugin server. Please open intelliJ which is installed vintellij plugin'
+      echo '[vintellij] Can not connect to the plugin server. Please open intelliJ which is installed vintellij plugin'
+      return
     endif
   endif
   call chansend(s:channel_id, json_encode({
@@ -194,6 +228,8 @@ function! s:SendRequest(handler, data) abort
 endfunction
 
 function! vintellij#GoToDefinition() abort
+  call s:SaveBufferAndWaitForRefresh()
+
   call s:SendRequest('goto', {
         \ 'file': expand('%:p'),
         \ 'offset': s:GetCurrentOffset(),
@@ -201,6 +237,8 @@ function! vintellij#GoToDefinition() abort
 endfunction
 
 function! vintellij#OpenFile() abort
+  call s:SaveBufferAndWaitForRefresh()
+
   call s:SendRequest('open', {
         \ 'file': expand('%:p'),
         \ 'offset': s:GetCurrentOffset(),
@@ -208,6 +246,8 @@ function! vintellij#OpenFile() abort
 endfunction
 
 function! vintellij#SuggestImports() abort
+  call s:SaveBufferAndWaitForRefresh()
+
   call s:SendRequest('import', {
         \ 'file': expand('%:p'),
         \ 'offset': s:GetCurrentOffset(),
@@ -215,6 +255,8 @@ function! vintellij#SuggestImports() abort
 endfunction
 
 function! vintellij#FindHierarchy() abort
+  call s:SaveBufferAndWaitForRefresh()
+
   call s:SendRequest('find-hierarchy', {
         \ 'file': expand('%:p'),
         \ 'offset': s:GetCurrentOffset(),
@@ -222,6 +264,8 @@ function! vintellij#FindHierarchy() abort
 endfunction
 
 function! vintellij#FindUsage() abort
+  call s:SaveBufferAndWaitForRefresh()
+
   call s:SendRequest('find-usage', {
         \ 'file': expand('%:p'),
         \ 'offset': s:GetCurrentOffset(),
@@ -240,6 +284,9 @@ endfunction
 
 function! vintellij#Autocomplete(findstart, base) abort
   if a:findstart
+    " Saving the buffer before doing completion
+    call s:SaveCurrentBuffer()
+
     " The function is called to find the start of the text to be completed
     let l:start = col('.') - 1
     let l:line = getline('.')
@@ -249,6 +296,12 @@ function! vintellij#Autocomplete(findstart, base) abort
 
     return l:start
   endif
+
+  echo "[vintellij] Waiting to refresh file in intellij..."
+  " Waiting for refreshing the file
+  while !s:IsRefreshDone() && !complete_check()
+    sleep 2ms
+  endwhile
 
   " The function is called to actually find the matches
   echo '[vintellij] Getting completions...'
@@ -271,19 +324,20 @@ function! vintellij#Autocomplete(findstart, base) abort
 endfunction
 
 function! vintellij#EnableAutoRefreshFile(isDisable)
-  augroup vintellij_on_kt_java_file_save
+  augroup vintellij_on_kt_java_php_file_save
     autocmd!
     if !a:isDisable
-      autocmd BufWritePost,FileReadPost *.kt,*.java call vintellij#RefreshFile()
+      autocmd BufWritePost,FileReadPost *.kt,*.java,*.php call vintellij#RefreshFile()
     endif
+    let s:auto_refresh_enabled = !a:isDisable
   augroup END
 endfunction
 
 function! vintellij#EnableHealthCheckOnLoad(isDisable)
-  augroup vintellij_on_kt_java_file_load
+  augroup vintellij_on_kt_java_php_file_load
     autocmd!
     if !a:isDisable
-      autocmd BufReadPost,FileReadPost *.kt,*.java call vintellij#HealthCheck()
+      autocmd BufReadPost,FileReadPost *.kt,*.java,*.php call vintellij#HealthCheck()
     endif
   augroup END
 endfunction
