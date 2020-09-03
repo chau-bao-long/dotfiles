@@ -14,7 +14,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/gv.vim'
 
 Plug 'junegunn/vim-easy-align'
-xmap ea <Plug>(EasyAlign)
+xmap - <Plug>(EasyAlign)
 
 Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
