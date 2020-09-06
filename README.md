@@ -18,7 +18,7 @@ $ make install_softwares #install mostly used softwares
 - suckless tools (dwm + dmenu + slstatus + st)
 - font
 - link and copy all config files
-- homebrew & homecask (package manager for macos)
+- homebrew & homecask (package manager for macos) + vimac (vimium for macos)
 - Spacebar (status bar for mac os)
 - Yabai (window manager for macos)
 - skhd (simple hotkey daemon for macos)
