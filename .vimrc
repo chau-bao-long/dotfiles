@@ -121,6 +121,7 @@ Plug 'jparise/vim-graphql'
 Plug 'Galooshi/vim-import-js'
 Plug 'Rican7/php-doc-modded'
 Plug 'jceb/vim-orgmode'
+Plug 'terryma/vim-expand-region'
 
 Plug 'rizzatti/dash.vim'
 nnoremap <space>df :Dash<cr>
@@ -146,6 +147,7 @@ source ~/Projects/dotfiles/.vim/config/git.vim
 source ~/Projects/dotfiles/.vim/config/debug.vim
 source ~/Projects/dotfiles/.vim/config/devicons.vim
 source ~/Projects/dotfiles/.vim/config/clap.vim
+source ~/Projects/dotfiles/.vim/config/expand-region.vim
 
 " ==================================================== General Config
 filetype plugin indent on
