@@ -120,6 +120,7 @@ Plug 'jason0x43/vim-js-indent'
 Plug 'jparise/vim-graphql'
 Plug 'Galooshi/vim-import-js'
 Plug 'Rican7/php-doc-modded'
+Plug 'jceb/vim-orgmode'
 
 Plug 'rizzatti/dash.vim'
 nnoremap <space>df :Dash<cr>
