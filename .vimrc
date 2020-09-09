@@ -290,10 +290,10 @@ nmap <space>vr :source ~/.vimrc<CR>
 nmap <space>wt :tabnew<cr><c-o>
 nmap <space>vv :vs<cr><C-w>l
 nmap <space>xx :split<cr><C-w>j
-nmap <space>wL <c-w>30>
-nmap <space>wH <c-w>30<
-nmap <space>wJ <c-w>25+
-nmap <space>wK <c-w>25-
+nmap <space>> <c-w>30>
+nmap <space>< <c-w>30<
+nmap <space>wu <c-w>25-
+nmap <space>wd <c-w>25+
 nmap <script> <silent> <space>3 :copen 1000<cr>G:ColorHighlight!<cr>
 nmap <script> <silent> <space>2 :call ToggleQuickfixList()<cr>
 nmap <space>w <c-w>

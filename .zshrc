@@ -288,10 +288,6 @@ gjr() {
 cmds() {
   local cmd=$(cat ~/local/cmds | fzf)
   if [ -n "$cmd" ]; then
-    sed "s/$cmd//g" ~/local/cmds &> /dev/null
-    if [ $? -eq 0 ]; then
-      echo -e "$cmd\n$(cat ~/local/cmds | sed "s/$cmd//g" | sed '/^$/d')" > ~/local/cmds
-    fi
     echo ""
     echo $fg[yellow] "$cmd"
     echo ""
