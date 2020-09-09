@@ -359,7 +359,7 @@ nmap <space>0 :call common#goBack()<cr>
 nmap <space>R :call common#goToCurrentFile()<cr>:call common#goBack()<cr>
 nmap g- :tabm -1<cr>
 nmap g= :tabm +1<cr>
-nmap ga :tabo<cr>
+nmap g0 :tabo<cr>
 vmap / y:/<c-r>0<cr>
 nmap <space>e= 15kV30j=15j
 nmap <space>er :e<cr>
