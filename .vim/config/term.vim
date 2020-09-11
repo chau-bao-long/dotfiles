@@ -28,6 +28,10 @@ tnoremap <c-l> <c-\><c-n>:FloatermNext<cr>
 tnoremap <c-y> <c-\><c-n>:FloatermToggle!<cr>
 tnoremap <c-s> <c-\><c-n>:FloatermNew<cr>
 
+nnoremap <leader>tv :vs\|:te<cr>i
+nnoremap <leader>ts :sp\|:te<cr>i
+nnoremap <leader>tt :tabnew\|:te<cr>i
+
 function! FloatingFZF()
     let height = float2nr((&lines - 2) / 1.42)
     let row = float2nr((&lines - height) / 2)

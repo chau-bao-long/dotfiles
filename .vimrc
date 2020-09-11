@@ -133,7 +133,7 @@ call plug#end()
 if filereadable(expand("~/Projects/dotfiles/.vim/config/secrets.vim"))
   source ~/Projects/dotfiles/.vim/config/secrets.vim
 endif
-source ~/Projects/dotfiles/.vim/config/float-term.vim
+source ~/Projects/dotfiles/.vim/config/term.vim
 source ~/Projects/dotfiles/.vim/config/fzf.vim
 source ~/Projects/dotfiles/.vim/config/ctrlfs.vim
 source ~/Projects/dotfiles/.vim/config/denite.vim
