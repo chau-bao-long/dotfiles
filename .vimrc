@@ -315,6 +315,7 @@ nmap <C-l> <C-y><C-y><C-y><C-y><C-y>kkk
 nmap zi <C-i>
 nmap zo <C-o>
 nmap z; :e #<cr>
+nmap cf :let @+=expand("%F")<cr>
 nmap co :let @+=expand("%:t")<cr>
 nmap cy :let @+=expand("%:p")<cr>
 nmap cH :let @+=expand("%:p:h")<cr>

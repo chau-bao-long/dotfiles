@@ -12,4 +12,4 @@ nmap <space>lr :edit!<cr>G
 nmap <space>lo :tabnew ~/Projects/personio/personio/app/storage-local/logs/laravel.log<cr>:exec WatchForChanges("*", {'autoread':1})<cr>
 
 nnoremap <space>ed :call phpfunctions#UpdatePhpDocIfExists()<cr>/End function<cr>bhD<c-o>/\/\*\*<cr>Njdjz/
-nnoremap cfp :call phpfunctions#CopyPhpClassFullPath()<cr><c-o>
+nnoremap cF :call phpfunctions#CopyPhpClassFullPath()<cr><c-o>
