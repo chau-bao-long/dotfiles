@@ -52,7 +52,6 @@ Plug 'idanarye/vim-vebugger', {'branch': 'develop'}
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
-Plug 'chrisbra/Colorizer'
 Plug 'chrisbra/NrrwRgn'
 
 Plug 'chau-bao-long/java-kotlin-gf'
@@ -294,7 +293,7 @@ nmap <space>> <c-w>30>
 nmap <space>< <c-w>30<
 nmap <space>wu <c-w>25-
 nmap <space>wd <c-w>25+
-nmap <script> <silent> <space>3 :copen 1000<cr>G:ColorHighlight!<cr>
+nmap <script> <silent> <space>3 :copen 1000<cr>
 nmap <script> <silent> <space>2 :call ToggleQuickfixList()<cr>
 nmap <space>w <c-w>
 nmap <space>w<cr> <c-w>r<c-w>h<c-w>60>
