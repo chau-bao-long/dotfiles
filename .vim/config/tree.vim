@@ -1,6 +1,7 @@
 nnoremap <space>n :NERDTreeToggle<cr>
 nnoremap <space>N :NERDTreeFind<cr>
 nnoremap <space>5 :UndotreeToggle<cr>
+nnoremap <space>ep :CocCommand explorer<cr>
 
 fu! s:findPositionOnTree()
   NERDTreeClose
@@ -23,3 +24,5 @@ let g:NERDTreeWinSize=45
 
 " close a tab if the only remaining window is NerdTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+autocmd Filetype coc-explorer :IndentLinesDisable

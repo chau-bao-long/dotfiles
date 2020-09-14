@@ -208,6 +208,9 @@ hi FloatermBorder guifg=#55E579
 hi Pmenu ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#16181C gui=NONE
 hi PmenuSel ctermfg=NONE ctermbg=24 cterm=NONE guifg=#000000 guibg=#55E579 gui=NONE
 hi DeniteBackground ctermfg=NONE ctermbg=24 cterm=NONE guifg=#ffffff guibg=#000000 gui=NONE
+hi CocExplorerFileDirectoryCollapsed guifg=#C3526E
+hi CocExplorerFileDirectoryExpanded guifg=#C3526E
+hi CocExplorerFileDirectory guifg=#61CE91
 
 " ==================================================== Turn Off Swap Files
 set noswapfile

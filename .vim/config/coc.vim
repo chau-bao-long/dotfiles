@@ -4,6 +4,7 @@ set shortmess+=c
 
 " \'coc-tag',
 let g:global_extensions = [
+            \'coc-explorer',
             \'coc-ultisnips',
             \'coc-highlight',
             \'coc-tabnine',

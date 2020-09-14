@@ -1,13 +1,27 @@
 {
   "python.jediPath": "/Users/topcbl/.pyenv/versions/3.7.2/lib/python3.7/site-packages/",
+
   "languageserver": {
-    "kotlin": {
-      "command": "~/Projects/kotlin-language-server/server/build/install/server/bin/kotlin-language-server",
-      "filetypes": ["kotlin"]
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform"],
+      "initializationOptions": {}
     }
   },
+
   "diagnostic.warningSign": "⚠",
   "diagnostic.errorSign": "⛄",
   "diagnostic.infoSign": "ℹ",
-  "diagnostic.hintSign": "✏"
+  "diagnostic.hintSign": "✏",
+  "diagnostic.displayByAle": true,
+
+  "clangd.path": "/Users/topcbl/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd",
+
+  "explorer.width": 45,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings": {
+    "v": "open:vsplit",
+    "o": ["expandable?", "expand", "open"]
+  }
 }
