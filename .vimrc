@@ -211,6 +211,7 @@ hi DeniteBackground ctermfg=NONE ctermbg=24 cterm=NONE guifg=#ffffff guibg=#0000
 hi CocExplorerFileDirectoryCollapsed guifg=#C3526E
 hi CocExplorerFileDirectoryExpanded guifg=#C3526E
 hi CocExplorerFileDirectory guifg=#61CE91
+hi CocExplorerNormalFloat guibg=#0b0c0e
 
 " ==================================================== Turn Off Swap Files
 set noswapfile
