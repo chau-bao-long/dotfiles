@@ -16,7 +16,6 @@ Plug 'junegunn/gv.vim'
 Plug 'junegunn/vim-easy-align'
 xmap - <Plug>(EasyAlign)
 
-Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-clap'
@@ -134,7 +133,6 @@ if filereadable(expand("~/Projects/dotfiles/.vim/config/secrets.vim"))
 endif
 source ~/Projects/dotfiles/.vim/config/term.vim
 source ~/Projects/dotfiles/.vim/config/fzf.vim
-source ~/Projects/dotfiles/.vim/config/ctrlfs.vim
 source ~/Projects/dotfiles/.vim/config/denite.vim
 source ~/Projects/dotfiles/.vim/config/multicursor.vim
 source ~/Projects/dotfiles/.vim/config/ale.vim
