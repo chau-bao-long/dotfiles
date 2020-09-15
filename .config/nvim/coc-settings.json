@@ -23,7 +23,7 @@
   "explorer.floating.border.enable": false,
   "explorer.floating.hideOnCocList": false,
   "explorer.floating.width": 120,
-  "explorer.floating.height": -15,
+  "explorer.floating.height": 0,
   "explorer.keyMappings": {
     "v": "open:vsplit",
     "o": ["expandable?", "expand", "open"]
