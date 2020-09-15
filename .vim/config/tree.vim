@@ -1,7 +1,6 @@
 nnoremap <space>n :NERDTreeToggle<cr>
 nnoremap <space>N :NERDTreeFind<cr>
 nnoremap <space>5 :UndotreeToggle<cr>
-nnoremap <space>ep :CocCommand explorer<cr>
 
 fu! s:findPositionOnTree()
   NERDTreeClose
@@ -26,3 +25,18 @@ let g:NERDTreeWinSize=45
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 autocmd Filetype coc-explorer :IndentLinesDisable
+
+nnoremap <space><space> :CocCommand explorer --preset floating<cr>
+nnoremap <space>fe :CocCommand explorer<cr>
+nnoremap <space>fv :CocCommand explorer --preset .vim<cr>
+
+let g:coc_explorer_global_presets = {
+\   '.vim': {
+\     'root-uri': '~/.vim',
+\     'position': 'floating',
+\   },
+\   'floating': {
+\     'position': 'floating',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\ }
