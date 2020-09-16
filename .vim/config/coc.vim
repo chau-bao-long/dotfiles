@@ -37,6 +37,7 @@ endfunction
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
+nnoremap <c-space> ea*<backspace>
 
 nmap <silent> [s <Plug>(coc-diagnostic-prev)
 nmap <silent> ]s <Plug>(coc-diagnostic-next)
