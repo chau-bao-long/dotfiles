@@ -159,8 +159,11 @@ set guicursor=n:blinkon1        "Fix bug cursor of COC
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set encoding=utf-8
-set cursorline
 set number
+
+set cursorline
+autocmd InsertLeave,WinEnter * set cursorline
+autocmd InsertEnter,WinLeave * set nocursorline
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
