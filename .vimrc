@@ -8,6 +8,7 @@ Plug 'christoomey/vim-system-copy'
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'milkypostman/vim-togglelist'
+Plug 'Konfekt/FastFold'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
@@ -145,6 +146,7 @@ source ~/Projects/dotfiles/.vim/config/debug.vim
 source ~/Projects/dotfiles/.vim/config/devicons.vim
 source ~/Projects/dotfiles/.vim/config/clap.vim
 source ~/Projects/dotfiles/.vim/config/expand-region.vim
+source ~/Projects/dotfiles/.vim/config/fold.vim
 
 " ==================================================== General Config
 filetype plugin indent on
@@ -254,11 +256,6 @@ filetype indent on
 
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
-
-" ==================================================== Folds
-set foldmethod=indent   "fold based on indent
-set foldnestmax=5       "deepest fold is 5 levels
-set nofoldenable        "dont fold by default
 
 " ==================================================== Completion
 set wildmenu
