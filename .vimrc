@@ -5,7 +5,6 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mbbill/undotree'
 Plug 'christoomey/vim-system-copy'
-Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'milkypostman/vim-togglelist'
 Plug 'Konfekt/FastFold'
@@ -70,11 +69,6 @@ nnoremap <Leader>s :SemanticHighlightToggle<cr>
 
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
-let g:rainbow_conf = {
-      \	'separately': {
-      \		'nerdtree': 0,
-      \	}
-      \}
 
 Plug 'airblade/vim-rooter'
 let g:rooter_change_directory_for_non_project_files = 'current'
