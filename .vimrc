@@ -305,16 +305,10 @@ nmap 'e :q!<CR>
 nmap 'E :qa!<CR>
 nmap 'r :edit!<cr>
 nmap 't :tabclose<cr>
-nmap zj <C-d>
-nmap zk <C-u>
-nmap zh <C-e><C-e><C-e><C-e><C-e>jjjjj
-nmap zl <C-y><C-y><C-y><C-y><C-y>kkkkk
 nmap <C-j> <C-d>
 nmap <C-k> <C-u>
 nmap <C-h> <C-e><C-e><C-e><C-e><C-e>jjj
 nmap <C-l> <C-y><C-y><C-y><C-y><C-y>kkk
-nmap zi <C-i>
-nmap zo <C-o>
 nmap z; :e #<cr>
 nmap cf :let @+=expand("%F")<cr>
 nmap co :let @+=expand("%:t")<cr>
