@@ -1,7 +1,3 @@
-(define-key evil-normal-state-map "zj" 'evil-scroll-down)
-(define-key evil-normal-state-map "zk" 'evil-scroll-up)
-(define-key evil-normal-state-map "zo" 'evil-jump-backward)
-(define-key evil-normal-state-map "zi" 'evil-jump-forward)
 (define-key evil-normal-state-map "'q" 'evil-save-and-close)
 (define-key evil-motion-state-map "z;" 'evil-buffer)
 (map! :ne "SPC e" #'execute-extended-command)
