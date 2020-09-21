@@ -5,7 +5,7 @@ let g:floaterm_height=0.7
 let g:floaterm_autoclose=0
 let g:floaterm_winblend=15
 
-nnoremap <c-y> :FloatermToggle!<cr>
+nnoremap <space>y :FloatermToggle!<cr>
 nnoremap <space>; :FloatermNew<cr>
 nnoremap <space>te :FloatermNew quickrun<cr>
 nnoremap <space>tp :FloatermNew quickpass<cr>
