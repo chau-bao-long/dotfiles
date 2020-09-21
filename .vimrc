@@ -158,8 +158,8 @@ set encoding=utf-8
 set number
 
 set cursorline
-autocmd InsertLeave,WinEnter * set cursorline
-autocmd InsertEnter,WinLeave * set nocursorline
+autocmd InsertLeave * set cursorline
+autocmd InsertEnter * set nocursorline
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.

@@ -381,7 +381,7 @@ zle -N zle-keymap-select
 # zsh frequently key binding
 # prefix edddddddddd to remove all current text lines before execute command
 bindkey -s "^[f" "\edddddddddd iranger\n"
-bindkey -s "^[n" "\edddddddddd invim\n"
+bindkey -s "^[n" "\edddddddddd i~/bin/nvim-osx64/bin/nvim \n"
 bindkey -s "^[b" "\edddddddddd ibr\n"
 bindkey -s "^[r" "\edddddddddd i./run.sh "
 bindkey -s "^k" "\edddddddddd icmds\n"
