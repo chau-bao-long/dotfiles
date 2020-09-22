@@ -1,12 +1,12 @@
 map K previousTab
 map J nextTab
+map gk previousTab
+map gj nextTab
 map ga createTab
 map ge removeTab
 map gu restoreTab
 map gp togglePinTab
-map gl moveTabLeft
-map gr moveTabRight
+map g- moveTabLeft
+map g= moveTabRight
 map e Vomnibar.activateBookmarksInNewTab
-unmap r
-map rr reload
 map a LinkHints.activateMode
