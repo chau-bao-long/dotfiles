@@ -73,7 +73,7 @@ let g:rainbow_active = 1
 Plug 'airblade/vim-rooter'
 let g:rooter_change_directory_for_non_project_files = 'current'
 let g:rooter_manual_only = 1
-nnoremap <space>r :Rooter<cr>
+nnoremap <space>cr :Rooter<cr>
 
 Plug 'Yggdroot/indentLine'
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
@@ -369,6 +369,8 @@ nnoremap <space>? :call common#google(expand("<cWORD>"), 0)<cr>
 nnoremap <space>! :call common#google(expand("<cWORD>"), 1)<cr>
 xnoremap <space>? "gy:call common#google(@g, 0)<cr>gv
 xnoremap <space>! "gy:call common#google(@g, 1)<cr>gv
+nnoremap <space>Wh :call common#moveToPrevTab()<cr><c-w>H
+nnoremap <space>Wl :call common#moveToNextTab()<cr><c-w>H
 
 " Quickly move current line
 nnoremap [e  :<c-u>execute 'move -1-'. v:count1<cr>
