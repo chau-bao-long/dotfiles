@@ -358,7 +358,7 @@ k8s() {
 }
 
 # fuzzy search browse chrome history
-c() {
+fchrome() {
   local cols sep
   cols=$(( COLUMNS / 3 ))
   sep='{::}'
