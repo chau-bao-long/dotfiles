@@ -288,6 +288,8 @@ gjr() {
 cmds() {
   local cmd=$(cat ~/local/cmds | fzf)
   if [ -n "$cmd" ]; then
+    local escape=$(echo $cmd | sed 's/[]\/$*.^[]/\\&/g')
+    echo -e "$cmd\n$(cat ~/local/cmds | sed "s/$escape//g" | sed '/^$/d')" > ~/local/cmds
     echo ""
     echo $fg[yellow] "$cmd"
     echo ""
