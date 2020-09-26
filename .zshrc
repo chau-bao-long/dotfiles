@@ -297,6 +297,12 @@ cmds() {
   fi
 }
 
+# launch app
+fapp() {
+  local app=$(ls /Applications | sed 's/.app//g' | fzf)
+  open -a $app
+}
+
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
 

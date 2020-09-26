@@ -99,4 +99,5 @@ cmd + alt + ctrl - r: brew services restart yabai
 
 # cmd + ctrl - return : open -na /Applications/alacritty.app
 cmd + ctrl - p :open -na alacritty --args -e zsh -ci "fpass"
-cmd + ctrl - m :open -na alacritty --args -e zsh -ci "cmds"
+cmd - u :open -na alacritty --args -e zsh -ci "cmds"
+cmd - p :open -na alacritty --args -e zsh -ci "fapp"
