@@ -13,6 +13,7 @@ cmd - l: yabai -m window --resize right:100:0
 # change layout
 cmd - t: yabai -m config layout bsp
 cmd - m: yabai -m config layout float; yabai -m window --grid 1:1:0:0:1:1
+ctrl + cmd - m :yabai -m window --grid 1:1:0:0:1:1
 
 # move managed window
 ctrl + cmd - h: yabai -m window --warp west
