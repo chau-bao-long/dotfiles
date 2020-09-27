@@ -299,8 +299,8 @@ nmap 'r :edit!<cr>
 nmap 't :tabclose<cr>
 nmap <C-j> <C-d>
 nmap <C-k> <C-u>
-nmap <C-h> <C-e><C-e><C-e><C-e><C-e>jjj
-nmap <C-l> <C-y><C-y><C-y><C-y><C-y>kkk
+nmap <C-h> <C-e><C-e><C-e><C-e><C-e>
+nmap <C-l> <C-y><C-y><C-y><C-y><C-y>
 nmap z; :e #<cr>
 nmap cf :let @+=expand("%F")<cr>
 nmap co :let @+=expand("%:t")<cr>
