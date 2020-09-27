@@ -284,12 +284,14 @@ gjr() {
   git describe --all | grep -Eo "..-\d+" | xargs -I {} open $jira/browse/\{\}
 }
 
-# frequently used commands
-cmds() {
-  local cmd=$(cat ~/local/cmds | fzf)
+# Run frequently used commands
+# First param take local path to set of commands, i.e. ~/local/cmds
+frun() {
+  echo $1
+  local cmd=$(cat $1 | fzf)
   if [ -n "$cmd" ]; then
     local escape=$(echo $cmd | sed 's/[]\/$*.^[]/\\&/g')
-    echo -e "$cmd\n$(cat ~/local/cmds | sed "s/$escape//g" | sed '/^$/d')" > ~/local/cmds
+    echo -e "$cmd\n$(cat $1 | sed "s/$escape//g" | sed '/^$/d')" > $1
     echo ""
     echo $fg[yellow] "$cmd"
     echo ""
@@ -407,7 +409,7 @@ bindkey -s "^[f" "\edddddddddd iranger\n"
 bindkey -s "^[n" "\edddddddddd i~/bin/nvim-osx64/bin/nvim \n"
 bindkey -s "^[b" "\edddddddddd ibr\n"
 bindkey -s "^[r" "\edddddddddd i./run.sh "
-bindkey -s "^k" "\edddddddddd icmds\n"
+bindkey -s "^k" "\edddddddddd ifrun ~/local/cmds\n"
 bindkey -s "^u" "\edddddddddd i"
 bindkey -s "^[a" "\edddddddddd ifpass\n"
 bindkey '^f' forward-word
