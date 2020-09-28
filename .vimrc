@@ -4,7 +4,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'ayu-theme/ayu-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mbbill/undotree'
-Plug 'christoomey/vim-system-copy'
 Plug 'ryanoasis/vim-devicons'
 Plug 'milkypostman/vim-togglelist'
 Plug 'Konfekt/FastFold'
@@ -308,12 +307,13 @@ nmap cy :let @+=expand("%:p")<cr>
 nmap cH :let @+=expand("%:p:h")<cr>
 nmap ch :let @+=expand("%:h")<cr>
 nmap cn :let @+=expand("%:t:r")<cr>
-nmap cu viwcp
-nmap c' vi'cp
-nmap c" vi"cp
-nmap c$ T v$cp
-nmap cl Vcp
-nmap c<space> T vt cp
+xmap cp "*y
+nmap cu viw"*y
+nmap c' vi'"*y
+nmap c" vi""*y
+nmap c$ T v$"*y
+nmap cl "*yy
+nmap c<space> T vt "*y
 nmap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<cr>
 nmap <leader><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<cr>
 nmap gv :vs<cr><c-w>lgd
