@@ -4,6 +4,7 @@ let g:floaterm_width=0.7
 let g:floaterm_height=0.7
 let g:floaterm_autoclose=0
 let g:floaterm_winblend=15
+let g:floaterm_title='📟 $1/$2'
 
 nnoremap <space>y :FloatermToggle!<cr>
 nnoremap <space>; :FloatermNew<cr>
