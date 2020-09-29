@@ -379,6 +379,13 @@ nnoremap <space>cP :call common#changeProject("~/Projects")<cr>
 nnoremap [e  :<c-u>execute 'move -1-'. v:count1<cr>
 nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
 
+" Clears and redraws the screen, fixing syntax highlighting
+nnoremap <leader>d :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
+
+" Don't lose selection when shifting sidewards
+xnoremap <  <gv
+xnoremap >  >gv
+
 " Move around in command mode
 cnoremap <c-h> <left>
 cnoremap <c-l> <right>
