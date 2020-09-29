@@ -150,3 +150,28 @@ fu common#moveToNextTab()
   "opening current buffer in new window
   exe "b".l:cur_buf
 endfu
+
+fu! s:restartCoc(result)
+  exe "e " . a:result
+  call coc#rpc#restart()
+endfu
+
+fu! s:changeProjectHandler(result)
+  exe "cd " . s:projectPath . "/" . a:result
+  exe "bufdo bd"
+
+  call fzf#run(fzf#wrap({
+        \ 'source': 'git ls-files --exclude-standard --others --cached',
+        \ 'sink': function('s:restartCoc'),
+        \ }))
+endfu
+
+fu! common#changeProject(projectPath)
+  let s:projectPath = a:projectPath
+
+  call fzf#run(fzf#wrap({
+        \ 'source': 'ls ' . a:projectPath,
+        \ 'sink': function('s:changeProjectHandler'),
+        \ 'options': '+m -x --ansi --tiebreak=index --tiebreak=begin --prompt "Projects> "',
+        \ }))
+endfu

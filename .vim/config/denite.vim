@@ -120,6 +120,7 @@ let s:menus.kotlin = {
 let s:menus.kotlin.command_candidates = [
             \ ['💾 ktlint', 'tabnew | terminal ktlint'],
             \ ['💾 ktfix', 'Dispatch! ktlint -F'],
+            \ ['💾 ktformat', 'tabnew | terminal ./gradlew ktlintFormat'],
             \ ['💾 run all test', 'tabnew | terminal ./gradlew cleanTest test --info'],
             \ ['💾 classes', 'Dispatch! ./gradlew classes'],
             \ ['💾 classes with log', 'tabnew | terminal ./gradlew classes'],

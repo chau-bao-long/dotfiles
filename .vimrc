@@ -372,6 +372,8 @@ xnoremap <space>? "gy:call common#google(@g, 0)<cr>gv
 xnoremap <space>! "gy:call common#google(@g, 1)<cr>gv
 nnoremap <space>Wh :call common#moveToPrevTab()<cr><c-w>H
 nnoremap <space>Wl :call common#moveToNextTab()<cr><c-w>H
+nnoremap <space>cp :call common#changeProject("~/Projects/personio")<cr>
+nnoremap <space>cP :call common#changeProject("~/Projects")<cr>
 
 " Quickly move current line
 nnoremap [e  :<c-u>execute 'move -1-'. v:count1<cr>
