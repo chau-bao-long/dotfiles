@@ -374,7 +374,7 @@ nnoremap <space>Wh :call common#moveToPrevTab()<cr><c-w>H
 nnoremap <space>Wl :call common#moveToNextTab()<cr><c-w>H
 nnoremap <space>cp :call common#changeProject("~/Projects/personio")<cr>
 nnoremap <space>cP :call common#changeProject("~/Projects")<cr>
-nnoremap <space>ww :call common#moveToOppositeWindow()<cr>
+nnoremap <space>we :call common#moveToOppositeWindow()<cr>
 
 " Quickly move current line
 nnoremap [e  :<c-u>execute 'move -1-'. v:count1<cr>
