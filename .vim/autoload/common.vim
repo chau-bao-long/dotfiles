@@ -175,3 +175,12 @@ fu! common#changeProject(projectPath)
         \ 'options': '+m -x --ansi --tiebreak=index --tiebreak=begin --prompt "Projects> "',
         \ }))
 endfu
+
+fu! common#moveToOppositeWindow()
+  if winnr() == 1
+    let l:lastWinId = win_getid(winnr('$'))
+    call win_gotoid(l:lastWinId)
+  else
+    call win_gotoid(win_getid(1))
+  end
+endfu
