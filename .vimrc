@@ -11,7 +11,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/gv.vim'
-Plug 'wsdjeg/vim-fetch'
 
 Plug 'junegunn/vim-easy-align'
 xmap - <Plug>(EasyAlign)

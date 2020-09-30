@@ -43,8 +43,8 @@ nmap <silent> [s <Plug>(coc-diagnostic-prev)
 nmap <silent> ]s <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <space>gi <Plug>(coc-implementation)
 
 " Show documentation in preview window
 nnoremap <space>ad :call <SID>show_documentation()<CR>
