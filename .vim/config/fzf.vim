@@ -40,17 +40,17 @@ command! -bang -nargs=* -complete=dir DG
       \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(''), 1,                                                                                               
       \   fzf#vim#with_preview({'dir': <q-args>}), <bang>0)
 
-nmap <space>P :call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --cached'}))<cr>
-nmap <space>p :Files<cr>
-nmap <space>u :History<cr>
-nmap <space>U :GitFiles<cr>
-nmap <space>b :Buffers<cr>
-nmap <space>B :MRU<cr>
-nmap <space>cm :Commands<cr>
-nmap <space>ck :Maps<cr>
-nmap <space>q :Rg<cr>
-nmap <space>ch :Helptags<cr>
-nmap Q :Rg <c-r><c-w><cr>
-vmap Q y:Rg <C-R>0<cr>
-nmap W cpiw<space>p
-vmap W cp<space>p
+nnoremap <space>P :call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --cached'}))<cr>
+nnoremap <space>p :Files<cr>
+nnoremap <space>u :History<cr>
+nnoremap <space>U :GitFiles<cr>
+nnoremap <space>b :Buffers<cr>
+nnoremap <space>B :MRU<cr>
+nnoremap <space>cm :Commands<cr>
+nnoremap <space>ck :Maps<cr>
+nnoremap <space>q :Rg<cr>
+nnoremap <space>ch :Helptags<cr>
+nnoremap Q :Rg <c-r><c-w><cr>
+xnoremap Q y:Rg <C-R>0<cr>
+nnoremap W cpiw<space>p
+xnoremap W cp<space>p
