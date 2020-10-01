@@ -374,6 +374,8 @@ nnoremap <space>Wh :call common#moveToPrevTab()<cr><c-w>H
 nnoremap <space>Wl :call common#moveToNextTab()<cr><c-w>H
 nnoremap <space>cp :call common#changeProject("~/Projects/personio")<cr>
 nnoremap <space>cP :call common#changeProject("~/Projects")<cr>
+nnoremap <space>op :call common#openFileInProject("~/Projects/personio")<cr>
+nnoremap <space>oP :call common#openFileInProject("~/Projects")<cr>
 nnoremap <space>we :call common#moveToOppositeWindow()<cr>
 
 " Quickly move current line

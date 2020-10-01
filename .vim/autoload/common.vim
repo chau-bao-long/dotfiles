@@ -176,6 +176,20 @@ fu! common#changeProject(projectPath)
         \ }))
 endfu
 
+fu! s:openFileInProjectHandler(result)
+  call fzf#vim#files(s:projectPath . "/" . a:result, fzf#vim#with_preview('down:70%'))
+endfu
+
+fu! common#openFileInProject(projectPath)
+  let s:projectPath = a:projectPath
+
+  call fzf#run(fzf#wrap({
+        \ 'source': 'ls ' . a:projectPath,
+        \ 'sink': function('s:openFileInProjectHandler'),
+        \ 'options': '+m -x --ansi --tiebreak=index --tiebreak=begin --prompt "Projects> "',
+        \ }))
+endfu
+
 fu! common#moveToOppositeWindow()
   if winnr() == 1
     let l:lastWinId = win_getid(winnr('$'))
