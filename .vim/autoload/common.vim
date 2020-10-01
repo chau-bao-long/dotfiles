@@ -151,19 +151,14 @@ fu common#moveToNextTab()
   exe "b".l:cur_buf
 endfu
 
-fu! s:restartCoc(result)
-  exe "e " . a:result
-  call coc#rpc#restart()
-endfu
-
 fu! s:changeProjectHandler(result)
   exe "cd " . s:projectPath . "/" . a:result
-  exe "bufdo bd"
-
-  call fzf#run(fzf#wrap({
+  let l:options = {
         \ 'source': 'git ls-files --exclude-standard --others --cached',
-        \ 'sink': function('s:restartCoc'),
-        \ }))
+        \ }
+  exe "bufdo bd"
+  call coc#rpc#restart()
+  call fzf#run(fzf#wrap(extend(l:options, fzf#vim#with_preview('down:70%'))))
 endfu
 
 fu! common#changeProject(projectPath)
@@ -177,7 +172,11 @@ fu! common#changeProject(projectPath)
 endfu
 
 fu! s:openFileInProjectHandler(result)
-  call fzf#vim#files(s:projectPath . "/" . a:result, fzf#vim#with_preview('down:70%'))
+  let l:options = {
+        \ 'source': 'git ls-files --exclude-standard --others --cached',
+        \ 'dir': s:projectPath . "/" . a:result,
+        \ }
+  call fzf#run(fzf#wrap(extend(l:options, fzf#vim#with_preview('down:70%'))))
 endfu
 
 fu! common#openFileInProject(projectPath)
