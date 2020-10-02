@@ -51,6 +51,6 @@ nnoremap <space>ck :Maps<cr>
 nnoremap <space>q :Rg<cr>
 nnoremap <space>ch :Helptags<cr>
 nnoremap Q :Rg <c-r><c-w><cr>
-xnoremap Q y:Rg <C-R>0<cr>
-nnoremap W cpiw<space>p
-xnoremap W cp<space>p
+xnoremap Q y:Rg <c-r>0<cr>
+nnoremap W "*yiw:Files<cr>
+xnoremap W "*y:Files<cr>

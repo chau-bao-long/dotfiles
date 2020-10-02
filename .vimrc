@@ -344,14 +344,14 @@ nnoremap <space>cb :bufdo bd<CR>
 nmap <space>9 :pwd<cr>
 nmap <space>8 :call common#goToCurrentFile()<cr>
 nmap <space>0 :call common#goBack()<cr>
-nmap <space>R :call common#goToCurrentFile()<cr>:call common#goBack()<cr>
+nmap <space>cR :call common#goToCurrentFile()<cr>:call common#goBack()<cr>
 nmap g- :tabm -1<cr>
 nmap g= :tabm +1<cr>
 nmap g0 :tabo<cr>
 vmap / y:/<c-r>0<cr>
 nmap <space>e= 15kV30j=15j
-nmap <space>er :e<cr>
-nmap <space>eR :e!<cr>
+nmap <space>r :e<cr>
+nmap <space>R :e!<cr>
 nmap <space>eq yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
 vmap <space>eq y:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
 nmap <space>ew :call common#runCurrentCommand()<cr>
