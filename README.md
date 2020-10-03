@@ -35,6 +35,8 @@ $ make install_softwares #install mostly used softwares
 - mbsync (to sync mailbox)
 - mu4e (mail client)
 - pass (manage all passwords using gpg key)
+- exa (modern version of ls)
+- z (jump around by ranking folder)
 
 # More infos!
 ### Install Git on CentOS 7

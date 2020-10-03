@@ -304,6 +304,7 @@ install_tool() {
     brew install diff-so-fancy
     brew install terminal-notifier
     brew install bluetoothconnector
+    brew install exa
     success "Installed some fancy tools"
   fi
 }

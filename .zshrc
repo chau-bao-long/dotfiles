@@ -42,6 +42,7 @@ autoload -U compinit && compinit
 export LC_ALL=en_US.UTF-8
 export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+zsh-defer source ~/Projects/dotfiles/scripts/z.sh
 zsh-defer source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 zsh-defer source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 zsh-defer source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br
@@ -70,6 +71,9 @@ export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
 export LDFLAGS="-L/usr/local/opt/php@7.3/lib"
 export CPPFLAGS="-I/usr/local/opt/php@7.3/include"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+# CMake to PATH
+export PATH="/Applications/CMake.app/Contents/bin":"$PATH"
 
 # User bin folder to PATH
 export PATH="$HOME/bin:$PATH"
@@ -138,17 +142,6 @@ alias kwp='watch kubectl get pod -owide'
 kct () { kubectl config use-context $1 }
 kns () { kubectl config set-context $(kubectl config current-context) --namespace=$1 }
 kdevict() { kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod }
-
-# zeus shortcut
-# more details: gem install --pre 0.15.15 and zeus --log /dev/stderr start
-alias zst="unset RAILS_ENV; zeus start"
-alias z="unset RAILS_ENV; zeus rake"
-alias zc="unset RAILS_ENV; zeus console"
-alias zr="unset RAILS_ENV; zeus runner"
-alias zs="unset RAILS_ENV; zeus server"
-alias zg="unset RAILS_ENV; zeus generate"
-alias zd="unset RAILS_ENV; zeus destroy"
-alias zt="unset RAILS_ENV; zeus test"
 
 # some custom alias and functions
 alias v=nvim
