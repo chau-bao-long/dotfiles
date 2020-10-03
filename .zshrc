@@ -45,7 +45,6 @@ source $ZSH/oh-my-zsh.sh
 zsh-defer source ~/Projects/dotfiles/scripts/z.sh
 zsh-defer source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 zsh-defer source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-zsh-defer source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br
 [ -f ~/.fzf.zsh ] && zsh-defer source ~/.fzf.zsh
 
 export GPG_TTY=`tty`
@@ -146,6 +145,7 @@ kdevict() { kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl d
 # some custom alias and functions
 alias v=nvim
 alias pdf=zathura
+alias le='exa -lahg'
 alias ping=prettyping
 alias pro=~/Projects
 alias per=~/Projects/personio
@@ -400,7 +400,6 @@ zle -N zle-keymap-select
 # prefix edddddddddd to remove all current text lines before execute command
 bindkey -s "^[f" "\edddddddddd iranger\n"
 bindkey -s "^[n" "\edddddddddd i~/bin/nvim-osx64/bin/nvim \n"
-bindkey -s "^[b" "\edddddddddd ibr\n"
 bindkey -s "^[r" "\edddddddddd i./run.sh "
 bindkey -s "^k" "\edddddddddd ifrun ~/local/cmds\n"
 bindkey -s "^u" "\edddddddddd i"

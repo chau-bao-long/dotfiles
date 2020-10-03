@@ -300,7 +300,6 @@ install_tool() {
     brew install mycli
     brew install bat
     brew install httpie
-    brew install broot
     brew install diff-so-fancy
     brew install terminal-notifier
     brew install bluetoothconnector
