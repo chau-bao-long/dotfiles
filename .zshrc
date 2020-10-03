@@ -145,7 +145,9 @@ kdevict() { kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl d
 # some custom alias and functions
 alias v=nvim
 alias pdf=zathura
-alias le='exa -lahg'
+alias la='exa -lahg --icons'
+alias ll='exa -lhg --icons'
+alias tree='exa -T -L3 --icons'
 alias ping=prettyping
 alias pro=~/Projects
 alias per=~/Projects/personio
