@@ -116,10 +116,6 @@ Plug 'Rican7/php-doc-modded'
 Plug 'jceb/vim-orgmode'
 Plug 'terryma/vim-expand-region'
 
-Plug 'rizzatti/dash.vim'
-nnoremap <space>df :Dash<cr>
-vnoremap <space>df y:Dash <c-r>0<cr>
-
 call plug#end()
 
 " ==================================================== Config Plugin
