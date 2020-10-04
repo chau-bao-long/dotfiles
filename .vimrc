@@ -363,9 +363,10 @@ nnoremap <space>oO :call common#openZipFilesFromClipboard("e")<cr>
 nnoremap <space>oS :call common#openZipFilesFromClipboard("split")<cr>
 nnoremap <space>oV :call common#openZipFilesFromClipboard("vs")<cr>
 nnoremap <space>? :call common#google(expand("<cWORD>"), 0)<cr>
+nnoremap <space>/ :call common#google(expand("<cword>"), 0)<cr>
 nnoremap <space>! :call common#google(expand("<cWORD>"), 1)<cr>
-xnoremap <space>? "gy:call common#google(@g, 0)<cr>gv
-xnoremap <space>! "gy:call common#google(@g, 1)<cr>gv
+xnoremap <space>/ "gy:call common#google(@g, 0)<cr>
+xnoremap <space>! "gy:call common#google(@g, 1)<cr>
 nnoremap <space>Wh :call common#moveToPrevTab()<cr><c-w>H
 nnoremap <space>Wl :call common#moveToNextTab()<cr><c-w>H
 nnoremap <space>cp :call common#changeProject("~/Projects/personio")<cr>
