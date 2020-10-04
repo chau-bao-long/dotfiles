@@ -310,8 +310,6 @@ nmap c" vi""*y
 nmap c$ T v$"*y
 nmap cl "*yy
 nmap c<space> T vt "*y
-nmap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<cr>
-nmap <leader><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<cr>
 nmap gv :vs<cr><c-w>lgd
 nmap gV :vs<cr><c-w>lgf
 nmap gs :sp<cr><c-w>lgd
@@ -319,7 +317,7 @@ nmap gS :sp<cr><c-w>lgf
 nmap gt :tabnew<cr><c-o>gd
 nmap gT :tabnew<cr><c-o>gf
 nnoremap g' :vs<cr><c-w>l<c-]>
-nnoremap g" :sp<cr><c-w>l<c-]>
+nnoremap g" :sp<cr><c-]>
 nnoremap g\ :tabnew<cr><c-o><c-]>
 vnoremap m <esc>ggVG
 vnoremap o <esc>T vt 
