@@ -166,7 +166,7 @@ let s:menus.ctags.command_candidates = [
             \[ '📌 php', 'Dispatch! ctags -R --languages=PHP --exclude=.git --exclude=log .'],
             \[ '📌 java with lib', 'Dispatch! ctags -R --languages=java,kotlin --exclude=.git --exclude=log --exclude=.gradle --exclude=.gradle-home --exclude=data . ~/Projects/lib/java'],
             \[ '📌 java', 'Dispatch! ctags -R --languages=java,kotlin --exclude=.git --exclude=log --exclude=.gradle --exclude=.gradle-home --exclude=data .'],
-            \[ '📌 c', 'Dispatch! ctags -R --languages=c --exclude=.git .'],
+            \[ '📌 c', 'Dispatch! ctags -R --languages=c,c++ --exclude=.git .'],
             \]
 
 if get(g:, "databases", []) != []
