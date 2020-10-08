@@ -343,7 +343,8 @@ nnoremap <space>cb :bufdo bd<CR>
 nmap <space>9 :pwd<cr>
 nmap <space>8 :call common#goToCurrentFile()<cr>
 nmap <space>0 :call common#goBack()<cr>
-nmap <space>cR :call common#goToCurrentFile()<cr>:call common#goBack()<cr>
+nmap <space>) :call common#goBackToRoot()<cr>
+nmap <space>* :call common#goToCurrentFile()<cr>:call common#goBack()<cr>
 nmap g- :tabm -1<cr>
 nmap g= :tabm +1<cr>
 nmap g0 :tabo<cr>
