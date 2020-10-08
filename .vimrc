@@ -349,7 +349,7 @@ nmap g= :tabm +1<cr>
 nmap g0 :tabo<cr>
 vmap / y:/<c-r>0<cr>
 nmap <space>e= 15kV30j=15j
-nmap <space>r :e!<cr>
+nmap <space>er :e!<cr>
 nmap <space>eq yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
 vmap <space>eq y:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
 nmap <space>ew :call common#runCurrentCommand()<cr>
@@ -371,8 +371,10 @@ xnoremap <space>/ "gy:call common#google(@g, 0)<cr>
 xnoremap <space>! "gy:call common#google(@g, 1)<cr>
 nnoremap <space>Wh :call common#moveToPrevTab()<cr><c-w>H
 nnoremap <space>Wl :call common#moveToNextTab()<cr><c-w>H
-nnoremap <space>cp :call common#changeProject("~/Projects/personio")<cr>
-nnoremap <space>cP :call common#changeProject("~/Projects")<cr>
+nnoremap <space>cp :call common#changeProject("~/Projects/personio", 0)<cr>
+nnoremap <space>cP :call common#changeProject("~/Projects", 0)<cr>
+nnoremap <space>cr :call common#changeProject("~/Projects/personio", 1)<cr>
+nnoremap <space>cR :call common#changeProject("~/Projects", 1)<cr>
 nnoremap <space>op :call common#openFileInProject("~/Projects/personio")<cr>
 nnoremap <space>oP :call common#openFileInProject("~/Projects")<cr>
 nnoremap <space>we :call common#moveToOppositeWindow()<cr>

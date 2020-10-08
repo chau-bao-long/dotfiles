@@ -149,10 +149,6 @@ alias la='exa -lahg --icons'
 alias ll='exa -lhg --icons'
 alias tree='exa -T -L3 --icons'
 alias ping=prettyping
-alias pro=~/Projects
-alias per=~/Projects/personio
-alias dot=~/Projects/dotfiles
-alias org=~/org
 alias pc=~/Projects/personio/personio/perctl
 plog() { echo "" > ~/Projects/personio/personio/app/storage-local/logs/laravel.log; lnav ~/Projects/personio/personio/app/storage-local/logs/laravel.log }
 

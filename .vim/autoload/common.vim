@@ -153,6 +153,9 @@ endfu
 
 fu! s:changeProjectHandler(result)
   exe "cd " . s:projectPath . "/" . a:result
+  if s:onlyChangeRoot
+    return
+  endif
   let l:options = {
         \ 'source': 'git ls-files --exclude-standard --others --cached',
         \ }
@@ -161,8 +164,9 @@ fu! s:changeProjectHandler(result)
   call fzf#run(fzf#wrap(extend(l:options, fzf#vim#with_preview('down:70%'))))
 endfu
 
-fu! common#changeProject(projectPath)
+fu! common#changeProject(projectPath, onlyChangeRoot)
   let s:projectPath = a:projectPath
+  let s:onlyChangeRoot = a:onlyChangeRoot
 
   call fzf#run(fzf#wrap({
         \ 'source': 'ls ' . a:projectPath,
