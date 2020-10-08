@@ -150,7 +150,6 @@ alias ll='exa -lhg --icons'
 alias tree='exa -T -L3 --icons'
 alias ping=prettyping
 alias pc=~/Projects/personio/personio/perctl
-plog() { echo "" > ~/Projects/personio/personio/app/storage-local/logs/laravel.log; lnav ~/Projects/personio/personio/app/storage-local/logs/laravel.log }
 
 # quickly go to project
 fper() { cd ~/Projects/personio/$(ls ~/Projects/personio/ | fzf) }
