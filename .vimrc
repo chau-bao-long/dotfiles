@@ -74,11 +74,6 @@ nnoremap <Leader>s :SemanticHighlightToggle<cr>
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
 
-Plug 'airblade/vim-rooter'
-let g:rooter_change_directory_for_non_project_files = 'current'
-let g:rooter_manual_only = 1
-nnoremap <space>rr :Rooter<cr>
-
 Plug 'Yggdroot/indentLine'
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
@@ -340,11 +335,11 @@ noremap <space>c[ :tp<CR>
 inoremap zbt <Esc>a``<Esc>i
 inoremap zbs <Esc>a```<cr>```<Esc>O
 nnoremap <space>cb :bufdo bd<CR>
-nmap <space>9 :pwd<cr>
-nmap <space>8 :call common#goToCurrentFile()<cr>
-nmap <space>0 :call common#goBack()<cr>
-nmap <space>) :call common#goBackToRoot()<cr>
-nmap <space>* :call common#goToCurrentFile()<cr>:call common#goBack()<cr>
+nnoremap <space>9 :pwd<cr>
+nnoremap <space>8 :call common#goToCurrentFile()<cr>
+nnoremap <space>0 :call common#goBack()<cr>
+nnoremap <space>rr :call common#goToCurrentFile()<cr>common#goBackToRoot()<cr>
+nnoremap <space>) :call common#goToCurrentFile()<cr>:call common#goBack()<cr>
 nmap g- :tabm -1<cr>
 nmap g= :tabm +1<cr>
 nmap g0 :tabo<cr>
@@ -381,8 +376,12 @@ nnoremap <space>oP :call common#openFileInProject("~/Projects")<cr>
 nnoremap <space>we :call common#moveToOppositeWindow()<cr>
 
 " Quickly move current line
-nnoremap [e  :<c-u>execute 'move -1-'. v:count1<cr>
-nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
+nnoremap <c-n> :m .+1<CR>==
+nnoremap <c-p> :m .-2<CR>==
+inoremap <c-n> <Esc>:m .+1<CR>==gi
+inoremap <c-p> <Esc>:m .-2<CR>==gi
+vnoremap <c-n> :m '>+1<CR>gv=gv
+vnoremap <c-p> :m '<-2<CR>gv=gv
 
 " Clears and redraws the screen, fixing syntax highlighting
 nnoremap <leader>d :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
