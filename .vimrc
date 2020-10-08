@@ -77,7 +77,7 @@ let g:rainbow_active = 1
 Plug 'airblade/vim-rooter'
 let g:rooter_change_directory_for_non_project_files = 'current'
 let g:rooter_manual_only = 1
-nnoremap <space>cr :Rooter<cr>
+nnoremap <space>rr :Rooter<cr>
 
 Plug 'Yggdroot/indentLine'
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
