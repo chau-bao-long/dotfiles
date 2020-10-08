@@ -70,6 +70,7 @@ function common#goBack()
 endfunction
 
 function common#goBackToRoot()
+  cd %:p:h
   while stridx(execute(":!ls -a"), ".git") < 0 && strlen(execute(":pwd")) > 2
     cd ..
   endwhile
