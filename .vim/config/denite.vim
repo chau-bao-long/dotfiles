@@ -198,4 +198,4 @@ nnoremap <space>mc :Denite menu:ctags<cr>
 nnoremap <space>md :Denite menu:directories<cr>
 nnoremap <space>mb :Denite menu:binfiles<cr>
 nnoremap <space>ms :Denite menu:database<cr>
-nnoremap <space>mf :Denite menu:fzf<cr>
+nnoremap <space><space> :Denite menu:fzf<cr>

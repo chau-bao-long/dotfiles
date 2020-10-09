@@ -1,5 +1,5 @@
 nnoremap <space>5 :UndotreeToggle<cr>
-nnoremap <space><space> :CocCommand explorer --preset floating<cr>
+nnoremap <space>ff :CocCommand explorer --preset floating<cr>
 nnoremap <space>fe :CocCommand explorer<cr>
 nnoremap <space>fv :CocCommand explorer --preset .vim<cr>
 
