@@ -203,7 +203,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "y": -4536
+                                            "y": -4000,
+                                            "speed_multiplier": 1.2
                                         }
                                     }
                                 ],
@@ -224,7 +225,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "y": -1436
+                                            "y": -1000,
+                                            "speed_multiplier": 1.2
                                         }
                                     }
                                 ],
@@ -252,7 +254,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "x": -4536
+                                            "x": -4000,
+                                            "speed_multiplier": 1.2
                                         }
                                     }
                                 ],
@@ -273,7 +276,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "x": -1436
+                                            "x": -1000,
+                                            "speed_multiplier": 1.2
                                         }
                                     }
                                 ],
@@ -301,7 +305,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "y": 4536
+                                            "y": 4000,
+                                            "speed_multiplier": 1.2
                                         }
                                     }
                                 ],
@@ -322,7 +327,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "y": 1436
+                                            "y": 1000,
+                                            "speed_multiplier": 1.2
                                         }
                                     }
                                 ],
@@ -350,7 +356,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "x": 4536
+                                            "x": 4000,
+                                            "speed_multiplier": 1.2
                                         }
                                     }
                                 ],
@@ -371,7 +378,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "x": 1436
+                                            "x": 1000,
+                                            "speed_multiplier": 1.2
                                         }
                                     }
                                 ],
@@ -392,7 +400,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "vertical_wheel": -64
+                                            "vertical_wheel": -50,
+                                            "speed_multiplier": 1.2
                                         }
                                     }
                                 ],
@@ -413,7 +422,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "vertical_wheel": 64
+                                            "vertical_wheel": 50,
+                                            "speed_multiplier": 1.2
                                         }
                                     }
                                 ],
@@ -434,7 +444,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "horizontal_wheel": -64
+                                            "horizontal_wheel": -50,
+                                            "speed_multiplier": 1.2
                                         }
                                     }
                                 ],
@@ -455,7 +466,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "horizontal_wheel": 64
+                                            "horizontal_wheel": 50,
+                                            "speed_multiplier": 1.2
                                         }
                                     }
                                 ],
@@ -476,7 +488,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "vertical_wheel": -64
+                                            "vertical_wheel": -50,
+                                            "speed_multiplier": 1.2
                                         }
                                     }
                                 ],
@@ -497,7 +510,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "vertical_wheel": 64
+                                            "vertical_wheel": 50,
+                                            "speed_multiplier": 1.2
                                         }
                                     }
                                 ],
