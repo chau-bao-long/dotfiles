@@ -7,6 +7,9 @@ nmap <leader>gt :exec "Rg " . expand('%:t:r') . "Test"<CR>
 nmap <leader>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<CR>class
 nmap <space>ip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| sed 's/kotlin\.//g' \| sed 's/^/package /' >> %<CR>:e!<CR>
 
+nmap gf :GoToFile<cr>
+nmap gT :GoToFile tabedit<cr>
+
 " Easy switching between vim and intelliJ
 nnoremap <silent> <space>oi :exec "Dispatch! idea --line " . line('.') . " " . expand('%:p')<cr>
 
