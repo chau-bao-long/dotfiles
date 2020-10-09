@@ -268,7 +268,7 @@ set incsearch       " Find the next match as we type the search
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 set hlsearch
-nmap z/ /turn-off-search-highlight<cr>
+nnoremap <silent> z/ :noh<cr>
 
 " ==================================================== Custom mapping
 nmap gk :tabprevious<cr>
@@ -340,12 +340,16 @@ nnoremap <space>8 :call common#goToCurrentFile()<cr>
 nnoremap <space>0 :call common#goBack()<cr>
 nnoremap <silent><space>rr :call common#goBackToRoot()<cr>:pwd<cr>
 nnoremap <space>* :call common#goToCurrentFile()<cr>:call common#goBack()<cr>
-nmap g- :tabm -1<cr>
-nmap g= :tabm +1<cr>
-nmap g0 :tabo<cr>
-vmap / y:/<c-r>0<cr>
-nmap <space>e= 15kV30j=15j
-nmap <space>er :e!<cr>
+nnoremap g- :tabm -1<cr>
+nnoremap g= :tabm +1<cr>
+nnoremap g0 :tabo<cr>
+nnoremap <space>ss :%s/<c-r><c-w>//gI<left><left><left>
+xnoremap <space>ss y:%s/<c-r>0//gI<left><left><left>
+nnoremap <space>sS :%s/<c-r><c-w>//gIc<left><left><left><left>
+xnoremap <space>sS y:%s/<c-r>0//gIc<left><left><left><left>
+xnoremap / y:/<c-r>0<cr>
+nnoremap <space>e= 15kV30j=15j
+nnoremap <space>er :e!<cr>
 nmap <space>eq yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
 vmap <space>eq y:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
 nmap <space>ew :call common#runCurrentCommand()<cr>

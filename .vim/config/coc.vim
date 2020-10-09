@@ -108,8 +108,8 @@ nnoremap <silent> <space>ap  :<C-u>CocListResume<cr>
 nnoremap <space>al :source ~/Projects/dotfiles/.vim/config/coc.vim<cr>
 " Coc search
 nnoremap <space>sc :CocSearch <c-r><c-w><cr>
-nnoremap <space>ss :CocSearch 
-vnoremap <space>sc y:CocSearch <c-r>0<cr>
+nnoremap <space>cs :CocSearch 
+xnoremap <space>sc y:CocSearch <c-r>0<cr>
 
 " Delay load coc config again, which fix the bug with coc completion does not work at first time start
 autocmd VimEnter * call timer_start(200, { tid -> execute('source ~/Projects/dotfiles/.vim/config/coc.vim')})
