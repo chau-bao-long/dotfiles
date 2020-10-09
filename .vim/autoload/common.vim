@@ -152,7 +152,18 @@ fu common#moveToNextTab()
   exe "b".l:cur_buf
 endfu
 
-fu! s:changeProjectHandler(result)
+fu! common#selectProject(projectPath, handler, onlyChangeRoot)
+  let s:projectPath = a:projectPath
+  let s:onlyChangeRoot = a:onlyChangeRoot
+
+  call fzf#run(fzf#wrap({
+        \ 'source': 'ls ' . a:projectPath,
+        \ 'sink': a:handler,
+        \ 'options': '+m -x --ansi --tiebreak=index --tiebreak=begin --prompt "Projects> "',
+        \ }))
+endfu
+
+fu! common#changeProjectHandler(result)
   exe "cd " . s:projectPath . "/" . a:result
   if s:onlyChangeRoot
     return
@@ -165,18 +176,7 @@ fu! s:changeProjectHandler(result)
   call fzf#run(fzf#wrap(extend(l:options, fzf#vim#with_preview('down:70%'))))
 endfu
 
-fu! common#changeProject(projectPath, onlyChangeRoot)
-  let s:projectPath = a:projectPath
-  let s:onlyChangeRoot = a:onlyChangeRoot
-
-  call fzf#run(fzf#wrap({
-        \ 'source': 'ls ' . a:projectPath,
-        \ 'sink': function('s:changeProjectHandler'),
-        \ 'options': '+m -x --ansi --tiebreak=index --tiebreak=begin --prompt "Projects> "',
-        \ }))
-endfu
-
-fu! s:openFileInProjectHandler(result)
+fu! common#openFileInProjectHandler(result)
   let l:options = {
         \ 'source': 'git ls-files --exclude-standard --others --cached',
         \ 'dir': s:projectPath . "/" . a:result,
@@ -184,14 +184,11 @@ fu! s:openFileInProjectHandler(result)
   call fzf#run(fzf#wrap(extend(l:options, fzf#vim#with_preview('down:70%'))))
 endfu
 
-fu! common#openFileInProject(projectPath)
-  let s:projectPath = a:projectPath
-
-  call fzf#run(fzf#wrap({
-        \ 'source': 'ls ' . a:projectPath,
-        \ 'sink': function('s:openFileInProjectHandler'),
-        \ 'options': '+m -x --ansi --tiebreak=index --tiebreak=begin --prompt "Projects> "',
-        \ }))
+fu! common#grepInProjectHandler(result)
+  let l:extra = fzf#vim#with_preview('down:70%')
+  let l:dir = { 'dir': s:projectPath . "/" . a:result }
+  call extend(l:dir, l:extra)
+  call fzf#vim#grep(g:rg_command .shellescape(''), 1, l:dir)
 endfu
 
 fu! common#moveToOppositeWindow()

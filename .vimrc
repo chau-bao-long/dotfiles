@@ -371,12 +371,6 @@ xnoremap <space>/ "gy:call common#google(@g, 0)<cr>
 xnoremap <space>! "gy:call common#google(@g, 1)<cr>
 nnoremap <space>Wh :call common#moveToPrevTab()<cr><c-w>H
 nnoremap <space>Wl :call common#moveToNextTab()<cr><c-w>H
-nnoremap <space>cp :call common#changeProject("~/Projects/personio", 0)<cr>
-nnoremap <space>cP :call common#changeProject("~/Projects", 0)<cr>
-nnoremap <space>cr :call common#changeProject("~/Projects/personio", 1)<cr>
-nnoremap <space>cR :call common#changeProject("~/Projects", 1)<cr>
-nnoremap <space>op :call common#openFileInProject("~/Projects/personio")<cr>
-nnoremap <space>oP :call common#openFileInProject("~/Projects")<cr>
 nnoremap <space>we :call common#moveToOppositeWindow()<cr>
 
 " Quickly move current line

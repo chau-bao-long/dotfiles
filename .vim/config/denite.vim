@@ -168,6 +168,19 @@ let s:menus.ctags.command_candidates = [
             \[ '📌 java', 'Dispatch! ctags -R --languages=java,kotlin --exclude=.git --exclude=log --exclude=.gradle --exclude=.gradle-home --exclude=data .'],
             \[ '📌 c', 'Dispatch! ctags -R --languages=c,c++ --exclude=.git .'],
             \]
+let s:menus.fzf = {
+            \ 'description': '🔎 Fzf on projects'
+            \ }
+let s:menus.fzf.command_candidates = [
+            \[ '🔎 change personio', 'call common#selectProject("~/Projects/personio", function("common#changeProjectHandler"), 0)'],
+            \[ '🔎 change projects', 'call common#selectProject("~/Projects", function("common#changeProjectHandler"), 0)'],
+            \[ '🔎 root personio', 'call common#selectProject("~/Projects/personio", function("common#changeProjectHandler"), 1)'],
+            \[ '🔎 root projects', 'call common#selectProject("~/Projects", function("common#changeProjectHandler"), 1)'],
+            \[ '🔎 files personio', 'call common#selectProject("~/Projects/personio", function("common#openFileInProjectHandler"), 0)'],
+            \[ '🔎 files projects', 'call common#selectProject("~/Projects", function("common#openFileInProjectHandler"), 0)'],
+            \[ '🔎 grep personio', 'call common#selectProject("~/Projects/personio", function("common#grepInProjectHandler"), 0)'],
+            \[ '🔎 grep projects', 'call common#selectProject("~/Projects", function("common#grepInProjectHandler"), 0)'],
+            \]
 
 if get(g:, "databases", []) != []
   let s:menus.database = { 'description': '📄 Access database' }
@@ -185,3 +198,4 @@ nnoremap <space>mc :Denite menu:ctags<cr>
 nnoremap <space>md :Denite menu:directories<cr>
 nnoremap <space>mb :Denite menu:binfiles<cr>
 nnoremap <space>ms :Denite menu:database<cr>
+nnoremap <space>mf :Denite menu:fzf<cr>
