@@ -112,14 +112,17 @@ nnoremap <space>sc :CocSearch <c-r><c-w><cr>
 nnoremap <space>cs :CocSearch 
 xnoremap <space>sc y:CocSearch <c-r>0<cr>
 
-" Coc fzf
+" Coc Fzf
 nmap <space>f [fzf-p]
 xmap <space>f [fzf-p]
 nnoremap [fzf-p]a :CocCommand fzf-preview.
+nnoremap [fzf-p]d :CocCommand fzf-preview.DirectoryFiles<cr>
+nnoremap [fzf-p]p :CocCommand fzf-preview.ProjectFiles<cr>
+nnoremap [fzf-p]u :CocCommand fzf-preview.ProjectMruFiles<cr>
+nnoremap [fzf-p]r :CocCommand fzf-preview.MruFiles<cr>
 nnoremap [fzf-p]L :CocCommand fzf-preview.BufferLines<cr>
 nnoremap [fzf-p]l :CocCommand fzf-preview.Lines<cr>
 nnoremap [fzf-p]h :CocCommand fzf-preview.CommandPalette<cr>
-nnoremap [fzf-p]d :CocCommand fzf-preview.DirectoryFiles<cr>
 nnoremap [fzf-p]s :CocCommand fzf-preview.GitStatus<cr>
 nnoremap [fzf-p]g :CocCommand fzf-preview.GitActions<cr>
 nnoremap [fzf-p]c :CocCommand fzf-preview.Changes<cr>
