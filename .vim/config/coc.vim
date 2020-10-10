@@ -39,12 +39,12 @@ endfunction
 inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <c-space> ea*<backspace>
 
-nmap <silent> [s <Plug>(coc-diagnostic-prev)
-nmap <silent> ]s <Plug>(coc-diagnostic-next)
+nnoremap <silent> [s <Plug>(coc-diagnostic-prev)
+nnoremap <silent> ]s <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> <space>gi <Plug>(coc-implementation)
+nnoremap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> gr <Plug>(coc-references)
+nnoremap <silent> <space>gi <Plug>(coc-implementation)
 
 " Show documentation in preview window
 nnoremap <space>ad :call <SID>show_documentation()<CR>
@@ -60,11 +60,11 @@ function! s:show_documentation()
 endfunction
 
 " Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+nnoremap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xnoremap <leader>f  <Plug>(coc-format-selected)
+nnoremap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
     autocmd!
@@ -75,15 +75,15 @@ augroup mygroup
 augroup end
 
 " Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
+nnoremap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
+nnoremap <leader>qf  <Plug>(coc-fix-current)
 
 " Create mappings for function text object, requires document symbols feature of languageserver.
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
+xnoremap if <Plug>(coc-funcobj-i)
+xnoremap af <Plug>(coc-funcobj-a)
+onoremap if <Plug>(coc-funcobj-i)
+onoremap af <Plug>(coc-funcobj-a)
 
 " Using CocList
 " Show all diagnostics
