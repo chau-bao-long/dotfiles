@@ -291,6 +291,11 @@ frun() {
   fi
 }
 
+# pick up emoji
+femo() {
+  grep -v '#' ~/bin/emoji | fzf | awk '{print $1}' | tr -d '\n' | pbcopy
+}
+
 # launch app
 fapp() {
   local app=$(ls /Applications | sed 's/.app//g' | fzf)

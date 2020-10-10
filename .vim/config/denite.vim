@@ -176,6 +176,7 @@ let s:menus.fzf.command_candidates = [
             \[ '🔎 change projects', 'call common#selectProject("~/Projects", function("common#changeProjectHandler"), 0)'],
             \[ '🔎 root personio', 'call common#selectProject("~/Projects/personio", function("common#changeProjectHandler"), 1)'],
             \[ '🔎 root projects', 'call common#selectProject("~/Projects", function("common#changeProjectHandler"), 1)'],
+            \[ '🔎 root vim plugins', 'call common#selectProject("~/.vim/plugged", function("common#changeProjectHandler"), 1)'],
             \[ '🔎 files personio', 'call common#selectProject("~/Projects/personio", function("common#openFileInProjectHandler"), 0)'],
             \[ '🔎 files projects', 'call common#selectProject("~/Projects", function("common#openFileInProjectHandler"), 0)'],
             \[ '🔎 grep personio', 'call common#selectProject("~/Projects/personio", function("common#grepInProjectHandler"), 0)'],
