@@ -2,8 +2,8 @@ set guicursor=n:blinkon1
 set updatetime=300
 set shortmess+=c
 
-" \'coc-tag',
 let g:global_extensions = [
+            \'coc-fzf-preview',
             \'coc-explorer',
             \'coc-ultisnips',
             \'coc-highlight',
@@ -110,6 +110,18 @@ nnoremap <space>al :source ~/Projects/dotfiles/.vim/config/coc.vim<cr>
 nnoremap <space>sc :CocSearch <c-r><c-w><cr>
 nnoremap <space>cs :CocSearch 
 xnoremap <space>sc y:CocSearch <c-r>0<cr>
+" Coc fzf
+nmap <space>f [fzf-p]
+xmap <space>f [fzf-p]
+nnoremap [fzf-p]a :CocCommand fzf-preview.
+nnoremap [fzf-p]L :CocCommand fzf-preview.BufferLines<cr>
+nnoremap [fzf-p]l :CocCommand fzf-preview.Lines<cr>
+nnoremap [fzf-p]h :CocCommand fzf-preview.CommandPalette<cr>
+nnoremap [fzf-p]d :CocCommand fzf-preview.DirectoryFiles<cr>
+nnoremap [fzf-p]s :CocCommand fzf-preview.GitStatus<cr>
+nnoremap [fzf-p]g :CocCommand fzf-preview.GitActions<cr>
+nnoremap [fzf-p]c :CocCommand fzf-preview.Changes<cr>
+nnoremap [fzf-p]m :CocCommand fzf-preview.Marks<cr>
 
 " Delay load coc config again, which fix the bug with coc completion does not work at first time start
 autocmd VimEnter * call timer_start(200, { tid -> execute('source ~/Projects/dotfiles/.vim/config/coc.vim')})

@@ -11,13 +11,11 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/gv.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'voldikss/vim-floaterm'
 
 Plug 'junegunn/vim-easy-align'
 xmap - <Plug>(EasyAlign)
-
-Plug 'terryma/vim-multiple-cursors'
-Plug 'voldikss/vim-floaterm'
-Plug 'liuchengxu/vim-clap'
 
 Plug 'SirVer/ultisnips'
 let g:UltiSnipsSnippetDirectories = [ "~/Projects/dotfiles/.vim/UltiSnips/" ]
@@ -134,7 +132,6 @@ source ~/Projects/dotfiles/.vim/config/tree.vim
 source ~/Projects/dotfiles/.vim/config/git.vim
 source ~/Projects/dotfiles/.vim/config/debug.vim
 source ~/Projects/dotfiles/.vim/config/devicons.vim
-source ~/Projects/dotfiles/.vim/config/clap.vim
 source ~/Projects/dotfiles/.vim/config/expand-region.vim
 source ~/Projects/dotfiles/.vim/config/fold.vim
 
