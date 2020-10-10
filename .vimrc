@@ -388,9 +388,5 @@ nnoremap <leader>d :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 xnoremap <  <gv
 xnoremap >  >gv
 
-" Move around in command mode
-cnoremap <c-h> <left>
-cnoremap <c-l> <right>
-
 " Auto equally resize windows when vim changes size
 autocmd VimResized * wincmd =
