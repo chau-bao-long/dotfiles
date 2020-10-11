@@ -31,3 +31,5 @@ nnoremap <space>gi :call vintellij#FindHierarchy()<cr>
 nnoremap <space>si :call vintellij#SuggestImports()<cr>
 
 set omnifunc=vintellij#Autocomplete
+
+call deoplete#enable()
