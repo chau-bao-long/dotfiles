@@ -186,10 +186,10 @@ fg() {
   [[ -n "$filepath" ]] && ${EDITOR:-vim} "${filepath[@]}"
 }
 
-# search and kill proccess
+# search and kill proccess which consume most cpu
 fkill() {
   local pid
-  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+  pid=$(ps -axCo pid,args,pcpu -r | head -n 10 | tail -n +2 | fzf | awk '{print $1}')
 
   if [ "x$pid" != "x" ]
   then
