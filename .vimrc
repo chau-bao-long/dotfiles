@@ -328,7 +328,7 @@ noremap <space>c] :tn<CR>
 noremap <space>c[ :tp<CR>
 inoremap zbt <Esc>a``<Esc>i
 inoremap zbs <Esc>a```<cr>```<Esc>O
-nnoremap <space>cb :bufdo bd<CR>
+nnoremap <space>cb :bufdo bd!<cr>
 nnoremap <space>9 :pwd<cr>
 nnoremap <space>8 :call common#goToCurrentFile()<cr>
 nnoremap <space>0 :call common#goBack()<cr>
