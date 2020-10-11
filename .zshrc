@@ -189,11 +189,15 @@ fg() {
 # search and kill proccess which consume most cpu
 fkill() {
   local pid
-  pid=$(ps -axCo pid,args,pcpu -r | head -n 10 | tail -n +2 | fzf | awk '{print $1}')
+  if [[ "$1" == "cpu" ]]; then
+    pid=$(ps -axCo pid,args,pcpu -r | head -n 10 | tail -n +2 | fzf | awk '{print $1}')
+  else
+    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+  fi
 
   if [ "x$pid" != "x" ]
   then
-    echo $pid | xargs sudo kill -${1:-9}
+    echo $pid | xargs sudo kill -9
   fi
 }
 
