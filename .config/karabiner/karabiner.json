@@ -153,7 +153,7 @@
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "o",
+                                    "key_code": "l",
                                     "modifiers": {
                                         "mandatory": [
                                             "right_command"
@@ -431,7 +431,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "l",
+                                    "key_code": "o",
                                     "modifiers": {
                                         "mandatory": [
                                             "right_command"
@@ -453,7 +453,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "h",
+                                    "key_code": "i",
                                     "modifiers": {
                                         "mandatory": [
                                             "right_command"
