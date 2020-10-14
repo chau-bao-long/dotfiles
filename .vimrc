@@ -335,7 +335,7 @@ nnoremap <space>cb :bufdo bd!<cr>
 nnoremap <space>9 :pwd<cr>
 nnoremap <space>8 :call common#goToCurrentFile()<cr>
 nnoremap <space>0 :call common#goBack()<cr>
-nnoremap <silent><space>rr :call common#goBackToRoot()<cr>:pwd<cr>
+nnoremap <silent><space>r :call common#goBackToRoot()<cr>:pwd<cr>
 nnoremap <space>* :call common#goToCurrentFile()<cr>:call common#goBack()<cr>
 nnoremap g- :tabm -1<cr>
 nnoremap g= :tabm +1<cr>
