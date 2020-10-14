@@ -1,6 +1,6 @@
 nmap <space>ee :call phpfunctions#runOneTest()<cr>
 nmap <space>ef :call phpfunctions#runAllTestsInFile()<cr>
-nmap <space>ip :!echo "<?php" >> % && echo "" >> % && echo %:h \| sed 's/\//\\/g' \| sed 's/^/namespace /' \| sed 's/$/; /' >> %<CR>:e!<CR>2jwvUGo<CR>
+nmap <space>ip :call phpfunctions#generatePhpDirectiveAndNamespace()<cr>
 nmap <space>is "1yiw<c-]>gg2jwvEh"2y<c-o><c-o>gg3jouse <esc>"2pA\<esc>"1pA;<esc><c-o>
 nmap <space>io yiwgg3jouse <esc>pA;<esc><c-o>
 nmap <space>il yiwgg3jo<esc>pASnip<c-space><tab><esc><c-o><esc>

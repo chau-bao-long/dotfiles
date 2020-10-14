@@ -1,11 +1,11 @@
-nmap <space>ee :call javafunctions#runOneTest(0, "--info")<cr>
-nmap <space>eE :call javafunctions#runOneTest(1, "--info")<cr>
-nmap <space>ef :call javafunctions#runAllTestsInFile(0, "--info")<cr>
-nmap <space>eF :call javafunctions#runAllTestsInFile(1)<cr>
-nmap <leader>gi :Rg override fun <C-R><C-W><CR>
-nmap <leader>gt :exec "Rg " . expand('%:t:r') . "Test"<CR>
-nmap <leader>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<CR>class
-nmap <space>ip :!echo %:p:h \| sed 's/\//\./g' \| grep -o 'kotlin\.main\..*' \| sed 's/kotlin\.//g' \| sed 's/^/package /' >> %<CR>:e!<CR>
+nnoremap <space>ee :call javafunctions#runOneTest(0, "--info")<cr>
+nnoremap <space>eE :call javafunctions#runOneTest(1, "--info")<cr>
+nnoremap <space>ef :call javafunctions#runAllTestsInFile(0, "--info")<cr>
+nnoremap <space>eF :call javafunctions#runAllTestsInFile(1)<cr>
+nnoremap <leader>gi :Rg override fun <C-R><C-W><CR>
+nnoremap <leader>gt :exec "Rg " . expand('%:t:r') . "Test"<CR>
+nnoremap <leader>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<CR>class
+nnoremap <space>ip :call javafunctions#generatePackage()<cr>
 
 nmap gf :GoToFile<cr>
 nmap gT :GoToFile tabedit<cr>
