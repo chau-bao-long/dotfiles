@@ -54,8 +54,7 @@ fu! javafunctions#generatePackage()
     call deletebufline(bufnr(), 1, 1)
   end
 
-  let l:folderPath = expand("%:h")
-  let l:path = substitute(expand("%:h"), ".*main\/kotlin\/", "", "")
+  let l:path = substitute(expand("%:p:h"), ".*main\/kotlin\/", "", "")
   let l:path = substitute(l:path, "\/", "\.", "g")
   let l:path = substitute(l:path, "\^", "package ", "")
   call appendbufline(bufnr(), 0, l:path)

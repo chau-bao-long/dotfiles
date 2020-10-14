@@ -40,8 +40,7 @@ fu! phpfunctions#generatePhpDirectiveAndNamespace()
   end
 
   call appendbufline(bufnr(), 0, "<?php")
-  let l:folderPath = expand("%:h")
-  let l:path = substitute(expand("%:h"), getcwd(), "", "")
+  let l:path = substitute(expand("%:p:h"), getcwd() . "/", "", "")
   let l:path = substitute(l:path, "\/", "\\", "g")
   let l:path = substitute(l:path, "\^", "namespace ", "")
   let l:path = substitute(l:path, "\$", "; ", "")
