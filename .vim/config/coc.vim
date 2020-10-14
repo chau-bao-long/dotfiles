@@ -128,6 +128,7 @@ nnoremap [fzf-p]g :CocCommand fzf-preview.GitActions<cr>
 nnoremap [fzf-p]c :CocCommand fzf-preview.Changes<cr>
 nnoremap [fzf-p]m :CocCommand fzf-preview.Marks<cr>
 nnoremap [fzf-p]b :CocCommand fzf-preview.Buffers<cr>
+nnoremap [fzf-p]q :CocCommand fzf-preview.QuickFix<cr>
 let g:fzf_preview_use_dev_icons = 1
 let g:fzf_preview_dev_icon_prefix_string_length = 3
 let g:fzf_preview_dev_icons_limit = 5000
