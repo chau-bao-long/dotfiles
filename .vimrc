@@ -267,8 +267,10 @@ nnoremap <silent> z/ :noh<cr>
 " ==================================================== Custom mapping
 nmap gk :tabprevious<cr>
 nmap gj :tabnext<cr>
-nmap <space>ve :tabnew ~/.vimrc<CR>
-nmap <space>vr :source ~/.vimrc<CR>
+nnoremap <space>ve :tabnew ~/.vimrc<CR>
+nnoremap <space>vr :source ~/.vimrc<CR>
+nnoremap <space>vs yy:<c-r>0<cr>
+xnoremap <space>vs y:<c-r>0<cr>
 nmap <space>wt :tabnew<cr><c-o>
 nmap <space>vv :vs<cr><C-w>l
 nmap <space>xx :split<cr><C-w>j
