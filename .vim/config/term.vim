@@ -34,9 +34,9 @@ nnoremap <leader>ts :sp\|:te<cr>i
 nnoremap <leader>tt :tabnew\|:te<cr>i
 
 function! FloatingFZF()
-    let height = float2nr((&lines - 2) / 1.42)
+    let height = float2nr((&lines - 2) / 1.1)
     let row = float2nr((&lines - height) / 2)
-    let width = float2nr(&columns / 1.42)
+    let width = float2nr(&columns / 1.12)
     let col = float2nr((&columns - width) / 2)
     let opts = {
                 \ 'relative': 'editor',
