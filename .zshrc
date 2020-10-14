@@ -257,7 +257,7 @@ gmr() {
   local gitlab=$(git remote -v | head -n1 | awk '{print $2}' | cut -d'@' -f2 | sed 's/.git//g' | sed 's/:/\//g')
 
   if [ -z "$1" ]; then
-    ticket=$(git describe --all | grep -Eo "/.*\d+-" | sed 's/\/task\///g' | sed 's/-$//g')
+    ticket=$(git describe --all | grep -Eo "/.*\d+-" | sed 's/.*\/task\///g' | sed 's/-$//g')
 
     if [ -n "$ticket" ]; then
       echo "$ticket" | xargs -I {} open https://$gitlab/merge_requests\?state=all\&search\=\{\}

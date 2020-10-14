@@ -298,12 +298,15 @@ nmap cH :let @+=expand("%:p:h")<cr>
 nmap ch :let @+=expand("%:h")<cr>
 nmap cn :let @+=expand("%:t:r")<cr>
 xmap cp "*y
-nmap cu viw"*y
-nmap c' vi'"*y
-nmap c" vi""*y
-nmap c$ T v$"*y
-nmap cl "*yy
-nmap c<space> T vt "*y
+nnoremap cu viw"*y
+nnoremap c' vi'"*y
+nnoremap c" vi""*y
+nnoremap c( vi("*y
+nnoremap c[ vi["*y
+nnoremap c{ vi{"*y
+nnoremap c$ T v$"*y
+nnoremap cl "*yy
+nnoremap c<space> T vt "*y
 nmap gv :vs<cr><c-w>lgd
 nmap gV :vs<cr><c-w>lgf
 nmap gs :sp<cr><c-w>lgd
