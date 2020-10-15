@@ -354,7 +354,6 @@ vmap <space>eq y:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<
 nmap <space>ew :call common#runCurrentCommand()<cr>
 
 " Common functions
-nnoremap zp :call common#gotoJump()<cr>
 nnoremap <space>ot :call common#openFilesFromClipboard("tabnew")<cr>
 nnoremap <space>oo :call common#openFilesFromClipboard("e")<cr>
 nnoremap <space>os :call common#openFilesFromClipboard("split")<cr>

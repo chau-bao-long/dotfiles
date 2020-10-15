@@ -1,17 +1,3 @@
-function! common#gotoJump()
-  jumps
-  let j = input("Please select your jump: ")
-  if j != ''
-    let pattern = '\v\c^\+'
-    if j =~ pattern
-      let j = substitute(j, pattern, '', 'g')
-      execute "normal " . j . "\<c-i>"
-    else
-      execute "normal " . j . "\<c-o>"
-    endif
-  endif
-endfunction
-
 fu! common#openZipFilesFromClipboard(command)
   let clipboard = @*
   if clipboard =~ '^\s*$'
