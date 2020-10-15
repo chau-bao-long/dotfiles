@@ -39,8 +39,8 @@ endfunction
 inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <c-space> viwA*<backspace>
 
-nnoremap <silent> [s <Plug>(coc-diagnostic-prev)
-nnoremap <silent> ]s <Plug>(coc-diagnostic-next)
+nnoremap [s :call CocAction('diagnosticPrevious')<cr>
+nnoremap ]s :call CocAction('diagnosticNext')<cr>
 nmap <silent> gd <Plug>(coc-definition)
 nnoremap <silent> gy <Plug>(coc-type-definition)
 nnoremap <silent> gr <Plug>(coc-references)
