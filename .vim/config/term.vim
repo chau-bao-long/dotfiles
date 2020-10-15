@@ -18,7 +18,7 @@ nnoremap <space>th :FloatermNew htop<cr>
 nnoremap <space>ty :FloatermNew ytop<cr>
 nnoremap <space>tcn :FloatermNew node<cr>
 nnoremap <space>tcp :FloatermNew python<cr>
-nnoremap <space>tch :FloatermNew php artisan tinker<cr>
+nnoremap <space>tch :FloatermNew kubectl exec -it $(kubectl get pod -l app.kubernetes.io/name=web -o=jsonpath='{$.items[:1].metadata.name}') -- php artisan tinker<cr>
 nnoremap <space>tck :FloatermNew kotlin<cr>
 nnoremap <space>tkk :FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>
 nnoremap <space>tks :FloatermNew watch kubectl get pod -owide -A<cr>
