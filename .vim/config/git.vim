@@ -1,38 +1,36 @@
-nmap <space>gl :Glog -n 100<cr>
-nmap <space>gL :Glog<cr>
-nmap <space>g0l :0Glog -n 100<cr>
-nmap <space>g0L :0Glog<cr>
-nmap <space>gd :Gdiff<cr><c-w>l
-nmap <space>gD :Gvdiffsplit!<cr>
-nmap <space>gpr :Ggrep 
-nmap <space>gr :Gread! 
-nmap <space>gw :Gwrite<cr>
-nmap <space>gbl :Gblame<cr>
-nmap <space>gbr :Gbrowse<cr>
-nmap <space>gs :Gstatus<cr>
-nmap <space>gg :Gstatus<cr><c-w>o
-nmap <space>ge :Gedit 
-nmap <space>gt .tabnew<cr>
-nmap <space>gvs :Gvsplit<cr>
-nmap <space>gsp :Gsplit<cr>
-nmap <space>gca :Gcommit --amend<cr>
-nmap <space>gci :Gcommit<cr>
-nmap <space>gpu :Gpush<cr>
-nmap <space>gpf :Gpush -f<cr>
-nmap <space>gfo :Gfetch origin<cr>
-nmap <space>gpl :Gpull<cr>
-nmap <space>gz :GitGutterFold<cr>
-nmap <space>g- :GitGutterEnable<cr>
-nmap <space>g_ :GitGutterDisable<cr>
-nmap <space>gh :GitGutterLineHighlightsToggle<cr>
-nmap <space>gj :GitGutterPreviewHunk<cr>
-nmap ]w 't:tabfirst<cr>jO
-nmap [w 't:tabfirst<cr>kO
-nmap ]d 't:tabfirst<cr>jO:Gdiff<cr><c-w>l
-nmap [d 't:tabfirst<cr>kO:Gdiff<cr><c-w>l
-nmap <space>g, [c:GitGutterPreviewHunk<cr>
-nmap <space>g. ]c:GitGutterPreviewHunk<cr>
-nmap <space>gm <c-w>o:Gedit<cr>
-nmap <space>gu :GitGutterUndoHunk<cr>
+nnoremap <space>gl :Glog -n 100<cr>
+nnoremap <space>gL :Glog<cr>
+nnoremap <space>g0l :0Glog -n 100<cr>
+nnoremap <space>g0L :0Glog<cr>
+nnoremap <space>gd :Gdiff<cr><c-w>l
+nnoremap <space>gD :Gvdiffsplit!<cr>
+nnoremap <space>gpr :Ggrep 
+nnoremap <space>gr :Gread! 
+nnoremap <space>gw :Gwrite<cr>
+nnoremap <space>gbl :Gblame<cr>
+nnoremap <space>gbr :Gbrowse<cr>
+nnoremap <space>gs :Gstatus<cr>
+nnoremap <space>gg :Gstatus<cr><c-w>o
+nnoremap <space>ge :Gedit 
+nnoremap <space>gt .tabnew<cr>
+nnoremap <space>gvs :Gvsplit<cr>
+nnoremap <space>gsp :Gsplit<cr>
+nnoremap <space>gca :Gcommit --amend<cr>
+nnoremap <space>gci :Gcommit<cr>
+nnoremap <space>gpu :Gpush<cr>
+nnoremap <space>gpf :Gpush -f<cr>
+nnoremap <space>gfo :Gfetch origin<cr>
+nnoremap <space>gpl :Gpull<cr>
+nnoremap <space>gz :GitGutterFold<cr>
+nnoremap <space>g- :GitGutterEnable<cr>
+nnoremap <space>g_ :GitGutterDisable<cr>
+nnoremap <space>gh :GitGutterLineHighlightsToggle<cr>
+nnoremap <space>gj :GitGutterPreviewHunk<cr>
+nnoremap ]w 't:tabfirst<cr>jO
+nnoremap [w 't:tabfirst<cr>kO
+nnoremap ]d 't:tabfirst<cr>jO:Gdiff<cr><c-w>l
+nnoremap [d 't:tabfirst<cr>kO:Gdiff<cr><c-w>l
+nnoremap <space>gm <c-w>o:Gedit<cr>
+nnoremap <space>gu :GitGutterUndoHunk<cr>
 
 let g:gitgutter_enabled = 0
