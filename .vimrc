@@ -308,7 +308,6 @@ nnoremap c[ vi["*y
 nnoremap c{ vi{"*y
 nnoremap c$ T v$"*y
 nnoremap cl "*yy
-nnoremap c<space> T vt "*y
 nmap gv :vs<cr><c-w>lgd
 nmap gV :vs<cr><c-w>lgf
 nmap gs :sp<cr><c-w>lgd
