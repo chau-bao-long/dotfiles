@@ -33,3 +33,6 @@ nnoremap <space>si :call vintellij#SuggestImports()<cr>
 set omnifunc=vintellij#Autocomplete
 
 call deoplete#enable()
+
+nnoremap <silent> [s :ComradePrevInsight<cr>
+nnoremap <silent> ]s :ComradeNextInsight<cr>
