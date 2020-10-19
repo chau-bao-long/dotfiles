@@ -131,6 +131,7 @@ source ~/Projects/dotfiles/.vim/config/debug.vim
 source ~/Projects/dotfiles/.vim/config/devicons.vim
 source ~/Projects/dotfiles/.vim/config/expand-region.vim
 source ~/Projects/dotfiles/.vim/config/fold.vim
+source ~/Projects/dotfiles/.vim/config/deoplete.vim
 
 " ==================================================== General Config
 filetype plugin indent on

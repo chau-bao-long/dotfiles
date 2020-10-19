@@ -57,7 +57,7 @@ endfunction
 
 function common#goBackToRoot()
   cd %:p:h
-  while stridx(execute(":!ls -a"), ".git") < 0 && strlen(execute(":pwd")) > 2
+  while stridx(execute(":!ls -la | grep '^d.*it$'"), ".git") < 0 && strlen(execute(":pwd")) > 2
     cd ..
   endwhile
 endfunction
