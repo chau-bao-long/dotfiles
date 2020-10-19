@@ -1,3 +1,5 @@
+" let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
+let g:coc_watch_extensions = ['coc-explorer']
 set guicursor=n:blinkon1
 set updatetime=300
 set shortmess+=c
@@ -104,8 +106,10 @@ nnoremap <silent> <space>aj  :<C-u>CocNext<CR>
 nnoremap <silent> <space>ak  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>ap  :<C-u>CocListResume<cr>
-" Coc source config file
-nnoremap <space>al :source ~/Projects/dotfiles/.vim/config/coc.vim<cr>
+" Open coc log
+nnoremap <space>al :CocOpenLog<cr>
+" Restart coc
+nnoremap <space>ar :CocRestart<cr>
 
 " Coc search
 nnoremap <space>sc :CocSearch <c-r><c-w><cr>
