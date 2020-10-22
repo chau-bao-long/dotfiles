@@ -68,14 +68,14 @@
                         ]
                     },
                     {
-                        "description": "Change left_control+space to backspace",
+                        "description": "Change left_command + u to backspace",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "spacebar",
+                                    "key_code": "u",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_control"
+                                            "left_command"
                                         ],
                                         "optional": [
                                             "any"
