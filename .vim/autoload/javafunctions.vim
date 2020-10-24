@@ -55,6 +55,7 @@ fu! javafunctions#generatePackage()
   end
 
   let l:path = substitute(expand("%:p:h"), ".*main\/kotlin\/", "", "")
+  let l:path = substitute(l:path, ".*test\/kotlin\/", "", "")
   let l:path = substitute(l:path, "\/", "\.", "g")
   let l:path = substitute(l:path, "\^", "package ", "")
   call appendbufline(bufnr(), 0, l:path)
