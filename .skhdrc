@@ -7,8 +7,8 @@ cmd + shift - return: yabai -m window --swap east; yabai -m window --focus west
 cmd - return: yabai -m window --swap west
 
 # adjust window size
-cmd - h: yabai -m window --resize right:-100:0
-cmd - l: yabai -m window --resize right:100:0
+cmd - h: yabai -m window --resize right:-100:0; yabai -m window --resize left:-100:0
+cmd - l: yabai -m window --resize right:100:0; yabai -m window --resize left:100:0
 
 # change layout
 cmd - t: yabai -m config layout bsp
