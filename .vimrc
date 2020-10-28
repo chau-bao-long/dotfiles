@@ -283,12 +283,13 @@ nmap <script> <silent> <space>3 :copen 1000<cr>
 nmap <script> <silent> <space>2 :call ToggleQuickfixList()<cr>
 nmap <space>w <c-w>
 nmap <space>w<cr> <c-w>r<c-w>h<c-w>60>
-nmap 'w :wa!<CR>
-nmap 'q :wq<CR>
-nmap 'e :q!<CR>
-nmap 'E :qa!<CR>
-nmap 'r :edit!<cr>
-nmap 't :tabclose<cr>
+nnoremap 'w :wa!<CR>
+nnoremap 'W :w !sudo tee %<cr>
+nnoremap 'q :wq<CR>
+nnoremap 'e :q!<CR>
+nnoremap 'E :qa!<CR>
+nnoremap 'r :edit!<cr>
+nnoremap 't :tabclose<cr>
 nmap <C-j> <C-d>
 nmap <C-k> <C-u>
 nmap <C-h> <C-e><C-e><C-e><C-e><C-e>

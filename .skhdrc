@@ -2,9 +2,8 @@
 cmd - k: yabai -m window --focus prev
 cmd - j: yabai -m window --focus next
 
-# swap managed window
-cmd + shift - return: yabai -m window --swap east; yabai -m window --focus west
-cmd - return: yabai -m window --swap west
+# swap managed window become master window
+cmd - return: yabai -m window --swap west || yabai -m window --swap east && yabai -m window --focus west
 
 # adjust window size
 cmd - h: yabai -m window --resize right:-100:0; yabai -m window --resize left:-100:0
@@ -98,7 +97,7 @@ ctrl + alt - t : yabai -m window --toggle float;\
 # restart yabai
 cmd + alt + ctrl - r: brew services restart yabai
 
-cmd + ctrl - return :open -na alacritty
+cmd + shift - return :open -na alacritty
 cmd - u :open -na AlacrittyPopup --args -e zsh -ci "frun ~/local/syscmds"
 cmd - p :open -na AlacrittyPopup --args -e zsh -ci "fapp"
 cmd + ctrl - p :open -na AlacrittyPopup --args -e zsh -ci "fpass"
