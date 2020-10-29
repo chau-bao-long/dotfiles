@@ -6,6 +6,17 @@
       "command": "terraform-lsp",
       "filetypes": ["terraform"],
       "initializationOptions": {}
+    },
+    "vintellij":{
+        "host": "127.0.0.1",
+        "port": 6969,
+        "rootPatterns": [
+          ".git/"
+        ],
+        "filetypes": [
+            "java",
+            "kotlin"
+        ]
     }
   },
 

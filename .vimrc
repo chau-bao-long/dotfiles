@@ -50,7 +50,9 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/NrrwRgn'
-Plug 'chau-bao-long/Comrade'
+
+Plug 'dinhhuy258/vintellij', {'branch': 'lsp-stable'}
+let g:vintellij_use_default_keymap = 0
 
 Plug 'chau-bao-long/java-kotlin-gf'
 let g:srcPath = ["/app/build/generated-jooq/"]
