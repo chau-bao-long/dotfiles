@@ -108,8 +108,10 @@ nnoremap <silent> <space>ak  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>ap  :<C-u>CocListResume<cr>
 " Open coc log
 nnoremap <space>al :CocOpenLog<cr>
+" Open coc log
+nnoremap <space>ai :CocInfo<cr>
 " Open coc config
-nnoremap <space>ag :CocConfig<cr>
+nnoremap <space>ag :tabnew \| CocConfig<cr>
 " Restart coc
 nnoremap <space>ar :CocRestart<cr>
 
