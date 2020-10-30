@@ -88,6 +88,8 @@ onoremap if <Plug>(coc-funcobj-i)
 onoremap af <Plug>(coc-funcobj-a)
 
 " Using CocList
+" Show all coc list in fzf
+nnoremap <silent> <space>af  :CocFzfList<cr>
 " Show all diagnostics
 nnoremap <silent> <space>aa  :CocFzfList diagnostics<cr>
 " Manage extensions
@@ -98,8 +100,6 @@ nnoremap <silent> <space>ac  :CocFzfList commands<cr>
 nnoremap <silent> <space>ao  :CocFzfList outline<cr>
 " Search workspace symbols
 nnoremap <silent> <space>as  :CocFzfList symbols<cr>
-" Actions
-nnoremap <silent> <space>af  :CocFzfList actions<cr>
 " Do default action for next item.
 nnoremap <silent> <space>aj  :<C-u>CocNext<CR>
 " Do default action for previous item.
