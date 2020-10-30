@@ -16,8 +16,7 @@
         "filetypes": [
             "java",
             "kotlin"
-        ],
-        "enable": false
+        ]
     }
   },
 

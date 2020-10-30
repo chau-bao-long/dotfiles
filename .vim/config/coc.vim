@@ -94,6 +94,8 @@ nnoremap <silent> <space>af  :CocFzfList<cr>
 nnoremap <silent> <space>aa  :CocFzfList diagnostics<cr>
 " Manage extensions
 nnoremap <silent> <space>ae  :CocFzfList extensions<cr>
+" Manage services
+nnoremap <silent> <space>aw  :CocFzfList services<cr>
 " Show commands
 nnoremap <silent> <space>ac  :CocFzfList commands<cr>
 " Find symbol of current document
