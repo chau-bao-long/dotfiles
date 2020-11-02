@@ -154,6 +154,7 @@ alias pc=~/Projects/personio/personio/perctl
 # quickly go to project
 fper() { cd ~/Projects/personio/$(ls ~/Projects/personio/ | fzf) }
 fpro() { cd ~/Projects/$(ls ~/Projects/ | fzf) }
+fvim() { cd ~/.vim/plugged/$(ls ~/.vim/plugged/ | fzf) }
 ff() { cd ./$(ls | fzf) }
 
 fpass() {

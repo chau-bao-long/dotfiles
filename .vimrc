@@ -163,7 +163,7 @@ if !exists('g:syntax_on')
 endif
 
 " ==================================================== Theme
-colorscheme aurora
+colorscheme TSnazzy
 
 set background=dark
 set termguicolors

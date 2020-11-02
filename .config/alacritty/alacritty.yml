@@ -63,7 +63,7 @@ window:
   startup_mode: Windowed
 
   # Window title
-  #title: Alacritty
+  title: Alacritty
 
   # Window class (Linux only):
   #class: Alacritty
@@ -136,7 +136,7 @@ font:
     style: Italic
 
   # Point size
-  size: 12.0
+  size: 12.5
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -172,57 +172,35 @@ draw_bold_text_with_bright_colors: true
 
 # KDE Breeze (Ported from Konsole)
 colors:
-  # Default colors
   primary:
     background: '0x000000'
-    foreground: '#20C20E'
+    foreground: '0xabb2bf'
 
-    dim_foreground: '0xeff0f1'
-    bright_foreground: '0xffffff'
-    dim_background: '0x31363b'
-    bright_background: '0x000000'
+  cursor:
+    text: '0x5c6370'
+    cursor: '0xabb2bf'
 
   # Normal colors
   normal:
-    black: '0x232627'
-    red: '0xed1515'
-    green: '0x11d116'
-    yellow: '0xf67400'
-    blue: '0x1d99f3'
-    magenta: '0x9b59b6'
-    cyan: '0x1abc9c'
-    white: '0xfcfcfc'
+    black:   '0x5c6370'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xe5c07b'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0xabb2bf'
 
   # Bright colors
   bright:
-    black: '0x7f8c8d'
-    red: '0xc0392b'
-    green: '0x1cdc9a'
-    yellow: '0xfdbc4b'
-    blue: '0x3daee9'
-    magenta: '0x8e44ad'
-    cyan: '0x16a085'
-    white: '0xffffff'
-
-  # Dim colors
-  dim:
-    black: '0x31363b'
-    red: '0x783228'
-    green: '0x17a262'
-    yellow: '0xb65619'
-    blue: '0x1b668f'
-    magenta: '0x614a73'
-    cyan: '0x186c60'
-    white: '0x63686d'
-  # Indexed Colors
-  #
-  # The indexed colors include all colors from 16 to 256.
-  # When these are not set, they're filled with sensible defaults.
-  #
-  # Example:
-  #   `- { index: 16, color: '0xff00ff' }`
-  #
-  indexed_colors: []
+    black:   '0x4b5263'
+    red:     '0xbe5046'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0x3e4452'
 
 # Visual Bell
 #
