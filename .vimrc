@@ -34,11 +34,13 @@ let g:firenvim_config = {
     \ }
 \ }
 
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
+Plug 'udalov/kotlin-vim'
 Plug 'honza/vim-snippets'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'justinmk/vim-sneak'
-Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -97,7 +99,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
 Plug 'thoughtbot/vim-rspec'
 Plug 'pangloss/vim-javascript'
-Plug 'jelera/vim-javascript-syntax'
 Plug 'MaxMEllon/vim-jsx-pretty'
 
 Plug 'editorconfig/editorconfig-vim'
@@ -133,6 +134,7 @@ source ~/Projects/dotfiles/.vim/config/debug.vim
 source ~/Projects/dotfiles/.vim/config/devicons.vim
 source ~/Projects/dotfiles/.vim/config/expand-region.vim
 source ~/Projects/dotfiles/.vim/config/fold.vim
+lua require 'treesitter'
 
 " ==================================================== General Config
 filetype plugin indent on
@@ -161,6 +163,8 @@ if !exists('g:syntax_on')
 endif
 
 " ==================================================== Theme
+colorscheme aurora
+
 set background=dark
 set termguicolors
 set t_Co=256
@@ -171,7 +175,6 @@ let g:lightline = {
   \   'filename': 'LightlineFilename',
   \ }
   \ }
-colorscheme ayu
 
 function! LightlineFilename()
   let root = fnamemodify(get(b:, 'git_dir'), ':h')
@@ -181,6 +184,13 @@ function! LightlineFilename()
   endif
   return expand('%')
 endfunction
+
+let g:nvcode_termcolors=256
+
+if (has("termguicolors"))
+  set termguicolors
+  hi LineNr ctermbg=NONE guibg=NONE
+endif
 
 " ==================================================== Highlight
 hi Search cterm=NONE ctermfg=NONE ctermbg=240 guifg=NONE guibg=#585858
