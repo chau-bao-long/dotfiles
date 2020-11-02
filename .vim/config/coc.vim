@@ -44,9 +44,9 @@ nnoremap <c-space> viwA*<backspace>
 nnoremap [s :call CocAction('diagnosticPrevious')<cr>
 nnoremap ]s :call CocAction('diagnosticNext')<cr>
 nmap <silent> gd <Plug>(coc-definition)
-nnoremap <silent> gy <Plug>(coc-type-definition)
-nnoremap <silent> gr <Plug>(coc-references)
-nnoremap <silent> <space>gi <Plug>(coc-implementation)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gn <Plug>(coc-implementation)
 
 " Show documentation in preview window
 nnoremap <space>ad :call <SID>show_documentation()<CR>

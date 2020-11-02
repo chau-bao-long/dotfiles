@@ -52,6 +52,7 @@ Plug 'chrisbra/NrrwRgn'
 
 Plug 'dinhhuy258/vintellij', {'branch': 'lsp-stable'}
 let g:vintellij_use_default_keymap = 0
+nnoremap <space>vi :VintellijEnable<cr>
 
 Plug 'chau-bao-long/java-kotlin-gf'
 let g:srcPath = ["/app/build/generated-jooq/"]

@@ -17,7 +17,8 @@
         "filetypes": [
             "java",
             "kotlin"
-        ]
+        ],
+        "additionalSchemes": ["jar", "zipfile"]
     }
   },
 

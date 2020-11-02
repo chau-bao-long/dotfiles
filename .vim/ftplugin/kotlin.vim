@@ -13,10 +13,5 @@ nmap gT :GoToFile tabedit<cr>
 " Easy switching between vim and intelliJ
 nnoremap <silent> <space>oi :exec "Dispatch! idea --line " . line('.') . " " . expand('%:p')<cr>
 
-nnoremap gl viw<esc>b:VintellijGoToDefinition<cr>
 nnoremap go :VintellijOpenFile<cr>
-nnoremap gr :VintellijFindUsage<cr>
-nnoremap <space>si :call VintellijSuggestImports<cr>
-
-nnoremap <silent> [s :VintellijPrevInsight<cr>
-nnoremap <silent> ]s :VintellijNextInsight<cr>
+nnoremap <space>si :VintellijSuggestImports<cr>
