@@ -382,6 +382,10 @@ xnoremap <space>! "gy:call common#google(@g, 1)<cr>
 nnoremap <space>Wh :call common#moveToPrevTab()<cr><c-w>H
 nnoremap <space>Wl :call common#moveToNextTab()<cr><c-w>H
 nnoremap <space>we :call common#moveToOppositeWindow()<cr>
+nnoremap <space>sp :call common#selectProject("~/Projects/personio", function("common#openFileInProjectHandler"), 0)<cr>
+nnoremap <space>sP :call common#selectProject("~/Projects", function("common#openFileInProjectHandler"), 0)<cr>
+nnoremap <space>sg :call common#selectProject("~/Projects/personio", function("common#grepInProjectHandler"), 0)<cr>
+nnoremap <space>sG :call common#selectProject("~/Projects", function("common#grepInProjectHandler"), 0)<cr>
 
 " Quickly move current line
 nnoremap <c-n> :m .+1<CR>==
