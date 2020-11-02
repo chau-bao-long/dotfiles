@@ -102,10 +102,7 @@ let s:menus.directories.directory_candidates = [
             \ ['📂 vim config', '~/Projects/dotfiles/.vim/config/'],
             \ ['📂 vim filetype', '~/.vim/ftplugin/'],
             \ ['📂 vim functions', '~/Projects/dotfiles/.vim/autoload/'],
-            \ ]
-let s:menus.directories.command_candidates = [
-            \ ['📂 folder vim pluged', 'tabnew ~/.vim/plugged/'],
-            \ ['📂 folder user config', 'tabnew ~/.config/'],
+            \ ['📂 lua config', '~/Projects/dotfiles/.vim/lua/'],
             \ ]
 let s:menus.commands = {
             \ 'description': '💾 Frequently used commands'
