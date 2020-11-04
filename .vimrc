@@ -13,6 +13,8 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/gv.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'voldikss/vim-floaterm'
+Plug 'szw/vim-maximizer'
+nnoremap <space>wm :MaximizerToggle<cr>
 
 Plug 'junegunn/vim-easy-align'
 xmap - <Plug>(EasyAlign)
@@ -35,6 +37,9 @@ let g:firenvim_config = {
 \ }
 
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/telescope.nvim'
 Plug 'christianchiarulli/nvcode-color-schemes.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'honza/vim-snippets'
@@ -134,6 +139,7 @@ source ~/Projects/dotfiles/.vim/config/debug.vim
 source ~/Projects/dotfiles/.vim/config/devicons.vim
 source ~/Projects/dotfiles/.vim/config/expand-region.vim
 source ~/Projects/dotfiles/.vim/config/fold.vim
+source ~/Projects/dotfiles/.vim/config/actions.vim
 lua require 'treesitter'
 
 " ==================================================== General Config
@@ -163,7 +169,7 @@ if !exists('g:syntax_on')
 endif
 
 " ==================================================== Theme
-colorscheme TSnazzy
+colorscheme onedark
 
 set background=dark
 set termguicolors
@@ -333,6 +339,7 @@ nnoremap g\ :tabnew<cr><c-o><c-]>
 vnoremap m <esc>ggVG
 vnoremap o <esc>T vt 
 vnoremap O <esc>T v$
+nnoremap me :messages<cr>
 
 " Better copy/paste behavior
 set pastetoggle=<space>4

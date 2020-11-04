@@ -191,7 +191,7 @@ autocmd Filetype javascript,javascriptreact,typescript,typescriptreact nmap <buf
 autocmd Filetype kotlin,java,groovy nmap <buffer> <space>k :Denite menu:kotlin<cr>
 autocmd Filetype php nmap <buffer> <space>k :Denite menu:php<cr>
 
-nnoremap <space><space> :Denite menu<cr>
+nnoremap <space>mm :Denite menu<cr>
 nnoremap <space>mc :Denite menu:ctags<cr>
 nnoremap <space>md :Denite menu:directories<cr>
 nnoremap <space>mb :Denite menu:binfiles<cr>
