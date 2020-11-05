@@ -53,7 +53,6 @@ Plug 'antoinemadec/coc-fzf'
 Plug 'vim-vdebug/vdebug'
 Plug 'idanarye/vim-vebugger', {'branch': 'develop'}
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/NrrwRgn'
 
@@ -127,7 +126,6 @@ if filereadable(expand("~/Projects/dotfiles/.vim/config/secrets.vim"))
 endif
 source ~/Projects/dotfiles/.vim/config/term.vim
 source ~/Projects/dotfiles/.vim/config/fzf.vim
-source ~/Projects/dotfiles/.vim/config/denite.vim
 source ~/Projects/dotfiles/.vim/config/multicursor.vim
 source ~/Projects/dotfiles/.vim/config/ale.vim
 source ~/Projects/dotfiles/.vim/config/coc.vim
