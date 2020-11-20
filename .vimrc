@@ -58,7 +58,9 @@ Plug 'chrisbra/NrrwRgn'
 
 Plug 'dinhhuy258/vintellij', {'branch': 'lsp-stable'}
 let g:vintellij_use_default_keymap = 0
-nnoremap <space>vi :VintellijEnable<cr>
+let g:enable_buffer_sync_by_default = 0
+nnoremap <space>vi :VintellijToggle<cr>
+nnoremap <space>vI :VintellijToggle!<cr>
 
 Plug 'chau-bao-long/java-kotlin-gf'
 let g:srcPath = ["/app/build/generated-jooq/"]
@@ -298,7 +300,8 @@ nmap <script> <silent> <space>3 :copen 1000<cr>
 nmap <script> <silent> <space>2 :call ToggleQuickfixList()<cr>
 nmap <space>w <c-w>
 nmap <space>w<cr> <c-w>r<c-w>h<c-w>60>
-nnoremap 'w :wa!<CR>
+nnoremap 'w :w!<CR>
+nnoremap 'a :wa!<CR>
 nnoremap 'W :w !sudo tee %<cr>
 nnoremap 'q :wq<CR>
 nnoremap 'e :q!<CR>

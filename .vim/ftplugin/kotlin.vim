@@ -15,3 +15,7 @@ nnoremap <silent> <space>oi :exec "Dispatch! idea --line " . line('.') . " " . e
 
 nnoremap go :VintellijOpenFile<cr>
 nnoremap <space>si :VintellijSuggestImports<cr>
+nnoremap <space>v- :VintellijSyncBufferToggle<cr>
+nnoremap <space>v_ :VintellijSyncBufferToggle!<cr>
+nnoremap [s :ComradePrevInsight<cr>
+nnoremap ]s :ComradeNextInsight<cr>
