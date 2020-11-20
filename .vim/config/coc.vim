@@ -25,7 +25,7 @@ let g:global_extensions = [
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
-hi CocHighlightText guibg=#262626 guifg=#61B440
+hi CocHighlightText guibg=#262626 guifg=#b0ff57
 
 " Improve the completion experience
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
