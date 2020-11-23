@@ -33,4 +33,4 @@ nnoremap [d 't:tabfirst<cr>kO:Gdiff<cr><c-w>l
 nnoremap <space>gm <c-w>o:Gedit<cr>
 nnoremap <space>gu :GitGutterUndoHunk<cr>
 
-let g:gitgutter_enabled = 0
+let g:gitgutter_enabled = 1

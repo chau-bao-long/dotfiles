@@ -37,7 +37,7 @@
   "explorer.floating.hideOnCocList": false,
   "explorer.floating.width": 120,
   "explorer.floating.height": 0,
-  "explorer.keyMappings": {
+  "explorer.keyMappings.global": {
     "v": "open:vsplit",
     "o": ["expandable?", "expand", "open"]
   }
