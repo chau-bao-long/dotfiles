@@ -300,6 +300,9 @@ nmap <script> <silent> <space>3 :copen 1000<cr>
 nmap <script> <silent> <space>2 :call ToggleQuickfixList()<cr>
 nmap <space>w <c-w>
 nmap <space>w<cr> <c-w>r<c-w>h<c-w>60>
+nnoremap <space>w1 :call nvim_win_close(win_getid(1), 0)<cr>
+nnoremap <space>w2 :call nvim_win_close(win_getid(2), 0)<cr>
+nnoremap <space>w3 :call nvim_win_close(win_getid(3), 0)<cr>
 nnoremap 'w :w!<CR>
 nnoremap 'a :wa!<CR>
 nnoremap 'W :w !sudo tee %<cr>
