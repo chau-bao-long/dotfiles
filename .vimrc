@@ -56,6 +56,12 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/NrrwRgn'
 
+Plug 'AndrewRadev/sideways.vim'
+nnoremap <space>sl :SidewaysJumpRight<cr>
+nnoremap <space>sh :SidewaysJumpLeft<cr>
+nnoremap <space>sL :SidewaysRight<cr>
+nnoremap <space>sH :SidewaysLeft<cr>
+
 Plug 'dinhhuy258/vintellij', {'branch': 'lsp-stable'}
 let g:vintellij_use_default_keymap = 0
 let g:enable_buffer_sync_by_default = 0
