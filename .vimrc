@@ -339,13 +339,13 @@ nnoremap c$ T v$"*y
 nnoremap cl "*yy
 nmap gv :vs<cr><c-w>lgd
 nmap gV :vs<cr><c-w>lgf
-nmap gs :sp<cr><c-w>lgd
-nmap gS :sp<cr><c-w>lgf
+nmap gs :sp<cr><c-w>jgd
+nmap gS :sp<cr><c-w>jgf
 nmap gt :tabnew<cr><c-o>gd
 nmap gT :tabnew<cr><c-o>gf
-nnoremap g' :vs<cr><c-w>l<c-]>
-nnoremap g" :sp<cr><c-]>
-nnoremap g\ :tabnew<cr><c-o><c-]>
+nmap g' :vs<cr><c-w>l<c-]>
+nmap g" :sp<cr><c-]>
+nmap g\ :tabnew<cr><c-o><c-]>
 vnoremap m <esc>ggVG
 vnoremap o <esc>T vt 
 vnoremap O <esc>T v$
