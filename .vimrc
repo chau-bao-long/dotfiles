@@ -39,7 +39,7 @@ let g:firenvim_config = {
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-lua/telescope.nvim'
+Plug 'chau-bao-long/telescope.nvim'
 Plug 'christianchiarulli/nvcode-color-schemes.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'honza/vim-snippets'
