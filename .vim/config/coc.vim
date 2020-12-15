@@ -47,6 +47,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> <space>ca <Plug>(coc-codeaction)
 
 " Show documentation in preview window
 nnoremap <space>ad :call <SID>show_documentation()<CR>
@@ -91,7 +92,7 @@ onoremap af <Plug>(coc-funcobj-a)
 " Show all coc list in fzf
 nnoremap <silent> <space>af  :CocFzfList<cr>
 " Show all diagnostics
-nnoremap <silent> <space>aa  :CocFzfList diagnostics<cr>
+nnoremap <silent> <space>aa  :CocFzfList actions<cr>
 " Manage extensions
 nnoremap <silent> <space>ae  :CocFzfList extensions<cr>
 " Manage services
