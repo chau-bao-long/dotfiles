@@ -369,8 +369,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "y": -4000,
-                                            "speed_multiplier": 1.2
+                                            "speed_multiplier": 1.2,
+                                            "y": -4000
                                         }
                                     }
                                 ],
@@ -391,8 +391,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "y": -1000,
-                                            "speed_multiplier": 1.2
+                                            "speed_multiplier": 1.2,
+                                            "y": -1000
                                         }
                                     }
                                 ],
@@ -420,8 +420,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "x": -4000,
-                                            "speed_multiplier": 1.2
+                                            "speed_multiplier": 1.2,
+                                            "x": -4000
                                         }
                                     }
                                 ],
@@ -442,8 +442,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "x": -1000,
-                                            "speed_multiplier": 1.2
+                                            "speed_multiplier": 1.2,
+                                            "x": -1000
                                         }
                                     }
                                 ],
@@ -471,8 +471,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "y": 4000,
-                                            "speed_multiplier": 1.2
+                                            "speed_multiplier": 1.2,
+                                            "y": 4000
                                         }
                                     }
                                 ],
@@ -493,8 +493,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "y": 1000,
-                                            "speed_multiplier": 1.2
+                                            "speed_multiplier": 1.2,
+                                            "y": 1000
                                         }
                                     }
                                 ],
@@ -522,8 +522,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "x": 4000,
-                                            "speed_multiplier": 1.2
+                                            "speed_multiplier": 1.2,
+                                            "x": 4000
                                         }
                                     }
                                 ],
@@ -544,8 +544,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "x": 1000,
-                                            "speed_multiplier": 1.2
+                                            "speed_multiplier": 1.2,
+                                            "x": 1000
                                         }
                                     }
                                 ],
@@ -566,8 +566,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "vertical_wheel": -50,
-                                            "speed_multiplier": 1.2
+                                            "speed_multiplier": 1.2,
+                                            "vertical_wheel": -50
                                         }
                                     }
                                 ],
@@ -588,8 +588,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "vertical_wheel": 50,
-                                            "speed_multiplier": 1.2
+                                            "speed_multiplier": 1.2,
+                                            "vertical_wheel": 50
                                         }
                                     }
                                 ],
@@ -654,8 +654,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "vertical_wheel": -50,
-                                            "speed_multiplier": 1.2
+                                            "speed_multiplier": 1.2,
+                                            "vertical_wheel": -50
                                         }
                                     }
                                 ],
@@ -676,8 +676,8 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "vertical_wheel": 50,
-                                            "speed_multiplier": 1.2
+                                            "speed_multiplier": 1.2,
+                                            "vertical_wheel": 50
                                         }
                                     }
                                 ],
@@ -725,7 +725,59 @@
                     }
                 ]
             },
-            "devices": [],
+            "devices": [
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 30276,
+                        "vendor_id": 3141
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": false,
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "left_option"
+                            },
+                            "to": {
+                                "key_code": "left_command"
+                            }
+                        },
+                        {
+                            "from": {
+                                "key_code": "left_command"
+                            },
+                            "to": {
+                                "key_code": "left_option"
+                            }
+                        },
+                        {
+                            "from": {
+                                "key_code": "right_option"
+                            },
+                            "to": {
+                                "key_code": "right_command"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 632,
+                        "vendor_id": 1452
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": []
+                }
+            ],
             "fn_function_keys": [
                 {
                     "from": {
