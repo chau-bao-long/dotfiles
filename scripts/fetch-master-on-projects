@@ -1,0 +1,33 @@
+#! /bin/bash
+
+# --------------------------------------------------------------------------------------------------
+# Usage:
+# fetch-master-on-projects <projects-dir>
+# --------------------------------------------------------------------------------------------------
+
+RED='\033[0;31m'
+NC='\033[0m'
+
+run_sync() {
+  printf "${RED}CHECKOUT${NC} master $1 \n"
+  git -C "$p" fetch origin master && git -C "$1" checkout origin/master
+  printf "${RED}DONE${NC} checkout $1 \n"
+  echo " "
+  echo " "
+}
+
+run_async() {
+  git -C "$1" fetch origin master && git -C "$1" checkout origin/master &
+}
+
+for p in "$1"/* ; do
+  (
+    cd "$p" || return
+    if [[ $(git describe --all) == *master* || $(git describe --all) == "remotes/origin/HEAD" ]]; then
+      run_sync "$p"
+    else
+      printf "${RED}SKIP${NC} checkout $1 \n"
+      echo " "
+    fi
+  )
+done
