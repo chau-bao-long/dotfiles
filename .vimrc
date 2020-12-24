@@ -309,6 +309,8 @@ nmap <space>w<cr> <c-w>r<c-w>h<c-w>60>
 nnoremap <space>w1 :call nvim_win_close(win_getid(1), 0)<cr>
 nnoremap <space>w2 :call nvim_win_close(win_getid(2), 0)<cr>
 nnoremap <space>w3 :call nvim_win_close(win_getid(3), 0)<cr>
+nnoremap <space>w4 :call nvim_win_close(win_getid(4), 0)<cr>
+nnoremap <space>w5 :call nvim_win_close(win_getid(5), 0)<cr>
 nnoremap 'w :w!<CR>
 nnoremap 'a :wa!<CR>
 nnoremap 'W :w !sudo tee %<cr>
