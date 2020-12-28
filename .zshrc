@@ -407,6 +407,7 @@ zle -N zle-keymap-select
 # prefix edddddddddd to remove all current text lines before execute command
 bindkey -s "^[f" "\edddddddddd iranger\n"
 bindkey -s "^[r" "\edddddddddd i./run.sh "
+bindkey -s "^[s" "\edddddddddd icht.sh "
 bindkey -s "^k" "\edddddddddd ifrun ~/local/cmds\n"
 bindkey -s "^u" "\edddddddddd i"
 bindkey -s "^[a" "\edddddddddd ifpass\n"
