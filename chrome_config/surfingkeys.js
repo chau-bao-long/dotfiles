@@ -1,13 +1,13 @@
 // an example to create a new mapping `ctrl-y`
 mapkey('<Ctrl-y>', 'Show me the money', function() {
-    Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
+    Front.showPopup('hello, a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
 });
 
 map('<Ctrl-h>', 'S');
 map('<Ctrl-l>', 'D');
 
-settings.omnibarPosition = "top";
-settings.hintAlign = "left";
+settings.omnibarPosition = "middle";
+Hints.characters = "asdfjklweoiup";
 
 settings.theme = `
 .sk_theme input {
