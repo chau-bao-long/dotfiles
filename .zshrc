@@ -49,7 +49,10 @@ zsh-defer source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.z
 
 export GPG_TTY=`tty`
 
-# Add android PATH
+# Add Java path
+export JAVA_HOME=$(/usr/libexec/java_home -v 11.0.9.1)
+
+# Add Android path
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
