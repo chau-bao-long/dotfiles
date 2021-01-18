@@ -145,6 +145,35 @@ kct () { kubectl config use-context $1 }
 kns () { kubectl config set-context $(kubectl config current-context) --namespace=$1 }
 kdevict() { kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod }
 
+__pick_container() {
+  pod=$1
+  containers=$(kubectl get pod $pod -o jsonpath='{.spec.containers[*].name}')
+  if [ $(echo $containers | wc -w) -gt 1 ]; then
+    container=$(echo $containers | tr " " "\n" | fzf)
+  else
+    container=$containers
+  fi
+  echo $container
+}
+
+fke() {
+  pod=$(kubectl get pods | awk '{print $1}' | tail -n +2 | fzf)
+  container=$(__pick_container $pod)
+  kubectl exec -it $pod -c $container -- ${1:-"sh"}
+}
+
+fkl() {
+  tmp_log='/tmp/k8s.log'
+  pod=$(kubectl get pods | awk '{print $1}' | tail -n +2 | fzf)
+  container=$(__pick_container $pod)
+  kubectl logs -f $pod -c $container > $tmp_log &
+  job=$(jobs -p | grep -Eo '\[\d+\]' | grep -o "\d")
+  lnav $tmp_log
+  kill "%${job}"
+  rm $tmp_log
+}
+
+
 # some custom alias and functions
 alias v=nvim
 alias pdf=zathura
