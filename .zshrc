@@ -161,6 +161,11 @@ kdes() {
   kubectl describe pod $pod
 }
 
+kedit() {
+  resource=$(kubectl get $1 | tail -n +2 | fzf --border="sharp" --header="select $1 to edit" | awk '{print $1}')
+  kubectl edit $1 $resource
+}
+
 kexe() {
   pod=$(__pick_pod)
   container=$(__pick_container $pod)
