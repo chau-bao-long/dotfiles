@@ -128,16 +128,8 @@ alias dp="docker ps"
 # kubernetes shortcut
 alias k='kubectl'
 alias kk='kubectl get all'
-alias wk='watch kubectl get all'
 alias kga='kubectl get --all-namespaces'
 alias kg='kubectl get'
-alias kc='kubectl create -f'
-alias ka='kubectl apply -f'
-alias kdel='kubectl delete -f'
-alias kcdel='kubectl delete configmap'
-alias kd='kubectl describe'
-alias kl='kubectl logs'
-alias ke='kubectl exec -it'
 alias kcontext='kubectl config set-context $(kubectl config current-context)' # add --namespace=<ns>
 alias kdelete='kubectl delete --grace-period=0 --force po'
 alias kwp='watch kubectl get pod -owide'
@@ -146,26 +138,39 @@ kns () { kubectl config set-context $(kubectl config current-context) --namespac
 kdevict() { kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod }
 
 __pick_container() {
-  pod=$1
-  containers=$(kubectl get pod $pod -o jsonpath='{.spec.containers[*].name}')
+  containers=$(kubectl get pod $1 -o jsonpath='{.spec.containers[*].name}')
   if [ $(echo $containers | wc -w) -gt 1 ]; then
-    container=$(echo $containers | tr " " "\n" | fzf)
+    container=$(echo $containers | tr " " "\n" | fzf --border="sharp")
   else
     container=$containers
   fi
   echo $container
 }
 
-fke() {
-  pod=$(kubectl get pods | awk '{print $1}' | tail -n +2 | fzf)
+__pick_pod() {
+  kubectl get pods | tail -n +2 | fzf --border="sharp" | awk '{print $1}'
+}
+
+kdel() {
+  resource=$(kubectl get $1 | tail -n +2 | fzf --border="sharp" --header="select $1 to delete" | awk '{print $1}')
+  kubectl delete $1 $resource
+}
+
+kdes() {
+  pod=$(__pick_pod)
+  kubectl describe pod $pod
+}
+
+kexe() {
+  pod=$(__pick_pod)
   container=$(__pick_container $pod)
   kubectl exec -it $pod -c $container -- ${1:-"sh"}
 }
 
-fkl() {
-  tmp_log='/tmp/k8s.log'
-  pod=$(kubectl get pods | awk '{print $1}' | tail -n +2 | fzf)
+klog() {
+  pod=$(__pick_pod)
   container=$(__pick_container $pod)
+  tmp_log='/tmp/k8s.log'
   kubectl logs -f $pod -c $container > $tmp_log &
   job=$(jobs -p | grep -Eo '\[\d+\]' | grep -o "\d")
   lnav $tmp_log
