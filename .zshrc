@@ -2,24 +2,15 @@
 source ~/.zsh-defer/zsh-defer.plugin.zsh
 PS1="%F{12}%~%f "
 RPS1="%F{240}Loading...%f"
-
-# Backup good themes:
-# ZSH_THEME="jnrowe"
-# ZSH_THEME="spaceship"
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 
 # Current theme         https://github.com/sindresorhus/pure
 # How to install        npm install --global pure-prompt
 zstyle :prompt:pure:path color white
-zstyle ':prompt:pure:prompt:*' color cyan
+zstyle ':prompt:pure:prompt:*' color green
 zstyle :prompt:pure:git:stash show yes
-
-plugins=(
-  git
-  osx
-  zsh-completions
-  pass
-  vi-mode
-)
 
 # Hightlight syntax for manual page
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
@@ -37,14 +28,11 @@ export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 export GROFF_NO_SGR=1         # For Konsole and Gnome-terminal
 
-autoload -U compinit && compinit
-
 export LC_ALL=en_US.UTF-8
-export ZSH=~/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
 zsh-defer source ~/Projects/dotfiles/scripts/z.sh
 zsh-defer source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 zsh-defer source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+zsh-defer source ~/.zsh/zsh-completions/zsh-completions.plugin.zsh
 [ -f ~/.fzf.zsh ] && zsh-defer source ~/.fzf.zsh
 
 export GPG_TTY=`tty`

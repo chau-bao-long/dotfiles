@@ -198,7 +198,6 @@ install_zsh() {
   if [[ $response =~ (y|yes|Y) ]];then
     brew install zsh
     sudo chsh -s $(which zsh)
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     if [ ! -d ~/.zsh-defer ]; then
       git clone https://github.com/romkatv/zsh-defer.git ~/.zsh-defer
     fi
@@ -208,17 +207,10 @@ install_zsh() {
     if [ ! -d ~/.zsh/zsh-syntax-highlighting ]; then
       git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
     fi
-    if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-completions ]; then
-      git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+    if [ ! -d ~/.zsh/zsh-completions ]; then
+      git clone git://github.com/zsh-users/zsh-completions.git ~/.zsh/zsh-completions 
     fi
     success "Installed zsh"
-    if [ -f ~/.oh-my-zsh/themes/agnoster.zsh-theme ]; then
-      sed -i 's/blue/cyan/g' ~/.oh-my-zsh/themes/agnoster.zsh-theme
-      cd ~/.oh-my-zsh
-      git add . && git commit -m "just a tmp commit to keep oh-my-zsh can update properly."
-      cd - 
-      success "Updated Agnoster Theme"
-    fi
   fi
 }
 

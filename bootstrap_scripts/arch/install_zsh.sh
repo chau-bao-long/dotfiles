@@ -8,13 +8,10 @@ fi
 if [ ! -d ~/.zsh/zsh-autosuggestions ]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 fi
-if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-completions ]; then
-  git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+if [ ! -d ~/.zsh/zsh-syntax-highlighting ]; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 fi
-if [ -f ~/.oh-my-zsh/themes/agnoster.zsh-theme ]; then
-  sed -i 's/blue/cyan/g' ~/.oh-my-zsh/themes/agnoster.zsh-theme
-  cd ~/.oh-my-zsh
-  git add . && git commit -m "just a tmp commit to keep oh-my-zsh can update properly."
-  cd -
+if [ ! -d ~/.zsh/zsh-completions ]; then
+  git clone git://github.com/zsh-users/zsh-completions.git ~/.zsh/zsh-completions 
 fi
 chsh -s $(which zsh)
