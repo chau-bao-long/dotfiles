@@ -15,10 +15,10 @@ cmd - m: yabai -m config layout float; yabai -m window --grid 1:1:0:0:1:1
 ctrl + cmd - m :yabai -m window --grid 1:1:0:0:1:1
 
 # move managed window
-ctrl + cmd - h: yabai -m window --warp west
-ctrl + cmd - l: yabai -m window --warp east
-ctrl + cmd - j: yabai -m window --warp south
-ctrl + cmd - k: yabai -m window --warp north
+shift + cmd - h: yabai -m window --warp west
+shift + cmd - l: yabai -m window --warp east
+shift + cmd - j: yabai -m window --warp south
+shift + cmd - k: yabai -m window --warp north
 
 # balance size of windows
 shift + cmd - 0: yabai -m space --balance
@@ -64,8 +64,8 @@ alt + cmd - h: yabai -m window --space prev; yabai -m space --focus prev
 alt + cmd - l: yabai -m window --space next; yabai -m space --focus next
 
 # focus monitor
-shift + cmd - k: yabai -m display --focus 2
-shift + cmd - j: yabai -m display --focus 1
+ctrl + cmd - k: yabai -m display --focus 2
+ctrl + cmd - j: yabai -m display --focus 1
 
 # send window to monitor and follow focus
 alt + cmd - k: yabai -m window --display 2; yabai -m display --focus 2
