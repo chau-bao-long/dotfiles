@@ -171,6 +171,11 @@ klog() {
   rm $tmp_log
 }
 
+kpf() {
+  pod=$(__pick_pod)
+  kubectl port-forward $pod ${1:-"9090:9090"}
+}
+
 
 # some custom alias and functions
 alias v=nvim
@@ -381,6 +386,19 @@ vpnresetconnect() {
   sleep 2
   echo "Connect VPN"
   vpnconnect
+}
+vpnclean() {
+  echo "Disconnect VPN"
+  vpndisconnect
+  sleep 0.5
+  echo "Turn off wifi"
+  wifi off
+  sleep 1.5
+  echo "Flush route"
+  sudo route flush
+  sleep 1
+  echo "Turn on wifi"
+  wifi on
 }
 
 k8s() {
