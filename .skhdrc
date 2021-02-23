@@ -48,7 +48,7 @@ cmd - 5 : yabai -m space --focus 5
 cmd - 6 : yabai -m space --focus 6
 cmd - 7 : yabai -m space --focus 7
 cmd - 8 : yabai -m space --focus 8
-cmd - 9 : yabai -m space --focus 9
+cmd - 9 : yabai -m space --focus 4
 
 # send window to desktop and follow focus
 shift + cmd - 1: yabai -m window --space 1; yabai -m space --focus 1
@@ -88,6 +88,11 @@ alt + cmd - j: yabai -m window --display 1; yabai -m display --focus 1
 # float / unfloat window and center on screen
 ctrl + alt - t : yabai -m window --toggle float;\
           yabai -m window --grid 4:4:1:1:2:2
+
+# maximize a window
+ctrl + cmd - m : yabai -m window --toggle float;\
+          yabai -m window --grid 4:4:1:1:2:2; \
+          yabai -m window --toggle float
 
 # toggle sticky(+float), topmost, picture-in-picture
 # alt - p : yabai -m window --toggle sticky;\
