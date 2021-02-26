@@ -179,7 +179,6 @@ kpf() {
 
 # some custom alias and functions
 alias v=nvim
-alias pdf=zathura
 alias la='exa -lahg --icons'
 alias ll='exa -lhg --icons'
 alias tree='exa -T -L3 --icons'
