@@ -90,8 +90,8 @@ ctrl + alt - t : yabai -m window --toggle float;\
 
 # maximize a window
 ctrl + cmd - m : yabai -m window --toggle float;\
-          yabai -m window --grid 4:4:1:1:2:2; \
-          yabai -m window --toggle float
+          yabai -m window --toggle float; \
+          yabai -m window --grid 1:1:0:0:1:1
 
 # toggle sticky(+float), topmost, picture-in-picture
 # alt - p : yabai -m window --toggle sticky;\
