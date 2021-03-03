@@ -124,6 +124,10 @@ Plug 'jparise/vim-graphql'
 Plug 'Galooshi/vim-import-js'
 Plug 'Rican7/php-doc-modded'
 Plug 'jceb/vim-orgmode'
+
+Plug 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
 Plug 'terryma/vim-expand-region'
 
 call plug#end()
