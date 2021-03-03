@@ -79,9 +79,6 @@ Plug 'chau-bao-long/vim-dadbod'
 nnoremap <space>st :DBSelectTable<cr>
 nnoremap <space>sd :DBDescribeTables<cr>
 
-Plug 'chau-bao-long/semantic-highlight.vim'
-nnoremap <Leader>s :SemanticHighlightToggle<cr>
-
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
 
@@ -150,6 +147,7 @@ source ~/Projects/dotfiles/.vim/config/devicons.vim
 source ~/Projects/dotfiles/.vim/config/expand-region.vim
 source ~/Projects/dotfiles/.vim/config/fold.vim
 source ~/Projects/dotfiles/.vim/config/actions.vim
+source ~/Projects/dotfiles/.vim/config/profiling.vim
 lua require 'treesitter'
 
 " ==================================================== General Config
@@ -187,19 +185,7 @@ set t_Co=256
 let ayucolor="dark"
 let g:lightline = {
   \ 'colorscheme': 'ayu',
-  \ 'component_function': {
-  \   'filename': 'LightlineFilename',
   \ }
-  \ }
-
-function! LightlineFilename()
-  let root = fnamemodify(get(b:, 'git_dir'), ':h')
-  let path = expand('%:p')
-  if path[:len(root)-1] ==# root
-    return path[len(root)+1:]
-  endif
-  return expand('%')
-endfunction
 
 let g:nvcode_termcolors=256
 

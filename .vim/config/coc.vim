@@ -123,27 +123,5 @@ nnoremap <space>sc :CocSearch <c-r><c-w><cr>
 nnoremap <space>cs :CocSearch 
 xnoremap <space>sc y:CocSearch <c-r>0<cr>
 
-" Coc Fzf
-nmap <space>f [fzf-p]
-xmap <space>f [fzf-p]
-nnoremap [fzf-p]a :CocCommand fzf-preview.
-nnoremap [fzf-p]d :CocCommand fzf-preview.DirectoryFiles<cr>
-nnoremap [fzf-p]p :CocCommand fzf-preview.ProjectFiles<cr>
-nnoremap [fzf-p]u :CocCommand fzf-preview.ProjectMruFiles<cr>
-nnoremap [fzf-p]r :CocCommand fzf-preview.MruFiles<cr>
-nnoremap [fzf-p]L :CocCommand fzf-preview.BufferLines<cr>
-nnoremap [fzf-p]l :CocCommand fzf-preview.Lines<cr>
-nnoremap [fzf-p]h :CocCommand fzf-preview.CommandPalette<cr>
-nnoremap [fzf-p]s :CocCommand fzf-preview.GitStatus<cr>
-nnoremap [fzf-p]g :CocCommand fzf-preview.GitActions<cr>
-nnoremap [fzf-p]c :CocCommand fzf-preview.Changes<cr>
-nnoremap [fzf-p]m :CocCommand fzf-preview.Marks<cr>
-nnoremap [fzf-p]b :CocCommand fzf-preview.Buffers<cr>
-nnoremap [fzf-p]q :CocCommand fzf-preview.QuickFix<cr>
-nnoremap [fzf-p]j :CocCommand fzf-preview.Jumps<cr>
-let g:fzf_preview_use_dev_icons = 1
-let g:fzf_preview_dev_icon_prefix_string_length = 3
-let g:fzf_preview_dev_icons_limit = 5000
-
 " Delay load coc config again, which fix the bug with coc completion does not work at first time start
 autocmd VimEnter * call timer_start(200, { tid -> execute('source ~/Projects/dotfiles/.vim/config/coc.vim')})
