@@ -1,8 +1,11 @@
 " ==================================================== Plugin Config
 call plug#begin('~/.vim/plugged')
 
+" Plug 'christianchiarulli/nvcode-color-schemes.vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'doums/darcula'
 Plug 'itchyny/lightline.vim'
+
 Plug 'mbbill/undotree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'milkypostman/vim-togglelist'
@@ -40,7 +43,6 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'chau-bao-long/telescope.nvim'
-Plug 'christianchiarulli/nvcode-color-schemes.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'honza/vim-snippets'
 Plug 'xolox/vim-misc'
@@ -177,7 +179,7 @@ if !exists('g:syntax_on')
 endif
 
 " ==================================================== Theme
-colorscheme onedark
+colorscheme darcula
 
 set background=dark
 set termguicolors
@@ -186,8 +188,6 @@ let ayucolor="dark"
 let g:lightline = {
   \ 'colorscheme': 'ayu',
   \ }
-
-let g:nvcode_termcolors=256
 
 if (has("termguicolors"))
   set termguicolors
