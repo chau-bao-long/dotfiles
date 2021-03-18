@@ -56,10 +56,18 @@ fu! phpfunctions#generatePhpDirectiveAndNamespace()
   end
 endfu
 
-fu! phpfunctions#runOneTestInContainer()
+fu! phpfunctions#runOneTestOnContainer()
   exe "silent! normal! /public function \<cr>Nwwvey"
   let container = trim(system("kubectl get pods | awk '{print $1}' | grep 'web'"))
   let testCmd = "kubectl exec " . container . " -- ./vendor/bin/phpunit " . expand('%F') . " --filter " . @0
+  let keepCurrentCmd = "echo \"" . testCmd . "\" > ~/bin/current-cmd"
+  call system(expand(l:keepCurrentCmd))
+  call common#runCurrentCommand()
+endfu
+
+fu! phpfunctions#runAllTestsInFileOnContainer()
+  let container = trim(system("kubectl get pods | awk '{print $1}' | grep 'web'"))
+  let testCmd = "kubectl exec " . container . " -- ./vendor/bin/phpunit " . expand('%F')
   let keepCurrentCmd = "echo \"" . testCmd . "\" > ~/bin/current-cmd"
   call system(expand(l:keepCurrentCmd))
   call common#runCurrentCommand()
