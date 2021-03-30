@@ -245,8 +245,8 @@ install_window_manager() {
     sudo yabai --install-sa
     brew services start yabai
     killall Dock
-    brew install somdoron/formulae/spacebar
-    brew services start spacebar
+    brew install cmacrae/formulae/spacebar
+    brew services start cmacrae/formulae/spacebar
     brew install koekeishiya/formulae/skhd
     brew services start skhd
 
