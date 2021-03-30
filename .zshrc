@@ -362,6 +362,8 @@ wific() {
 export PATH="/usr/local/opt/openvpn/sbin:$PATH"
 vpnconnect() {
   rm /tmp/vpn.log &> /dev/null
+  # Fix Bigsur block sudo command without password
+  sudo echo
   sudo openvpn --config ~/.vpn/client.ovpn --auth-user-pass ~/.vpn/creds &> /tmp/vpn.log & 
   tail -f /tmp/vpn.log
 }
