@@ -2,9 +2,14 @@
 call plug#begin('~/.vim/plugged')
 
 " Plug 'christianchiarulli/nvcode-color-schemes.vim'
-Plug 'ayu-theme/ayu-vim'
 Plug 'doums/darcula'
-Plug 'itchyny/lightline.vim'
+
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+
+Plug 'akinsho/nvim-bufferline.lua'
+nnoremap <silent>gl :BufferLineCycleNext<CR>
+nnoremap <silent>gh :BufferLineCyclePrev<CR>
 
 Plug 'mbbill/undotree'
 Plug 'ryanoasis/vim-devicons'
@@ -55,7 +60,7 @@ Plug 'antoinemadec/coc-fzf'
 Plug 'vim-vdebug/vdebug'
 Plug 'idanarye/vim-vebugger', {'branch': 'develop'}
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'airblade/vim-gitgutter'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'chrisbra/NrrwRgn'
 
 Plug 'AndrewRadev/sideways.vim'
@@ -151,6 +156,9 @@ source ~/Projects/dotfiles/.vim/config/fold.vim
 source ~/Projects/dotfiles/.vim/config/actions.vim
 source ~/Projects/dotfiles/.vim/config/profiling.vim
 lua require 'treesitter'
+lua require 'tabline'
+lua require 'statusline'
+lua require 'git'
 
 " ==================================================== General Config
 filetype plugin indent on
@@ -185,9 +193,6 @@ set background=dark
 set termguicolors
 set t_Co=256
 let ayucolor="dark"
-let g:lightline = {
-  \ 'colorscheme': 'ayu',
-  \ }
 
 if (has("termguicolors"))
   set termguicolors
@@ -310,6 +315,7 @@ nnoremap 'e :q!<CR>
 nnoremap 'E :qa!<CR>
 nnoremap 'r :edit!<cr>
 nnoremap 't :tabclose<cr>
+nnoremap 'b :bd<cr>
 nmap <C-j> <C-d>
 nmap <C-k> <C-u>
 nmap <C-h> <C-e><C-e><C-e><C-e><C-e>

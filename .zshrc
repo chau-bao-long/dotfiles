@@ -145,8 +145,8 @@ kdel() {
 }
 
 kdes() {
-  pod=$(__pick_pod)
-  kubectl describe pod $pod
+  resource=$(kubectl get $1 | tail -n +2 | fzf --border="sharp" --header="select $1 to describe" | awk '{print $1}')
+  kubectl describe $1 $resource
 }
 
 kedit() {

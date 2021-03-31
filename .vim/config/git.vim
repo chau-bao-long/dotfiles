@@ -21,16 +21,8 @@ nnoremap <space>gpu :Gpush<cr>
 nnoremap <space>gpf :Gpush -f<cr>
 nnoremap <space>gfo :Gfetch origin<cr>
 nnoremap <space>gpl :Gpull<cr>
-nnoremap <space>gz :GitGutterFold<cr>
-nnoremap <space>g- :GitGutterEnable<cr>
-nnoremap <space>g_ :GitGutterDisable<cr>
-nnoremap <space>gh :GitGutterLineHighlightsToggle<cr>
-nnoremap <space>gj :GitGutterPreviewHunk<cr>
 nnoremap ]w 't:tabfirst<cr>jO
 nnoremap [w 't:tabfirst<cr>kO
 nnoremap ]d 't:tabfirst<cr>jO:Gdiff<cr><c-w>l
 nnoremap [d 't:tabfirst<cr>kO:Gdiff<cr><c-w>l
 nnoremap <space>gm <c-w>o:Gedit<cr>
-nnoremap <space>gu :GitGutterUndoHunk<cr>
-
-let g:gitgutter_enabled = 0
