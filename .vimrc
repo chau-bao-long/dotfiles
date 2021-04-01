@@ -1,8 +1,9 @@
 " ==================================================== Plugin Config
 call plug#begin('~/.vim/plugged')
 
-" Plug 'christianchiarulli/nvcode-color-schemes.vim'
-Plug 'doums/darcula'
+" Plug 'doums/darcula'
+" Plug 'sainnhe/gruvbox-material'
+Plug 'sainnhe/edge'
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
@@ -187,7 +188,7 @@ if !exists('g:syntax_on')
 endif
 
 " ==================================================== Theme
-colorscheme darcula
+colorscheme edge
 
 set background=dark
 set termguicolors
