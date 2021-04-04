@@ -316,7 +316,7 @@ nnoremap 'e :q!<CR>
 nnoremap 'E :qa!<CR>
 nnoremap 'r :edit!<cr>
 nnoremap 't :tabclose<cr>
-nnoremap 'b :bd<cr>
+nnoremap 'c :bd<cr>
 nmap <C-j> <C-d>
 nmap <C-k> <C-u>
 nmap <C-h> <C-e><C-e><C-e><C-e><C-e>
