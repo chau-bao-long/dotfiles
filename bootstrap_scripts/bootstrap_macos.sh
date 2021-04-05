@@ -210,10 +210,6 @@ install_zsh() {
     if [ ! -d ~/.zsh/zsh-completions ]; then
       git clone git://github.com/zsh-users/zsh-completions.git ~/.zsh/zsh-completions 
     fi
-    if [ ! -d ~/.zsh/zsh-vi-mode ]; then
-      git clone https://github.com/jeffreytse/zsh-vi-mode.git ~/.zsh/zsh-vi-mode
-    fi
-
     success "Installed zsh"
   fi
 }

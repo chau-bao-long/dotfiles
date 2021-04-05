@@ -33,7 +33,6 @@ zsh-defer source ~/Projects/dotfiles/scripts/z.sh
 zsh-defer source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 zsh-defer source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 zsh-defer source ~/.zsh/zsh-completions/zsh-completions.plugin.zsh
-zsh-defer source ~/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 [ -f ~/.fzf.zsh ] && zsh-defer source ~/.fzf.zsh
 
 export GPG_TTY=`tty`
@@ -423,6 +422,35 @@ fchrome() {
   awk -F $sep '{printf "%-'$cols's  \x1b[36m%s\x1b[m\n", $1, $2}' |
   fzf --ansi --multi | sed 's#.*\(https*://\)#\1#' | xargs open
 }
+
+# Change Cursor Shape for Zsh Vi-mode
+# http://micahelliott.com/posts/2015-07-20-vim-zsh-tmux-cursor.html
+zle-line-init () {
+    zle -K viins
+    echo -ne "\033]12;Gray\007"
+    echo -ne "\033[4 q"
+}
+zle -N zle-line-init
+zle-keymap-select () {
+    if [[ $KEYMAP == vicmd ]]; then
+        if [[ -z $TMUX ]]; then
+            printf "\033]12;Green\007"
+            printf "\033[2 q"
+        else
+            printf "\033Ptmux;\033\033]12;red\007\033\\"
+            printf "\033Ptmux;\033\033[2 q\033\\"
+        fi
+    else
+        if [[ -z $TMUX ]]; then
+            printf "\033]12;Grey\007"
+            printf "\033[4 q"
+        else
+            printf "\033Ptmux;\033\033]12;grey\007\033\\"
+            printf "\033Ptmux;\033\033[4 q\033\\"
+        fi
+    fi
+}
+zle -N zle-keymap-select
 
 # zsh frequently key binding
 # prefix edddddddddd to remove all current text lines before execute command
