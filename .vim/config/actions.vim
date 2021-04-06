@@ -1,6 +1,7 @@
 nnoremap <space><space> :lua require'telescope.builtin'.actions(require('telescope.themes').get_dropdown({ winblend = 10, data = 'commonActions' }))<cr>
 nnoremap <space>se :lua require'telescope.builtin'.actions(require('telescope.themes').get_dropdown({ winblend = 10, data = 'databases' }))<cr>
 nnoremap <space>k :lua require'telescope.builtin'.actions(require('telescope.themes').get_dropdown({ winblend = 10, data = 'fromFileType' }))<cr>
+nnoremap <space>fs :lua require'telescope.builtin'.git_status()<cr>
 
 let g:kotlinActions = [
       \ ['💾 ktlint', 'tabnew | terminal ktlint'],
