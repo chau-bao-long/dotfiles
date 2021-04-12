@@ -383,6 +383,7 @@ nmap <space>eq yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0
 vmap <space>eq y:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
 nmap <space>ew :call common#runCurrentCommand()<cr>
 nnoremap <space>cc :let @a = &ft<cr>:terminal cht.sh <c-r>a 
+nnoremap <leader>bl :s/\((\zs\\|,\ *\zs\\|)\)/\r&/g<cr><bar>:'[,']normal ==<cr>:noh<cr>
 
 " Common functions
 nnoremap <space>ot :call common#openFilesFromClipboard("tabnew")<cr>
