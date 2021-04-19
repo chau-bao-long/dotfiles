@@ -316,9 +316,11 @@ gjr() {
 
 # Run frequently used commands
 # First param take local path to set of commands, i.e. ~/local/cmds
+# Second param is search command, could be: fzf (normal) or fzfp (popup)
 frun() {
   echo $1
-  local cmd=$(cat $1 | fzf)
+  local search_cmd=${2-"fzfp"}
+  local cmd=$(cat $1 | $search_cmd)
   if [ -n "$cmd" ]; then
     local escape=$(echo $cmd | sed 's/[]\/$*.^[]/\\&/g')
     echo -e "$cmd\n$(cat $1 | sed "s/$escape//g" | sed '/^$/d')" > $1

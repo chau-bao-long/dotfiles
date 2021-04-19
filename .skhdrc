@@ -102,7 +102,7 @@ ctrl + cmd - m : yabai -m window --toggle float;\
 cmd + alt + ctrl - r: brew services restart yabai
 
 cmd + shift - return :open -na alacritty
-cmd - u :open -na AlacrittyPopup --args -e zsh -ci "frun ~/local/syscmds"
+cmd - u :open -na AlacrittyPopup --args -e zsh -ci "frun ~/local/syscmds fzf"
 cmd - p :open -na AlacrittyPopup --args -e zsh -ci "fapp"
 cmd + ctrl - p :open -na AlacrittyPopup --args -e zsh -ci "fpass"
 cmd + ctrl - u :open -na AlacrittyPopup --args -e zsh -ci "fchrome"
