@@ -33,6 +33,7 @@ zsh-defer source ~/Projects/dotfiles/scripts/z.sh
 zsh-defer source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 zsh-defer source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 zsh-defer source ~/.zsh/zsh-completions/zsh-completions.plugin.zsh
+zsh-defer source ~/Projects/dotfiles/scripts/fzf-tmux-popup.zsh
 [ -f ~/.fzf.zsh ] && zsh-defer source ~/.fzf.zsh
 
 export GPG_TTY=`tty`
@@ -128,7 +129,7 @@ kdevict() { kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl d
 __pick_container() {
   containers=$(kubectl get pod $1 -o jsonpath='{.spec.containers[*].name}')
   if [ $(echo $containers | wc -w) -gt 1 ]; then
-    container=$(echo $containers | tr " " "\n" | fzf --border="sharp")
+    container=$(echo $containers | tr " " "\n" | fzfp --border="sharp")
   else
     container=$containers
   fi
@@ -136,21 +137,21 @@ __pick_container() {
 }
 
 __pick_pod() {
-  kubectl get pods | tail -n +2 | fzf --border="sharp" | awk '{print $1}'
+  kubectl get pods | tail -n +2 | fzfp --border="sharp" | awk '{print $1}'
 }
 
 kdel() {
-  resource=$(kubectl get $1 | tail -n +2 | fzf --border="sharp" --header="select $1 to delete" | awk '{print $1}')
+  resource=$(kubectl get $1 | tail -n +2 | fzfp --border="sharp" --header="select $1 to delete" | awk '{print $1}')
   kubectl delete $1 $resource
 }
 
 kdes() {
-  resource=$(kubectl get $1 | tail -n +2 | fzf --border="sharp" --header="select $1 to describe" | awk '{print $1}')
+  resource=$(kubectl get $1 | tail -n +2 | fzfp --border="sharp" --header="select $1 to describe" | awk '{print $1}')
   kubectl describe $1 $resource
 }
 
 kedit() {
-  resource=$(kubectl get $1 | tail -n +2 | fzf --border="sharp" --header="select $1 to edit" | awk '{print $1}')
+  resource=$(kubectl get $1 | tail -n +2 | fzfp --border="sharp" --header="select $1 to edit" | awk '{print $1}')
   kubectl edit $1 $resource
 }
 
@@ -210,14 +211,14 @@ fd() {
 # search, preview and open file
 fo() {
   local files
-  IFS=$'\n' files=($(fzf --preview "bat --color \"always\" {}" --query="$1" --multi --select-1 --exit-0))
+  IFS=$'\n' files=($(fzfp --preview "bat --color \"always\" {}" --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
 # search content and open file
 fg() {
   if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
-  filepath=$(rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}")
+  filepath=$(rg --files-with-matches --no-messages "$1" | fzfp --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}")
   [[ -n "$filepath" ]] && ${EDITOR:-vim} "${filepath[@]}"
 }
 
@@ -225,9 +226,9 @@ fg() {
 fkill() {
   local pid
   if [[ "$1" == "cpu" ]]; then
-    pid=$(ps -axCo pid,args,pcpu -r | head -n 10 | tail -n +2 | fzf | awk '{print $1}')
+    pid=$(ps -axCo pid,args,pcpu -r | head -n 10 | tail -n +2 | fzfp | awk '{print $1}')
   else
-    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    pid=$(ps -ef | sed 1d | fzfp -m | awk '{print $2}')
   fi
 
   if [ "x$pid" != "x" ]
@@ -247,7 +248,7 @@ fco() {
     git --no-pager tag | awk '{print "\x1b[35;1mtag\x1b[m\t" $1}') || return
   target=$(
     (echo "$branches"; echo "$tags") |
-    fzf --no-hscroll --no-multi -n 2 \
+    fzfp --no-hscroll --no-multi -n 2 \
         --ansi --preview="git --no-pager log -150 --pretty=format:%s '..{2}'") || return
   git checkout $(awk '{print $2}' <<<"$target" )
 }
@@ -256,7 +257,7 @@ fco() {
 fgit() {
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+  fzfp --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
       --bind "ctrl-m:execute:
                 (grep -o '[a-f0-9]\{7\}' | head -1 |
                 xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'

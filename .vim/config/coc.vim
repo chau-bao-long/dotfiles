@@ -20,7 +20,8 @@ let g:global_extensions = [
             \'coc-python',
             \'coc-svg',
             \'coc-flow',
-            \'coc-go'
+            \'coc-go',
+            \'coc-lua'
             \]
 
 " Highlight the symbol and its references when holding the cursor.
