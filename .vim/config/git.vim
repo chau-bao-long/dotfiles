@@ -2,7 +2,8 @@ nnoremap <space>gl :Glog -n 100<cr>
 nnoremap <space>gL :Glog<cr>
 nnoremap <space>g0l :0Glog -n 100<cr>
 nnoremap <space>g0L :0Glog<cr>
-nnoremap <space>gd :Gdiff<cr><c-w>l
+nnoremap <space>gd :Gdiff HEAD<cr><c-w>l
+nnoremap <space>gz :call nvim_win_close(win_getid(2), 0)<cr><c-w>h
 nnoremap <space>gD :Gvdiffsplit!<cr>
 nnoremap <space>gpr :Ggrep 
 nnoremap <space>gr :Gread! 
