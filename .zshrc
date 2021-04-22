@@ -226,9 +226,9 @@ fg() {
 fkill() {
   local pid
   if [[ "$1" == "cpu" ]]; then
-    pid=$(ps -axCo pid,args,pcpu -r | head -n 10 | tail -n +2 | fzfp | awk '{print $1}')
+    pid=$(ps -axCo pid,args,pcpu -r | head -n 10 | tail -n +2 | fzf | awk '{print $1}')
   else
-    pid=$(ps -ef | sed 1d | fzfp -m | awk '{print $2}')
+    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
   fi
 
   if [ "x$pid" != "x" ]
