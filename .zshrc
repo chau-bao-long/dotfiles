@@ -309,6 +309,12 @@ gmr() {
   fi
 }
 
+# Open pipeline on gitlab
+gpl() {
+  local gitlab=$(git remote -v | head -n1 | awk '{print $2}' | cut -d'@' -f2 | sed 's/.git//g' | sed 's/:/\//g')
+  open https://$gitlab/pipelines
+}
+
 gjr() {
   local jira=https://personio.atlassian.net
   git describe --all | grep -Eo "..-\d+" | xargs -I {} open $jira/browse/\{\}
@@ -342,6 +348,20 @@ femo() {
 fapp() {
   local app=$(ls /Applications | sed 's/.app//g' | fzf)
   open -a $app
+}
+
+# go to project merge requests
+fgmr() {
+  local project=$(ls ~/Projects/personio  | fzf)
+  cd ~/Projects/personio/$project
+  gmr
+}
+
+# go to project pipelines
+fgpl() {
+  local project=$(ls ~/Projects/personio  | fzf)
+  cd ~/Projects/personio/$project
+  gpl
 }
 
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
