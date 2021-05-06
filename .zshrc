@@ -298,7 +298,7 @@ gmr() {
     if [ -n "$ticket" ]; then
       echo "$ticket" | xargs -I {} open https://$gitlab/merge_requests\?state=all\&search\=\{\}
     else
-      open https://$gitlab/$team/$project/merge_requests
+      open https://$gitlab/merge_requests
     fi
   else
     local keyword=''

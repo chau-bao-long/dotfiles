@@ -1,5 +1,5 @@
 " let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
-let g:coc_watch_extensions = ['coc-explorer']
+" let g:coc_watch_extensions = ['coc-explorer']
 set guicursor=n:blinkon1
 set updatetime=300
 set shortmess+=c

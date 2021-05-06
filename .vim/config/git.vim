@@ -3,7 +3,7 @@ nnoremap <space>gL :Glog<cr>
 nnoremap <space>g0l :0Glog -n 100<cr>
 nnoremap <space>g0L :0Glog<cr>
 nnoremap <space>gd :Gdiff HEAD<cr><c-w>l
-nnoremap <space>gz :call nvim_win_close(win_getid(2), 0)<cr><c-w>h
+nnoremap <space>gz :call <SID>closeGitDiffWindows()<cr>
 nnoremap <space>gD :Gvdiffsplit!<cr>
 nnoremap <space>gpr :Ggrep 
 nnoremap <space>gr :Gread! 
@@ -27,3 +27,18 @@ nnoremap [w 't:tabfirst<cr>kO
 nnoremap ]d 't:tabfirst<cr>jO:Gdiff<cr><c-w>l
 nnoremap [d 't:tabfirst<cr>kO:Gdiff<cr><c-w>l
 nnoremap <space>gm <c-w>o:Gedit<cr>
+
+fu! s:closeGitDiffWindows()
+  let rightestWin = win_getid(4)
+  let secondWin = win_getid(2)
+
+  if rightestWin != 0
+    call nvim_win_close(rightestWin, 0)
+  endif
+
+  if secondWin != 0
+    call nvim_win_close(secondWin, 0)
+  endif
+
+  exe "normal \<c-w>h"
+endfu
