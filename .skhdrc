@@ -105,5 +105,4 @@ cmd + shift - return :open -na alacritty
 cmd - u :open -na AlacrittyPopup --args -e zsh -ci "frun ~/local/syscmds fzf"
 cmd - p :open -na AlacrittyPopup --args -e zsh -ci "fapp"
 cmd + ctrl - p :open -na AlacrittyPopup --args -e zsh -ci "fpass"
-cmd + ctrl - u :open -na AlacrittyPopup --args -e zsh -ci "fchrome"
 cmd + ctrl - e :open -na AlacrittyPopup --args -e zsh -ci "femo"

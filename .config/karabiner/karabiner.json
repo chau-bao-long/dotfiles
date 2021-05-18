@@ -68,13 +68,14 @@
                         ]
                     },
                     {
-                        "description": "Change left_command + space to backspace",
+                        "description": "Map delete key",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "spacebar",
+                                    "key_code": "h",
                                     "modifiers": {
                                         "mandatory": [
+                                            "left_control",
                                             "left_command"
                                         ],
                                         "optional": [
@@ -90,6 +91,58 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                      "description": "Map delete word",
+                      "manipulators": [
+                        {
+                          "from": {
+                            "key_code": "w",
+                            "modifiers": {
+                              "mandatory": [
+                                "left_control",
+                                "left_command"
+                              ],
+                              "optional": [
+                                "any"
+                              ]
+                            }
+                          },
+                          "to": [
+                            {
+                              "key_code": "delete_or_backspace",
+                              "modifiers": "left_option"
+                            }
+                          ],
+                          "type": "basic"
+                        }
+                      ]
+                    },
+                    {
+                      "description": "Map delete line",
+                      "manipulators": [
+                        {
+                          "from": {
+                            "key_code": "u",
+                            "modifiers": {
+                              "mandatory": [
+                                "left_control",
+                                "left_command"
+                              ],
+                              "optional": [
+                                "any"
+                              ]
+                            }
+                          },
+                          "to": [
+                            {
+                              "key_code": "delete_or_backspace",
+                              "modifiers": "left_command"
+                            }
+                          ],
+                          "type": "basic"
+                        }
+                      ]
                     },
                     {
                         "description": "Change left_control+hjkl to arrow keys",
