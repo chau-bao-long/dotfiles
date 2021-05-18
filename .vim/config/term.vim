@@ -24,8 +24,8 @@ nnoremap <space>tkk :FloatermKill<cr>:FloatermKill<cr>:FloatermKill<cr>:Floaterm
 nnoremap <space>tks :FloatermNew watch kubectl get pod -owide -A<cr>
 tnoremap <c-d> <c-\><c-n>:FloatermKill!<cr>
 tnoremap <c-b> <c-\><c-n>:FloatermKill<cr>:FloatermToggle<cr>
-tnoremap <c-h> <c-\><c-n>:FloatermPrev<cr>
-tnoremap <c-l> <c-\><c-n>:FloatermNext<cr>
+tnoremap <c-p> <c-\><c-n>:FloatermPrev<cr>
+tnoremap <c-n> <c-\><c-n>:FloatermNext<cr>
 tnoremap <c-y> <c-\><c-n>:FloatermToggle!<cr>
 tnoremap <c-s> <c-\><c-n>:FloatermNew<cr>
 
