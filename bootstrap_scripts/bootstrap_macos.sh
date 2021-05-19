@@ -296,6 +296,7 @@ install_tool() {
     brew install terminal-notifier
     brew install bluetoothconnector
     brew install exa
+    brew install hughbien/tap/thyme
     success "Installed some fancy tools"
   fi
 }

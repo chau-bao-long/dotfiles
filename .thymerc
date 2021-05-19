@@ -1,0 +1,8 @@
+timer: 1500               # 25 minutes per pomodoro (in seconds)
+timer_break: 300          # 5 minutes per break (in seconds)
+timer_warning: 300        # show warning color at 5 minutes left (in seconds)
+repeat: 4                 # set default for -r flag, otherwise repeat indefinitely
+color_default: "#50fa7b"  # set default timer color for tmux
+color_warning: "#ff5555"      # set warning color for tmux, set to "default" to disable
+color_break: "#f1fa8c"    # set break color for tmux
+status_align: "left"      # use tmux's left status line instead, defaults to "right"
