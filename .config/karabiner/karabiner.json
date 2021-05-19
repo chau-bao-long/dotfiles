@@ -75,8 +75,7 @@
                                     "key_code": "h",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_control",
-                                            "left_command"
+                                            "left_control"
                                         ],
                                         "optional": [
                                             "any"
