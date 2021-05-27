@@ -6,3 +6,11 @@ color_default: "#50fa7b"  # set default timer color for tmux
 color_warning: "#ff5555"      # set warning color for tmux, set to "default" to disable
 color_break: "#f1fa8c"    # set break color for tmux
 status_align: "left"      # use tmux's left status line instead, defaults to "right"
+hooks:
+  notify:
+    events: ["after"]
+    command: "terminal-notifier -message \"Pomodoro finished #{repeat_suffix}\" -title \"thyme\""
+
+  notify_break:
+    events: ["after_break"]
+    command: "terminal-notifier -message \"Break finished #{repeat_suffix}\" -title \"thyme\""

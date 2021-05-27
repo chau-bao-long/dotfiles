@@ -317,10 +317,10 @@ nnoremap 'E :qa!<CR>
 nnoremap 'r :edit!<cr>
 nnoremap 't :tabclose<cr>
 nnoremap 'c :bd<cr>
-nmap <C-j> <C-d>
-nmap <C-k> <C-u>
-nmap <C-h> <C-e><C-e><C-e><C-e><C-e>
-nmap <C-l> <C-y><C-y><C-y><C-y><C-y>
+nnoremap <C-j> <C-d>
+nnoremap <C-k> <C-u>
+nnoremap <backspace> <C-e><C-e><C-e><C-e><C-e>
+nnoremap <C-l> <C-y><C-y><C-y><C-y><C-y>
 nmap z; :e #<cr>
 nnoremap cP :let @+=expand("%F")<cr>
 nnoremap co :let @+=expand("%:t")<cr>
