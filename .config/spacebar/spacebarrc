@@ -17,10 +17,10 @@ spacebar -m config power_icon_color   0xffcd950c
 spacebar -m config battery_icon_color 0xffd75f5f
 spacebar -m config dnd_icon_color     0xffa8a8a8
 spacebar -m config clock_icon_color   0xffa8a8a8
-spacebar -m config space_icon_strip  "💬 Social" "🔗 Browser" "⚒️ Tools" "⌨️ Code" "💡Extra I" "💡Extra II" "💡Extra III" "💡Extra IV" "💡Extra V"
+spacebar -m config space_icon_strip  "Social" "Browser" "Tools" "Code" "Extra I" "Extra II" "Extra III" "Extra IV" "Extra V"
 spacebar -m config power_icon_strip  🔋 🔌
 spacebar -m config space_icon         
-spacebar -m config clock_icon         ⏰
+spacebar -m config clock_icon         ""
 spacebar -m config dnd_icon           
 spacebar -m config clock_format       "%d/%m/%y %R"
 
