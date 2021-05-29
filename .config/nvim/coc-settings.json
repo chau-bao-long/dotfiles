@@ -41,6 +41,7 @@
     "v": "open:vsplit",
     "o": ["expandable?", "expand", "open"]
   },
+  "explorer.file.git.showUntrackedFiles": true,
 
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
