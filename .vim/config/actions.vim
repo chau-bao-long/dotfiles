@@ -11,6 +11,7 @@ let g:kotlinActions = [
       \ ['💾 format kotlin', 'tabnew | terminal ./gradlew formatKotlin'],
       \ ['💾 run all test', 'tabnew | terminal ./gradlew cleanTest test --info'],
       \ ['💾 build', 'tabnew | terminal ./gradlew build'],
+      \ ['💾 bootJar', 'tabnew | terminal ./gradlew bootJar'],
       \ ['💾 compile', 'tabnew | terminal ./gradlew compileKotlin'],
       \ ['💾 clean', 'tabnew | terminal ./gradlew clean'],
       \ ['💾 gradle local', 'call javafunctions#goToNearestGradleFolder() | !~/Projects/personio/bin/setup-env.sh'],
