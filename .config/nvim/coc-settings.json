@@ -26,7 +26,7 @@
   "diagnostic.errorSign": "⛄",
   "diagnostic.infoSign": "ℹ",
   "diagnostic.hintSign": "✏",
-  "diagnostic.displayByAle": true,
+  "diagnostic.displayByAle": false,
 
   "clangd.path": "/Users/topcbl/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd",
 
@@ -42,6 +42,7 @@
     "o": ["expandable?", "expand", "open"]
   },
   "explorer.file.git.showUntrackedFiles": true,
+  "explorer.git.showIgnored": false,
 
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
