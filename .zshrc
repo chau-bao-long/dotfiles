@@ -390,6 +390,29 @@ vpnconnect() {
   sudo openvpn --config ~/.vpn/client.ovpn --auth-user-pass ~/.vpn/creds &> /tmp/vpn.log & 
   tail -f /tmp/vpn.log
 }
+optimize_route() {
+  sudo route delete 128.0/1
+  sudo route delete 0/1
+
+  local vpn_gateway=172.27.248.1
+  local domains=(
+    admin.stage.personio-internal.de admin.dev.personio-internal.de gitlab.personio-internal.de rundeck.prod.personio-internal.de rundeck.stage.personio-internal.de
+  )
+
+  for domain in "${domains[@]}"
+  do
+    echo "Resolve domain: $domain"
+    local ips=$(dig +short $domain)
+    echo "Get IPs: $ips \n \n"
+    echo $ips | while read y
+    do
+      echo "Add route for IP: $y"
+      sudo route add $y $vpn_gateway
+    done
+    echo "Added route for domain: $domain"
+    echo "-------"
+  done
+}
 vpndisconnect() {
   local pid
   pid=$(ps -ef | sed 1d | grep "openvpn --config" | grep -v "sudo\|grep" | awk '{print $2}' | head -n 1)
@@ -464,6 +487,7 @@ zle -N zle-keymap-select
 # prefix edddddddddd to remove all current text lines before execute command
 bindkey -s "^[f" "\edddddddddd iranger\n"
 bindkey -s "^[r" "\edddddddddd i./run.sh "
+bindkey -s "^[g" "\edddddddddd i./gradlew "
 bindkey -s "^[s" "\edddddddddd icht.sh "
 bindkey -s "^k" "\edddddddddd ifrun ~/local/cmds\n"
 bindkey -s "^u" "\edddddddddd i"
