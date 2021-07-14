@@ -391,23 +391,28 @@ vpnconnect() {
   tail -f /tmp/vpn.log
 }
 optimize_route() {
+  local DOMAINS=(
+    nexus.tools.personio-internal.de
+    kibana-proxy.dev.personio-internal.de
+    1DFEA83B4F053FE7310FCB95F2A8F4FE.yl4.eu-central-1.eks.amazonaws.com
+    1A7EC99F8DD32DEC4B940DB52D56DBAC.yl4.eu-central-1.eks.amazonaws.com
+    8256616ACE24D01C134B29E751249585.sk1.eu-central-1.eks.amazonaws.com
+    admin.stage.personio-internal.de
+    admin.dev.personio-internal.de
+    gitlab.personio-internal.de
+    rundeck.prod.personio-internal.de
+    rundeck.stage.personio-internal.de
+  )
   sudo route delete 128.0/1
   sudo route delete 0/1
-
   local vpn_gateway=172.27.248.1
-  local domains=(
-    admin.stage.personio-internal.de admin.dev.personio-internal.de gitlab.personio-internal.de rundeck.prod.personio-internal.de rundeck.stage.personio-internal.de
-  )
-
-  for domain in "${domains[@]}"
+  for domain in "${DOMAINS[@]}"
   do
     echo "Resolve domain: $domain"
-    local ips=$(dig +short $domain)
-    echo "Get IPs: $ips \n \n"
-    echo $ips | while read y
+    for ip in $(dig +short $domain)
     do
-      echo "Add route for IP: $y"
-      sudo route add $y $vpn_gateway
+      echo "Add route for IP: $ip"
+      sudo route add $ip $vpn_gateway
     done
     echo "Added route for domain: $domain"
     echo "-------"
