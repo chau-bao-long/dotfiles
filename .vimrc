@@ -347,8 +347,6 @@ nmap g' :vs<cr><c-w>l<c-]>
 nmap g" :sp<cr><c-]>
 nmap g\ :tabnew<cr><c-o><c-]>
 vnoremap m <esc>ggVG
-vnoremap o <esc>T vt 
-vnoremap O <esc>T v$
 nnoremap me :messages<cr>
 
 " Better copy/paste behavior
