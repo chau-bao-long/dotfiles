@@ -377,7 +377,6 @@ xnoremap <space>ss y:%s/<c-r>0//gI<left><left><left>
 nnoremap <space>sS :%s/<c-r><c-w>//gIc<left><left><left><left>
 xnoremap <space>sS y:%s/<c-r>0//gIc<left><left><left><left>
 xnoremap / y:/<c-r>0<cr>
-nnoremap <space>e= 15kV30j=15j
 nnoremap <space>er :e!<cr>
 nmap <space>eq yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
 vmap <space>eq y:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G

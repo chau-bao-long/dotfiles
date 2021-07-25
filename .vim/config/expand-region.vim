@@ -1,5 +1,5 @@
-map ) <Plug>(expand_region_expand)
-map ( <Plug>(expand_region_shrink)
+nnoremap ) <Plug>(expand_region_expand)
+nnoremap ( <Plug>(expand_region_shrink)
 
 call expand_region#custom_text_objects('ruby', {
       \ 'im' :0,

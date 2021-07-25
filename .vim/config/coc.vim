@@ -64,11 +64,11 @@ function! s:show_documentation()
 endfunction
 
 " Remap for rename current word
-nnoremap <leader>rn <Plug>(coc-rename)
+nmap <leader>rn <Plug>(coc-rename)
 
-" Remap for format selected region
-xnoremap <leader>f  <Plug>(coc-format-selected)
-nnoremap <leader>f  <Plug>(coc-format-selected)
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
     autocmd!
@@ -78,16 +78,14 @@ augroup mygroup
     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" Remap for do codeAction of current line
-nnoremap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
-nnoremap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Create mappings for function text object, requires document symbols feature of languageserver.
-xnoremap if <Plug>(coc-funcobj-i)
-xnoremap af <Plug>(coc-funcobj-a)
-onoremap if <Plug>(coc-funcobj-i)
-onoremap af <Plug>(coc-funcobj-a)
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
 
 " Using CocList
 " Show all coc list in fzf

@@ -48,6 +48,9 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/emulator
 
+# Add GO path
+export PATH="$PATH:$HOME/go/bin"
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
@@ -402,6 +405,7 @@ optimize_route() {
     gitlab.personio-internal.de
     rundeck.prod.personio-internal.de
     rundeck.stage.personio-internal.de
+    docs.personio.tools
   )
   sudo route delete 128.0/1
   sudo route delete 0/1
