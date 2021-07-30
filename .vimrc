@@ -156,6 +156,7 @@ source ~/Projects/dotfiles/.vim/config/expand-region.vim
 source ~/Projects/dotfiles/.vim/config/fold.vim
 source ~/Projects/dotfiles/.vim/config/actions.vim
 source ~/Projects/dotfiles/.vim/config/profiling.vim
+lua require 'common'
 lua require 'treesitter'
 lua require 'tabline'
 lua require 'statusline'
@@ -421,3 +422,8 @@ xnoremap >  >gv
 
 " Auto equally resize windows when vim changes size
 autocmd VimResized * wincmd =
+
+lua << EOF
+vim.api.nvim_set_keymap('v', '<s-k>', ":lua require'common'.resize_visual_area('collapse')<cr>", {noremap = true})
+vim.api.nvim_set_keymap('v', '<s-j>', ":lua require'common'.resize_visual_area('expand')<cr>", {noremap = true})
+EOF
