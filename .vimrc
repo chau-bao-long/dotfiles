@@ -63,6 +63,7 @@ Plug 'idanarye/vim-vebugger', {'branch': 'develop'}
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'chrisbra/NrrwRgn'
+Plug 'dstein64/nvim-scrollview'
 
 Plug 'AndrewRadev/sideways.vim'
 nnoremap <space>sl :SidewaysJumpRight<cr>
