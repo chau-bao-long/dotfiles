@@ -287,6 +287,7 @@ set hlsearch
 nnoremap <silent> z/ :noh<cr>
 
 " ==================================================== Custom mapping
+nnoremap Y y$
 nmap gk :tabprevious<cr>
 nmap gj :tabnext<cr>
 nnoremap <space>ve :tabnew ~/.vimrc<CR>
@@ -419,6 +420,21 @@ nnoremap <leader>d :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 " Don't lose selection when shifting sidewards
 xnoremap <  <gv
 xnoremap >  >gv
+
+" Keeping it centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" Undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" Jump list mutations
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 " Auto equally resize windows when vim changes size
 autocmd VimResized * wincmd =
