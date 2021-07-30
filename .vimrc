@@ -130,7 +130,7 @@ Plug 'jason0x43/vim-js-indent'
 Plug 'jparise/vim-graphql'
 Plug 'Galooshi/vim-import-js'
 Plug 'Rican7/php-doc-modded'
-Plug 'jceb/vim-orgmode'
+Plug 'kristijanhusak/orgmode.nvim'
 
 Plug 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
@@ -320,10 +320,6 @@ nnoremap 'E :qa!<CR>
 nnoremap 'r :edit!<cr>
 nnoremap 't :tabclose<cr>
 nnoremap 'c :bd<cr>
-nnoremap <C-j> <C-d>
-nnoremap <C-k> <C-u>
-nnoremap <backspace> <C-e><C-e><C-e><C-e><C-e>
-nnoremap <C-l> <C-y><C-y><C-y><C-y><C-y>
 nmap z; :e #<cr>
 nnoremap cP :let @+=expand("%F")<cr>
 nnoremap co :let @+=expand("%:t")<cr>
@@ -443,4 +439,24 @@ autocmd VimResized * wincmd =
 lua << EOF
 vim.api.nvim_set_keymap('v', '<s-k>', ":lua require'common'.resize_visual_area('collapse')<cr>", {noremap = true})
 vim.api.nvim_set_keymap('v', '<s-j>', ":lua require'common'.resize_visual_area('expand')<cr>", {noremap = true})
+
+require('orgmode').setup({
+  org_agenda_files = {'~/org/*', '~/org/**/*'},
+  org_default_notes_file = '~/org/refile.org',
+})
+
+require('neoscroll').setup()
+
+local t = {}
+t['<C-k>'] = {'scroll', {'-vim.wo.scroll', 'true', '150'}}
+t['<C-j>'] = {'scroll', { 'vim.wo.scroll', 'true', '150'}}
+t['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '450'}}
+t['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450'}}
+t['<backspace>'] = {'scroll', {'-0.10', 'false', '100'}}
+t['<C-l>'] = {'scroll', { '0.10', 'false', '100'}}
+t['zt']    = {'zt', {'200'}}
+t['zz']    = {'zz', {'200'}}
+t['zb']    = {'zb', {'200'}}
+
+require('neoscroll.config').set_mappings(t)
 EOF
