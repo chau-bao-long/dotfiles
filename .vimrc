@@ -52,7 +52,6 @@ Plug 'chau-bao-long/telescope.nvim'
 Plug 'udalov/kotlin-vim'
 Plug 'honza/vim-snippets'
 Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
 Plug 'justinmk/vim-sneak'
 Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
@@ -64,6 +63,8 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'chrisbra/NrrwRgn'
 Plug 'dstein64/nvim-scrollview'
+Plug 'karb94/neoscroll.nvim'
+Plug 'rmagatti/auto-session'
 
 Plug 'AndrewRadev/sideways.vim'
 nnoremap <space>sl :SidewaysJumpRight<cr>
@@ -147,7 +148,6 @@ source ~/Projects/dotfiles/.vim/config/fzf.vim
 source ~/Projects/dotfiles/.vim/config/multicursor.vim
 source ~/Projects/dotfiles/.vim/config/ale.vim
 source ~/Projects/dotfiles/.vim/config/coc.vim
-source ~/Projects/dotfiles/.vim/config/session.vim
 source ~/Projects/dotfiles/.vim/config/sneak.vim
 source ~/Projects/dotfiles/.vim/config/tree.vim
 source ~/Projects/dotfiles/.vim/config/git.vim
