@@ -43,6 +43,7 @@
   },
   "explorer.file.git.showUntrackedFiles": true,
   "explorer.git.showIgnored": false,
+  "explorer.file.reveal.auto": true,
 
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",

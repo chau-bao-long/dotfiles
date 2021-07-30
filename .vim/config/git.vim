@@ -15,8 +15,6 @@ nnoremap <space>ge :Gedit
 nnoremap <space>gt .tabnew<cr>
 nnoremap <space>gvs :Gvsplit<cr>
 nnoremap <space>gsp :Gsplit<cr>
-nnoremap <space>gca :Gcommit --amend<cr>
-nnoremap <space>gci :Gcommit<cr>
 nnoremap <space>gpu :Gpush<cr>
 nnoremap <space>gpf :Gpush -f<cr>
 nnoremap <space>gfo :Gfetch origin<cr>
@@ -37,3 +35,6 @@ fu! s:closeGitDiffWindows()
 
   exe "normal \<c-w>h"
 endfu
+
+nnoremap <space>go :DiffviewOpen<cr>
+nnoremap <space>gc :DiffviewClose<cr>

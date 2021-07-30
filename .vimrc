@@ -61,6 +61,7 @@ Plug 'vim-vdebug/vdebug'
 Plug 'idanarye/vim-vebugger', {'branch': 'develop'}
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'sindrets/diffview.nvim'
 Plug 'chrisbra/NrrwRgn'
 Plug 'dstein64/nvim-scrollview'
 Plug 'karb94/neoscroll.nvim'
