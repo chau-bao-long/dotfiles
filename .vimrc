@@ -448,12 +448,12 @@ require('orgmode').setup({
 require('neoscroll').setup()
 
 local t = {}
-t['<C-k>'] = {'scroll', {'-vim.wo.scroll', 'true', '150'}}
-t['<C-j>'] = {'scroll', { 'vim.wo.scroll', 'true', '150'}}
-t['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '450'}}
-t['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450'}}
-t['<backspace>'] = {'scroll', {'-0.10', 'false', '100'}}
-t['<C-l>'] = {'scroll', { '0.10', 'false', '100'}}
+t['<c-k>'] = {'scroll', {'-vim.wo.scroll', 'true', '150'}}
+t['<c-j>'] = {'scroll', { 'vim.wo.scroll', 'true', '150'}}
+t['<c-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '450'}}
+t['<c-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450'}}
+t['<c-l>'] = {'scroll', {'-0.10', 'false', '100'}}
+t['<backspace>'] = {'scroll', { '0.10', 'false', '100'}}
 t['zt']    = {'zt', {'200'}}
 t['zz']    = {'zz', {'200'}}
 t['zb']    = {'zb', {'200'}}
