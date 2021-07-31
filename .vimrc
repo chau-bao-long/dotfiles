@@ -1,8 +1,6 @@
 " ==================================================== Plugin Config
 call plug#begin('~/.vim/plugged')
 
-" Plug 'doums/darcula'
-" Plug 'sainnhe/gruvbox-material'
 Plug 'sainnhe/edge'
 
 Plug 'kyazdani42/nvim-web-devicons'
