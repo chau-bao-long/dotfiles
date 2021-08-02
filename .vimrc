@@ -64,6 +64,7 @@ Plug 'chrisbra/NrrwRgn'
 Plug 'dstein64/nvim-scrollview'
 Plug 'karb94/neoscroll.nvim'
 Plug 'rmagatti/auto-session'
+Plug 'gelguy/wilder.nvim'
 
 Plug 'AndrewRadev/sideways.vim'
 nnoremap <space>sl :SidewaysJumpRight<cr>
@@ -156,6 +157,7 @@ source ~/Projects/dotfiles/.vim/config/expand-region.vim
 source ~/Projects/dotfiles/.vim/config/fold.vim
 source ~/Projects/dotfiles/.vim/config/actions.vim
 source ~/Projects/dotfiles/.vim/config/profiling.vim
+source ~/Projects/dotfiles/.vim/config/wildmenu.vim
 lua require 'common'
 lua require 'treesitter'
 lua require 'tabline'
