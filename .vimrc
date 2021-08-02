@@ -287,7 +287,7 @@ set hlsearch
 nnoremap <silent> z/ :noh<cr>
 
 " ==================================================== Custom mapping
-nnoremap Y y$
+nnoremap Y v$"+y
 nmap gk :tabprevious<cr>
 nmap gj :tabnext<cr>
 nnoremap <space>ve :tabnew ~/.vimrc<CR>

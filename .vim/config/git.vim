@@ -37,4 +37,5 @@ fu! s:closeGitDiffWindows()
 endfu
 
 nnoremap <space>go :DiffviewOpen<cr>
+nnoremap <space>gO :DiffviewOpen HEAD~
 nnoremap <space>gc :DiffviewClose<cr>
