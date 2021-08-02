@@ -53,10 +53,7 @@ nnoremap <space>u :History<cr>
 nnoremap <space>U :GitFiles<cr>
 nnoremap <space>b :Buffers<cr>
 nnoremap <space>B :MRU<cr>
-nnoremap <space>cm :Commands<cr>
-nnoremap <space>ck :Maps<cr>
 nnoremap <space>q :Rg<cr>
-nnoremap <space>ch :Helptags<cr>
 nnoremap Q :Rg <c-r><c-w><cr>
 xnoremap Q y:Rg <c-r>0<cr>
 nnoremap W "*yiw:Files<cr>
