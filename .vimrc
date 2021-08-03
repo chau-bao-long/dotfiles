@@ -414,6 +414,8 @@ xnoremap >  >gv
 " Keeping it centered
 nnoremap n nzzzv
 nnoremap N Nzzzv
+nnoremap # #zzzv
+nnoremap * *zzzv
 
 " Undo break points
 inoremap , ,<c-g>u
