@@ -410,22 +410,3 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 " Auto equally resize windows when vim changes size
 autocmd VimResized * wincmd =
-
-lua << EOF
-vim.api.nvim_set_keymap('v', '<s-k>', ":lua require'common'.resize_visual_area('collapse')<cr>", {noremap = true})
-vim.api.nvim_set_keymap('v', '<s-j>', ":lua require'common'.resize_visual_area('expand')<cr>", {noremap = true})
-
-require('orgmode').setup({
-  org_agenda_files = {'~/org/*', '~/org/**/*'},
-  org_default_notes_file = '~/org/refile.org',
-})
-require('nvim-autopairs').setup{}
-EOF
-
-" ==================================================== Config Lua Plugin
-lua require 'common'
-lua require 'treesitter'
-lua require 'tabline'
-lua require 'statusline'
-lua require 'git'
-lua require 'scroll'
