@@ -446,7 +446,9 @@ require('orgmode').setup({
   org_default_notes_file = '~/org/refile.org',
 })
 
-require('neoscroll').setup()
+require('neoscroll').setup({
+  hide_cursor = false
+})
 
 local t = {}
 t['<c-k>'] = {'scroll', {'-vim.wo.scroll', 'true', '150'}}
