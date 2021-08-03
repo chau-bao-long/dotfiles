@@ -95,9 +95,9 @@ let g:commonActions = [
       \],
       \[
       \ '🔎 files vim config',
-      \ "Files ~/Projects/dotfiles/.vim/config/",
+      \ "Files ~/Projects/dotfiles/.vim/after/plugin/",
       \ [
-      \   ' - Pick a file in ~/Projects/dotfiles/.vim/config/ folder',
+      \   ' - Pick a vim config file',
       \ ]
       \],
       \[
@@ -108,10 +108,10 @@ let g:commonActions = [
       \ ]
       \],
       \[
-      \ '🔎 files lua function',
-      \ "Files ~/Projects/dotfiles/.vim/lua/",
+      \ '🔎 files lua config',
+      \ "Files ~/Projects/dotfiles/.vim/after/plugin/lua",
       \ [
-      \   ' - Pick a file in ~/Projects/dotfiles/.vim/lua/ folder',
+      \   ' - Pick a lua file config',
       \ ]
       \],
       \[
