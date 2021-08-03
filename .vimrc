@@ -1,4 +1,4 @@
-" ==================================================== Plugin Config
+" ==================================================== All plugins
 call plug#begin('~/.vim/plugged')
 
 Plug 'sainnhe/edge'
@@ -141,7 +141,7 @@ Plug 'terryma/vim-expand-region'
 
 call plug#end()
 
-" ==================================================== Config Plugin
+" ==================================================== Config Vim Plugin
 if filereadable(expand("~/Projects/dotfiles/.vim/config/secrets.vim"))
   source ~/Projects/dotfiles/.vim/config/secrets.vim
 endif
@@ -160,11 +160,6 @@ source ~/Projects/dotfiles/.vim/config/fold.vim
 source ~/Projects/dotfiles/.vim/config/actions.vim
 source ~/Projects/dotfiles/.vim/config/profiling.vim
 source ~/Projects/dotfiles/.vim/config/wildmenu.vim
-lua require 'common'
-lua require 'treesitter'
-lua require 'tabline'
-lua require 'statusline'
-lua require 'git'
 
 " ==================================================== General Config
 filetype plugin indent on
@@ -446,21 +441,12 @@ require('orgmode').setup({
   org_agenda_files = {'~/org/*', '~/org/**/*'},
   org_default_notes_file = '~/org/refile.org',
 })
-
-require('neoscroll').setup({
-  hide_cursor = false
-})
-
-local t = {}
-t['<c-k>'] = {'scroll', {'-vim.wo.scroll', 'true', '150'}}
-t['<c-j>'] = {'scroll', { 'vim.wo.scroll', 'true', '150'}}
-t['<c-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '450'}}
-t['<c-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450'}}
-t['<c-l>'] = {'scroll', {'-0.10', 'false', '80'}}
-t['<backspace>'] = {'scroll', { '0.10', 'false', '80'}}
-t['zt']    = {'zt', {'150'}}
-t['zz']    = {'zz', {'150'}}
-t['zb']    = {'zb', {'150'}}
-
-require('neoscroll.config').set_mappings(t)
 EOF
+
+" ==================================================== Config Lua Plugin
+lua require 'common'
+lua require 'treesitter'
+lua require 'tabline'
+lua require 'statusline'
+lua require 'git'
+lua require 'scroll'
