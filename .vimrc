@@ -66,6 +66,7 @@ Plug 'dstein64/nvim-scrollview'
 Plug 'karb94/neoscroll.nvim'
 Plug 'rmagatti/auto-session'
 Plug 'gelguy/wilder.nvim'
+Plug 'yamatsum/nvim-cursorline'
 
 Plug 'AndrewRadev/sideways.vim'
 nnoremap <space>sl :SidewaysJumpRight<cr>
@@ -423,7 +424,6 @@ xnoremap >  >gv
 " Keeping it centered
 nnoremap n nzzzv
 nnoremap N Nzzzv
-nnoremap J mzJ`z
 
 " Undo break points
 inoremap , ,<c-g>u
