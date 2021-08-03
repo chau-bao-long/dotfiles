@@ -24,9 +24,6 @@ Plug 'voldikss/vim-floaterm'
 Plug 'szw/vim-maximizer'
 nnoremap <space>wm :MaximizerToggle<cr>
 
-Plug 'junegunn/vim-easy-align'
-xmap - <Plug>(EasyAlign)
-
 Plug 'SirVer/ultisnips'
 let g:UltiSnipsSnippetDirectories = [ "~/Projects/dotfiles/.vim/UltiSnips/" ]
 let g:UltiSnipsEditSplit = 'tabdo'
@@ -56,8 +53,6 @@ Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
-Plug 'vim-vdebug/vdebug'
-Plug 'idanarye/vim-vebugger', {'branch': 'develop'}
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'sindrets/diffview.nvim'
@@ -153,7 +148,6 @@ source ~/Projects/dotfiles/.vim/config/coc.vim
 source ~/Projects/dotfiles/.vim/config/sneak.vim
 source ~/Projects/dotfiles/.vim/config/tree.vim
 source ~/Projects/dotfiles/.vim/config/git.vim
-source ~/Projects/dotfiles/.vim/config/debug.vim
 source ~/Projects/dotfiles/.vim/config/devicons.vim
 source ~/Projects/dotfiles/.vim/config/expand-region.vim
 source ~/Projects/dotfiles/.vim/config/fold.vim
