@@ -66,7 +66,7 @@ Plug 'dstein64/nvim-scrollview'
 Plug 'karb94/neoscroll.nvim'
 Plug 'rmagatti/auto-session'
 Plug 'gelguy/wilder.nvim'
-Plug 'yamatsum/nvim-cursorline'
+Plug 'xiyaowong/nvim-cursorword'
 
 Plug 'AndrewRadev/sideways.vim'
 nnoremap <space>sl :SidewaysJumpRight<cr>
