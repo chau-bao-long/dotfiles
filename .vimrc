@@ -7,6 +7,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 
+Plug 'windwp/nvim-autopairs'
 Plug 'akinsho/nvim-bufferline.lua'
 nnoremap <silent>gl :BufferLineCycleNext<CR>
 nnoremap <silent>gh :BufferLineCyclePrev<CR>
@@ -435,6 +436,7 @@ require('orgmode').setup({
   org_agenda_files = {'~/org/*', '~/org/**/*'},
   org_default_notes_file = '~/org/refile.org',
 })
+require('nvim-autopairs').setup{}
 EOF
 
 " ==================================================== Config Lua Plugin
