@@ -1,7 +1,7 @@
 nnoremap <space>5 :UndotreeToggle<cr>
 nnoremap <space>l :CocCommand explorer --preset floating<cr>
-" nnoremap <space>fe :CocCommand explorer<cr>
-" nnoremap <space>fl :call <SID>findLocationOnTree()<cr>
+nnoremap <space>fe :CocCommand explorer<cr>
+nnoremap <space>fl :call <SID>findLocationOnTree()<cr>
 nnoremap <space>fv :CocCommand explorer --preset .vim<cr>
 
 autocmd Filetype coc-explorer :IndentLinesDisable
@@ -135,5 +135,5 @@ lua <<EOF
     }
 EOF
 
-nnoremap <space>fe :NvimTreeToggle<CR>
-nnoremap <space>fl :NvimTreeFindFile<CR>
+nnoremap <space>n :NvimTreeToggle<CR>
+nnoremap <space>N :NvimTreeFindFile<CR>

@@ -6,7 +6,6 @@ set shortmess+=c
 
 let g:global_extensions = [
             \'coc-fzf-preview',
-            \'coc-explorer',
             \'coc-ultisnips',
             \'coc-highlight',
             \'coc-tabnine',
