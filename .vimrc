@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'sainnhe/edge'
 
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 
 Plug 'akinsho/nvim-bufferline.lua'
