@@ -116,6 +116,3 @@ nnoremap <space>ar :CocRestart<cr>
 nnoremap <space>sc :CocSearch <c-r><c-w><cr>
 nnoremap <space>cs :CocSearch 
 xnoremap <space>sc y:CocSearch <c-r>0<cr>
-
-" Delay load coc config again, which fix the bug with coc completion does not work at first time start
-autocmd VimEnter * call timer_start(200, { tid -> execute('source ~/Projects/dotfiles/.vim/config/coc.vim')})

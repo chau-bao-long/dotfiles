@@ -137,25 +137,6 @@ Plug 'terryma/vim-expand-region'
 
 call plug#end()
 
-" ==================================================== Config Vim Plugin
-if filereadable(expand("~/Projects/dotfiles/.vim/config/secrets.vim"))
-  source ~/Projects/dotfiles/.vim/config/secrets.vim
-endif
-source ~/Projects/dotfiles/.vim/config/term.vim
-source ~/Projects/dotfiles/.vim/config/fzf.vim
-source ~/Projects/dotfiles/.vim/config/multicursor.vim
-source ~/Projects/dotfiles/.vim/config/ale.vim
-source ~/Projects/dotfiles/.vim/config/coc.vim
-source ~/Projects/dotfiles/.vim/config/sneak.vim
-source ~/Projects/dotfiles/.vim/config/tree.vim
-source ~/Projects/dotfiles/.vim/config/git.vim
-source ~/Projects/dotfiles/.vim/config/devicons.vim
-source ~/Projects/dotfiles/.vim/config/expand-region.vim
-source ~/Projects/dotfiles/.vim/config/fold.vim
-source ~/Projects/dotfiles/.vim/config/actions.vim
-source ~/Projects/dotfiles/.vim/config/profiling.vim
-source ~/Projects/dotfiles/.vim/config/wildmenu.vim
-
 " ==================================================== General Config
 filetype plugin indent on
 
