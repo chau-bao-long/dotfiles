@@ -7,3 +7,9 @@ require('orgmode').setup({
   org_agenda_files = {'~/org/*', '~/org/**/*'},
   org_default_notes_file = '~/org/refile.org',
 })
+
+-- Setup autopairs
+require('nvim-autopairs').setup{
+  disable_filetype = { "TelescopePrompt" , "vim" },
+  enable_check_bracket_line = false,
+}

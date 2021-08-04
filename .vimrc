@@ -8,6 +8,10 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 
 Plug 'windwp/nvim-autopairs'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
+Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
+
 Plug 'akinsho/nvim-bufferline.lua'
 nnoremap <silent>gl :BufferLineCycleNext<CR>
 nnoremap <silent>gh :BufferLineCyclePrev<CR>
@@ -56,8 +60,6 @@ Plug 'xolox/vim-misc'
 Plug 'justinmk/vim-sneak'
 Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'antoinemadec/coc-fzf'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'sindrets/diffview.nvim'
@@ -73,12 +75,6 @@ nnoremap <space>sl :SidewaysJumpRight<cr>
 nnoremap <space>sh :SidewaysJumpLeft<cr>
 nnoremap <space>sL :SidewaysRight<cr>
 nnoremap <space>sH :SidewaysLeft<cr>
-
-Plug 'dinhhuy258/vintellij', {'branch': 'lsp-stable'}
-let g:vintellij_use_default_keymap = 0
-let g:enable_buffer_sync_by_default = 0
-nnoremap <space>vi :VintellijToggle<cr>
-nnoremap <space>vI :VintellijToggle!<cr>
 
 Plug 'chau-bao-long/java-kotlin-gf'
 let g:srcPath = ["/app/build/generated-jooq/"]
@@ -150,7 +146,6 @@ set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
-set guicursor=n:blinkon1        "Fix bug cursor of COC
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set encoding=utf-8
@@ -191,10 +186,6 @@ hi FloatermBorder guifg=#55E579
 hi Pmenu ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#16181C gui=NONE
 hi PmenuSel ctermfg=NONE ctermbg=24 cterm=NONE guifg=#000000 guibg=#55E579 gui=NONE
 hi DeniteBackground ctermfg=NONE ctermbg=24 cterm=NONE guifg=#ffffff guibg=#000000 gui=NONE
-hi CocExplorerFileDirectoryCollapsed guifg=#C3526E
-hi CocExplorerFileDirectoryExpanded guifg=#C3526E
-hi CocExplorerFileDirectory guifg=#61CE91
-hi CocExplorerNormalFloat guibg=#000000
 hi CursorLine guibg=#323232 guifg=NONE
 
 " ==================================================== Turn Off Swap Files
