@@ -154,7 +154,6 @@ set guicursor=n:blinkon1        "Fix bug cursor of COC
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set encoding=utf-8
-set number
 set cursorline
 
 " This makes vim act like all other editors, buffers can
@@ -269,21 +268,21 @@ nnoremap <silent> z/ :noh<cr>
 nnoremap Y v$"+y
 nmap gk :tabprevious<cr>
 nmap gj :tabnext<cr>
+nmap <script> <silent> <space>3 :copen 1000<cr>
+nmap <script> <silent> <space>2 :call ToggleQuickfixList()<cr>
+nmap <space>w <c-w>
+nmap z; :e #<cr>
 nnoremap <space>ve :tabnew ~/.vimrc<CR>
 nnoremap <space>vr :source ~/.vimrc<CR>
 nnoremap <space>vs yy:<c-r>0<cr>
 xnoremap <space>vs y:<c-r>0<cr>
-nmap <space>wt :tabnew<cr><c-o>
-nmap <space>vv :vs<cr><C-w>l
-nmap <space>xx :split<cr><C-w>j
-nmap <space>> <c-w>30>
-nmap <space>< <c-w>30<
-nmap <space>wu <c-w>25-
-nmap <space>wd <c-w>25+
-nmap <script> <silent> <space>3 :copen 1000<cr>
-nmap <script> <silent> <space>2 :call ToggleQuickfixList()<cr>
-nmap <space>w <c-w>
-nmap <space>w<cr> <c-w>r<c-w>h<c-w>60>
+nnoremap <space>wt :tabnew<cr>
+nnoremap <space>vv :vs<cr><C-w>l
+nnoremap <space>xx :split<cr><C-w>j
+nnoremap <space>. <c-w>30>
+nnoremap <space>, <c-w>30<
+nnoremap <space>wu <c-w>25-
+nnoremap <space>wd <c-w>25+
 nnoremap <space>w1 :call nvim_win_close(win_getid(1), 0)<cr>
 nnoremap <space>w2 :call nvim_win_close(win_getid(2), 0)<cr>
 nnoremap <space>w3 :call nvim_win_close(win_getid(3), 0)<cr>
@@ -298,7 +297,6 @@ nnoremap 'E :qa!<CR>
 nnoremap 'r :edit!<cr>
 nnoremap 't :tabclose<cr>
 nnoremap 'c :bd<cr>
-nmap z; :e #<cr>
 nnoremap cP :let @+=expand("%F")<cr>
 nnoremap co :let @+=expand("%:t")<cr>
 nnoremap cy :let @+=expand("%:p")<cr>
