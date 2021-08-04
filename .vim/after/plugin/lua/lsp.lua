@@ -265,16 +265,15 @@ require'compe'.setup {
   source = {
     path = {
       menu = " [PATH] ",
-      priority = 40,
+      priority = 20,
     },
-    buffer = { kind = "  ", menu = " [BUFFER] ", priority = 20 },
-    calc = { kind = "  " },
+    buffer = { kind = "  ", menu = " [BUFFER] ", priority = 15 },
     tabnine = {
       max_num_results = 10,
       priority = 9,
       sort = false,
       show_prediction_strength = true,
-      max_line = 1000,
+      max_line = 100,
     },
     nvim_lsp = { kind = "  ", menu = " [LSP] ", priority = 10 },
     nvim_lua = { kind = "  ", menu = " [LUA] ", priority = 10 },
@@ -283,7 +282,6 @@ require'compe'.setup {
     snippets_nvim = { kind = "  " },
     ultisnips = { kind = "  ", menu = " [SNIP] ", priority = 9 },
     treesitter = { kind = "  ", menu = " [TREESITTER] ", priority = 10 },
-    emoji = { kind = " ﲃ ", filetypes = { "markdown", "text" } },
     tmux = {
       all_panes = true,
     },
@@ -330,7 +328,7 @@ require("lspsaga").init_lsp_saga({
   },
   code_action_keys = {
     quit = "<esc>",
-    exec = "o",
+    exec = "<cr>",
   },
   rename_action_keys = {
     quit = "<C-c>",
