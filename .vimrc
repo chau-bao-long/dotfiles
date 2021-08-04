@@ -60,7 +60,6 @@ Plug 'honza/vim-snippets'
 Plug 'xolox/vim-misc'
 Plug 'justinmk/vim-sneak'
 Plug 'vim-syntastic/syntastic'
-Plug 'w0rp/ale'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'sindrets/diffview.nvim'

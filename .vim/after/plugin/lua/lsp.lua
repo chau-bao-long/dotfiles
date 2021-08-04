@@ -34,18 +34,175 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '[s', ':Lspsaga diagnostic_jump_next<cr>', opts)
   buf_set_keymap('n', ']s', ':Lspsaga diagnostic_jump_prev<cr>', opts)
   buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>', opts)
-  buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
+  buf_set_keymap("n", "<space>fm", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
+  buf_set_keymap("v", "<space>fl", "<cmd>lua vim.lsp.buf.range_formatting()<cr>", opts)
 end
 
-local servers = { "intelephense", "tsserver" }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
+-- npm install -g pyright
+require'lspconfig'.pyright.setup {
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+}
+
+-- npm install -g intelephense
+require'lspconfig'.intelephense.setup {
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+}
+
+-- npm install -g typescript typescript-language-server
+require'lspconfig'.tsserver.setup {
+    on_attach = function(client)
+        client.resolved_capabilities.document_formatting = false
+        on_attach(client)
+    end
+}
+
+-- yarn global add diagnostic-languageserver
+local filetypes = {
+    typescript = "eslint",
+    typescriptreact = "eslint",
+}
+local linters = {
+    eslint = {
+        sourceName = "eslint",
+        command = "eslint_d",
+        rootPatterns = {".eslintrc.js", "package.json"},
+        debounce = 100,
+        args = {"--stdin", "--stdin-filename", "%filepath", "--format", "json"},
+        parseJson = {
+            errorsRoot = "[0].messages",
+            line = "line",
+            column = "column",
+            endLine = "endLine",
+            endColumn = "endColumn",
+            message = "${message} [${ruleId}]",
+            security = "severity"
+        },
+        securities = {[2] = "error", [1] = "warning"}
     }
-  }
-end
+}
+local formatters = {
+    prettier = {command = "prettier", args = {"--stdin-filepath", "%filepath"}}
+}
+local formatFiletypes = {
+    typescript = "prettier",
+    typescriptreact = "prettier"
+}
+require'lspconfig'.diagnosticls.setup {
+    on_attach = on_attach,
+    filetypes = vim.tbl_keys(filetypes),
+    init_options = {
+        filetypes = filetypes,
+        linters = linters,
+        formatters = formatters,
+        formatFiletypes = formatFiletypes
+    }
+}
+
+-- brew install hashicorp/tap/terraform-ls
+require'lspconfig'.terraformls.setup{
+  on_attach = on_attach,
+  filetypes = { "terraform", 'tf' },
+  root_dir = require("lspconfig/util").root_pattern(".terraform", ".git")
+}
+
+-- npm i -g bash-language-server
+require'lspconfig'.bashls.setup{
+  on_attach = on_attach,
+  filetypes = { "sh", "zsh" },
+}
+
+-- yarn global add yaml-language-server
+require'lspconfig'.yamlls.setup{
+  on_attach = on_attach,
+  filetypes = { "yaml", "yml" },
+  settings = {
+    yaml = {
+      format = {
+        enable = true,
+        singleQuote = false,
+        bracketSpacing = true,
+      },
+      editor = {
+        tabSize = 2,
+      },
+      schemas = {
+        ["https://json.schemastore.org/github-workflow.json"] = "ci.yml",
+        ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.yml",
+      },
+    },
+  },
+}
+
+-- GO111MODULE=on go get golang.org/x/tools/gopls@latest
+require'lspconfig'.gopls.setup {
+  on_attach = on_attach,
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
+}
+
+-- gem install --user-install solargraph
+require'lspconfig'.solargraph.setup{
+  on_attach = on_attach,
+  filetypes = { "ruby", "rb" },
+  init_options = {
+    formatting = true,
+  },
+  settings = {
+    solargraph = {
+      diagnostics = true,
+    },
+  },
+}
+
+-- npm install -g vim-language-server
+require'lspconfig'.vimls.setup{
+  on_attach = on_attach,
+  init_options = {
+    diagnostic = {
+      enable = true
+    },
+    indexes = {
+      count = 3,
+      gap = 100,
+      projectRootPatterns = { "runtime", "nvim", ".git", "autoload", "plugin" },
+      runtimepath = true
+    },
+    iskeyword = "@,48-57,_,192-255,-#",
+    runtimepath = "",
+    suggest = {
+      fromRuntimepath = true,
+      fromVimruntime = true
+    },
+    vimruntime = ""
+  },
+  root_dir = function(fname)
+    return vim.fn.getcwd()
+  end,
+}
+
+-- npm i -g vscode-langservers-extracted
+require'lspconfig'.jsonls.setup {
+    on_attach = on_attach,
+    commands = {
+      Format = {
+        function()
+          vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
+        end
+      }
+    }
+}
 
 
 -- CONFIGURES ICONS NEXT TO COMPLETION ITEMS FOR LSP
@@ -167,13 +324,13 @@ require("lspsaga").init_lsp_saga({
     open = "o",
     vsplit = "s",
     split = "i",
-    quit = "q",
+    quit = "<esc>",
     scroll_down = "<C-f>",
     scroll_up = "<C-b>", -- quit can be a table
   },
   code_action_keys = {
-    quit = "q",
-    exec = "<cr>",
+    quit = "<esc>",
+    exec = "o",
   },
   rename_action_keys = {
     quit = "<C-c>",
@@ -181,6 +338,5 @@ require("lspsaga").init_lsp_saga({
   },
   definition_preview_icon = "  ",
   border_style = "single", -- or double
-  -- rename_prompt_prefix = '➤',
-  rename_prompt_prefix = "❱❱",
+  rename_prompt_prefix = '➤',
 })
