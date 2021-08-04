@@ -20,10 +20,14 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/gv.vim'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'voldikss/vim-floaterm'
 Plug 'szw/vim-maximizer'
 nnoremap <space>wm :MaximizerToggle<cr>
+
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+let g:VM_maps = {}
+let g:VM_maps['Find Under']         = '<C-m>'
+let g:VM_maps['Find Subword Under'] = '<C-m>'
 
 Plug 'SirVer/ultisnips'
 let g:UltiSnipsSnippetDirectories = [ "~/Projects/dotfiles/.vim/UltiSnips/" ]
