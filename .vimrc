@@ -353,10 +353,7 @@ nnoremap <space>sS :%s/<c-r><c-w>//gIc<left><left><left><left>
 xnoremap <space>sS y:%s/<c-r>0//gIc<left><left><left><left>
 xnoremap / y:/<c-r>0<cr>
 nnoremap <space>er :e!<cr>
-nmap <space>eq yy:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
-vmap <space>eq y:!echo <c-r>0 > ~/bin/current-cmd<cr>:tabnew \| terminal <c-r>0<cr>G
-nmap <space>ew :call common#runCurrentCommand()<cr>
-nnoremap <space>cc :let @a = &ft<cr>:terminal cht.sh <c-r>a 
+nnoremap <space>ew :call common#runCurrentCommand()<cr>
 nnoremap <leader>bl :s/\((\zs\\|,\ *\zs\\|)\)/\r&/g<cr><bar>:'[,']normal ==<cr>:noh<cr>
 
 " Common functions

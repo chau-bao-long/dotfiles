@@ -135,5 +135,5 @@ lua <<EOF
     }
 EOF
 
-nnoremap <space>h :NvimTreeToggle<CR>
-nnoremap <space>H :NvimTreeFindFile<CR>
+nnoremap <space>h :NvimTreeFindFile<CR>
+nnoremap <space>H :NvimTreeToggle<CR>
