@@ -108,10 +108,10 @@ let g:commonActions = [
       \ ]
       \],
       \[
-      \ '🔎 files lua config',
-      \ "Files ~/Projects/dotfiles/.vim/after/plugin/lua",
+      \ '🔎 files lua modules',
+      \ "Files ~/Projects/dotfiles/.vim/lua",
       \ [
-      \   ' - Pick a lua file config',
+      \   ' - Pick a lua module',
       \ ]
       \],
       \[
