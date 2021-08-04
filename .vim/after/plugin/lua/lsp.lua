@@ -38,83 +38,85 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("v", "<space>fl", "<cmd>lua vim.lsp.buf.range_formatting()<cr>", opts)
 end
 
+local debounce_duration = 200
+
 -- npm install -g pyright
 require'lspconfig'.pyright.setup {
   on_attach = on_attach,
-  flags = {
-    debounce_text_changes = 150,
-  },
+  flags = { debounce_text_changes = debounce_duration },
 }
 
 -- npm install -g intelephense
 require'lspconfig'.intelephense.setup {
   on_attach = on_attach,
-  flags = {
-    debounce_text_changes = 150,
-  },
+  flags = { debounce_text_changes = debounce_duration },
 }
 
 -- npm install -g typescript typescript-language-server
 require'lspconfig'.tsserver.setup {
-    on_attach = function(client)
-        client.resolved_capabilities.document_formatting = false
-        on_attach(client)
-    end
+  on_attach = function(client)
+    client.resolved_capabilities.document_formatting = false
+    on_attach(client)
+  end,
+  flags = { debounce_text_changes = debounce_duration },
 }
 
 -- yarn global add diagnostic-languageserver
 local filetypes = {
-    typescript = "eslint",
-    typescriptreact = "eslint",
+  typescript = "eslint",
+  typescriptreact = "eslint",
 }
 local linters = {
-    eslint = {
-        sourceName = "eslint",
-        command = "eslint_d",
-        rootPatterns = {".eslintrc.js", "package.json"},
-        debounce = 100,
-        args = {"--stdin", "--stdin-filename", "%filepath", "--format", "json"},
-        parseJson = {
-            errorsRoot = "[0].messages",
-            line = "line",
-            column = "column",
-            endLine = "endLine",
-            endColumn = "endColumn",
-            message = "${message} [${ruleId}]",
-            security = "severity"
-        },
-        securities = {[2] = "error", [1] = "warning"}
-    }
+  eslint = {
+    sourceName = "eslint",
+    command = "eslint_d",
+    rootPatterns = {".eslintrc.js", "package.json"},
+    debounce = 100,
+    args = {"--stdin", "--stdin-filename", "%filepath", "--format", "json"},
+    parseJson = {
+      errorsRoot = "[0].messages",
+      line = "line",
+      column = "column",
+      endLine = "endLine",
+      endColumn = "endColumn",
+      message = "${message} [${ruleId}]",
+      security = "severity"
+    },
+    securities = {[2] = "error", [1] = "warning"}
+  }
 }
 local formatters = {
-    prettier = {command = "prettier", args = {"--stdin-filepath", "%filepath"}}
+  prettier = {command = "prettier", args = {"--stdin-filepath", "%filepath"}}
 }
 local formatFiletypes = {
-    typescript = "prettier",
-    typescriptreact = "prettier"
+  typescript = "prettier",
+  typescriptreact = "prettier"
 }
 require'lspconfig'.diagnosticls.setup {
-    on_attach = on_attach,
-    filetypes = vim.tbl_keys(filetypes),
-    init_options = {
-        filetypes = filetypes,
-        linters = linters,
-        formatters = formatters,
-        formatFiletypes = formatFiletypes
-    }
+  on_attach = on_attach,
+  filetypes = vim.tbl_keys(filetypes),
+  init_options = {
+    filetypes = filetypes,
+    linters = linters,
+    formatters = formatters,
+    formatFiletypes = formatFiletypes
+  },
+  flags = { debounce_text_changes = debounce_duration },
 }
 
 -- brew install hashicorp/tap/terraform-ls
 require'lspconfig'.terraformls.setup{
   on_attach = on_attach,
   filetypes = { "terraform", 'tf' },
-  root_dir = require("lspconfig/util").root_pattern(".terraform", ".git")
+  root_dir = require("lspconfig/util").root_pattern(".terraform", ".git"),
+  flags = { debounce_text_changes = debounce_duration },
 }
 
 -- npm i -g bash-language-server
 require'lspconfig'.bashls.setup{
   on_attach = on_attach,
   filetypes = { "sh", "zsh" },
+  flags = { debounce_text_changes = debounce_duration },
 }
 
 -- yarn global add yaml-language-server
@@ -137,6 +139,7 @@ require'lspconfig'.yamlls.setup{
       },
     },
   },
+  flags = { debounce_text_changes = debounce_duration },
 }
 
 -- GO111MODULE=on go get golang.org/x/tools/gopls@latest
@@ -150,6 +153,7 @@ require'lspconfig'.gopls.setup {
       staticcheck = true,
     },
   },
+  flags = { debounce_text_changes = debounce_duration },
 }
 
 -- gem install --user-install solargraph
@@ -164,6 +168,7 @@ require'lspconfig'.solargraph.setup{
       diagnostics = true,
     },
   },
+  flags = { debounce_text_changes = debounce_duration },
 }
 
 -- npm install -g vim-language-server
@@ -190,18 +195,20 @@ require'lspconfig'.vimls.setup{
   root_dir = function(fname)
     return vim.fn.getcwd()
   end,
+  flags = { debounce_text_changes = debounce_duration },
 }
 
 -- npm i -g vscode-langservers-extracted
 require'lspconfig'.jsonls.setup {
-    on_attach = on_attach,
-    commands = {
-      Format = {
-        function()
-          vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
-        end
-      }
+  on_attach = on_attach,
+  commands = {
+    Format = {
+      function()
+        vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
+      end
     }
+  },
+  flags = { debounce_text_changes = debounce_duration },
 }
 
 
