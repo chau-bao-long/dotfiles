@@ -135,6 +135,8 @@ Plug 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 Plug 'dyng/ctrlsf.vim'
+vnoremap <space>cf y:CtrlSF <c-r>0<cr>
+
 Plug 'terryma/vim-expand-region'
 
 call plug#end()
