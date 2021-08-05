@@ -12,6 +12,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
 Plug 'glepnir/lspsaga.nvim'
+Plug 'beeender/Comrade'
 
 Plug 'akinsho/nvim-bufferline.lua'
 nnoremap <silent>gl :BufferLineCycleNext<CR>
