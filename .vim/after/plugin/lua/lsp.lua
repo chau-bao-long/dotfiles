@@ -8,10 +8,9 @@ local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  --Enable completion triggered by <c-x><c-o>
+  -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  -- Mappings.
   local opts = { noremap=true, silent=true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -37,18 +36,21 @@ end
 
 local debounce_duration = 200
 
+-- Python LSP
 -- npm install -g pyright
 require'lspconfig'.pyright.setup {
   on_attach = on_attach,
   flags = { debounce_text_changes = debounce_duration },
 }
 
+-- PHP LSP
 -- npm install -g intelephense
 require'lspconfig'.intelephense.setup {
   on_attach = on_attach,
   flags = { debounce_text_changes = debounce_duration },
 }
 
+-- Typescript LSP
 -- npm install -g typescript typescript-language-server
 require'lspconfig'.tsserver.setup {
   on_attach = function(client)
@@ -58,6 +60,7 @@ require'lspconfig'.tsserver.setup {
   flags = { debounce_text_changes = debounce_duration },
 }
 
+-- Diagnostic LSP
 -- yarn global add diagnostic-languageserver
 local filetypes = {
   typescript = "eslint",
@@ -101,6 +104,50 @@ require'lspconfig'.diagnosticls.setup {
   flags = { debounce_text_changes = debounce_duration },
 }
 
+-- Lua LSP
+-- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
+local system_name
+if vim.fn.has("mac") == 1 then
+  system_name = "macOS"
+elseif vim.fn.has("unix") == 1 then
+  system_name = "Linux"
+elseif vim.fn.has('win32') == 1 then
+  system_name = "Windows"
+else
+  print("Unsupported system for sumneko")
+end
+
+local sumneko_root_path = '/Users/topcbl/Projects/lua-language-server'
+local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
+
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
+
+require'lspconfig'.sumneko_lua.setup {
+  on_attach = on_attach,
+  flags = { debounce_text_changes = debounce_duration },
+  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+        path = runtime_path,
+      },
+      diagnostics = {
+        globals = {'vim'},
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+}
+
+-- Terraform LSP
 -- brew install hashicorp/tap/terraform-ls
 require'lspconfig'.terraformls.setup{
   on_attach = on_attach,
@@ -109,6 +156,7 @@ require'lspconfig'.terraformls.setup{
   flags = { debounce_text_changes = debounce_duration },
 }
 
+-- Bash LSP
 -- npm i -g bash-language-server
 require'lspconfig'.bashls.setup{
   on_attach = on_attach,
@@ -116,6 +164,7 @@ require'lspconfig'.bashls.setup{
   flags = { debounce_text_changes = debounce_duration },
 }
 
+-- Yaml LSP
 -- yarn global add yaml-language-server
 require'lspconfig'.yamlls.setup{
   on_attach = on_attach,
@@ -139,6 +188,7 @@ require'lspconfig'.yamlls.setup{
   flags = { debounce_text_changes = debounce_duration },
 }
 
+-- Go lang LSP
 -- GO111MODULE=on go get golang.org/x/tools/gopls@latest
 require'lspconfig'.gopls.setup {
   on_attach = on_attach,
@@ -153,6 +203,7 @@ require'lspconfig'.gopls.setup {
   flags = { debounce_text_changes = debounce_duration },
 }
 
+-- Ruby LSP
 -- gem install --user-install solargraph
 require'lspconfig'.solargraph.setup{
   on_attach = on_attach,
@@ -168,6 +219,7 @@ require'lspconfig'.solargraph.setup{
   flags = { debounce_text_changes = debounce_duration },
 }
 
+-- Vimscript LSP
 -- npm install -g vim-language-server
 require'lspconfig'.vimls.setup{
   on_attach = on_attach,
@@ -195,6 +247,7 @@ require'lspconfig'.vimls.setup{
   flags = { debounce_text_changes = debounce_duration },
 }
 
+-- Json LSP
 -- npm i -g vscode-langservers-extracted
 require'lspconfig'.jsonls.setup {
   on_attach = on_attach,
@@ -241,7 +294,7 @@ protocol.CompletionItemKind = {
 }
 
 
--- Config autocomplete
+-- Config auto-complete
 vim.o.completeopt = "menuone,noselect"
 
 require'compe'.setup {
@@ -293,6 +346,7 @@ require'compe'.setup {
   };
 }
 
+-- Auto-complete mapping
 map('i', '<c-space>', 'compe#complete()', {expr = true, noremap = true, silent = true})
 map('n', '<c-space>', 'viwA', {noremap = true})
 map('i', '<cr>', [[compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()"))]], {expr = true, noremap = true, silent = true})

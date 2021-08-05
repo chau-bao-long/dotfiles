@@ -508,3 +508,5 @@ autoload -U promptinit; promptinit
 prompt pure
 
 zsh-defer -c 'RPS1="%F{240}%f"'
+
+alias luamake=/Users/topcbl/Projects/lua-language-server/3rd/luamake/luamake
