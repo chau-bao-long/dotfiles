@@ -134,6 +134,7 @@ Plug 'kristijanhusak/orgmode.nvim'
 Plug 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
+Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-expand-region'
 
 call plug#end()
