@@ -16,7 +16,7 @@ local on_attach = function(client, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<cr>', opts)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<cr>', opts)
-  buf_set_keymap('n', 'Gd', ':Lspsaga preview_definition<cr>', opts)
+  buf_set_keymap('n', 'gp', ':Lspsaga preview_definition<cr>', opts)
   buf_set_keymap('n', 'K', ':Lspsaga hover_doc<cr>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
   buf_set_keymap('n', '<space>sh', ':Lspsaga signature_help<cr>', opts)
