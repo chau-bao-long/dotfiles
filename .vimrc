@@ -27,8 +27,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/gv.vim'
 Plug 'voldikss/vim-floaterm'
-Plug 'szw/vim-maximizer'
-nnoremap <space>wm :MaximizerToggle<cr>
 
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 let g:VM_maps = {}
@@ -154,6 +152,7 @@ set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set encoding=utf-8
 set cursorline
+set number
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
