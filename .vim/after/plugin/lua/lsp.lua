@@ -24,8 +24,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>rn', '<cmd>Lspsaga rename<cr>', opts)
   buf_set_keymap('n', '<space>ca', '<cmd>Lspsaga code_action<cr>', opts)
   buf_set_keymap('v', '<space>ca', '<cmd><c-u>Lspsaga range_code_action<cr>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', 'gh', '<cmd>Lspsaga lsp_finder<cr>', opts)
+  buf_set_keymap('n', 'gR', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>Lspsaga lsp_finder<cr>', opts)
   buf_set_keymap('n', '<leader>e', '<cmd>Lspsaga show_line_diagnostics<cr>', opts)
   buf_set_keymap('n', '[s', '<cmd>Lspsaga diagnostic_jump_next<cr>', opts)
   buf_set_keymap('n', ']s', '<cmd>Lspsaga diagnostic_jump_prev<cr>', opts)
@@ -378,11 +378,11 @@ require("lspsaga").init_lsp_saga({
   max_preview_lines = 50, -- preview lines of lsp_finder and definition preview
   finder_action_keys = {
     open = "o",
-    vsplit = "s",
-    split = "i",
+    vsplit = "v",
+    split = "s",
     quit = "<esc>",
     scroll_down = "<C-f>",
-    scroll_up = "<C-b>", -- quit can be a table
+    scroll_up = "<C-b>",
   },
   code_action_keys = {
     quit = "<esc>",
