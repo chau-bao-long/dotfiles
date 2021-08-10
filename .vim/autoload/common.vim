@@ -157,7 +157,6 @@ fu! common#changeProjectHandler(result)
   let l:options = {
         \ 'source': 'git ls-files --exclude-standard --others --cached',
         \ }
-  call coc#rpc#restart()
   call fzf#run(fzf#wrap(extend(l:options, fzf#vim#with_preview('down:70%'))))
 endfu
 
