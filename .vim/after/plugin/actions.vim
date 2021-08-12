@@ -7,7 +7,8 @@ nnoremap <space>fc :lua require'telescope.builtin'.git_commits()<cr>
 let g:kotlinActions = [
       \ ['💾 ktlint', 'tabnew | terminal ktlint'],
       \ ['💾 ktfix', 'Dispatch! ktlint -F'],
-      \ ['💾 ktformat', 'tabnew | terminal ./gradlew ktlintFormat'],
+      \ ['💾 ktlintCheck', 'tabnew | terminal ./gradlew ktlintCheck'],
+      \ ['💾 ktlintFormat', 'tabnew | terminal ./gradlew ktlintFormat'],
       \ ['💾 format kotlin', 'tabnew | terminal ./gradlew formatKotlin'],
       \ ['💾 run all test', 'tabnew | terminal ./gradlew cleanTest test --info'],
       \ ['💾 build', 'tabnew | terminal ./gradlew build'],
