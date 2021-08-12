@@ -307,6 +307,7 @@ nnoremap c[ vi["*y
 nnoremap c{ vi{"*y
 nnoremap c$ T v$"*y
 nnoremap cl "*yy
+nnoremap gx viWy:!open <c-r>0 &<CR>
 nmap gv :vs<cr><c-w>lgd
 nmap gV :vs<cr><c-w>lgf
 nmap gs :sp<cr><c-w>jgd
