@@ -4,7 +4,6 @@ fu! s:build_quickfix_list(lines)
       cc
 endfu
 
-" This is the default extra key bindings
 let g:fzf_action = {
       \ 'ctrl-q': function('s:build_quickfix_list'),
       \ 'ctrl-t': 'tab split',
@@ -13,9 +12,7 @@ let g:fzf_action = {
 
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all --layout=reverse'
 
-" Default fzf layout
-" - down / up / left / right
-let g:fzf_layout = { 'down': '~40%' , 'window': 'call FloatingFZF()' }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
