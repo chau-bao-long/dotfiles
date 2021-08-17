@@ -66,7 +66,6 @@ Plug 'sindrets/diffview.nvim'
 Plug 'chrisbra/NrrwRgn'
 Plug 'dstein64/nvim-scrollview'
 Plug 'karb94/neoscroll.nvim'
-Plug 'rmagatti/auto-session'
 Plug 'gelguy/wilder.nvim'
 Plug 'xiyaowong/nvim-cursorword'
 

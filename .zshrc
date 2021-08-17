@@ -183,7 +183,6 @@ kpf() {
 
 # some custom alias and functions
 alias v=nvim
-alias vi='nvim ./'
 alias la='exa -lahg --icons'
 alias ll='exa -lhg --icons'
 alias tree='exa -T -L3 --icons'
@@ -510,5 +509,3 @@ autoload -U promptinit; promptinit
 prompt pure
 
 zsh-defer -c 'RPS1="%F{240}%f"'
-
-alias luamake=/Users/topcbl/Projects/lua-language-server/3rd/luamake/luamake
