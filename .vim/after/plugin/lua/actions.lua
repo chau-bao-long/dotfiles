@@ -36,6 +36,11 @@ vim.g.phpActions = {
 
 vim.g.commonActions = {
   {
+    '🌲 Treesitter',
+    "lua require('telescope.builtin').treesitter()",
+    {'Lists Function names, variables, from Treesitter!'},
+  },
+  {
     '🔎 change personio',
     'call common#selectProject("~/Projects/personio", function("common#changeProjectHandler"), 0)',
     {
