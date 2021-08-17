@@ -13,3 +13,10 @@ require('nvim-autopairs').setup{
   disable_filetype = { "TelescopePrompt" , "vim" },
   enable_check_bracket_line = false,
 }
+
+-- Setup indent line
+require("indent_blankline").setup {
+    char_list = {'|', '¦', '┆', '┊'},
+    buftype_exclude = {"terminal"},
+    filetype_exclude = {"help", "dashboard"},
+}
