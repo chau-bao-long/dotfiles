@@ -22,6 +22,7 @@ Plug 'mbbill/undotree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'milkypostman/vim-togglelist'
 Plug 'Konfekt/FastFold'
+Plug 'vijaymarupudi/nvim-fzf'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
@@ -81,6 +82,7 @@ let g:srcPath = ["/app/build/generated-jooq/"]
 Plug 'chau-bao-long/vim-import-kotlin'
 let g:learn_path = $HOME . "/Projects/personio"
 autocmd Filetype kotlin nnoremap <space>ij :KotlinImport<cr>
+autocmd Filetype kotlin nnoremap <space>ia :ComradeImport<cr>
 
 Plug 'chau-bao-long/vim-dadbod'
 nnoremap <space>st :DBSelectTable<cr>

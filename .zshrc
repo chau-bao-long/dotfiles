@@ -183,7 +183,7 @@ kpf() {
 
 # some custom alias and functions
 alias v=nvim
-alias vc='nvim ./'
+alias vi='nvim ./'
 alias la='exa -lahg --icons'
 alias ll='exa -lhg --icons'
 alias tree='exa -T -L3 --icons'
