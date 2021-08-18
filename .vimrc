@@ -120,6 +120,8 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 
+Plug 'ray-x/go.nvim'
+
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
