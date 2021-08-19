@@ -134,9 +134,6 @@ Plug 'Galooshi/vim-import-js'
 Plug 'Rican7/php-doc-modded'
 Plug 'kristijanhusak/orgmode.nvim'
 
-Plug 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-
 Plug 'dyng/ctrlsf.vim'
 vnoremap <space>cf y:CtrlSF <c-r>0<cr>
 nnoremap <space>cf y:CtrlSF 
@@ -334,8 +331,6 @@ tnoremap <c-o> <c-\><c-n>
 noremap <space>cl :ts<CR>
 noremap <space>c] :tn<CR>
 noremap <space>c[ :tp<CR>
-inoremap zbt <Esc>a``<Esc>i
-inoremap zbs <Esc>a```<cr>```<Esc>O
 nnoremap <space>cb :bufdo bd!<cr>
 nnoremap <space>co :%bd\|e#\|bd#<cr>\|'"
 nnoremap <space>9 :pwd<cr>
