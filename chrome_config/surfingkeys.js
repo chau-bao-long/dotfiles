@@ -5,9 +5,14 @@ mapkey('<Ctrl-y>', 'Show me the money', function() {
 
 map('<Ctrl-h>', 'S');
 map('<Ctrl-l>', 'D');
+map('F', 'C');
+map('ss', 'og');
+map('oo', 'oh');
+map('e', 'go');
 
+settings.historyMUOrder = false;
 settings.omnibarPosition = "middle";
-Hints.characters = "asdfjklweoiup";
+Hints.characters = "asdfjklwecxoiumn";
 
 settings.theme = `
 .sk_theme input {
@@ -41,7 +46,7 @@ kbd {
 //     font-size: 10px;
 // }
 .sk_theme {
-    background: #282a36;
+    background: #000000;
     color: #f8f8f2;
 }
 .sk_theme tbody {
@@ -54,13 +59,13 @@ kbd {
     color: #6272a4;
 }
 #sk_omnibarSearchResult>ul>li {
-    background: #282a36;
+    background: #000000;
 }
 #sk_omnibarSearchResult ul li:nth-child(odd) {
-    background: #282a36;
+    background: #000000;
 }
 .sk_theme #sk_omnibarSearchResult ul li:nth-child(odd) {
-    background: #282a36;
+    background: #000000;
 }
 .sk_theme .annotation {
     color: #6272a4;
@@ -95,20 +100,20 @@ kbd {
     color: #ff5555;
 }
 .sk_omnibar_middle #sk_omnibarSearchArea {
-    border-bottom: 1px solid #282a36;
+    border-bottom: 1px solid #000000;
 }
 #sk_status {
-    border: 1px solid #282a36;
+    border: 1px solid #000000;
 }
 #sk_richKeystroke {
-    background: #282a36;
+    background: #000000;
     box-shadow: 0px 2px 10px rgba(40, 42, 54, 0.8);
 }
 #sk_richKeystroke kbd>.candidates {
     color: #ff5555;
 }
 #sk_keystroke {
-    background-color: #282a36;
+    background-color: #000000;
     color: #f8f8f2;
 }
 kbd {
@@ -122,7 +127,7 @@ kbd {
     box-shadow: 0px 0px 10px #DA3C0DCC;
 }
 #sk_banner {
-    border: 1px solid #282a36;
+    border: 1px solid #000000;
     background: rgb(68, 71, 90);
 }
 div.sk_tabs_bg {
@@ -139,16 +144,16 @@ div.sk_tab_url {
 }
 div.sk_tab_hint {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f1fa8c), color-stop(100%,#ffb86c));
-    color: #282a36;
-    border: solid 1px #282a36;
+    color: #000000;
+    border: solid 1px #000000;
 }
 #sk_bubble {
     border: 1px solid #f8f8f2;
-    color: #282a36;
+    color: #000000;
     background-color: #f8f8f2;
 }
 #sk_bubble * {
-    color: #282a36 !important;
+    color: #000000 !important;
 }
 div.sk_arrow[dir=down]>div:nth-of-type(1) {
     border-top: 12px solid #f8f8f2;
