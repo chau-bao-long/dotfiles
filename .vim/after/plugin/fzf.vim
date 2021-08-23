@@ -53,6 +53,4 @@ nnoremap <space>B :MRU<cr>
 nnoremap <space>q :Rg<cr>
 nnoremap Q :Rg <c-r><c-w><cr>
 xnoremap Q y:Rg <c-r>0<cr>
-nnoremap W "*yiw:Files<cr>
-xnoremap W "*y:Files<cr>
 nnoremap <space>fl <cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>
