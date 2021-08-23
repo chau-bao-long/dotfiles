@@ -107,7 +107,9 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-abolish'
 
 Plug 'tpope/vim-surround'
-xmap cs <Plug>VSurround
+let g:surround_no_mappings = 1
+xmap ss <Plug>VSurround
+nmap ss <Plug>Csurround
 
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-unimpaired'
@@ -294,21 +296,21 @@ nnoremap 'E :qa!<CR>
 nnoremap 'r :edit!<cr>
 nnoremap 't :tabclose<cr>
 nnoremap 'c :bd<cr>
-nnoremap cP :let @+=expand("%F")<cr>
-nnoremap co :let @+=expand("%:t")<cr>
-nnoremap cy :let @+=expand("%:p")<cr>
-nnoremap cH :let @+=expand("%:p:h")<cr>
-nnoremap ch :let @+=expand("%:h")<cr>
-nnoremap cn :let @+=expand("%:t:r")<cr>
-xmap cp "*y
-nnoremap ciw viw"*y
-nnoremap ciW viW"*y
-nnoremap c' vi'"*y
-nnoremap c" vi""*y
-nnoremap c( vi("*y
-nnoremap c[ vi["*y
-nnoremap c{ vi{"*y
-nnoremap c$ T v$"*y
+nnoremap <space>cf :let @+=expand("%F")<cr>
+nnoremap <space>ct :let @+=expand("%:t")<cr>
+nnoremap <space>cp :let @+=expand("%:p")<cr>
+nnoremap <space>cH :let @+=expand("%:p:h")<cr>
+nnoremap <space>ch :let @+=expand("%:h")<cr>
+nnoremap <space>cr :let @+=expand("%:t:r")<cr>
+xnoremap E "*y
+nnoremap E viw"*y
+nnoremap W viW"*y
+nnoremap <space>c' vi'"*y
+nnoremap <space>c" vi""*y
+nnoremap <space>c( vi("*y
+nnoremap <space>c[ vi["*y
+nnoremap <space>c{ vi{"*y
+nnoremap <space>c$ T v$"*y
 nnoremap gx viWy:!open <c-r>0 &<CR>
 nmap gv :vs<cr><c-w>lgd
 nmap gV :vs<cr><c-w>lgf
