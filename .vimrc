@@ -301,14 +301,14 @@ nnoremap cH :let @+=expand("%:p:h")<cr>
 nnoremap ch :let @+=expand("%:h")<cr>
 nnoremap cn :let @+=expand("%:t:r")<cr>
 xmap cp "*y
-nnoremap cu viw"*y
+nnoremap ciw viw"*y
+nnoremap ciW viW"*y
 nnoremap c' vi'"*y
 nnoremap c" vi""*y
 nnoremap c( vi("*y
 nnoremap c[ vi["*y
 nnoremap c{ vi{"*y
 nnoremap c$ T v$"*y
-nnoremap cl "*yy
 nnoremap gx viWy:!open <c-r>0 &<CR>
 nmap gv :vs<cr><c-w>lgd
 nmap gV :vs<cr><c-w>lgf
