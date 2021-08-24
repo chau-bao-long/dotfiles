@@ -74,6 +74,11 @@ Plug 'gelguy/wilder.nvim'
 Plug 'xiyaowong/nvim-cursorword'
 Plug 'lukas-reineke/indent-blankline.nvim'
 
+Plug 'itchyny/calendar.vim'
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+source ~/.cache/calendar.vim/credentials.vim
+
 Plug 'AndrewRadev/sideways.vim'
 nnoremap <space>sl :SidewaysJumpRight<cr>
 nnoremap <space>sh :SidewaysJumpLeft<cr>
