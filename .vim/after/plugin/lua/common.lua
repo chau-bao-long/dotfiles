@@ -20,3 +20,16 @@ require("indent_blankline").setup {
     buftype_exclude = {"terminal"},
     filetype_exclude = {"help", "dashboard", "calendar"},
 }
+
+-- Setup telescope
+local actions = require('telescope.actions')
+require('telescope').setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+      },
+    },
+  }
+}
