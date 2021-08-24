@@ -10,4 +10,4 @@ nmap <leader>gt :exec "Rg " . expand('%:t:r') . "Test"<cr>
 nmap <leader>gc :exec "Rg " . substitute(expand('%:t:r'), 'test', '', 'g')<cr>class
 
 nnoremap <space>ed 0ww:call phpfunctions#UpdatePhpDocIfExists()<cr>/End function<cr>bhD<c-o>/\/\*\*<cr>Njdjz/
-nnoremap cF :call phpfunctions#CopyPhpClassFullPath()<cr><c-o>
+nnoremap <space>cF :call phpfunctions#CopyPhpClassFullPath()<cr><c-o>
