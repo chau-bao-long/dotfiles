@@ -302,6 +302,7 @@ nnoremap <space>cp :let @+=expand("%:p")<cr>
 nnoremap <space>cH :let @+=expand("%:p:h")<cr>
 nnoremap <space>ch :let @+=expand("%:h")<cr>
 nnoremap <space>cr :let @+=expand("%:t:r")<cr>
+nnoremap <space>cl V"*y
 xnoremap E "*y
 nnoremap E viw"*y
 nnoremap W viW"*y

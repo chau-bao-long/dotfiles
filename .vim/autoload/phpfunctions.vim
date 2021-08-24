@@ -17,16 +17,18 @@ function! phpfunctions#UpdatePhpDocIfExists()
   endif
 endfunction
 
+let g:phpUnitBin = './vendor/bin/phpunit'
+
 fu! phpfunctions#runOneTest()
   exe "silent! normal! /public function \<cr>Nwwvey"
-  let testCmd = "phpunit " . expand('%:p') . " --filter " . @0
+  let testCmd = g:phpUnitBin . " " . expand('%:p') . " --filter " . @0
   let keepCurrentCmd = "echo \"" . testCmd . "\" > ~/bin/current-cmd"
   call system(expand(l:keepCurrentCmd))
   call common#runCurrentCommand()
 endfu
 
 fu! phpfunctions#runAllTestsInFile()
-  let testCmd = "phpunit " . expand('%:p')
+  let testCmd = g:phpUnitBin . " " . expand('%:p')
   let keepCurrentCmd = "echo \"" . testCmd . "\" > ~/bin/current-cmd"
   call system(expand(l:keepCurrentCmd))
   call common#runCurrentCommand()
