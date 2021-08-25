@@ -350,7 +350,7 @@ femo() {
 
 # launch app
 fapp() {
-  local app=$(ls /Applications | sed 's/.app//g' | fzf)
+  local app=$((ls /Applications & ls /System/Applications) | sed 's/.app//g' | fzf)
   open -a $app
 }
 
