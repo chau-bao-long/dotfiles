@@ -96,7 +96,7 @@
                       "manipulators": [
                         {
                           "from": {
-                            "key_code": "a",
+                            "key_code": "d",
                             "modifiers": {
                               "mandatory": [
                                 "left_command"
@@ -251,6 +251,36 @@
                     {
                         "description": "Mouse keys",
                         "manipulators": [
+                            {
+                              "from": {
+                                "key_code": "k",
+                                "modifiers": {
+                                  "mandatory": [
+                                    "right_command"
+                                  ],
+                                  "optional": [
+                                    "any"
+                                  ]
+                                }
+                              },
+                              "to": [
+                                {
+                                  "set_variable": {
+                                    "name": "mouse_slowest_move_speed",
+                                    "value": 1
+                                  }
+                                }
+                              ],
+                              "to_after_key_up": [
+                                {
+                                  "set_variable": {
+                                    "name": "mouse_slowest_move_speed",
+                                    "value": 0
+                                  }
+                                }
+                              ],
+                              "type": "basic"
+                            },
                             {
                                 "from": {
                                     "key_code": "l",
@@ -426,6 +456,35 @@
                             {
                                 "conditions": [
                                     {
+                                        "name": "mouse_slowest_move_speed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "e",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "speed_multiplier": 1.2,
+                                            "y": -500
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
                                         "name": "mouse_faster_move_speed",
                                         "type": "variable_if",
                                         "value": 1
@@ -469,6 +528,35 @@
                                         "mouse_key": {
                                             "speed_multiplier": 1.2,
                                             "y": -1000
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "mouse_slowest_move_speed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "speed_multiplier": 1.2,
+                                            "x": -500
                                         }
                                     }
                                 ],
@@ -528,6 +616,35 @@
                             {
                                 "conditions": [
                                     {
+                                        "name": "mouse_slowest_move_speed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "speed_multiplier": 1.2,
+                                            "y": 500
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
                                         "name": "mouse_faster_move_speed",
                                         "type": "variable_if",
                                         "value": 1
@@ -571,6 +688,35 @@
                                         "mouse_key": {
                                             "speed_multiplier": 1.2,
                                             "y": 1000
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "mouse_slowest_move_speed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "speed_multiplier": 1.2,
+                                            "x": 500
                                         }
                                     }
                                 ],
