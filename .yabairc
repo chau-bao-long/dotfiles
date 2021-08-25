@@ -35,6 +35,9 @@ yabai -m rule --add app="^System Preferences$" manage=off
 # float alacritty, to use it as dmenu
 yabai -m rule --add app="^AlacrittyPopup$" manage=off
 
+# float alacritty, to use it as dmenu
+yabai -m rule --add app="^Dictionary$" manage=off
+
 # show digital colour meter topmost and on all spaces
 yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on
 
