@@ -336,9 +336,6 @@ xnoremap p "_dP
 
 " Miscellaneous
 tnoremap <c-o> <c-\><c-n>
-noremap <space>cl :ts<CR>
-noremap <space>c] :tn<CR>
-noremap <space>c[ :tp<CR>
 nnoremap <space>cb :bufdo bd!<cr>
 nnoremap <space>co :%bd\|e#\|bd#<cr>\|'"
 nnoremap <space>9 :pwd<cr>
