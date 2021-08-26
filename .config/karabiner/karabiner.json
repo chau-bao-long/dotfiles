@@ -253,7 +253,7 @@
                         "manipulators": [
                             {
                               "from": {
-                                "key_code": "o",
+                                "key_code": "n",
                                 "modifiers": {
                                   "mandatory": [
                                     "right_command"
