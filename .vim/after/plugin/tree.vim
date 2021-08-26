@@ -3,7 +3,7 @@ nnoremap <space>5 :UndotreeToggle<cr>
 let g:nvim_tree_side = 'left'
 let g:nvim_tree_width = 50
 let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ]
-let g:nvim_tree_gitignore = 1
+let g:nvim_tree_gitignore = 0
 let g:nvim_tree_auto_open = 0
 let g:nvim_tree_auto_close = 1
 let g:nvim_tree_auto_ignore_ft = [ 'startify', 'dashboard' ]
