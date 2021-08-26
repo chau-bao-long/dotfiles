@@ -106,4 +106,4 @@ cmd - u :open -na AlacrittyPopup --args -e zsh -ci "frun ~/local/syscmds fzf"
 cmd - p :open -na AlacrittyPopup --args -e zsh -ci "fapp"
 cmd + ctrl - p :open -na AlacrittyPopup --args -e zsh -ci "fpass"
 cmd + ctrl - e :open -na AlacrittyPopup --args -e zsh -ci "femo"
-alt - l :open -na /System/Applications/Dictionary.app
+cmd + ctrl - l :open -na /System/Applications/Dictionary.app
