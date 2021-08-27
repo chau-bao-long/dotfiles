@@ -181,6 +181,11 @@ kpf() {
   kubectl port-forward $pod ${1:-"9090:9090"}
 }
 
+ksf() {
+  svc=$(kubectl get svc | tail -n +2 | fzfp --border="sharp" | awk '{print $1}')
+  
+  kubectl port-forward svc/${svc} ${1:-"9090:9090"}
+}
 
 # some custom alias and functions
 alias v=nvim
