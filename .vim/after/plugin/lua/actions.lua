@@ -36,6 +36,41 @@ vim.g.phpActions = {
 
 vim.g.commonActions = {
   {
+    '📁 org files',
+    'Files ~/org',
+    {
+      '- Open ORG file',
+    }
+  },
+  {
+    '📁 org note',
+    'e ~/org/note.org',
+    {
+      '- Open ORG note file',
+    }
+  },
+  {
+    '📁 org bookmark',
+    'e ~/org/bookmark.org',
+    {
+      '- Open ORG bookmark file',
+    }
+  },
+  {
+    '📁 org todo',
+    'e ~/org/todo.org',
+    {
+      '- Open TODO list',
+    }
+  },
+  {
+    '📁 org references',
+    'e ~/org/references.org',
+    {
+      '- Open ORG references',
+    }
+  },
+  {
     '🌲 Treesitter',
     "lua require('telescope.builtin').treesitter()",
     {'Lists Function names, variables, from Treesitter!'},
