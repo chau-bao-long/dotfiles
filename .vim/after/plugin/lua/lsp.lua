@@ -332,6 +332,9 @@ require'compe'.setup {
       show_prediction_strength = true,
       max_line = 100,
     },
+    comrade = {
+      priority = 100,
+    },
     nvim_lsp = { kind = "  ", menu = " [LSP] ", priority = 10 },
     nvim_lua = { kind = "  ", menu = " [LUA] ", priority = 10 },
     tags = false,

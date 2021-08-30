@@ -11,6 +11,7 @@ Plug 'windwp/nvim-autopairs'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
+Plug 'chau-bao-long/compe-comrade'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'beeender/Comrade'
 

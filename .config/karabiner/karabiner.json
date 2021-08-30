@@ -505,7 +505,7 @@
                                     {
                                         "mouse_key": {
                                             "speed_multiplier": 1.2,
-                                            "y": -5000
+                                            "y": -4000
                                         }
                                     }
                                 ],
@@ -585,7 +585,7 @@
                                     {
                                         "mouse_key": {
                                             "speed_multiplier": 1.2,
-                                            "x": -5000
+                                            "x": -4000
                                         }
                                     }
                                 ],
@@ -665,7 +665,7 @@
                                     {
                                         "mouse_key": {
                                             "speed_multiplier": 1.2,
-                                            "y": 5000
+                                            "y": 4000
                                         }
                                     }
                                 ],
@@ -745,7 +745,7 @@
                                     {
                                         "mouse_key": {
                                             "speed_multiplier": 1.2,
-                                            "x": 5000
+                                            "x": 4000
                                         }
                                     }
                                 ],
