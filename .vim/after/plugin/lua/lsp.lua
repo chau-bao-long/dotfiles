@@ -335,7 +335,7 @@ require'compe'.setup {
     comrade = {
       priority = 100,
     },
-    nvim_lsp = { kind = "  ", menu = " [LSP] ", priority = 10 },
+    nvim_lsp = { kind = "  ", menu = " [LSP] ", priority = 30 },
     nvim_lua = { kind = "  ", menu = " [LUA] ", priority = 10 },
     tags = false,
     vim_dadbod_completion = true,
