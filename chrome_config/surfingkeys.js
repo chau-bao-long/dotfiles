@@ -1,14 +1,61 @@
-// an example to create a new mapping `ctrl-y`
-mapkey('<Ctrl-y>', 'Show me the money', function() {
-    Front.showPopup('hello, a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
-});
-
-map('<Ctrl-h>', 'S');
-map('<Ctrl-l>', 'D');
+// Remap open link
 map('F', 'C');
-map('ss', 'og');
-map('oo', 'oh');
-map('e', 'go');
+
+// Remap search google
+map('w', 'og');
+unmap('og');
+
+// Remap open from history
+map('e', 'oh');
+unmap('oh')
+
+// Remap open from bookmark
+map('l', 'b');
+unmap('b');
+
+// Remap and unmap all search
+vmap('sg', 'sgg');
+unmap('sg');
+unmap('sb');
+unmap('sd');
+unmap('sh');
+unmap('ss');
+unmap('sw');
+unmap('se');
+unmap('sy');
+
+// Map most frequent access sites
+mapkey('snf', 'open netflix', goto('https://netflix.com'));
+mapkey('sgh', 'open github', goto('https://github.com'));
+mapkey('stc', 'open tracau', goto('https://tracau.vn'));
+mapkey('syt', 'open youtube', goto('https://youtube.com'));
+mapkey('sfb', 'open facebook', goto('https://facebook.com'));
+mapkey('stw', 'open twitter', goto('https://twitter.com'));
+mapkey('stl', 'open google translate', goto('https://translate.google.com'));
+mapkey('scb', 'open cambridge', goto('https://dictionary.cambridge.org'));
+mapkey('ssc', 'open soundcloud', goto('https://soundcloud.com'));
+mapkey('sis', 'open instagram', goto('https://instagram.com'));
+mapkey('sgm', 'open google map', goto('https://map.google.com'));
+mapkey('sm0', 'open mail 0', goto('https://mail.google.com/mail/u/0/#inbox'));
+mapkey('sm1', 'open mail 1', goto('https://mail.google.com/mail/u/1/#inbox'));
+mapkey('sm2', 'open mail 2', goto('https://mail.google.com/mail/u/2/#inbox'));
+mapkey('sm3', 'open mail 3', goto('https://mail.google.com/mail/u/3/#inbox'));
+mapkey('slh', 'open localhost', goto('localhost'));
+mapkey('sl3', 'open localhost:3000', goto('http://localhost:3000'));
+mapkey('sl8', 'open localhost:8080', goto('http://localhost:8080'));
+mapkey('sl9', 'open localhost:9000', goto('http://localhost:9000'));
+mapkey('sd0', 'open google drive 0', goto('https://drive.google.com/drive/u/0/my-drive'));
+mapkey('sd1', 'open google drive 1', goto('https://drive.google.com/drive/u/1/my-drive'));
+mapkey('sd2', 'open google drive 2', goto('https://drive.google.com/drive/u/2/my-drive'));
+mapkey('sd3', 'open google drive 3', goto('https://drive.google.com/drive/u/3/my-drive'));
+mapkey('sc0', 'open google calendar 0', goto('https://calendar.google.com/calendar/b/0/r'));
+mapkey('sc1', 'open google calendar 1', goto('https://calendar.google.com/calendar/b/1/r'));
+mapkey('sc2', 'open google calendar 2', goto('https://calendar.google.com/calendar/b/2/r'));
+mapkey('sc3', 'open google calendar 3', goto('https://calendar.google.com/calendar/b/3/r'));
+
+function goto(site) {
+    return () => window.open(site);
+}
 
 settings.historyMUOrder = false;
 settings.omnibarPosition = "middle";
