@@ -12,6 +12,9 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
 Plug 'chau-bao-long/compe-comrade'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" let g:deoplete#enable_at_startup = 1
+
 Plug 'glepnir/lspsaga.nvim'
 Plug 'beeender/Comrade'
 

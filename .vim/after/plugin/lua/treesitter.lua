@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
-  ignore_install = { "haskell", "kotlin", "typescript", "tsx", "yaml" },
+  ignore_install = { "haskell", "kotlin", "yaml" },
   highlight = {
     enable = true,
     use_languagetree = false, -- Use this to enable language injection (this is very unstable)
