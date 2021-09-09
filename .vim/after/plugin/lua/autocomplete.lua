@@ -71,7 +71,10 @@ require'compe'.setup {
       max_line = 100,
     },
     comrade = {
+      kind = "  ",
+      menu = " [IJ] ",
       priority = 100,
+      filetypes = {"kotlin", "java"},
     },
     nvim_lsp = { kind = "  ", menu = " [LSP] ", priority = 30 },
     nvim_lua = { kind = "  ", menu = " [LUA] ", priority = 10 },
