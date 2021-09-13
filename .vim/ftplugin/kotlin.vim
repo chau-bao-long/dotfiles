@@ -13,9 +13,10 @@ nmap gT :GoToFile tabedit<cr>
 " Easy switching between vim and intelliJ
 nnoremap <silent> <space>oi :exec "Dispatch! idea --line " . line('.') . " " . expand('%:p')<cr>
 
-nnoremap go :VintellijOpenFile<cr>
+" No delay switch to intelliJ with exact cursor position on the same file
+nnoremap go :call comrade#SyncBufCursor()<cr>:call system("yabai -m window --swap west \|\| yabai -m window --swap east && yabai -m window --focus west")<cr>
+
 nnoremap <space>si :VintellijSuggestImports<cr>
-nnoremap <space>v- :VintellijSyncBufferToggle<cr>
-nnoremap <space>v_ :VintellijSyncBufferToggle!<cr>
+
 nnoremap [s :ComradePrevInsight<cr>
 nnoremap ]s :ComradeNextInsight<cr>

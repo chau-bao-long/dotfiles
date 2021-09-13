@@ -14,7 +14,7 @@ Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
 Plug 'chau-bao-long/compe-comrade'
 
 Plug 'glepnir/lspsaga.nvim'
-Plug 'beeender/Comrade'
+Plug 'chau-bao-long/Comrade'
 
 Plug 'akinsho/nvim-bufferline.lua'
 nnoremap <silent>gl :BufferLineCycleNext<CR>
