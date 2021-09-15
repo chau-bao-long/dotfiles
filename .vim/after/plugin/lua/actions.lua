@@ -15,6 +15,9 @@ vim.g.kotlinActions = {
   {'💾 clean', 'tabnew | terminal ./gradlew clean'},
   {'💾 gradle local', 'call javafunctions#goToNearestGradleFolder() | !~/Projects/personio/bin/setup-env.sh'},
   {'💾 run', 'call common#goBackToRoot() | tabnew | terminal ./run.sh', {'Rerun microservices'}},
+  {'📁 find lib source', 'Files ~/.gradle/src', {'Gradle source file'}},
+  {'💾 helm install', 'tabnew | terminal ./gradlew helmUnInstall helmInstall', {'Run helm install'}},
+  {'💾 helm uninstall', 'tabnew | terminal ./gradlew helmUnInstall', {'Run helm uninstall'}},
 }
 
 vim.g.javascriptActions = {
