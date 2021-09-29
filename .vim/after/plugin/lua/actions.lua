@@ -7,7 +7,6 @@ vim.g.kotlinActions = {
   {'💾 ktfix', 'Dispatch! ktlint -F'},
   {'💾 ktlintCheck', 'tabnew | terminal ./gradlew ktlintCheck'},
   {'💾 ktlintFormat', 'tabnew | terminal ./gradlew ktlintFormat'},
-  {'💾 format kotlin', 'tabnew | terminal ./gradlew formatKotlin'},
   {'💾 run all test', 'tabnew | terminal ./gradlew cleanTest test --info'},
   {'💾 build', 'tabnew | terminal ./gradlew build'},
   {'💾 bootJar', 'tabnew | terminal ./gradlew bootJar'},

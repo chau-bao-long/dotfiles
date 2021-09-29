@@ -332,6 +332,7 @@ nmap g" :sp<cr><c-]>
 nmap g\ :tabnew<cr><c-o><c-]>
 vnoremap m <esc>ggVG
 nnoremap me :messages<cr>
+nnoremap mc :messages clear<cr>
 
 " Better copy/paste behavior
 set pastetoggle=<space>4

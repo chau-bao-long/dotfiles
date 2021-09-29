@@ -85,8 +85,8 @@ alt + cmd - j: yabai -m window --display 1; yabai -m display --focus 1
 # alt - e : yabai -m window --toggle split
 
 # float / unfloat window and center on screen
-ctrl + alt - t : yabai -m window --toggle float;\
-          yabai -m window --grid 4:4:1:1:2:2
+cmd + ctrl - t : yabai -m window --toggle float;\
+          yabai -m window --grid 1:3:1:0:1:1
 
 # maximize a window
 ctrl + cmd - m : yabai -m window --toggle float;\
@@ -106,4 +106,4 @@ cmd - u :open -na AlacrittyPopup --args -e zsh -ci "frun ~/local/syscmds fzf"
 cmd - p :open -na AlacrittyPopup --args -e zsh -ci "fapp"
 cmd + ctrl - p :open -na AlacrittyPopup --args -e zsh -ci "fpass"
 cmd + ctrl - e :open -na AlacrittyPopup --args -e zsh -ci "femo"
-cmd + ctrl - l :open -na /System/Applications/Dictionary.app
+cmd - y :open -na /System/Applications/Dictionary.app
