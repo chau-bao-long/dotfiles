@@ -14,8 +14,8 @@ nmap gT :GoToFile tabedit<cr>
 nnoremap <silent> <space>oi :exec "Dispatch! idea --line " . line('.') . " " . expand('%:p')<cr>
 
 " No delay switch to intelliJ with exact cursor position on the same file
-nnoremap go :call comrade#buffer#SyncCursor()<cr>:call system("yabai -m window --swap west \|\| yabai -m window --swap east && yabai -m window --focus west")<cr>
-" nnoremap go :call comrade#buffer#SyncCursor()<cr>:call system("yabai -m space --focus 4")<cr>
+" nnoremap go :call comrade#buffer#SyncCursor()<cr>:call system("yabai -m window --swap west \|\| yabai -m window --swap east && yabai -m window --focus west")<cr>
+nnoremap go :call comrade#buffer#SyncCursor()<cr>:call system("yabai -m space --focus 3")<cr>
 
 nnoremap <space>si :VintellijSuggestImports<cr>
 
