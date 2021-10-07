@@ -32,6 +32,10 @@ Plug 'junegunn/gv.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'nvim-telescope/telescope.nvim'
 
+Plug 'junegunn/vim-easy-align'
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
 Plug 'glepnir/dashboard-nvim'
 let g:dashboard_default_executive = 'telescope'
 
@@ -369,9 +373,7 @@ nnoremap <space>oO :call common#openZipFilesFromClipboard("e")<cr>
 nnoremap <space>oS :call common#openZipFilesFromClipboard("split")<cr>
 nnoremap <space>oV :call common#openZipFilesFromClipboard("vs")<cr>
 nnoremap <space>? :call common#google(expand("<cWORD>"), 0)<cr>
-nnoremap <space>/ :call common#google(expand("<cword>"), 0)<cr>
 nnoremap <space>! :call common#google(expand("<cWORD>"), 1)<cr>
-xnoremap <space>/ "gy:call common#google(@g, 0)<cr>
 xnoremap <space>! "gy:call common#google(@g, 1)<cr>
 nnoremap <space>Wh :call common#moveToPrevTab()<cr><c-w>H
 nnoremap <space>Wl :call common#moveToNextTab()<cr><c-w>H
