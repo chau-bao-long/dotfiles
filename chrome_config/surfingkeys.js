@@ -52,6 +52,10 @@ mapkey('sc0', 'open google calendar 0', goto('https://calendar.google.com/calend
 mapkey('sc1', 'open google calendar 1', goto('https://calendar.google.com/calendar/b/1/r'));
 mapkey('sc2', 'open google calendar 2', goto('https://calendar.google.com/calendar/b/2/r'));
 mapkey('sc3', 'open google calendar 3', goto('https://calendar.google.com/calendar/b/3/r'));
+mapkey('sp0', 'open google photo 0', goto('https://photos.google.com/u/0'));
+mapkey('sp1', 'open google photo 0', goto('https://photos.google.com/u/1'));
+mapkey('sp2', 'open google photo 0', goto('https://photos.google.com/u/2'));
+mapkey('sp3', 'open google photo 0', goto('https://photos.google.com/u/3'));
 
 function goto(site) {
     return () => window.open(site);
