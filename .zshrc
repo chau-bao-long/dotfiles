@@ -413,6 +413,8 @@ optimize_route() {
     rundeck.stage.personio-internal.de
     docs.personio.tools
     medium.com
+    db-access.prod.personio-internal.de
+    db-access.stage.personio-internal.de
   )
   sudo route delete 128.0/1
   sudo route delete 0/1
