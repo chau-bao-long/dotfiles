@@ -100,15 +100,14 @@ const ${1:ComponentName} = styled.${2:View}.attrs({
 endsnippet
 
 snippet rnsl "Bootstrap a react stateless component"
-/* @flow */
 import React from 'react';
 
-type TProps = {
-	$0
-}
+const $0: React.FC = () => {
+	return (
+	);
+};
 
-export default ({ $1 }: TProps) => (
-)
+export default $0;
 endsnippet
 
 snippet rnsf "Bootstrap a react stateful container"

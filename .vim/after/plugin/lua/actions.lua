@@ -25,7 +25,7 @@ vim.g.javascriptActions = {
   {'💾 eslint fix all file', 'Dispatch pwd | xargs eslint --fix'},
   {'💾 eslint fix current file', 'Dispatch eslint --fix %:p'},
   {'💾 prettier all file', 'Dispatch yarn prettier'},
-  {'💾 prettier current file', 'Dispatch! prettier --write %:p'},
+  {'💾 prettier current file', 'Dispatch! ./node_modules/.bin/prettier --parser typescript --write %:p'},
   {'💾 flow current file', 'Dispatch ./node_modules/.bin/flow %'},
 }
 

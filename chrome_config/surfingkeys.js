@@ -98,13 +98,13 @@ kbd {
 // }
 .sk_theme {
     background: #000000;
-    color: #f8f8f2;
+    color: #50fa7b;
 }
 .sk_theme tbody {
-    color: #ff5555;
+    color: #50fa7b;
 }
 .sk_theme input {
-    color: #ffb86c;
+    color: #50fa7b;
 }
 .sk_theme .url {
     color: #6272a4;
@@ -125,8 +125,8 @@ kbd {
     background: #44475a !important;
 }
 .sk_theme kbd {
-    background: #f8f8f2;
-    color: #44475a;
+    background: #000000;
+    color: #50fa7b;
 }
 .sk_theme .frame {
     background: #8178DE9E;
@@ -145,7 +145,7 @@ kbd {
 }
 
 .sk_theme .prompt, .sk_theme .resultPage {
-    color: #50fa7b;
+    color: #50fab7;
 }
 .sk_theme .feature_name {
     color: #ff5555;
@@ -182,13 +182,13 @@ kbd {
     background: rgb(68, 71, 90);
 }
 div.sk_tabs_bg {
-    background: #f8f8f2;
+    background: #000000;
 }
 div.sk_tab {
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6272a4), color-stop(100%,#44475a));
+    background: #000000;
 }
 div.sk_tab_title {
-    color: #f8f8f2;
+    color: #50fa7b;
 }
 div.sk_tab_url {
     color: #8be9fd;
@@ -199,9 +199,9 @@ div.sk_tab_hint {
     border: solid 1px #000000;
 }
 #sk_bubble {
-    border: 1px solid #f8f8f2;
-    color: #000000;
-    background-color: #f8f8f2;
+    border: 1px solid #000000;
+    color: #50fa7b;
+    background-color: #000000;
 }
 #sk_bubble * {
     color: #000000 !important;
@@ -222,4 +222,19 @@ div.sk_arrow[dir=up]>div:nth-of-type(2) {
     width: 60%;
     left: 20%;
 }
+
+#sk_editor {
+    background: #000000 !important;
+    color: #15A95C;
+}
+.ace_gutter {
+    background: #000000 !important;
+}
+.ace_gutter-cell {
+    background: #000000 !important;
+}
+.ace_cursor {
+    color: #ffffff !important;
+}
+
 }`;
