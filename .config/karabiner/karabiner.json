@@ -43,7 +43,7 @@
                         ]
                     },
                     {
-                        "description": "Map go to chrome address bar to caps_lock - ;",
+                        "description": "Map go to firefox address bar to caps_lock - ;",
                         "manipulators": [
                             {
                                 "from": {
@@ -56,11 +56,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "down_arrow",
-                                        "modifiers": [
-                                            "left_option",
-                                            "left_command"
-                                        ]
+                                        "key_code": "f6"
                                     }
                                 ],
                                 "type": "basic"
