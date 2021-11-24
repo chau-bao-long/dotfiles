@@ -138,9 +138,7 @@ Plug 'ray-x/go.nvim'
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
-Plug 'isruslan/vim-es6'
 Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
 Plug 'jason0x43/vim-js-indent'
 Plug 'jparise/vim-graphql'
 Plug 'Galooshi/vim-import-js'
