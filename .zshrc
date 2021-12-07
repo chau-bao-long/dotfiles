@@ -3,8 +3,8 @@ source ~/.zsh-defer/zsh-defer.plugin.zsh
 PS1="%F{12}%~%f "
 RPS1="%F{240}Loading...%f"
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=999999
+SAVEHIST=999999
 
 # Current theme         https://github.com/sindresorhus/pure
 # How to install        npm install --global pure-prompt
