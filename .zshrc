@@ -78,6 +78,7 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 # Git shortcut
 alias g='git'
 alias gca="git add . && git commit --allow-empty --amend"
+alias gcan="git add . && git commit --allow-empty -n --amend --no-edit"
 alias gst="git status"
 alias gls="git log --oneline --no-merges"
 alias gll="git log --graph"
