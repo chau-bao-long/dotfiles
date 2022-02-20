@@ -321,7 +321,7 @@ nnoremap <space>c( vi("*y
 nnoremap <space>c[ vi["*y
 nnoremap <space>c{ vi{"*y
 nnoremap <space>c$ T v$"*y
-nnoremap gx viWy:!open '<c-r>0' &<CR>
+nnoremap gx viWy:!open <c-r>0 &<CR>
 vnoremap gx y:!open '<c-r>0' &<CR>
 nmap gv :vs<cr><c-w>lgd
 nmap gV :vs<cr><c-w>lgf

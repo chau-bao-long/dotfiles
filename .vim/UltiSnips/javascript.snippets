@@ -4,14 +4,6 @@ snippet d "Debugger"
 debugger
 endsnippet
 
-snippet f "Flow annotation"
-/* @flow */
-endsnippet
-
-snippet ffm "Flow fix me"
-// $FlowFixMe
-endsnippet
-
 snippet esld
 /* eslint-disable */
 $0
@@ -108,22 +100,6 @@ const $0: React.FC = () => {
 };
 
 export default $0;
-endsnippet
-
-snippet rnsf "Bootstrap a react stateful container"
-/* @flow */
-import { useDispatch } from 'react-redux';
-import React from 'react';
-
-export default () => {
-	const dispatch = useDispatch();
-};
-endsnippet
-
-snippet rntc "Create component test"
-/* @flow */
-import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
 endsnippet
 
 snippet rnp "Define prop"

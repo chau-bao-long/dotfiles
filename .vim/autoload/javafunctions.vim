@@ -7,7 +7,7 @@ function! javafunctions#goToNearestGradleFolder()
 endfunction
 
 function! javafunctions#runOneTest(isDebug, ...)
-  call javafunctions#goToNearestGradleFolder()
+  " call javafunctions#goToNearestGradleFolder()
   execute "silent! normal! /fun \<cr>Nwvt(y"
 
   if a:isDebug 
