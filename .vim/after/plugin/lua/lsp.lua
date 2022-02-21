@@ -1,33 +1,30 @@
+-- -- Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local opts = { noremap=true, silent=true }
+vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+vim.api.nvim_set_keymap('n', '[s', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+vim.api.nvim_set_keymap('n', ']s', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
   -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  local opts = { noremap=true, silent=true }
-
+  -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua require("telescope.builtin").lsp_definitions()<cr>', opts)
-  buf_set_keymap('n', 'gp', '<cmd>Lspsaga preview_definition<cr>', opts)
-  buf_set_keymap('n', 'K', '<cmd>Lspsaga hover_doc<cr>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua require("telescope.builtin").lsp_implementations()<cr>', opts)
-  buf_set_keymap('n', '<space>sh', '<cmd>Lspsaga signature_help<cr>', opts)
-  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-  buf_set_keymap('n', '<space>rn', '<cmd>Lspsaga rename<cr>', opts)
-  buf_set_keymap('n', '<space>ca', '<cmd>Lspsaga code_action<cr>', opts)
-  buf_set_keymap('v', '<space>ca', '<cmd><c-u>Lspsaga range_code_action<cr>', opts)
-  buf_set_keymap('n', 'gR', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', 'gr', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
-  buf_set_keymap('n', '<leader>e', '<cmd>Lspsaga show_line_diagnostics<cr>', opts)
-  buf_set_keymap('n', ']s', '<cmd>Lspsaga diagnostic_jump_next<cr>', opts)
-  buf_set_keymap('n', '[s', '<cmd>Lspsaga diagnostic_jump_prev<cr>', opts)
-  buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>', opts)
-  buf_set_keymap("n", "<space>fm", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
-  buf_set_keymap("v", "<space>fl", "<cmd>lua vim.lsp.buf.range_formatting()<cr>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>sh', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>fm', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>fl', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 end
 
 local debounce_duration = 200
@@ -256,43 +253,3 @@ require'lspconfig'.jsonls.setup {
   },
   flags = { debounce_text_changes = debounce_duration },
 }
-
-
--- Build LSP UI
-require("lspsaga").init_lsp_saga({
-  code_action_icon = "💡",
-  use_saga_diagnostic_sign = true,
-  error_sign = "",
-  warn_sign = "",
-  hint_sign = "",
-  infor_sign = "",
-  dianostic_header_icon = "   ",
-  code_action_prompt = {
-    enable = true,
-    sign = true,
-    sign_priority = 20,
-    virtual_text = true,
-  },
-  finder_definition_icon = "  ",
-  finder_reference_icon = "  ",
-  max_preview_lines = 50, -- preview lines of lsp_finder and definition preview
-  finder_action_keys = {
-    open = "o",
-    vsplit = "v",
-    split = "s",
-    quit = "<esc>",
-    scroll_down = "<C-f>",
-    scroll_up = "<C-b>",
-  },
-  code_action_keys = {
-    quit = "<esc>",
-    exec = "<cr>",
-  },
-  rename_action_keys = {
-    quit = "<C-c>",
-    exec = "<cr>", -- quit can be a table
-  },
-  definition_preview_icon = "  ",
-  border_style = "single", -- or double
-  rename_prompt_prefix = '➤',
-})
