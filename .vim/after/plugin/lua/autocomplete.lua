@@ -94,9 +94,3 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
-
-cmp.setup({
-  sources = {
-    { name = 'orgmode' }
-  }
-})
