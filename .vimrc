@@ -64,6 +64,7 @@ let g:firenvim_config = {
 \ }
 
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-orgmode/orgmode'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'chau-bao-long/actions.nvim'
@@ -145,7 +146,6 @@ Plug 'jason0x43/vim-js-indent'
 Plug 'jparise/vim-graphql'
 Plug 'Galooshi/vim-import-js'
 Plug 'Rican7/php-doc-modded'
-Plug 'kristijanhusak/orgmode.nvim'
 
 Plug 'dyng/ctrlsf.vim'
 vnoremap <space>cf y:CtrlSF <c-r>0<cr>
