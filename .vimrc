@@ -9,9 +9,11 @@ Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 
 Plug 'windwp/nvim-autopairs'
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
-Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
-Plug 'chau-bao-long/compe-comrade'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'chau-bao-long/Comrade'
 
 Plug 'akinsho/nvim-bufferline.lua'
@@ -46,6 +48,8 @@ Plug 'SirVer/ultisnips'
 let g:UltiSnipsSnippetDirectories = [ "~/Projects/dotfiles/.vim/UltiSnips/" ]
 let g:UltiSnipsEditSplit = 'tabdo'
 nmap <space>iu :UltiSnipsEdit<cr>
+
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 let g:firenvim_config = {

@@ -1,103 +1,107 @@
-local protocol = require("vim.lsp.protocol")
-
--- CONFIGURES ICONS NEXT TO COMPLETION ITEMS FOR LSP
--- HOW CAN WE ADD BUFFER ICONS?
--- inspo from onsails/lspkind-nvim
-protocol.CompletionItemKind = {
-  " Text", -- = 1
-  "ƒ Method", -- = 2;
-  "ƒ Function", -- = 3; or 
-  " Constructor", -- = 4;
-  "ƒ Field", -- = 5;
-  " Variable", -- = 6;
-  " Class", -- = 7;
-  "ﰮ Interface", -- = 8;
-  " Module", -- = 9;
-  " Property", -- = 10;
-  " Unit", -- = 11;
-  " Value", -- = 12;
-  "了Enum", -- = 13;
-  " Keyword", -- = 14;
-  "﬌ Snippet", -- = 15;
-  " Color", -- = 16;
-  " File", -- = 17;
-  " Reference", -- = 18;
-  " Folder", -- = 19;
-  " EnumMember", -- = 20;
-  " Constant", -- = 21;
-  " Struct", -- = 22;
-  "ﯓ Event", -- = 23;
-  " Operator", -- = 24;
-  " TypeParameter", -- = 25;
-}
-
-
 -- Config auto-complete
-vim.o.completeopt = "menuone,noselect"
+vim.o.completeopt = "menu,menuone,noselect"
 
-require'compe'.setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  resolve_timeout = 800;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-    winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
-    max_width = 120,
-    min_width = 60,
-    max_height = math.floor(vim.o.lines * 0.3),
-    min_height = 1,
-  };
+-- Setup nvim-cmp.
+local cmp = require'cmp'
 
-  source = {
-    path = {
-      menu = " [PATH] ",
-      priority = 20,
-    },
-    buffer = { kind = "  ", menu = " [BUFFER] ", priority = 15 },
-    tabnine = {
-      max_num_results = 10,
-      priority = 9,
-      sort = false,
-      show_prediction_strength = true,
-      max_line = 100,
-    },
-    comrade = {
-      kind = "  ",
-      menu = " [IJ] ",
-      priority = 100,
-      filetypes = {"kotlin", "java"},
-    },
-    nvim_lsp = { kind = "  ", menu = " [LSP] ", priority = 30 },
-    nvim_lua = { kind = "  ", menu = " [LUA] ", priority = 10 },
-    tags = false,
-    vim_dadbod_completion = true,
-    snippets_nvim = { kind = "  " },
-    ultisnips = { kind = "  ", menu = " [SNIP] ", priority = 9 },
-    treesitter = { kind = "  ", menu = " [TREESITTER] ", priority = 10 },
-    tmux = {
-      all_panes = true,
-    },
-    gql_schema = true,
-  };
-}
-
--- Auto-complete mapping
-map('i', '<c-space>', 'compe#complete()', {expr = true, noremap = true, silent = true})
-map('n', '<c-space>', 'viwA', {noremap = true})
-map('i', '<cr>', [[compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()"))]], {expr = true, noremap = true, silent = true})
-map('i', '<tab>', [[pumvisible() ? "\<C-n>" : "\<Tab>"]], {expr = true, noremap = true})
-map('i', '<s-tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], {expr = true, noremap = true})
-
-require("nvim-autopairs.completion.compe").setup({
-  map_cr = true,
-  map_complete = true,
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["UltiSnips#Anon"](args.body)
+    end,
+  },
+  mapping = {
+    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ['<C-e>'] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ["<Tab>"] = cmp.mapping({
+      c = function()
+        if cmp.visible() then
+          cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+        else
+          cmp.complete()
+        end
+      end,
+      i = function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+        elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
+          vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), 'm', true)
+        else
+          fallback()
+        end
+      end,
+      s = function(fallback)
+        if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
+          vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), 'm', true)
+        else
+          fallback()
+        end
+      end
+    }),
+    ["<S-Tab>"] = cmp.mapping({
+      c = function()
+        if cmp.visible() then
+          cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+        else
+          cmp.complete()
+        end
+      end,
+      i = function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+        elseif vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
+          return vim.api.nvim_feedkeys( t("<Plug>(ultisnips_jump_backward)"), 'm', true)
+        else
+          fallback()
+        end
+      end,
+      s = function(fallback)
+        if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
+          return vim.api.nvim_feedkeys( t("<Plug>(ultisnips_jump_backward)"), 'm', true)
+        else
+          fallback()
+        end
+      end
+    }),
+  },
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'ultisnips' },
+  }, {
+    { name = 'buffer' },
+  })
 })
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
+require('nvim-autopairs').setup({
+  disable_filetype = { "TelescopePrompt" , "vim" },
+})
+
+-- If you want insert `(` after select function or method item
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+
+-- add a lisp filetype (wrap my-function), FYI: Hardcoded = { "clojure", "clojurescript", "fennel", "janet" }
+cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
