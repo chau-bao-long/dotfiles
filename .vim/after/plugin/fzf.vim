@@ -44,13 +44,4 @@ command! -bang -nargs=* -complete=dir DG
       \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(''), 1,                                                                                               
       \   fzf#vim#with_preview({'dir': <q-args>}), <bang>0)
 
-nnoremap <space>p :call fzf#run(fzf#wrap(extend({'source': 'git ls-files --exclude-standard --others --cached' }, fzf#vim#with_preview('down:70%'))))<cr>
-nnoremap <space>P :Files<cr>
-nnoremap <space>u :History<cr>
-nnoremap <space>U :GitFiles<cr>
-nnoremap <space>b :Buffers<cr>
-nnoremap <space>B :MRU<cr>
-nnoremap <space>q :Rg<cr>
-nnoremap Q :Rg <c-r><c-w><cr>
 xnoremap Q y:Rg <c-r>0<cr>
-nnoremap <space>fl <cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>

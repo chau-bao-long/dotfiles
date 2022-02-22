@@ -22,20 +22,5 @@ require("indent_blankline").setup {
     filetype_exclude = {"help", "dashboard", "calendar"},
 }
 
--- Setup telescope
-local actions = require('telescope.actions')
-local telescope = require('telescope')
-telescope.load_extension('lsp_handlers')
-telescope.setup{
-  defaults = {
-    mappings = {
-      i = {
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
-      },
-    },
-  }
-}
-
 -- Setup bufferline
 require'bufferline'.setup {}
