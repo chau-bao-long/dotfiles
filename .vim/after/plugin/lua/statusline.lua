@@ -114,27 +114,11 @@ gls.left[9] = {
 }
 
 gls.left[10] = {
-    DiagnosticError = {
-        provider = "DiagnosticError",
-        icon = "  ",
-        highlight = {colors.red, colors.bg}
-    }
-}
-
-gls.left[11] = {
     Space = {
         provider = function()
             return " "
         end,
         highlight = {colors.line_bg, colors.line_bg}
-    }
-}
-
-gls.left[12] = {
-    DiagnosticWarn = {
-        provider = "DiagnosticWarn",
-        icon = "  ",
-        highlight = {colors.blue, colors.bg}
     }
 }
 

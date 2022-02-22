@@ -24,7 +24,9 @@ require("indent_blankline").setup {
 
 -- Setup telescope
 local actions = require('telescope.actions')
-require('telescope').setup{
+local telescope = require('telescope')
+telescope.load_extension('lsp_handlers')
+telescope.setup{
   defaults = {
     mappings = {
       i = {
@@ -34,3 +36,6 @@ require('telescope').setup{
     },
   }
 }
+
+-- Setup bufferline
+require'bufferline'.setup {}

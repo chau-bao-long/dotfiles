@@ -31,6 +31,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/gv.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'gbrlsnchs/telescope-lsp-handlers.nvim'
 
 Plug 'junegunn/vim-easy-align'
 xmap ga <Plug>(EasyAlign)
@@ -77,7 +78,6 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'sindrets/diffview.nvim'
 Plug 'chrisbra/NrrwRgn'
-Plug 'dstein64/nvim-scrollview'
 Plug 'karb94/neoscroll.nvim'
 Plug 'gelguy/wilder.nvim'
 Plug 'xiyaowong/nvim-cursorword'
