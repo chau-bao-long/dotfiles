@@ -45,3 +45,4 @@ command! -bang -nargs=* -complete=dir DG
       \   fzf#vim#with_preview({'dir': <q-args>}), <bang>0)
 
 xnoremap Q y:Rg <c-r>0<cr>
+nnoremap <space>Q :Rg<cr>
