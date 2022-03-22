@@ -44,5 +44,7 @@ command! -bang -nargs=* -complete=dir DG
       \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(''), 1,                                                                                               
       \   fzf#vim#with_preview({'dir': <q-args>}), <bang>0)
 
+nnoremap Q :Rg <c-r><c-w><cr>
 xnoremap Q y:Rg <c-r>0<cr>
-nnoremap <space>Q :Rg<cr>
+nnoremap <space>q :Rg<cr>
+nnoremap <space>p :Files<cr>
