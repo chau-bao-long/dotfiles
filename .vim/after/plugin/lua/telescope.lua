@@ -13,6 +13,7 @@ telescope.setup{
   }
 }
 
+map('n', '<space>p', '<cmd>Telescope find_files<cr>', {noremap = true})
 map('n', '<space>P', '<cmd>Telescope git_files<cr>', {noremap = true})
 map('n', '<space>Q', '<cmd>Telescope live_grep<cr>', {noremap = true})
 map('n', '<space>b', '<cmd>Telescope buffers<cr>', {noremap = true})

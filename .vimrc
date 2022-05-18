@@ -23,7 +23,6 @@ nnoremap <silent>gh :BufferLineCyclePrev<CR>
 Plug 'mbbill/undotree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'milkypostman/vim-togglelist'
-Plug 'Konfekt/FastFold'
 Plug 'vijaymarupudi/nvim-fzf'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -334,7 +333,8 @@ nnoremap me :messages<cr>
 nnoremap mc :messages clear<cr>
 
 " Better copy/paste behavior
-set pastetoggle=<space>4
+" set pastetoggle=<space>4
+set nopaste
 xnoremap p "_dP
 
 " Miscellaneous

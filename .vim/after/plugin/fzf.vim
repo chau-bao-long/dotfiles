@@ -47,4 +47,4 @@ command! -bang -nargs=* -complete=dir DG
 nnoremap Q :Rg <c-r><c-w><cr>
 xnoremap Q y:Rg <c-r>0<cr>
 nnoremap <space>q :Rg<cr>
-nnoremap <space>p :Files<cr>
+" nnoremap <space>p :Files<cr>

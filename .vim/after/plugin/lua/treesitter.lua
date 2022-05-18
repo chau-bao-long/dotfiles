@@ -1,35 +1,9 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
-  ignore_install = { "haskell", "yaml" },
-  highlight = {
-    enable = true,
-    use_languagetree = false, -- Use this to enable language injection (this is very unstable)
-    custom_captures = {
-      -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
-      ["foo.bar"] = "Identifier",
-    },
-    textobjects = {
-      select = {
-        enable = true,
-        keymaps = {
-          ["af"] = "@function.outer",
-          ["if"] = "@function.inner",
-          ["ac"] = "@class.outer",
-          ["ic"] = "@class.inner",
-        },
-      },
-    },
-  },
   indent = {
     enable = true
   },
-  incremental_selection = {
+  highlight = {
     enable = true,
-    keymaps = {
-      init_selection = "gnn",
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
-    },
-  },
+    additional_vim_regex_highlighting = false
+  }
 }

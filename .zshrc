@@ -199,7 +199,6 @@ alias la='exa -lahg --icons'
 alias ll='exa -lhg --icons'
 alias tree='exa -T -L3 --icons'
 alias ping=prettyping
-alias pc=~/Projects/personio/personio/perctl
 
 # quickly go to project
 fper() { cd ~/Projects/personio/$(ls ~/Projects/personio/ | fzf) }

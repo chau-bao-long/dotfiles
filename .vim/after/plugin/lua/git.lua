@@ -50,6 +50,8 @@ require('gitsigns').setup {
     ['n <space>gr'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
     ['n <space>gj'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
     ['n <space>gbc'] = '<cmd>lua require"gitsigns".blame_line()<CR>',
+    ['n <space>gs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
+    ['n <space>gS'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
 
     -- Text objects
     ['o ih'] = ':<C-U>lua require"gitsigns".select_hunk()<CR>',

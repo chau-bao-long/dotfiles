@@ -1,7 +1,7 @@
 nnoremap <space>gl :Gclog -n 100<cr>
 nnoremap <space>gL :Gclog<cr>
-nnoremap <space>g0l :0Glog -n 100<cr>
-nnoremap <space>g0L :0Glog<cr>
+nnoremap <space>g0l :0Gclog -n 100<cr>
+nnoremap <space>g0L :0Gclog<cr>
 nnoremap <space>gd :Gdiff HEAD<cr><c-w>l
 nnoremap <space>gz :call <SID>closeGitDiffWindows()<cr>
 nnoremap <space>gD :Gvdiffsplit!<cr>
