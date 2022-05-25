@@ -11,7 +11,7 @@ nnoremap <space>; :FloatermNew<cr>
 nnoremap <space>te :FloatermNew quickrun<cr>
 nnoremap <space>tp :FloatermNew quickpass<cr>
 nnoremap <space>tr :FloatermNew ranger<cr>
-nnoremap <space>tn :FloatermNew nnn -da<cr>
+nnoremap <space>tn :FloatermNew nnn -ea<cr>
 nnoremap <space>tg :FloatermNew lazygit<cr>
 nnoremap <space>td :FloatermNew lazydocker<cr>
 nnoremap <space>th :FloatermNew htop<cr>

@@ -80,9 +80,6 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
-# Config nnn
-export NNN_PLUG='f:finder;o:fzopen;p:preview-tui;d:diffs;t:nmount;v:imgview'
-
 # Git shortcut
 alias g='git'
 alias gca="git add . && git commit --allow-empty --amend"
@@ -509,10 +506,27 @@ zle-keymap-select () {
 }
 zle -N zle-keymap-select
 
+# Config NNN
+export NNN_PLUG='f:finder;o:fzopen;p:preview-tui;d:diffs;t:nmount;v:imgview'
+
+n() {
+  if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
+    echo "nnn is already running"
+    return
+  fi
+    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+
+    nnn "$@" -dea
+
+    if [ -f "$NNN_TMPFILE" ]; then
+      . "$NNN_TMPFILE"
+      rm -f "$NNN_TMPFILE" > /dev/null
+    fi
+}
+
 # zsh frequently key binding
 # prefix edddddddddd to remove all current text lines before execute command
 bindkey -s "^[f" "\edddddddddd iranger\n"
-bindkey -s "^[n" "\edddddddddd innn -dea\n"
 bindkey -s "^[r" "\edddddddddd i./run.sh "
 bindkey -s "^[g" "\edddddddddd i./gradlew "
 bindkey -s "^[s" "\edddddddddd icht.sh "
