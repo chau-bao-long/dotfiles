@@ -142,8 +142,8 @@ Plug 'Galooshi/vim-import-js'
 Plug 'Rican7/php-doc-modded'
 
 Plug 'dyng/ctrlsf.vim'
-vnoremap <space>cf y:CtrlSF <c-r>0<cr>
-nnoremap <space>cf y:CtrlSF 
+vnoremap <space>ra y:CtrlSF <c-r>0<cr>
+nnoremap <space>ra y:CtrlSF 
 
 Plug 'terryma/vim-expand-region'
 
