@@ -43,21 +43,20 @@
                         ]
                     },
                     {
-                        "description": "Map go to firefox address bar to caps_lock - ;",
+                        "description": "Map Amethyst combo to swap window become main and focus on main at once",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "semicolon",
+                                    "key_code": "return_or_enter",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_control"
+                                            "left_command"
                                         ]
                                     }
                                 },
                                 "to": [
-                                    {
-                                        "key_code": "f6"
-                                    }
+                                    { "key_code": "f7" },
+                                    { "key_code": "f8" }
                                 ],
                                 "type": "basic"
                             }

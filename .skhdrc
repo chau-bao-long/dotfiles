@@ -1,26 +1,33 @@
+cmd + shift - return :open -na alacritty
+cmd - u :open -na AlacrittyPopup --args -e zsh -ci "frun ~/local/syscmds fzf"
+cmd - p :open -na AlacrittyPopup --args -e zsh -ci "fapp"
+cmd + ctrl - p :open -na AlacrittyPopup --args -e zsh -ci "fpass"
+cmd + ctrl - e :open -na AlacrittyPopup --args -e zsh -ci "femo"
+cmd - y :open -na /System/Applications/Dictionary.app
+
 # focus window
-cmd - k: yabai -m window --focus prev
-cmd - j: yabai -m window --focus next
+# cmd - k: yabai -m window --focus prev
+# cmd - j: yabai -m window --focus next
 
 # swap managed window become master window
-cmd - return: yabai -m window --swap west || yabai -m window --swap east && yabai -m window --focus west
+# cmd - return: yabai -m window --swap west || yabai -m window --swap east && yabai -m window --focus west
 
 # adjust window size
-cmd - h: yabai -m window --resize right:-100:0; yabai -m window --resize left:-100:0
-cmd - l: yabai -m window --resize right:100:0; yabai -m window --resize left:100:0
+# cmd - h: yabai -m window --resize right:-100:0; yabai -m window --resize left:-100:0
+# cmd - l: yabai -m window --resize right:100:0; yabai -m window --resize left:100:0
 
 # change layout
-cmd - t: yabai -m config layout bsp
-cmd - m: yabai -m config layout float; yabai -m window --grid 1:1:0:0:1:1
+# cmd - t: yabai -m config layout bsp
+# cmd - m: yabai -m config layout float; yabai -m window --grid 1:1:0:0:1:1
 
 # move managed window
-shift + cmd - h: yabai -m window --warp west
-shift + cmd - l: yabai -m window --warp east
-shift + cmd - j: yabai -m window --warp south
-shift + cmd - k: yabai -m window --warp north
+# shift + cmd - h: yabai -m window --warp west
+# shift + cmd - l: yabai -m window --warp east
+# shift + cmd - j: yabai -m window --warp south
+# shift + cmd - k: yabai -m window --warp north
 
 # balance size of windows
-shift + cmd - 0: yabai -m space --balance
+# shift + cmd - 0: yabai -m space --balance
 
 # make floating window fill screen
 # shift + alt - up     : yabai -m window --grid 1:1:0:0:1:1
@@ -29,46 +36,46 @@ shift + cmd - 0: yabai -m space --balance
 # shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
 
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-alt + cmd - n : yabai -m space --create && \
-                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
-                  yabai -m window --space "${index}" && \
-                  yabai -m space --focus "${index}"
+# alt + cmd - n : yabai -m space --create && \
+#                   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+#                   yabai -m window --space "${index}" && \
+#                   yabai -m space --focus "${index}"
 
-alt + cmd - q : yabai -m space --destroy
+# alt + cmd - q : yabai -m space --destroy
 
 # fast focus desktop
-cmd - i : yabai -m space --focus prev
-cmd - o : yabai -m space --focus next
-cmd - 1 : yabai -m space --focus 1
-cmd - 2 : yabai -m space --focus 2
-cmd - 3 : yabai -m space --focus 3
-cmd - 4 : yabai -m space --focus 4
-cmd - 5 : yabai -m space --focus 5
-cmd - 6 : yabai -m space --focus 6
-cmd - 7 : yabai -m space --focus 7
-cmd - 8 : yabai -m space --focus 8
-cmd - 9 : yabai -m space --focus 4
+# cmd - i : yabai -m space --focus prev
+# cmd - o : yabai -m space --focus next
+# cmd - 1 : yabai -m space --focus 1
+# cmd - 2 : yabai -m space --focus 2
+# cmd - 3 : yabai -m space --focus 3
+# cmd - 4 : yabai -m space --focus 4
+# cmd - 5 : yabai -m space --focus 5
+# cmd - 6 : yabai -m space --focus 6
+# cmd - 7 : yabai -m space --focus 7
+# cmd - 8 : yabai -m space --focus 8
+# cmd - 9 : yabai -m space --focus 4
 
 # send window to desktop and follow focus
-shift + cmd - 1: yabai -m window --space 1; yabai -m space --focus 1
-shift + cmd - 2: yabai -m window --space 2; yabai -m space --focus 2
-shift + cmd - 3: yabai -m window --space 3; yabai -m space --focus 3
-shift + cmd - 4: yabai -m window --space 4; yabai -m space --focus 4
-shift + cmd - 5: yabai -m window --space 5; yabai -m space --focus 5
-shift + cmd - 6: yabai -m window --space 6; yabai -m space --focus 6
-shift + cmd - 7: yabai -m window --space 7; yabai -m space --focus 7
-shift + cmd - 8: yabai -m window --space 8; yabai -m space --focus 8
-shift + cmd - 9: yabai -m window --space 9; yabai -m space --focus 9
-alt + cmd - h: yabai -m window --space prev; yabai -m space --focus prev
-alt + cmd - l: yabai -m window --space next; yabai -m space --focus next
+# shift + cmd - 1: yabai -m window --space 1; yabai -m space --focus 1
+# shift + cmd - 2: yabai -m window --space 2; yabai -m space --focus 2
+# shift + cmd - 3: yabai -m window --space 3; yabai -m space --focus 3
+# shift + cmd - 4: yabai -m window --space 4; yabai -m space --focus 4
+# shift + cmd - 5: yabai -m window --space 5; yabai -m space --focus 5
+# shift + cmd - 6: yabai -m window --space 6; yabai -m space --focus 6
+# shift + cmd - 7: yabai -m window --space 7; yabai -m space --focus 7
+# shift + cmd - 8: yabai -m window --space 8; yabai -m space --focus 8
+# shift + cmd - 9: yabai -m window --space 9; yabai -m space --focus 9
+# alt + cmd - h: yabai -m window --space prev; yabai -m space --focus prev
+# alt + cmd - l: yabai -m window --space next; yabai -m space --focus next
 
 # focus monitor
-ctrl + cmd - k: yabai -m display --focus 2
-ctrl + cmd - j: yabai -m display --focus 1
+# ctrl + cmd - k: yabai -m display --focus 2
+# ctrl + cmd - j: yabai -m display --focus 1
 
 # send window to monitor and follow focus
-alt + cmd - k: yabai -m window --display 2; yabai -m display --focus 2
-alt + cmd - j: yabai -m window --display 1; yabai -m display --focus 1
+# alt + cmd - k: yabai -m window --display 2; yabai -m display --focus 2
+# alt + cmd - j: yabai -m window --display 1; yabai -m display --focus 1
 
 # move floating window
 # shift + ctrl - a : yabai -m window --move rel:-20:0
@@ -85,13 +92,13 @@ alt + cmd - j: yabai -m window --display 1; yabai -m display --focus 1
 # alt - e : yabai -m window --toggle split
 
 # float / unfloat window and center on screen
-cmd + ctrl - t : yabai -m window --toggle float;\
-          yabai -m window --grid 1:3:1:0:1:1
+# cmd + ctrl - t : yabai -m window --toggle float;\
+#           yabai -m window --grid 1:3:1:0:1:1
 
 # maximize a window
-ctrl + cmd - m : yabai -m window --toggle float;\
-          yabai -m window --toggle float; \
-          yabai -m window --grid 1:1:0:0:1:1
+# ctrl + cmd - m : yabai -m window --toggle float;\
+#           yabai -m window --toggle float; \
+#           yabai -m window --grid 1:1:0:0:1:1
 
 # toggle sticky(+float), topmost, picture-in-picture
 # alt - p : yabai -m window --toggle sticky;\
@@ -99,11 +106,4 @@ ctrl + cmd - m : yabai -m window --toggle float;\
 #           yabai -m window --toggle pip
 
 # restart yabai
-cmd + alt + ctrl - r: brew services restart yabai
-
-cmd + shift - return :open -na alacritty
-cmd - u :open -na AlacrittyPopup --args -e zsh -ci "frun ~/local/syscmds fzf"
-cmd - p :open -na AlacrittyPopup --args -e zsh -ci "fapp"
-cmd + ctrl - p :open -na AlacrittyPopup --args -e zsh -ci "fpass"
-cmd + ctrl - e :open -na AlacrittyPopup --args -e zsh -ci "femo"
-cmd - y :open -na /System/Applications/Dictionary.app
+# cmd + alt + ctrl - r: brew services restart yabai

@@ -1,61 +1,64 @@
+// Edit current URL
+api.map(';u', ';U')
+
 // Remap open link
-map('F', 'C');
+api.map('F', 'C');
 
 // Remap search google
-map('w', 'og');
-unmap('og');
+api.map('w', 'og');
+api.unmap('og');
 
 // Remap open from history
-map('e', 'oh');
-unmap('oh')
+api.map('e', 'oh');
+api.unmap('oh')
 
 // Remap open from bookmark
-map('l', 'b');
-unmap('b');
+api.map('l', 'b');
+api.unmap('b');
 
 // Remap and unmap all search
-vmap('sg', 'sgg');
-unmap('sg');
-unmap('sb');
-unmap('sd');
-unmap('sh');
-unmap('ss');
-unmap('sw');
-unmap('se');
-unmap('sy');
+api.vmap('sg', 'sgg');
+api.unmap('sg');
+api.unmap('sb');
+api.unmap('sd');
+api.unmap('sh');
+api.unmap('ss');
+api.unmap('sw');
+api.unmap('se');
+api.unmap('sy');
 
 // Map most frequent access sites
-mapkey('snf', 'open netflix', goto('https://netflix.com'));
-mapkey('sgh', 'open github', goto('https://github.com'));
-mapkey('stc', 'open tracau', goto('https://tracau.vn'));
-mapkey('syt', 'open youtube', goto('https://youtube.com'));
-mapkey('sfb', 'open facebook', goto('https://facebook.com'));
-mapkey('stw', 'open twitter', goto('https://twitter.com'));
-mapkey('stl', 'open google translate', goto('https://translate.google.com'));
-mapkey('scb', 'open cambridge', goto('https://dictionary.cambridge.org'));
-mapkey('ssc', 'open soundcloud', goto('https://soundcloud.com'));
-mapkey('sis', 'open instagram', goto('https://instagram.com'));
-mapkey('sgm', 'open google map', goto('https://map.google.com'));
-mapkey('sm0', 'open mail 0', goto('https://mail.google.com/mail/u/0/#inbox'));
-mapkey('sm1', 'open mail 1', goto('https://mail.google.com/mail/u/1/#inbox'));
-mapkey('sm2', 'open mail 2', goto('https://mail.google.com/mail/u/2/#inbox'));
-mapkey('sm3', 'open mail 3', goto('https://mail.google.com/mail/u/3/#inbox'));
-mapkey('slh', 'open localhost', goto('localhost'));
-mapkey('sl3', 'open localhost:3000', goto('http://localhost:3000'));
-mapkey('sl8', 'open localhost:8080', goto('http://localhost:8080'));
-mapkey('sl9', 'open localhost:9000', goto('http://localhost:9000'));
-mapkey('sd0', 'open google drive 0', goto('https://drive.google.com/drive/u/0/my-drive'));
-mapkey('sd1', 'open google drive 1', goto('https://drive.google.com/drive/u/1/my-drive'));
-mapkey('sd2', 'open google drive 2', goto('https://drive.google.com/drive/u/2/my-drive'));
-mapkey('sd3', 'open google drive 3', goto('https://drive.google.com/drive/u/3/my-drive'));
-mapkey('sc0', 'open google calendar 0', goto('https://calendar.google.com/calendar/b/0/r'));
-mapkey('sc1', 'open google calendar 1', goto('https://calendar.google.com/calendar/b/1/r'));
-mapkey('sc2', 'open google calendar 2', goto('https://calendar.google.com/calendar/b/2/r'));
-mapkey('sc3', 'open google calendar 3', goto('https://calendar.google.com/calendar/b/3/r'));
-mapkey('sp0', 'open google photo 0', goto('https://photos.google.com/u/0'));
-mapkey('sp1', 'open google photo 1', goto('https://photos.google.com/u/1'));
-mapkey('sp2', 'open google photo 2', goto('https://photos.google.com/u/2'));
-mapkey('sp3', 'open google photo 3', goto('https://photos.google.com/u/3'));
+api.mapkey('snf', 'open netflix', goto('https://netflix.com'));
+api.mapkey('sgh', 'open github', goto('https://github.com'));
+api.mapkey('stc', 'open tracau', goto('https://tracau.vn'));
+api.mapkey('syt', 'open youtube', goto('https://youtube.com'));
+api.mapkey('sfb', 'open facebook', goto('https://facebook.com'));
+api.mapkey('stw', 'open twitter', goto('https://twitter.com'));
+api.mapkey('stl', 'open google translate', goto('https://translate.google.com'));
+api.mapkey('scb', 'open cambridge', goto('https://dictionary.cambridge.org'));
+api.mapkey('ssc', 'open soundcloud', goto('https://soundcloud.com'));
+api.mapkey('sis', 'open instagram', goto('https://instagram.com'));
+api.mapkey('sgm', 'open google map', goto('https://map.google.com'));
+api.mapkey('sm0', 'open mail 0', goto('https://mail.google.com/mail/u/0/#inbox'));
+api.mapkey('sm1', 'open mail 1', goto('https://mail.google.com/mail/u/1/#inbox'));
+api.mapkey('sm2', 'open mail 2', goto('https://mail.google.com/mail/u/2/#inbox'));
+api.mapkey('sm3', 'open mail 3', goto('https://mail.google.com/mail/u/3/#inbox'));
+api.mapkey('slh', 'open localhost', goto('localhost'));
+api.mapkey('sl3', 'open localhost:3000', goto('http://localhost:3000'));
+api.mapkey('sl8', 'open localhost:8080', goto('http://localhost:8080'));
+api.mapkey('sl9', 'open localhost:9000', goto('http://localhost:9000'));
+api.mapkey('sd0', 'open google drive 0', goto('https://drive.google.com/drive/u/0/my-drive'));
+api.mapkey('sd1', 'open google drive 1', goto('https://drive.google.com/drive/u/1/my-drive'));
+api.mapkey('sd2', 'open google drive 2', goto('https://drive.google.com/drive/u/2/my-drive'));
+api.mapkey('sd3', 'open google drive 3', goto('https://drive.google.com/drive/u/3/my-drive'));
+api.mapkey('sc0', 'open google calendar 0', goto('https://calendar.google.com/calendar/b/0/r'));
+api.mapkey('sc1', 'open google calendar 1', goto('https://calendar.google.com/calendar/b/1/r'));
+api.mapkey('sc2', 'open google calendar 2', goto('https://calendar.google.com/calendar/b/2/r'));
+api.mapkey('sc3', 'open google calendar 3', goto('https://calendar.google.com/calendar/b/3/r'));
+api.mapkey('sp0', 'open google photo 0', goto('https://photos.google.com/u/0'));
+api.mapkey('sp1', 'open google photo 1', goto('https://photos.google.com/u/1'));
+api.mapkey('sp2', 'open google photo 2', goto('https://photos.google.com/u/2'));
+api.mapkey('sp3', 'open google photo 3', goto('https://photos.google.com/u/3'));
 
 function goto(site) {
     return () => window.open(site);
@@ -63,7 +66,7 @@ function goto(site) {
 
 settings.historyMUOrder = false;
 settings.omnibarPosition = "middle";
-Hints.characters = "asdfjklwecxoiumn";
+api.Hints.characters = "asdfjklwecxoiumn";
 
 settings.theme = `
 .sk_theme input {
