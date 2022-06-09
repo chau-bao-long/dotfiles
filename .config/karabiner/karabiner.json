@@ -56,6 +56,8 @@
                                 },
                                 "to": [
                                     { "key_code": "f7" },
+                                    { "key_code": "f8" },
+                                    { "key_code": "f8" },
                                     { "key_code": "f8" }
                                 ],
                                 "type": "basic"
