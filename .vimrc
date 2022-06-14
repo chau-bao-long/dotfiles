@@ -118,6 +118,7 @@ Plug 'tpope/vim-surround'
 let g:surround_no_mappings = 1
 xmap ss <Plug>VSurround
 nmap ss <Plug>Csurround
+nmap ds <Plug>Dsurround
 
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-unimpaired'

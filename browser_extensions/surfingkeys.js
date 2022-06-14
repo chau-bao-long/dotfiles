@@ -1,3 +1,6 @@
+// Remap pin tab
+api.map('gp', '<Alt-p>')
+
 // Edit current URL
 api.map(';u', ';U')
 
