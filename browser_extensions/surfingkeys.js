@@ -1,3 +1,6 @@
+// Unmap ctrl-j to avoid key conflict with browser switch tab
+api.unmap('<Ctrl-j>')
+
 // Remap pin tab
 api.map('gp', '<Alt-p>')
 
