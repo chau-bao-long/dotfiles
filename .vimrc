@@ -349,7 +349,7 @@ nnoremap <space>ss :%s/<c-r><c-w>/<c-r><c-w>/gI<left><left><left>
 xnoremap <space>ss y:%s/<c-r>0/<c-r>0/gI<left><left><left>
 nnoremap <space>sS :%s/<c-r><c-w>/<c-r><c-w>/gIc<left><left><left><left>
 xnoremap <space>sS y:%s/<c-r>0/<c-w>0/gIc<left><left><left><left>
-xnoremap / y:/<c-r>0<cr>
+xnoremap / y:/<c-r>0<cr>N
 nnoremap <space>er :e!<cr>
 nnoremap <space>ew :call common#runCurrentCommand()<cr>
 nnoremap <leader>bl :s/\((\zs\\|,\ *\zs\\|)\)/\r&/g<cr><bar>:'[,']normal ==<cr>:noh<cr>
