@@ -432,7 +432,7 @@ zle -N zle-keymap-select
 
 # Config NNN
 export NNN_PLUG='f:finder;o:fzopen;p:preview-tui;d:diffs;t:nmount;v:imgview'
-export NNN_BMS="D:$HOME/Documents;h:$HOME;d:$HOME/Downloads/;c:$HOME/.config"
+export NNN_BMS="D:$HOME/Documents;h:$HOME;d:$HOME/Downloads/;c:$HOME/.config;p:$HOME/Projects"
 
 n() {
   if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
