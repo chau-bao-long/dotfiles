@@ -66,10 +66,9 @@ export LDFLAGS="-L/usr/local/opt/php@7.4/lib"
 export CPPFLAGS="-I/usr/local/opt/php@7.4/include"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
-# Node to PATH
-export PATH="/usr/local/opt/node@16/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/node@16/lib"
-export CPPFLAGS="-I/usr/local/opt/node@16/include"
+# Load NVM
+export NVM_DIR="$HOME/.nvm"
+zsh-defer [ -s "/usr/local/opt/nvm/nvm.sh" ] && zsh-defer \. "/usr/local/opt/nvm/nvm.sh"
 
 # CMake to PATH
 export PATH="/Applications/CMake.app/Contents/bin":"$PATH"
