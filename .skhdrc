@@ -1,28 +1,28 @@
-cmd + shift - return :open -na alacritty
+cmd + ctrl - return :open -na alacritty
 cmd - u :open -na AlacrittyPopup --args -e zsh -ci "frun ~/local/syscmds fzf"
 cmd + shift - p :open -na AlacrittyPopup --args -e zsh -ci "fpass"
 cmd - y :open -na /System/Applications/Dictionary.app
 
 # focus window
-ctrl + cmd - j: yabai -m window --focus next
-ctrl + cmd - k: yabai -m window --focus prev
+cmd + shift - j: yabai -m window --focus next
+cmd + shift - k: yabai -m window --focus prev
 
 # swap managed window become master window
-ctrl + cmd - return: yabai -m window --swap west || yabai -m window --swap east && yabai -m window --focus west
+cmd + shift - return: yabai -m window --swap west || yabai -m window --swap east && yabai -m window --focus west
 
 # adjust window size
-ctrl + cmd - h: yabai -m window --resize right:-100:0; yabai -m window --resize left:-100:0
-ctrl + cmd - l: yabai -m window --resize right:100:0; yabai -m window --resize left:100:0
+cmd + shift - h: yabai -m window --resize right:-100:0; yabai -m window --resize left:-100:0
+cmd + shift - l: yabai -m window --resize right:100:0; yabai -m window --resize left:100:0
 
 # change layout
-cmd - t: yabai -m config layout bsp
-cmd - m: yabai -m config layout float; yabai -m window --grid 1:1:0:0:1:1
+# cmd - t: yabai -m config layout bsp
+# cmd - m: yabai -m config layout float; yabai -m window --grid 1:1:0:0:1:1
 
 # move managed window
-shift + cmd - h: yabai -m window --warp west
-shift + cmd - l: yabai -m window --warp east
-shift + cmd - j: yabai -m window --warp south
-shift + cmd - k: yabai -m window --warp north
+alt + shift - h: yabai -m window --warp west
+alt + shift - l: yabai -m window --warp east
+alt + shift - j: yabai -m window --warp south
+alt + shift - k: yabai -m window --warp north
 
 # balance size of windows
 shift + cmd - 0: yabai -m space --balance
@@ -72,8 +72,8 @@ ctrl + cmd - p: yabai -m display --focus 2
 ctrl + cmd - n: yabai -m display --focus 1
 
 # send window to monitor and follow focus
-alt + cmd - k: yabai -m window --display 2; yabai -m display --focus 2
-alt + cmd - j: yabai -m window --display 1; yabai -m display --focus 1
+cmd + shift - k: yabai -m window --display 2; yabai -m display --focus 2
+cmd + shift - j: yabai -m window --display 1; yabai -m display --focus 1
 
 # move floating window
 shift + ctrl - a : yabai -m window --move rel:-20:0
