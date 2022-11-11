@@ -1,20 +1,18 @@
 cmd + shift - return :open -na alacritty
 cmd - u :open -na AlacrittyPopup --args -e zsh -ci "frun ~/local/syscmds fzf"
-cmd - p :open -na AlacrittyPopup --args -e zsh -ci "fapp"
-cmd + ctrl - p :open -na AlacrittyPopup --args -e zsh -ci "fpass"
-cmd + ctrl - e :open -na AlacrittyPopup --args -e zsh -ci "femo"
+cmd + shift - p :open -na AlacrittyPopup --args -e zsh -ci "fpass"
 cmd - y :open -na /System/Applications/Dictionary.app
 
 # focus window
-cmd - j: yabai -m window --focus next
-cmd - k: yabai -m window --focus prev
+ctrl + cmd - j: yabai -m window --focus next
+ctrl + cmd - k: yabai -m window --focus prev
 
 # swap managed window become master window
-cmd - return: yabai -m window --swap west || yabai -m window --swap east && yabai -m window --focus west
+ctrl + cmd - return: yabai -m window --swap west || yabai -m window --swap east && yabai -m window --focus west
 
 # adjust window size
-cmd - h: yabai -m window --resize right:-100:0; yabai -m window --resize left:-100:0
-cmd - l: yabai -m window --resize right:100:0; yabai -m window --resize left:100:0
+ctrl + cmd - h: yabai -m window --resize right:-100:0; yabai -m window --resize left:-100:0
+ctrl + cmd - l: yabai -m window --resize right:100:0; yabai -m window --resize left:100:0
 
 # change layout
 cmd - t: yabai -m config layout bsp
@@ -36,12 +34,12 @@ shift + alt - up     : yabai -m window --grid 1:1:0:0:1:1
 shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
 
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-alt + cmd - n : yabai -m space --create && \
-                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
-                  yabai -m window --space "${index}" && \
-                  yabai -m space --focus "${index}"
+# alt + cmd - n : yabai -m space --create && \
+#                   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+#                   yabai -m window --space "${index}" && \
+#                   yabai -m space --focus "${index}"
 
-alt + cmd - q : yabai -m space --destroy
+# alt + cmd - q : yabai -m space --destroy
 
 # fast focus desktop
 # cmd - i : yabai -m space --focus prev
@@ -70,8 +68,8 @@ alt + cmd - h: yabai -m window --space prev; yabai -m space --focus prev
 alt + cmd - l: yabai -m window --space next; yabai -m space --focus next
 
 # focus monitor
-ctrl + cmd - k: yabai -m display --focus 2
-ctrl + cmd - j: yabai -m display --focus 1
+ctrl + cmd - p: yabai -m display --focus 2
+ctrl + cmd - n: yabai -m display --focus 1
 
 # send window to monitor and follow focus
 alt + cmd - k: yabai -m window --display 2; yabai -m display --focus 2
