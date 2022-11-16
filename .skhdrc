@@ -1,6 +1,6 @@
 cmd + ctrl - return :open -na alacritty
 cmd - u :open -na AlacrittyPopup --args -e zsh -ci "frun ~/local/syscmds fzf"
-cmd + alt - p :open -na AlacrittyPopup --args -e zsh -ci "fpass"
+cmd + ctrl - p :open -na AlacrittyPopup --args -e zsh -ci "fpass"
 cmd - y :open -na /System/Applications/Dictionary.app
 
 # focus window
@@ -72,8 +72,8 @@ cmd + shift - p: yabai -m display --focus 2
 cmd + shift - n: yabai -m display --focus 1
 
 # send window to monitor and follow focus
-ctrl + cmd - p: yabai -m window --display 2; yabai -m display --focus 2
-ctrl + cmd - n: yabai -m window --display 1; yabai -m display --focus 1
+cmd + alt - p: yabai -m window --display 2; yabai -m display --focus 2
+cmd + alt - n: yabai -m window --display 1; yabai -m display --focus 1
 
 # move floating window
 shift + ctrl - a : yabai -m window --move rel:-20:0
