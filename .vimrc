@@ -36,9 +36,6 @@ Plug 'junegunn/vim-easy-align'
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-Plug 'glepnir/dashboard-nvim'
-let g:dashboard_default_executive = 'telescope'
-
 Plug 'SirVer/ultisnips'
 let g:UltiSnipsSnippetDirectories = [ "~/Projects/dotfiles/.vim/UltiSnips/" ]
 let g:UltiSnipsEditSplit = 'tabdo'

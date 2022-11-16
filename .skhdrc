@@ -68,12 +68,12 @@ alt + cmd - h: yabai -m window --space prev; yabai -m space --focus prev
 alt + cmd - l: yabai -m window --space next; yabai -m space --focus next
 
 # focus monitor
-ctrl + cmd - p: yabai -m display --focus 2
-ctrl + cmd - n: yabai -m display --focus 1
+cmd + shift - p: yabai -m display --focus 2
+cmd + shift - n: yabai -m display --focus 1
 
 # send window to monitor and follow focus
-cmd + shift - p: yabai -m window --display 2; yabai -m display --focus 2
-cmd + shift - n: yabai -m window --display 1; yabai -m display --focus 1
+ctrl + cmd - p: yabai -m window --display 2; yabai -m display --focus 2
+ctrl + cmd - n: yabai -m window --display 1; yabai -m display --focus 1
 
 # move floating window
 shift + ctrl - a : yabai -m window --move rel:-20:0
