@@ -140,6 +140,8 @@ nnoremap <space>ra y:CtrlSF
 
 Plug 'terryma/vim-expand-region'
 
+Plug 'vimwiki/vimwiki'
+
 call plug#end()
 
 " ==================================================== General Config
@@ -163,6 +165,7 @@ set number
 set hidden
 
 " Turn on syntax highlighting
+syntax on
 if !exists('g:syntax_on')
 	syntax enable
 endif
