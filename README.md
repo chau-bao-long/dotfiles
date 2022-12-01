@@ -12,7 +12,6 @@ $ make install_softwares #install mostly used softwares
 - zsh + oh-my-zsh + completion + suggestion + theme
 - vim
 - tmux
-- emacs
 - alacritty (terminal)
 - ranger
 - suckless tools (dwm + dmenu + slstatus + st)
@@ -20,13 +19,13 @@ $ make install_softwares #install mostly used softwares
 - link and copy all config files
 - homebrew & homecask (package manager for macos) + vimac (vimium for macos)
 - Yabai (window manager for macos)
+- Uebersicht + simple-bar (status bar for macos)
 - skhd (simple hotkey daemon for macos)
 - telegram
 - sxiv (image viewer)
 - cmus (music player)
 - mpv (video player)
 - maim (take screenshoot)
-- neofetch (command-line system information)
 - cava (console-based audio visualizer)
 - pass (manage all passwords using gpg key)
 - exa (modern version of ls)
