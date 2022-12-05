@@ -1,3 +1,6 @@
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 -- -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -37,6 +40,7 @@ local debounce_duration = 200
 require'lspconfig'.pyright.setup {
   on_attach = on_attach,
   flags = { debounce_text_changes = debounce_duration },
+  capabilities = capabilities,
 }
 
 -- PHP LSP
@@ -44,6 +48,7 @@ require'lspconfig'.pyright.setup {
 require'lspconfig'.intelephense.setup {
   on_attach = on_attach,
   flags = { debounce_text_changes = debounce_duration },
+  capabilities = capabilities,
 }
 
 -- Typescript LSP
@@ -54,6 +59,7 @@ require'lspconfig'.tsserver.setup {
     on_attach(client)
   end,
   flags = { debounce_text_changes = debounce_duration },
+  capabilities = capabilities,
 }
 
 -- Diagnostic LSP
@@ -100,58 +106,6 @@ require'lspconfig'.diagnosticls.setup {
   flags = { debounce_text_changes = debounce_duration },
 }
 
--- Lua LSP
--- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
-local system_name
-if vim.fn.has("mac") == 1 then
-  system_name = "macOS"
-elseif vim.fn.has("unix") == 1 then
-  system_name = "Linux"
-elseif vim.fn.has('win32') == 1 then
-  system_name = "Windows"
-else
-  print("Unsupported system for sumneko")
-end
-
-local sumneko_root_path = '/Users/topcbl/Projects/lua-language-server'
-local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
-
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
-require'lspconfig'.sumneko_lua.setup {
-  on_attach = on_attach,
-  flags = { debounce_text_changes = debounce_duration },
-  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT',
-        path = runtime_path,
-      },
-      diagnostics = {
-        globals = {'vim'},
-      },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-}
-
--- Terraform LSP
--- brew install hashicorp/tap/terraform-ls
-require'lspconfig'.terraformls.setup{
-  on_attach = on_attach,
-  filetypes = { "terraform", 'tf' },
-  root_dir = require("lspconfig/util").root_pattern(".terraform", ".git"),
-  flags = { debounce_text_changes = debounce_duration },
-}
-
 -- Bash LSP
 -- npm i -g bash-language-server
 require'lspconfig'.bashls.setup{
@@ -182,6 +136,7 @@ require'lspconfig'.yamlls.setup{
     },
   },
   flags = { debounce_text_changes = debounce_duration },
+  capabilities = capabilities,
 }
 
 -- Go lang LSP
@@ -197,6 +152,7 @@ require'lspconfig'.gopls.setup {
     },
   },
   flags = { debounce_text_changes = debounce_duration },
+  capabilities = capabilities,
 }
 
 -- Ruby LSP
@@ -213,6 +169,7 @@ require'lspconfig'.solargraph.setup{
     },
   },
   flags = { debounce_text_changes = debounce_duration },
+  capabilities = capabilities,
 }
 
 -- Vimscript LSP
@@ -241,18 +198,5 @@ require'lspconfig'.vimls.setup{
     return vim.fn.getcwd()
   end,
   flags = { debounce_text_changes = debounce_duration },
-}
-
--- Json LSP
--- npm i -g vscode-langservers-extracted
-require'lspconfig'.jsonls.setup {
-  on_attach = on_attach,
-  commands = {
-    Format = {
-      function()
-        vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
-      end
-    }
-  },
-  flags = { debounce_text_changes = debounce_duration },
+  capabilities = capabilities,
 }

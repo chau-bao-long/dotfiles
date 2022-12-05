@@ -1,28 +1,34 @@
 " ==================================================== All plugins
 call plug#begin('~/.vim/plugged')
 
+" Theme
 Plug 'sainnhe/edge'
 
+" Custom UI
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'ryanoasis/vim-devicons'
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
-
-Plug 'windwp/nvim-autopairs'
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'chau-bao-long/Comrade'
-
 Plug 'akinsho/nvim-bufferline.lua'
 nnoremap <silent>gl :BufferLineCycleNext<CR>
 nnoremap <silent>gh :BufferLineCyclePrev<CR>
 
-Plug 'mbbill/undotree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'milkypostman/vim-togglelist'
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1
+
+" LSP and autocomplete
+Plug 'windwp/nvim-autopairs'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip', { 'do': 'make install_jsregexp' }
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'chau-bao-long/Comrade'
+
+" Fuzzy search and action
 Plug 'vijaymarupudi/nvim-fzf'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -31,35 +37,17 @@ Plug 'junegunn/gv.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'gbrlsnchs/telescope-lsp-handlers.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'chau-bao-long/actions.nvim'
 
 Plug 'junegunn/vim-easy-align'
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-Plug 'SirVer/ultisnips'
-let g:UltiSnipsSnippetDirectories = [ "~/Projects/dotfiles/.vim/UltiSnips/" ]
-let g:UltiSnipsEditSplit = 'tabdo'
-nmap <space>iu :UltiSnipsEdit<cr>
-
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-let g:firenvim_config = {
-    \ 'localSettings': {
-        \ '.*': {
-            \ 'cmdline': 'neovim',
-            \ 'priority': 0,
-            \ 'selector': 'textarea',
-            \ 'takeover': 'never',
-        \ },
-    \ }
-\ }
-
+Plug 'milkypostman/vim-togglelist'
+Plug 'mbbill/undotree'
 Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-orgmode/orgmode'
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'chau-bao-long/actions.nvim'
 Plug 'udalov/kotlin-vim'
 Plug 'honza/vim-snippets'
 Plug 'xolox/vim-misc'
@@ -91,9 +79,6 @@ autocmd Filetype kotlin nnoremap <space>ia :ComradeImport<cr>
 Plug 'chau-bao-long/vim-dadbod'
 nnoremap <space>st :DBSelectTable<cr>
 nnoremap <space>sd :DBDescribeTables<cr>
-
-Plug 'luochen1990/rainbow'
-let g:rainbow_active = 1
 
 Plug 'pechorin/any-jump.vim'
 nnoremap <space>jk :AnyJump<CR>
