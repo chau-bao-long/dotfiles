@@ -19,4 +19,5 @@ require("indent_blankline").setup {
 require'bufferline'.setup {}
 
 -- Setup luasnippet
-require("luasnip.loaders.from_snipmate").load({ path = { "~/.vim/snippets" } })
+require("luasnip.loaders.from_snipmate").lazy_load({ path = { "~/.vim/snippets" } })
+map('n', '<space>sn', ':lua require("luasnip.loaders").edit_snippet_files()<cr>', {noremap = true})
