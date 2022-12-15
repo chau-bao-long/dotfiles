@@ -60,10 +60,10 @@ export PATH="$HOME/.pyenv:$PATH"
 zsh-defer -c "eval $(pyenv init -)"
 
 # PHP to PATH
-export PATH="/usr/local/opt/php@7.4/bin:$PATH"
-export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
-export LDFLAGS="-L/usr/local/opt/php@7.4/lib"
-export CPPFLAGS="-I/usr/local/opt/php@7.4/include"
+export PATH="/usr/local/opt/php@8.0/bin:$PATH"
+export PATH="/usr/local/opt/php@8.0/sbin:$PATH"
+export LDFLAGS="-L/usr/local/opt/php@8.0/lib"
+export CPPFLAGS="-I/usr/local/opt/php@8.0/include"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 # CMake to PATH
