@@ -113,6 +113,7 @@ Plug 'ray-x/go.nvim'
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
+Plug 'mechatroner/rainbow_csv'
 Plug 'leafgarland/typescript-vim'
 Plug 'jason0x43/vim-js-indent'
 Plug 'jparise/vim-graphql'

@@ -12,10 +12,9 @@ vim.g.kotlinActions = {
   {'💾 bootJar', 'tabnew | terminal ./gradlew bootJar'},
   {'💾 compile', 'tabnew | terminal ./gradlew compileKotlin'},
   {'💾 clean', 'tabnew | terminal ./gradlew clean'},
-  {'💾 gradle local', 'call javafunctions#goToNearestGradleFolder() | !~/Projects/personio/bin/setup-env.sh'},
   {'💾 run', 'call common#goBackToRoot() | tabnew | terminal ./run.sh', {'Rerun microservices'}},
   {'📁 find lib source', 'Files ~/.gradle/src', {'Gradle source file'}},
-  {'💾 helm install', 'tabnew | terminal ./gradlew helmUnInstall helmInstall', {'Run helm install'}},
+  {'💾 helm reinstall', 'tabnew | terminal ./gradlew helmUnInstall && ./gradlew helmInstall', {'Run helm Reinstall'}},
   {'💾 helm uninstall', 'tabnew | terminal ./gradlew helmUnInstall', {'Run helm uninstall'}},
 }
 
@@ -33,7 +32,8 @@ vim.g.phpActions = {
   {'unpatch personio', 'Dispatch! git apply -R ../patches/*'},
   {'patch personio', 'Dispatch! git apply ../patches/*'},
   {'php cs fixer', 'Dispatch! php-cs-fixer fix %:p', {'Fix lint using php cs fixer'}},
-  {'perctl lint fix', 'Dispatch! ./perctl lint-fix', {'Fix lint using perctl command'}},
+  {'perctl lint fix', 'Dispatch ./monolith-cli lint-fix', {'Fix lint using perctl command'}},
+  {'perctl lint', 'Dispatch ./monolith-cli lint', {'Run lint using perctl command'}},
 }
 
 vim.g.commonActions = {
