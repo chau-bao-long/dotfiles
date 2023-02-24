@@ -112,7 +112,7 @@ install_homebrew() {
   read -r -p "Do you want to install homebrew? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew tap caskroom/cask
+    brew tap homebrew/cask
     success "Installed homebrew"
   fi
 }
@@ -122,7 +122,7 @@ copy_dotfiles() {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find . -maxdepth 3 -regextype sed -regex ".*\(conf.*\|\.\/\..*\)" -not -path '*.git*')
+  for src in $(find -E . -maxdepth 3 -regex '.*(conf.*|./..*)' -not -path '*.git*')
   do
     dst="$HOME/$(echo $src | cut -d '/' -f 2,3,4)"
     link_file "$src" "$dst"
@@ -146,7 +146,7 @@ install_nvim() {
 install_emacs() {
   read -r -p "Do you want to install emacs? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    brew cask install emacs
+    brew install --cask emacs
     brew install coreutils git ripgrep fd llvm
     git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
     ~/.emacs.d/bin/doom install
@@ -208,8 +208,9 @@ install_zsh() {
       git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
     fi
     if [ ! -d ~/.zsh/zsh-completions ]; then
-      git clone git://github.com/zsh-users/zsh-completions.git ~/.zsh/zsh-completions 
+      git clone https://github.com/zsh-users/zsh-completions.git ~/.zsh/zsh-completions 
     fi
+    brew install pure
     success "Installed zsh"
   fi
 }
@@ -224,7 +225,7 @@ install_font() {
     rm -rf fonts
 
     brew tap homebrew/cask-fonts
-    brew cask install font-hack-nerd-font
+    brew install --cask font-hack-nerd-font
 
     success "Installed font!"
   fi
@@ -233,7 +234,7 @@ install_font() {
 install_browser() {
   read -r -p "Do you want to install qutebrowser? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    brew cask install qutebrowser
+    brew install --cask qutebrowser
     success "Installed qutebrowser"
   fi
 }
@@ -247,6 +248,9 @@ install_window_manager() {
     killall Dock
     brew install koekeishiya/formulae/skhd
     brew services start skhd
+    brew install --cask ubersicht
+    git clone https://github.com/Jean-Tinland/simple-bar $HOME/Library/Application\ Support/Übersicht/widgets/simple-bar
+    ln -s /opt/homebrew/bin/yabai /usr/local/bin/yabai
 
     success "Installed window manager! Remember to disable System Integrity Protection (SIP)"
   fi
@@ -276,7 +280,8 @@ setup_git() {
 install_terminal() {
   read -r -p "Do you want to install terminal? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
-    brew cask install alacritty
+    brew install --cask alacritty
+    brew install --cask kitty
     success "Installed terminal"
   fi
 }
@@ -295,19 +300,16 @@ install_tool() {
     brew install bluetoothconnector
     brew install exa
     brew install hughbien/tap/thyme
+    brew install fzf
     success "Installed some fancy tools"
   fi
 }
 
-install_maccy() {
-    read -r -p "Do you want to setup maccy - smarter copy/paste tool? [y|N] " response
+install_raycast() {
+    read -r -p "Do you want to setup raycast - a brilliant popup menu? [y|N] " response
     if [[ $response =~ (y|yes|Y) ]];then
-        brew cask install maccy
-        defaults write org.p0deje.Maccy historySize 100
-        defaults write org.p0deje.Maccy hotKey command+shift+v
-        defaults write org.p0deje.Maccy pasteByDefault true
-        defaults write org.p0deje.Maccy fuzzySearch true
-        success "Installed maccy"
+        brew install --cask raycast
+        success "Installed raycast! Need to import config manually from ~/.config/raycast/raycast.rayconfig"
     fi
 }
 

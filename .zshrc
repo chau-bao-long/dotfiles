@@ -11,6 +11,7 @@ SAVEHIST=999999
 zstyle :prompt:pure:path color white
 zstyle ':prompt:pure:prompt:*' color green
 zstyle :prompt:pure:git:stash show yes
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
 # Hightlight syntax for manual page
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
@@ -40,6 +41,8 @@ export GPG_TTY=`tty`
 
 # Add Java path
 export JAVA_HOME=$(/usr/libexec/java_home -v 11.0.9.1)
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 
 # Add Android path
 export ANDROID_HOME=$HOME/Android/Sdk
