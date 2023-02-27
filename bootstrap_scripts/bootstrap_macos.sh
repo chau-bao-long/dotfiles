@@ -287,7 +287,7 @@ install_terminal() {
 }
 
 install_tool() {
-  read -r -p "Do you want to install some fancy tools ? [y|N] " response
+  read -r -p "Do you want to install terminal tools ? [y|N] " response
   if [[ $response =~ (y|yes|Y) ]];then
     brew install ripgrep
     brew install neofetch
@@ -305,7 +305,29 @@ install_tool() {
     brew install fzf
     brew install awscli
     brew install aws-vault
-    success "Installed some fancy tools"
+    brew install pinentry-mac
+    brew install lazygit
+    brew install sops
+    brew install k9s
+    success "Installed some terminal tools"
+  fi
+}
+
+install_app() {
+  read -r -p "Do you want to install macos apps ? [y|N] " response
+  if [[ $response =~ (y|yes|Y) ]];then
+    brew install --cask ubersicht
+    brew install --cask homerow
+    brew install --cask docker
+    brew install --cask warp
+    brew install --cask spotify
+    brew install --cask telegram
+    brew install --cask raycast
+    brew install --cask kitty
+    brew install --cask brave-browser
+    brew install --cask zoom
+    brew install --cask slack
+    success "Installed macos apps"
   fi
 }
 
@@ -336,6 +358,7 @@ install_window_manager
 install_font
 install_terminal
 install_tool
+install_app
 install_zsh
 copy_dotfiles
 setup_nvim
