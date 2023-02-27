@@ -43,6 +43,7 @@ export GPG_TTY=`tty`
 export JAVA_HOME=$(/usr/libexec/java_home -v 11.0.9.1)
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+export GRADLE_USER_HOME="$HOME/.gradle"
 
 # Add Android path
 export ANDROID_HOME=$HOME/Android/Sdk
@@ -52,7 +53,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/emulator
 
 # Add GO path
-export PATH="$PATH:$HOME/go/bin"
+export PATH="/opt/homebrew/opt/go@1.16/bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

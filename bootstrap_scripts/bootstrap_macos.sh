@@ -295,12 +295,16 @@ install_tool() {
     brew install mycli
     brew install bat
     brew install httpie
+    brew install prettyping
+    brew install htop
     brew install diff-so-fancy
     brew install terminal-notifier
     brew install bluetoothconnector
     brew install exa
     brew install hughbien/tap/thyme
     brew install fzf
+    brew install awscli
+    brew install aws-vault
     success "Installed some fancy tools"
   fi
 }

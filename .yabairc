@@ -25,7 +25,13 @@ yabai -m config active_window_border_color   0x77bc2749
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  0
+yabai -m config --space 1 top_padding        0
+yabai -m config --space 2 top_padding        0
+yabai -m config --space 3 top_padding        0
+yabai -m config --space 4 top_padding        32
+yabai -m config --space 5 top_padding        32
+yabai -m config --space 6 top_padding        32
+yabai -m config --space 7 top_padding        32
 yabai -m config bottom_padding               5
 yabai -m config left_padding                 5
 yabai -m config right_padding                5
