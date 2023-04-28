@@ -301,9 +301,9 @@ nnoremap <space>c{ vi{"*y
 nnoremap <space>c$ T v$"*y
 nnoremap gx viWy:!open <c-r>0 &<CR>
 vnoremap gx y:!open '<c-r>0' &<CR>
-nmap gV :vs<cr><c-w>l
-nmap gS :sp<cr><c-w>j
-nmap gT :tabnew<cr><c-o>
+nmap gV :vs<cr><c-w>lgd
+nmap gS :sp<cr><c-w>jgd
+nmap gT :tabnew<cr><c-o>gd
 nmap g' :vs<cr><c-w>l<c-]>
 nmap g" :sp<cr><c-]>
 nmap g\ :tabnew<cr><c-o><c-]>

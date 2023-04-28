@@ -309,6 +309,7 @@ install_tool() {
     brew install lazygit
     brew install sops
     brew install k9s
+    brew install lnav
     success "Installed some terminal tools"
   fi
 }

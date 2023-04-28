@@ -40,9 +40,9 @@ zsh-defer source ~/Projects/dotfiles/scripts/fzf-tmux-popup.zsh
 export GPG_TTY=`tty`
 
 # Add Java path
-export JAVA_HOME=$(/usr/libexec/java_home -v 11.0.9.1)
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
-export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"
 export GRADLE_USER_HOME="$HOME/.gradle"
 
 # Add Android path
@@ -64,10 +64,11 @@ export PATH="$HOME/.pyenv:$PATH"
 zsh-defer -c "eval $(pyenv init -)"
 
 # PHP to PATH
-export PATH="/usr/local/opt/php@8.0/bin:$PATH"
-export PATH="/usr/local/opt/php@8.0/sbin:$PATH"
-export LDFLAGS="-L/usr/local/opt/php@8.0/lib"
-export CPPFLAGS="-I/usr/local/opt/php@8.0/include"
+export PATH="/opt/homebrew/opt/php@8.0/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@8.0/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@8.0/sbin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/php@8.0/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/php@8.0/include"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 # CMake to PATH
@@ -140,7 +141,7 @@ kdevict() { kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl d
 __pick_container() {
   containers=$(kubectl get pod $1 -o jsonpath='{.spec.containers[*].name}')
   if [ $(echo $containers | wc -w) -gt 1 ]; then
-    container=$(echo $containers | tr " " "\n" | fzfp --border="sharp")
+    container=$(echo $containers | tr " " "\n" | fzf --border="sharp")
   else
     container=$containers
   fi
@@ -148,21 +149,21 @@ __pick_container() {
 }
 
 __pick_pod() {
-  kubectl get pods | tail -n +2 | fzfp --border="sharp" | awk '{print $1}'
+  kubectl get pods | tail -n +2 | fzf --border="sharp" | awk '{print $1}'
 }
 
 kdel() {
-  resource=$(kubectl get $1 | tail -n +2 | fzfp --border="sharp" --header="select $1 to delete" | awk '{print $1}')
+  resource=$(kubectl get $1 | tail -n +2 | fzf --border="sharp" --header="select $1 to delete" | awk '{print $1}')
   kubectl delete $1 $resource
 }
 
 kdes() {
-  resource=$(kubectl get $1 | tail -n +2 | fzfp --border="sharp" --header="select $1 to describe" | awk '{print $1}')
+  resource=$(kubectl get $1 | tail -n +2 | fzf --border="sharp" --header="select $1 to describe" | awk '{print $1}')
   kubectl describe $1 $resource
 }
 
 kedit() {
-  resource=$(kubectl get $1 | tail -n +2 | fzfp --border="sharp" --header="select $1 to edit" | awk '{print $1}')
+  resource=$(kubectl get $1 | tail -n +2 | fzf --border="sharp" --header="select $1 to edit" | awk '{print $1}')
   kubectl edit $1 $resource
 }
 
@@ -189,7 +190,7 @@ kpf() {
 }
 
 ksf() {
-  svc=$(kubectl get svc | tail -n +2 | fzfp --border="sharp" | awk '{print $1}')
+  svc=$(kubectl get svc | tail -n +2 | fzf --border="sharp" | awk '{print $1}')
   
   kubectl port-forward svc/${svc} ${1:-"9090:9090"}
 }
@@ -226,14 +227,14 @@ fd() {
 # search, preview and open file
 fo() {
   local files
-  IFS=$'\n' files=($(fzfp --preview "bat --color \"always\" {}" --query="$1" --multi --select-1 --exit-0))
+  IFS=$'\n' files=($(fzf --preview "bat --color \"always\" {}" --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
 # search content and open file
 fg() {
   if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
-  filepath=$(rg --files-with-matches --no-messages "$1" | fzfp --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}")
+  filepath=$(rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}")
   [[ -n "$filepath" ]] && ${EDITOR:-vim} "${filepath[@]}"
 }
 
@@ -263,7 +264,7 @@ fco() {
     git --no-pager tag | awk '{print "\x1b[35;1mtag\x1b[m\t" $1}') || return
   target=$(
     (echo "$branches"; echo "$tags") |
-    fzfp --no-hscroll --no-multi -n 2 \
+    fzf --no-hscroll --no-multi -n 2 \
         --ansi --preview="git --no-pager log -150 --pretty=format:%s '..{2}'") || return
   git checkout $(awk '{print $2}' <<<"$target" )
 }
@@ -272,7 +273,7 @@ fco() {
 fgit() {
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-  fzfp --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
       --bind "ctrl-m:execute:
                 (grep -o '[a-f0-9]\{7\}' | head -1 |
                 xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
@@ -340,7 +341,7 @@ gjr() {
 # Second param is search command, could be: fzf (normal) or fzfp (popup)
 frun() {
   echo $1
-  local search_cmd=${2-"fzfp"}
+  local search_cmd=${2-"fzf"}
   local cmd=$(cat $1 | $search_cmd)
   if [ -n "$cmd" ]; then
     local escape=$(echo $cmd | sed 's/[]\/$*.^[]/\\&/g')
