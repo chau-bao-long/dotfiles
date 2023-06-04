@@ -26,6 +26,7 @@ vim.g.javascriptActions = {
   {'💾 prettier all file', 'Dispatch yarn prettier'},
   {'💾 prettier current file', 'Dispatch! ./node_modules/.bin/prettier --parser typescript --write %:p'},
   {'💾 flow current file', 'Dispatch ./node_modules/.bin/flow %'},
+  {'💾 organize import', 'lua vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.fn.expand("%:p")}})'},
 }
 
 vim.g.phpActions = {
