@@ -22,10 +22,9 @@ vim.g.javascriptActions = {
   {'💾 eslint all file', 'Dispatch pwd | xargs eslint'},
   {'💾 eslint current file', 'Dispatch! eslint %:p'},
   {'💾 eslint fix all file', 'Dispatch pwd | xargs eslint --fix'},
-  {'💾 eslint fix current file', 'Dispatch! ./node_modules/.bin/eslint --fix %:p'},
+  {'💾 eslint fix current file', 'Dispatch! eslint --fix %:p'},
   {'💾 prettier all file', 'Dispatch yarn prettier'},
-  {'💾 prettier current file', 'Dispatch! ./node_modules/.bin/prettier --parser typescript --write %:p'},
-  {'💾 flow current file', 'Dispatch ./node_modules/.bin/flow %'},
+  {'💾 prettier current file', 'Dispatch! prettier --parser typescript --write %:p'},
   {'💾 organize import', 'lua vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.fn.expand("%:p")}})'},
 }
 
