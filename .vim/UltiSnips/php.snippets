@@ -1,0 +1,103 @@
+snippet t
+$this->$0
+endsnippet
+
+snippet d
+dd($0);
+endsnippet
+
+snippet s
+self::$0
+endsnippet
+
+snippet mc
+/**
+ * $0
+ */
+endsnippet
+
+snippet sc
+/** $0 */
+endsnippet
+
+snippet cv
+/** @var $0 */
+endsnippet
+
+snippet cp
+@param $0
+endsnippet
+
+snippet cr
+@return $0
+endsnippet
+
+snippet ct
+@throws $0
+endsnippet
+
+snippet cc
+@covers $0
+endsnippet
+
+snippet cdp
+@dataProvider $0
+endsnippet
+
+snippet TestCaseSnip
+use TestCase;
+endsnippet
+
+snippet RequestSnip
+use Illuminate\Http\Request;
+endsnippet
+
+snippet ResponseSnip
+use Illuminate\Http\Response;
+endsnippet
+
+snippet Faker
+use Faker\Generator as Faker;
+endsnippet
+
+snippet CollectionSnip
+use Illuminate\Support\Collection;
+endsnippet
+
+snippet EventSnip
+use Illuminate\Support\Facades\Event;
+endsnippet
+
+snippet DB
+use Illuminate\Support\Facades\DB;
+endsnippet
+
+snippet con "Generate a php constructor"
+public function __construct($0)
+{
+}
+endsnippet
+
+snippet pub "Generate a php public function"
+/**
+ * @param 
+ * @return 
+ */
+public function $0()
+{
+
+}
+endsnippet
+
+snippet pri "Generate a php private function"
+private function $0()
+{
+
+}
+endsnippet
+
+snippet logdb "description"
+DB::connection()->enableQueryLog();
+dd(DB::getQueryLog());
+endsnippet
+	

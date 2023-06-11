@@ -21,12 +21,15 @@ Plug 'windwp/nvim-autopairs'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'L3MON4D3/LuaSnip', { 'do': 'make install_jsregexp' }
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'chau-bao-long/Comrade'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsSnippetDirectories = [ "~/Projects/dotfiles/.vim/UltiSnips/" ]
+let g:UltiSnipsEditSplit = 'tabdo'
+nmap <space>eu :UltiSnipsEdit<cr>
 
 " Fuzzy search and action
 Plug 'vijaymarupudi/nvim-fzf'
