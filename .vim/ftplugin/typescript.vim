@@ -1,0 +1,1 @@
+/Users/admin/Projects/dotfiles/.vim/ftplugin/javascript.vim
