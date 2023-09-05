@@ -197,6 +197,7 @@ ksf() {
 
 # some custom alias and functions
 alias v=nvim
+alias vl='[[ ! -z $(lsof -i :6666) ]] && echo "There is already another vim instance listening on port 6666"  || nvim --listen 127.0.0.1:6666'
 alias la='exa -lahg --icons'
 alias ll='exa -lhg --icons'
 alias tree='exa -T -L3 --icons'

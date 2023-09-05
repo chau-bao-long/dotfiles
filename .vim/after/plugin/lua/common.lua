@@ -17,3 +17,6 @@ require("indent_blankline").setup {
 
 -- Setup bufferline
 require'bufferline'.setup {}
+
+-- Setup intellij on vim
+require'intellij-on-vim'.setup {}
