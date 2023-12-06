@@ -53,7 +53,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/emulator
 
 # Add GO path
-export PATH="/opt/homebrew/opt/go@1.16/bin:$PATH"
+export PATH="/opt/homebrew/opt/go@1.18/bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -70,6 +70,11 @@ export PATH="/opt/homebrew/opt/php@8.0/sbin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/php@8.0/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/php@8.0/include"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+# Node to PATH
+export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/node@16/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/node@16/include"
 
 # CMake to PATH
 export PATH="/Applications/CMake.app/Contents/bin":"$PATH"
