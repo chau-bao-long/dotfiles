@@ -72,9 +72,11 @@ export CPPFLAGS="-I/opt/homebrew/opt/php@8.0/include"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 # Node to PATH
-export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/node@16/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/node@16/include"
+export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/node@18/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/node@18/include"
+export PNPM_HOME="/Users/admin/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
 
 # CMake to PATH
 export PATH="/Applications/CMake.app/Contents/bin":"$PATH"
@@ -474,3 +476,8 @@ autoload -U promptinit; promptinit
 prompt pure
 
 zsh-defer -c 'RPS1="%F{240}%f"'
+
+# pnpm
+export PNPM_HOME="/Users/admin/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
