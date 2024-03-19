@@ -88,12 +88,7 @@ require("nvim-tree").setup({
   },
   view = {
     width = 50,
-    hide_root_folder = false,
     side = 'left',
-    mappings = {
-      custom_only = false,
-      list = key_bindings,
-    },
     number = false,
     relativenumber = false,
     signcolumn = "yes"

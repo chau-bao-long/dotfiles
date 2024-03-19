@@ -481,3 +481,5 @@ zsh-defer -c 'RPS1="%F{240}%f"'
 export PNPM_HOME="/Users/admin/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh

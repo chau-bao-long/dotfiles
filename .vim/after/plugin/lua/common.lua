@@ -4,15 +4,17 @@ map('v', '<s-j>', ":lua require'common'.resize_visual_area('expand')<cr>", {nore
 
 -- Setup autopairs
 require('nvim-autopairs').setup{
-  disable_filetype = { "TelescopePrompt" , "vim" },
-  enable_check_bracket_line = false,
+    disable_filetype = { "TelescopePrompt" , "vim" },
+    enable_check_bracket_line = false,
 }
 
 -- Setup indent line
-require("indent_blankline").setup {
-    char_list = {'|', '¦', '┆', '┊'},
-    buftype_exclude = {"terminal"},
-    filetype_exclude = {"help", "dashboard", "calendar"},
+require("ibl").setup {
+    indent = { char = {'|', '¦', '┆', '┊'} },
+    exclude = {
+      filetypes = {"help", "dashboard", "calendar"},
+      buftypes = {"terminal"},
+    },
 }
 
 -- Setup bufferline
