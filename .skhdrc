@@ -102,6 +102,3 @@ ctrl + cmd - m : yabai -m window --toggle float;\
 alt - p : yabai -m window --toggle sticky;\
           yabai -m window --toggle topmost;\
           yabai -m window --toggle pip
-
-# restart yabai
-cmd + alt + ctrl - r: brew services restart yabai
