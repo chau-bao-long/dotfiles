@@ -26,6 +26,7 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'chau-bao-long/intellij-on-vim'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'Exafunction/codeium.nvim'
 
 Plug 'SirVer/ultisnips'
 let g:UltiSnipsSnippetDirectories = [ "~/Projects/dotfiles/.vim/UltiSnips/" ]

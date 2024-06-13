@@ -22,3 +22,8 @@ require'bufferline'.setup {}
 
 -- Setup intellij on vim
 require'intellij-on-vim'.setup {}
+
+-- Setup codeium
+require("codeium").setup {
+  enable_chat = true,
+}
