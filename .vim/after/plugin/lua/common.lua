@@ -27,3 +27,6 @@ require'intellij-on-vim'.setup {}
 require("codeium").setup {
   enable_chat = true,
 }
+
+-- Setup copilot
+require("CopilotChat").setup {}

@@ -27,6 +27,10 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'chau-bao-long/intellij-on-vim'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'Exafunction/codeium.nvim'
+Plug 'github/copilot.vim'
+Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
+nmap <space>cc :CopilotChat
+xmap <space>cc :CopilotChat
 
 Plug 'SirVer/ultisnips'
 let g:UltiSnipsSnippetDirectories = [ "~/Projects/dotfiles/.vim/UltiSnips/" ]
@@ -105,6 +109,8 @@ nmap ds <Plug>Dsurround
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
+Plug 'shumphrey/fugitive-gitlab.vim'
+let g:fugitive_gitlab_domains = ['https://gitlab.personio-internal.de']
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'

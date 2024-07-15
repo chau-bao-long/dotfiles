@@ -1,3 +1,12 @@
+-- To combine with GBrowse to open file on GitHub/Gitlab in browser
+vim.api.nvim_create_user_command(
+  'Browse',
+  function (opts)
+    vim.fn.system { 'open', opts.fargs[1] }
+  end,
+  { nargs = 1 }
+)
+
 require('gitsigns').setup {
   signs = {
     add          = { text = '│' },

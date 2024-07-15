@@ -72,9 +72,9 @@ cmp.setup({
     }),
   },
   sources = cmp.config.sources({
+    { name = 'codeium' },
     { name = 'nvim_lsp' },
     { name = 'ultisnips' },
-    { name = 'codeium' },
   }, {
     { name = 'buffer' },
   })
@@ -95,3 +95,10 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
+
+-- Copilot
+vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false
+})
+vim.g.copilot_no_tab_map = true
