@@ -1,6 +1,6 @@
 fu! jsfunctions#runOneTest(isDebug)
   exe "silent! normal! /it('\<cr>Nwwyt'"
-  let testCmd = "npx jest " . expand('%:p') . " -t '" . @0 . "'"
+  let testCmd = "cd " . expand('%:h') . "; npx jest " . expand('%:p') . " -t '" . @0 . "'"
 
   if a:isDebug
     let testCmd = "node --inspect-brk --inspect " . testCmd
@@ -12,7 +12,7 @@ fu! jsfunctions#runOneTest(isDebug)
 endfu
 
 fu! jsfunctions#runAllTestsInFile(isDebug)
-  let testCmd = "npx jest " . expand('%:p')
+  let testCmd = "cd " . expand('%:h') . "; npx jest " . expand('%:p')
 
   if a:isDebug
     let testCmd = "node --inspect-brk --inspect " . testCmd
