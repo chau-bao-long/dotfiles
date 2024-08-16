@@ -24,7 +24,7 @@ yabai -m config window_border_width          4
 yabai -m config active_window_border_color   0x7720C20E
 
 # general space settings
-yabai -m config layout                       bsp
+yabai -m config layout                       float
 yabai -m config --space 1 top_padding        0
 yabai -m config --space 2 top_padding        0
 yabai -m config --space 3 top_padding        0

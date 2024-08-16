@@ -17,6 +17,76 @@
                 },
                 "rules": [
                     {
+                        "description": "Move mouse around screens",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                  {
+                                    "software_function": {
+                                      "set_mouse_cursor_position": {
+                                        "x": "75%",
+                                        "y": "0"
+                                      }
+                                    }
+                                  }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "w",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                  {
+                                    "software_function": {
+                                      "set_mouse_cursor_position": {
+                                        "x": "50%",
+                                        "y": "50%",
+                                        "screen": 0
+                                      }
+                                    }
+                                  }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                              "from": {
+                                "key_code": "r",
+                                "modifiers": {
+                                  "mandatory": [
+                                    "right_command"
+                                  ]
+                                }
+                              },
+                              "to": [
+                                {
+                                  "software_function": {
+                                    "set_mouse_cursor_position": {
+                                      "x": "50%",
+                                      "y": "50%",
+                                      "screen": 1
+                                    }
+                                  }
+                                }
+                              ],
+                              "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Post Tab if Tab is tapped, Alt if held.",
                         "manipulators": [
                             {
