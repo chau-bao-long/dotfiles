@@ -4,8 +4,11 @@ cmd + ctrl - p :open -na AlacrittyPopup --args -e zsh -ci "fpass"
 cmd - y :open -na /System/Applications/Dictionary.app
 
 # focus window
-cmd + shift - j: yabai -m window --focus next
-cmd + shift - k: yabai -m window --focus prev
+# cmd + shift - j: yabai -m window --focus next
+# cmd + shift - k: yabai -m window --focus prev
+
+# cycle through all visible windows sorted by: coordinates -> display index
+cmd + shift - j: yabai -m window --focus "$(yabai -m query --windows | jq -re "sort_by(.display, .frame.x, .frame.y, .id) | map(select(.\"is-visible\" == true and .role != \"AXUnknown\")) | reverse | nth(index(map(select(.\"has-focus\" == true))) - 1).id")"
 
 # swap managed window become master window
 cmd + shift - return: yabai -m window --swap west || yabai -m window --swap east && yabai -m window --focus west
@@ -33,12 +36,6 @@ shift + alt - up     : yabai -m window --grid 1:1:0:0:1:1
 # make floating window fill left-half of screen
 shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
 
-# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-# alt + cmd - n : yabai -m space --create && \
-#                   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
-#                   yabai -m window --space "${index}" && \
-#                   yabai -m space --focus "${index}"
-
 # alt + cmd - q : yabai -m space --destroy
 
 # fast focus desktop
@@ -55,17 +52,17 @@ cmd - o : yabai -m space --focus next
 # cmd - 9 : yabai -m space --focus 7
 
 # send window to desktop and follow focus
-shift + cmd - 1: yabai -m window --space 1; yabai -m space --focus 1
-shift + cmd - 2: yabai -m window --space 2; yabai -m space --focus 2
-shift + cmd - 3: yabai -m window --space 3; yabai -m space --focus 3
-shift + cmd - 4: yabai -m window --space 4; yabai -m space --focus 4
-shift + cmd - 5: yabai -m window --space 5; yabai -m space --focus 5
-shift + cmd - 6: yabai -m window --space 6; yabai -m space --focus 6
-shift + cmd - 7: yabai -m window --space 7; yabai -m space --focus 7
-shift + cmd - 8: yabai -m window --space 8; yabai -m space --focus 8
-shift + cmd - 9: yabai -m window --space 9; yabai -m space --focus 9
-alt + cmd - h: yabai -m window --space prev; yabai -m space --focus prev
-alt + cmd - l: yabai -m window --space next; yabai -m space --focus next
+shift + cmd - 1: yabai -m window --space 1 --focus
+shift + cmd - 2: yabai -m window --space 2 --focus
+shift + cmd - 3: yabai -m window --space 3 --focus
+shift + cmd - 4: yabai -m window --space 4 --focus
+shift + cmd - 5: yabai -m window --space 5 --focus
+shift + cmd - 6: yabai -m window --space 6 --focus
+shift + cmd - 7: yabai -m window --space 7 --focus
+shift + cmd - 8: yabai -m window --space 8 --focus
+shift + cmd - 9: yabai -m window --space 9 --focus
+alt + cmd - h: yabai -m window --space prev --focus
+alt + cmd - l: yabai -m window --space next --focus
 
 # focus monitor
 cmd + shift - p: yabai -m display --focus 2

@@ -2,7 +2,8 @@
 call plug#begin('~/.vim/plugged')
 
 " Theme
-Plug 'sainnhe/edge'
+Plug 'daschw/leaf.nvim'
+" Plug 'ribru17/bamboo.nvim'
 
 " Custom UI
 Plug 'kyazdani42/nvim-web-devicons'
@@ -169,7 +170,8 @@ if !exists('g:syntax_on')
 endif
 
 " ==================================================== Theme
-colorscheme edge
+colorscheme leaf
+" colorscheme bamboo
 
 set background=dark
 set termguicolors
@@ -251,7 +253,7 @@ set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
 " ==================================================== Scrolling
-set scrolloff=3         "Start scrolling when we're 3 lines away from margins
+set scrolloff=0         "Start scrolling when we're 3 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
