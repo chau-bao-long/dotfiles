@@ -1,4 +1,3 @@
-cmd + ctrl - return :open -na alacritty
 cmd - u :open -na AlacrittyPopup --args -e zsh -ci "frun ~/local/syscmds fzf"
 cmd + ctrl - p :open -na AlacrittyPopup --args -e zsh -ci "fpass"
 cmd - y :open -na /System/Applications/Dictionary.app
@@ -8,7 +7,7 @@ cmd - y :open -na /System/Applications/Dictionary.app
 # cmd + shift - k: yabai -m window --focus prev
 
 # cycle through all visible windows sorted by: coordinates -> display index
-cmd + shift - j: yabai -m window --focus "$(yabai -m query --windows | jq -re "sort_by(.display, .frame.x, .frame.y, .id) | map(select(.\"is-visible\" == true and .role != \"AXUnknown\")) | reverse | nth(index(map(select(.\"has-focus\" == true))) - 1).id")"
+cmd + ctrl - n: yabai -m window --focus "$(yabai -m query --windows | jq -re "sort_by(.display, .frame.x, .frame.y, .id) | map(select(.\"is-visible\" == true and .role != \"AXUnknown\")) | reverse | nth(index(map(select(.\"has-focus\" == true))) - 1).id")"
 
 # swap managed window become master window
 cmd + shift - return: yabai -m window --swap west || yabai -m window --swap east && yabai -m window --focus west
@@ -16,10 +15,6 @@ cmd + shift - return: yabai -m window --swap west || yabai -m window --swap east
 # adjust window size
 cmd + shift - h: yabai -m window --resize right:-100:0; yabai -m window --resize left:-100:0
 cmd + shift - l: yabai -m window --resize right:100:0; yabai -m window --resize left:100:0
-
-# change layout
-# cmd - t: yabai -m config layout bsp
-# cmd - m: yabai -m config layout float; yabai -m window --grid 1:1:0:0:1:1
 
 # move managed window
 alt + shift - h: yabai -m window --warp west
@@ -72,23 +67,9 @@ cmd + shift - n: yabai -m display --focus 1
 cmd + alt - p: yabai -m window --display 2; yabai -m display --focus 2
 cmd + alt - n: yabai -m window --display 1; yabai -m display --focus 1
 
-# move floating window
-shift + ctrl - a : yabai -m window --move rel:-20:0
-shift + ctrl - s : yabai -m window --move rel:0:20
-
-# set insertion point in focused container
-ctrl + alt - h : yabai -m window --insert west
-
-# toggle window zoom
-alt - d : yabai -m window --toggle zoom-parent
-alt - f : yabai -m window --toggle zoom-fullscreen
-
-# toggle window split type
-alt - e : yabai -m window --toggle split
-
 # float / unfloat window and center on screen
-cmd + ctrl - t : yabai -m window --toggle float;\
-          yabai -m window --grid 1:3:1:0:1:1
+cmd + ctrl - f : yabai -m window --toggle float;\
+          yabai -m window --grid 1:2:1:0:1:1
 
 # maximize a window
 ctrl + cmd - m : yabai -m window --toggle float;\

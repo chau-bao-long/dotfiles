@@ -40,19 +40,11 @@ yabai -m config left_padding                 7
 yabai -m config right_padding                7
 yabai -m config window_gap                   7
 
-# float system preferences
-yabai -m rule --add app="^System Preferences$" manage=off
-#
-# float system settings
-yabai -m rule --add app="^System Settings$" manage=off
-
-# float alacritty, to use it as dmenu
-yabai -m rule --add app="^AlacrittyPopup$" manage=off
-
-# float alacritty, to use it as dmenu
-yabai -m rule --add app="^Dictionary$" manage=off
-
-# show digital colour meter topmost and on all spaces
+# float following apps  
 yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^AlacrittyPopup$" manage=off
+yabai -m rule --add app="^Dictionary$" manage=off
 
 echo "yabai configuration loaded.."
