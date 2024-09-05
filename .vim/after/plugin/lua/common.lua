@@ -18,7 +18,12 @@ require("ibl").setup {
 }
 
 -- Setup bufferline
-require'bufferline'.setup {}
+require'bufferline'.setup {
+  options = {
+    mode = "tabs",
+    max_name_length = 54,
+  }
+}
 
 -- Setup intellij on vim
 require'intellij-on-vim'.setup {}

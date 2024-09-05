@@ -13,5 +13,9 @@
 # @raycast.author topcbl
 # @raycast.authorURL https://raycast.com/topcbl
 
-sudo yabai --load-sa
+# Restart yabai service
 yabai --restart-service
+
+# Restart ubersicht bar
+ps -ef | sed 1d | grep -m1 'bersicht' | awk '{print $2}' | xargs kill -9
+open -na Übersicht
