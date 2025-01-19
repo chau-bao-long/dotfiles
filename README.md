@@ -13,13 +13,15 @@ $ make install_softwares #install mostly used softwares
 - vim
 - tmux
 - alacritty (terminal)
-- ranger
+- nnn (file manager)
 - suckless tools (dwm + dmenu + slstatus + st)
 - font
 - link and copy all config files
 - homebrew & homecask (package manager for macos) + vimac (vimium for macos)
 - Yabai (window manager for macos)
-- Uebersicht + simple-bar (status bar for macos)
+- SketchyBar (status bar for macos)
+- JankyBorders (border for windows in macos)
+- SketchyVim (Vim mode for macOS text fields)
 - skhd (simple hotkey daemon for macos)
 - telegram
 - sxiv (image viewer)
