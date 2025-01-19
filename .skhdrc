@@ -3,11 +3,11 @@ cmd + ctrl - p :open -na AlacrittyPopup --args -e zsh -ci "fpass"
 cmd - y :open -na /System/Applications/Dictionary.app
 
 # focus window
-# cmd + shift - j: yabai -m window --focus next
-# cmd + shift - k: yabai -m window --focus prev
+cmd + shift - j: yabai -m window --focus next
+cmd + shift - k: yabai -m window --focus prev
 
 # cycle through all visible windows sorted by: coordinates -> display index
-cmd + ctrl - n: yabai -m window --focus "$(yabai -m query --windows | jq -re "sort_by(.display, .frame.x, .frame.y, .id) | map(select(.\"is-visible\" == true and .role != \"AXUnknown\")) | reverse | nth(index(map(select(.\"has-focus\" == true))) - 1).id")"
+cmd + shift - n: yabai -m window --focus "$(yabai -m query --windows | jq -re "sort_by(.display, .frame.x, .frame.y, .id) | map(select(.\"is-visible\" == true and .role != \"AXUnknown\")) | reverse | nth(index(map(select(.\"has-focus\" == true))) - 1).id")"
 
 # swap managed window become master window
 cmd + shift - return: yabai -m window --swap west || yabai -m window --swap east && yabai -m window --focus west
