@@ -13,7 +13,7 @@ for i = 1, 10, 1 do
       string = i,
       padding_left = 15,
       padding_right = 8,
-      color = colors.white,
+      color = colors.green,
       highlight_color = colors.red,
     },
     label = {

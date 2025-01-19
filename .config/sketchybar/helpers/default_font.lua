@@ -1,6 +1,6 @@
 return {
-  text = "SF Pro", -- Used for text
-  numbers = "SF Mono", -- Used for numbers
+  text = "Circular Std", -- Used for text
+  numbers = "Circular Std", -- Used for numbers
 
   -- Unified font style map
   style_map = {
