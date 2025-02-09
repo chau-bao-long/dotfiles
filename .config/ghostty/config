@@ -1,0 +1,4 @@
+background = #000000
+macos-titlebar-style = hidden
+background-opacity = 0.7
+macos-option-as-alt = true
