@@ -52,6 +52,4 @@ yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Selec
 
 yabai -m config layout bsp
 
-borders active_color=0xff55C379 inactive_color=0xff494d64 width=3.0 &
-
 echo "yabai configuration loaded.."
