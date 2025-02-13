@@ -13,5 +13,7 @@
 # @raycast.author topcbl
 # @raycast.authorURL https://raycast.com/topcbl
 
-yabai --restart-service
 brew services restart sketchybar
+brew services restart borders
+
+yabai --restart-service
