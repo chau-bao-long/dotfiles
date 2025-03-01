@@ -53,7 +53,7 @@ require'lspconfig'.intelephense.setup {
 
 -- Typescript LSP
 -- npm install -g typescript typescript-language-server
-require'lspconfig'.tsserver.setup {
+require'lspconfig'.ts_ls.setup {
   on_attach = function(client)
     on_attach(client)
   end,

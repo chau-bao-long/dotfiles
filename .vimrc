@@ -26,17 +26,11 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'chau-bao-long/intellij-on-vim'
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'Exafunction/codeium.nvim'
 Plug 'github/copilot.vim'
-Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
+Plug 'CopilotC-Nvim/CopilotChat.nvim'
 nmap <space>cc :CopilotChat
 xmap <space>cc :CopilotChat
-
-Plug 'SirVer/ultisnips'
-let g:UltiSnipsSnippetDirectories = [ "~/Projects/dotfiles/.vim/UltiSnips/" ]
-let g:UltiSnipsEditSplit = 'tabdo'
-nmap <space>eu :UltiSnipsEdit<cr>
 
 " Fuzzy search and action
 Plug 'vijaymarupudi/nvim-fzf'
@@ -140,8 +134,6 @@ Plug 'terryma/vim-expand-region'
 Plug 'vimwiki/vimwiki'
 
 call plug#end()
-
-lua require'plugin_config'
 
 " ==================================================== General Config
 filetype plugin indent on

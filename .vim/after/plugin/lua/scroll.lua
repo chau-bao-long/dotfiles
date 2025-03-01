@@ -1,16 +1,18 @@
-require('neoscroll').setup{
-  hide_cursor = false
+neoscroll = require('neoscroll')
+neoscroll.setup({
+  -- Default easing function used in any animation where
+  -- the `easing` argument has not been explicitly supplied
+  easing = "quadratic"
+})
+local keymap = {
+  -- Use the "sine" easing function
+  ["<C-k>"] = function() neoscroll.ctrl_u({ duration = 120; easing = 'sine' }) end;
+  ["<C-j>"] = function() neoscroll.ctrl_d({ duration = 120; easing = 'sine' }) end;
+  -- When no value is passed the `easing` option supplied in `setup()` is used
+  ["<C-y>"] = function() neoscroll.scroll(-0.1, { move_cursor=false; duration = 50 }) end;
+  ["<C-e>"] = function() neoscroll.scroll(0.1, { move_cursor=false; duration = 50 }) end;
 }
-
-local t = {}
-t['<c-k>'] = {'scroll', {'-vim.wo.scroll', 'true', '0'}}
-t['<c-j>'] = {'scroll', { 'vim.wo.scroll', 'true', '0'}}
-t['<c-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '0'}}
-t['<c-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '0'}}
-t['<c-l>'] = {'scroll', {'-0.10', 'false', '0'}}
-t['<backspace>'] = {'scroll', { '0.10', 'false', '0'}}
-t['zt']    = {'zt', {'0'}}
-t['zz']    = {'zz', {'0'}}
-t['zb']    = {'zb', {'0'}}
-
-require('neoscroll.config').set_mappings(t)
+local modes = { 'n', 'v', 'x' }
+for key, func in pairs(keymap) do
+    vim.keymap.set(modes, key, func)
+end
