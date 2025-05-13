@@ -1,6 +1,17 @@
 local actions = require('telescope.actions')
 local telescope = require('telescope')
 
+telescope.setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+      },
+    },
+  }
+}
+
 map('n', '<space>p', '<cmd>Telescope find_files<cr>', {noremap = true})
 map('n', '<space>P', '<cmd>Telescope git_files<cr>', {noremap = true})
 map('n', '<space>Q', '<cmd>Telescope live_grep<cr>', {noremap = true})
