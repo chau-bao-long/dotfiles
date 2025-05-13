@@ -1,0 +1,9 @@
+# Put this file in ~/Library/Application Support/lazygit/config.yml
+# Install nvr at https://github.com/mhinz/neovim-remote
+
+os:
+  edit: "nvr -cc tabnew --remote-wait +'set bufhidden=wipe' {{filename}}"
+  editAtLine: "nvr -cc tabnew --remote-wait +'set bufhidden=wipe' --line={{line}} {{filename}}"
+  editAtLineAndWait: "nvr -cc tabnew --remote-wait +'set bufhidden=wipe' --block --line={{line}} {{filename}}"
+  editInTerminal: true
+  openDirInEditor: "nvr -cc tabnew --remote-wait +'set bufhidden=wipe' {{dir}}"
