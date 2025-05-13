@@ -2,8 +2,8 @@
 call plug#begin('~/.vim/plugged')
 
 " Theme
-Plug 'daschw/leaf.nvim'
-" Plug 'ribru17/bamboo.nvim'
+" Plug 'daschw/leaf.nvim'
+Plug 'ribru17/bamboo.nvim'
 
 " Custom UI
 Plug 'kyazdani42/nvim-web-devicons'
@@ -26,11 +26,6 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'chau-bao-long/intellij-on-vim'
-Plug 'Exafunction/codeium.nvim'
-Plug 'github/copilot.vim'
-Plug 'CopilotC-Nvim/CopilotChat.nvim'
-nmap <space>cc :CopilotChat
-xmap <space>cc :CopilotChat
 
 " Fuzzy search and action
 Plug 'vijaymarupudi/nvim-fzf'
@@ -44,6 +39,10 @@ Plug 'gbrlsnchs/telescope-lsp-handlers.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'chau-bao-long/actions.nvim'
+
+" AI integration
+Plug 'olimorris/codecompanion.nvim'
+Plug 'github/copilot.vim'
 
 Plug 'junegunn/vim-easy-align'
 xmap ga <Plug>(EasyAlign)
@@ -162,8 +161,8 @@ if !exists('g:syntax_on')
 endif
 
 " ==================================================== Theme
-colorscheme leaf
-" colorscheme bamboo
+" colorscheme leaf
+colorscheme bamboo
 
 set background=dark
 set termguicolors

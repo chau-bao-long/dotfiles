@@ -1,6 +1,6 @@
 cmd - u :open -na AlacrittyPopup --args -e zsh -ci "frun ~/local/syscmds fzf"
 cmd + ctrl - p :open -na AlacrittyPopup --args -e zsh -ci "fpass"
-cmd - y :open -na /System/Applications/Dictionary.app
+cmd + ctrl - y :open -na /System/Applications/Dictionary.app
 
 # focus window
 cmd + shift - j: yabai -m window --focus next

@@ -6,11 +6,11 @@ neoscroll.setup({
 })
 local keymap = {
   -- Use the "sine" easing function
-  ["<C-k>"] = function() neoscroll.ctrl_u({ duration = 120; easing = 'sine' }) end;
-  ["<C-j>"] = function() neoscroll.ctrl_d({ duration = 120; easing = 'sine' }) end;
+  ["<C-k>"] = function() neoscroll.ctrl_u({ duration = 0; easing = 'sine' }) end;
+  ["<C-j>"] = function() neoscroll.ctrl_d({ duration = 0; easing = 'sine' }) end;
   -- When no value is passed the `easing` option supplied in `setup()` is used
-  ["<C-y>"] = function() neoscroll.scroll(-0.1, { move_cursor=false; duration = 50 }) end;
-  ["<C-e>"] = function() neoscroll.scroll(0.1, { move_cursor=false; duration = 50 }) end;
+  ["<C-y>"] = function() neoscroll.scroll(-0.1, { move_cursor=false; duration = 0 }) end;
+  ["<C-e>"] = function() neoscroll.scroll(0.1, { move_cursor=false; duration = 0 }) end;
 }
 local modes = { 'n', 'v', 'x' }
 for key, func in pairs(keymap) do
