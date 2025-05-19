@@ -27,28 +27,3 @@ require'bufferline'.setup {
 
 -- Setup intellij on vim
 require'intellij-on-vim'.setup {}
-
--- Setup AI integration
-require("codecompanion").setup({
-  strategies = {
-    chat = {
-      adapter = "copilot",
-    },
-    inline = {
-      adapter = "anthropic",
-    },
-    cmd = {
-      adapter = "anthropic",
-    }
-  },
-  adapters = {
-    anthropic = function()
-      return require("codecompanion.adapters").extend("anthropic", {
-        env = {
-          api_key = "cmd: gpg --batch --quiet --decrypt ~/claude_api_key.txt.gpg",
-        },
-      })
-    end,
-  },
-})
-vim.keymap.set({ "n", "v" }, "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })

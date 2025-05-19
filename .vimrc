@@ -40,7 +40,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'chau-bao-long/actions.nvim'
 
 " AI integration
-Plug 'olimorris/codecompanion.nvim'
 Plug 'github/copilot.vim'
 
 Plug 'junegunn/vim-easy-align'
@@ -289,7 +288,7 @@ nnoremap 't :tabclose<cr>
 nnoremap 'c :bd<cr>
 nnoremap <space>cf :let @+=expand("%F")<cr>
 nnoremap <space>ct :let @+=expand("%:t")<cr>
-nnoremap <space>cp :let @+=expand("%:p")<cr>
+nnoremap <space>cp :let @+=expand("%:p") . ':' . line('.') . ':' . col('.')<cr>
 nnoremap <space>cH :let @+=expand("%:p:h")<cr>
 nnoremap <space>ch :let @+=expand("%:h")<cr>
 nnoremap <space>cr :let @+=expand("%:t:r")<cr>
