@@ -130,7 +130,7 @@ nnoremap <space>ra y:CtrlSF
 
 Plug 'terryma/vim-expand-region'
 
-Plug 'vimwiki/vimwiki'
+Plug 'epwalsh/obsidian.nvim'
 
 call plug#end()
 

@@ -30,3 +30,25 @@ require'intellij-on-vim'.setup {}
 
 -- AI integration
 require('codeium').setup {}
+
+-- Note taking
+require("obsidian").setup({
+  workspaces = {
+    {
+      name = "work",
+      path = "~/vaults/work",
+    },
+    {
+      name = "personal",
+      path = "~/vaults/personal",
+    },
+  },
+})
+vim.opt.conceallevel = 2
+map('n', '<space>no', ":ObsidianOpen<cr>", {noremap=true})
+map('n', '<space>ne', ":ObsidianQuickSwitch<cr>", {noremap=true})
+map('n', '<space>nw', ":ObsidianWorkspace<cr>", {noremap=true})
+map('n', '<space>ns', ":ObsidianSearch<cr>", {noremap=true})
+map('n', '<space>nl', ":ObsidianTOC<cr>", {noremap=true})
+map('n', '<space>nr', ":ObsidianRename<cr>", {noremap=true})
+map('n', '<space>nn', ":ObsidianNew<cr>", {noremap=true})
