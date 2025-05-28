@@ -2,8 +2,8 @@
 call plug#begin('~/.vim/plugged')
 
 " Theme
-" Plug 'daschw/leaf.nvim'
-Plug 'ribru17/bamboo.nvim'
+" Plug 'ribru17/bamboo.nvim'
+Plug 'vague2k/vague.nvim'
 
 " Custom UI
 Plug 'kyazdani42/nvim-web-devicons'
@@ -20,6 +20,7 @@ let g:rainbow_active = 1
 " LSP and autocomplete
 Plug 'windwp/nvim-autopairs'
 Plug 'neovim/nvim-lspconfig'
+Plug 'onsails/lspkind.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -40,7 +41,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'chau-bao-long/actions.nvim'
 
 " AI integration
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
+Plug 'Exafunction/windsurf.nvim'
 
 Plug 'junegunn/vim-easy-align'
 xmap ga <Plug>(EasyAlign)
@@ -159,8 +161,8 @@ if !exists('g:syntax_on')
 endif
 
 " ==================================================== Theme
-" colorscheme leaf
-colorscheme bamboo
+" colorscheme bamboo
+colorscheme vague
 
 set background=dark
 set termguicolors

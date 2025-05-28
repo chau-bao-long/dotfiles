@@ -27,3 +27,6 @@ require'bufferline'.setup {
 
 -- Setup intellij on vim
 require'intellij-on-vim'.setup {}
+
+-- AI integration
+require('codeium').setup {}
