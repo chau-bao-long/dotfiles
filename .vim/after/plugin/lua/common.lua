@@ -1,7 +1,3 @@
--- Lua function mapping
-map('v', '<s-k>', ":lua require'common'.resize_visual_area('collapse')<cr>", {noremap = true})
-map('v', '<s-j>', ":lua require'common'.resize_visual_area('expand')<cr>", {noremap = true})
-
 -- Setup autopairs
 require('nvim-autopairs').setup{
     disable_filetype = { "TelescopePrompt" , "vim" },
@@ -45,10 +41,3 @@ require("obsidian").setup({
   },
 })
 vim.opt.conceallevel = 2
-map('n', '<space>no', ":ObsidianOpen<cr>", {noremap=true})
-map('n', '<space>ne', ":ObsidianQuickSwitch<cr>", {noremap=true})
-map('n', '<space>nw', ":ObsidianWorkspace<cr>", {noremap=true})
-map('n', '<space>ns', ":ObsidianSearch<cr>", {noremap=true})
-map('n', '<space>nl', ":ObsidianTOC<cr>", {noremap=true})
-map('n', '<space>nr', ":ObsidianRename<cr>", {noremap=true})
-map('n', '<space>nn', ":ObsidianNew<cr>", {noremap=true})

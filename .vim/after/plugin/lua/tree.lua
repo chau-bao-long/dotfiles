@@ -1,7 +1,3 @@
-map('n', '<space>5', '<cmd>UndotreeToggle<cr>', {noremap = true})
-map('n', '<space>h', '<cmd>NvimTreeFindFile<cr>', {noremap = true})
-map('n', '<space>H', '<cmd>NvimTreeToggle<cr>', {noremap = true})
-
 local function on_attach(bufnr)
   local api = require('nvim-tree.api')
 

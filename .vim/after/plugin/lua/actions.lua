@@ -1,7 +1,3 @@
-map('n', '<space><space>', '<cmd>CommonActions<cr>', {noremap = true})
-map('n', '<space>se', '<cmd>DatabaseActions<cr>', {noremap = true})
-map('n', '<space>k', '<cmd>FileTypeActions<cr>', {noremap = true})
-
 vim.g.kotlinActions = {
   {'💾 ktlint', 'tabnew | terminal ktlint'},
   {'💾 ktfix', 'Dispatch! ktlint -F'},

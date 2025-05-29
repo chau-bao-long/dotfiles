@@ -11,8 +11,6 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'ryanoasis/vim-devicons'
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 Plug 'akinsho/nvim-bufferline.lua'
-nnoremap <silent>gl :BufferLineCycleNext<CR>
-nnoremap <silent>gh :BufferLineCyclePrev<CR>
 
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
@@ -39,15 +37,13 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'chau-bao-long/actions.nvim'
+Plug 'folke/which-key.nvim'
 
 " AI integration
 " Plug 'github/copilot.vim'
 Plug 'Exafunction/windsurf.nvim'
 
 Plug 'junegunn/vim-easy-align'
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
 Plug 'milkypostman/vim-togglelist'
 Plug 'mbbill/undotree'
 Plug 'nvim-treesitter/nvim-treesitter'
@@ -63,12 +59,7 @@ Plug 'karb94/neoscroll.nvim'
 Plug 'gelguy/wilder.nvim'
 Plug 'xiyaowong/nvim-cursorword'
 Plug 'lukas-reineke/indent-blankline.nvim'
-
 Plug 'AndrewRadev/sideways.vim'
-nnoremap <space>sl :SidewaysJumpRight<cr>
-nnoremap <space>sh :SidewaysJumpLeft<cr>
-nnoremap <space>sL :SidewaysRight<cr>
-nnoremap <space>sH :SidewaysLeft<cr>
 
 Plug 'chau-bao-long/java-kotlin-gf'
 let g:srcPath = ["/app/build/generated-jooq/"]
@@ -79,25 +70,16 @@ autocmd Filetype kotlin nnoremap <space>ij :KotlinImport<cr>
 autocmd Filetype kotlin nnoremap <space>ia :ComradeImport<cr>
 
 Plug 'chau-bao-long/vim-dadbod'
-nnoremap <space>st :DBSelectTable<cr>
-nnoremap <space>sd :DBDescribeTables<cr>
 
 Plug 'pechorin/any-jump.vim'
-nnoremap <space>jk :AnyJump<CR>
-nnoremap <space>jl :AnyJumpLastResults<CR>
-xnoremap <space>jc :AnyJumpVisual<CR>
 
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-abolish'
-
 Plug 'tpope/vim-surround'
 let g:surround_no_mappings = 1
-xmap ss <Plug>VSurround
-nmap ss <Plug>Csurround
-nmap ds <Plug>Dsurround
 
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-unimpaired'
@@ -125,8 +107,6 @@ Plug 'Galooshi/vim-import-js'
 Plug 'Rican7/php-doc-modded'
 
 Plug 'dyng/ctrlsf.vim'
-vnoremap <space>ra y:CtrlSF <c-r>0<cr>
-nnoremap <space>ra y:CtrlSF 
 
 Plug 'terryma/vim-expand-region'
 
