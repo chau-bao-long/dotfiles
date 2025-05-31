@@ -43,6 +43,9 @@ require'which-key'.setup({
     { "<space>ae", "<cmd>CodeCompanionActions<cr>", desc = "Show AI actions", noremap = true, silent = true, mode = { "n", "v" } },
     { "<space>ac", "<cmd>CodeCompanionChat Toggle<cr>", desc = "Toogle AI chat", noremap = true, silent = true, mode = { "n", "v" } },
     { "<space>aa", "<cmd>CodeCompanionChat Add<cr>", desc = "Add file to AI chat", noremap = true, silent = true, mode = { "v" } },
+    { "<space>aa", ":!vectorcode vectorise %:p<cr>", desc = "Add file to VectorCode", noremap = true, silent = true, mode = { "n" } },
+    { "<space>ar", ":VectorCode register<cr>", desc = "Register buffer to VectorCode", noremap = true, silent = true, mode = { "n" } },
+    { "<space>au", ":VectorCode unregister<cr>", desc = "Unregister buffer from VectorCode", noremap = true, silent = true, mode = { "n" } },
 
     -- float terminal
     { "<space>y", ":FloatermToggle!<cr>", noremap = true },
