@@ -38,6 +38,11 @@ require'which-key'.setup({
     { "ds", "<Plug>Dsurround" },
     { "<space>ra", "y:CtrlSF <c-r>0<cr>", desc = "Find & Replace text in all files", noremap = true, mode = "v" },
         
+    -- ai integration
+    { "<space>a", group = "AI integration" },
+    { "<space>ae", "<cmd>CodeCompanionActions<cr>", desc = "Show AI actions", noremap = true, silent = true, mode = { "n", "v" } },
+    { "<space>ac", "<cmd>CodeCompanionChat Toggle<cr>", desc = "Toogle AI chat", noremap = true, silent = true, mode = { "n", "v" } },
+    { "<space>aa", "<cmd>CodeCompanionChat Add<cr>", desc = "Add file to AI chat", noremap = true, silent = true, mode = { "v" } },
 
     -- float terminal
     { "<space>y", ":FloatermToggle!<cr>", noremap = true },
@@ -69,24 +74,24 @@ require'which-key'.setup({
 
     -- git
     { "<space>g", group = "git" },
-    { "<space>gl", "Gclog -n 100<cr>", desc = "Show recent 100 git logs", noremap = true },
-    { "<space>gL", "Gclog<cr>", desc = "Show git logs ", noremap = true },
-    { "<space>g0l", "0Gclog -n 100<cr>", desc = "Show current file recent 100 git logs", noremap = true },
-    { "<space>g0L", "0Gclog<cr>", desc = "Show current file git logs", noremap = true },
-    { "<space>gd", "Gdiff HEAD<cr><c-w>l", desc = "Compare git diff current file", noremap = true },
-    { "<space>gD", "Gvdiffsplit!<cr>", desc = "Conflict merge git diff", noremap = true },
-    { "<space>gpr", "Ggrep ", desc = "Git grep", noremap = true },
-    { "<space>gr", "Gread! ", desc = "Git read", noremap = true },
-    { "<space>gw", "Gwrite<cr>", desc = "Git write", noremap = true },
-    { "<space>gbl", "Git blame<cr>", desc = "Git blame", noremap = true },
-    { "<space>gbr", "GBrowse<cr>", desc = "Open git file on web browser", noremap = true },
-    { "<space>ge", "Gedit ", desc = "Git edit", noremap = true },
-    { "<space>gpu", "Gpush<cr>", desc = "Git push", noremap = true },
-    { "<space>gpf", "Gpush -f<cr>", desc = "Git push force", noremap = true },
-    { "<space>gfo", "Gfetch origin<cr>", desc = "Git fetch origin", noremap = true },
-    { "<space>gpl", "Gpull<cr>", desc = "Git pull", noremap = true },
+    { "<space>gl", ":Gclog -n 100<cr>", desc = "Show recent 100 git logs", noremap = true },
+    { "<space>gL", ":Gclog<cr>", desc = "Show git logs ", noremap = true },
+    { "<space>g0l", ":0Gclog -n 100<cr>", desc = "Show current file recent 100 git logs", noremap = true },
+    { "<space>g0L", ":0Gclog<cr>", desc = "Show current file git logs", noremap = true },
+    { "<space>gd", ":Gdiff HEAD<cr><c-w>l", desc = "Compare git diff current file", noremap = true },
+    { "<space>gD", ":Gvdiffsplit!<cr>", desc = "Conflict merge git diff", noremap = true },
+    { "<space>gpr", ":Ggrep ", desc = "Git grep", noremap = true },
+    { "<space>gr", ":Gread! ", desc = "Git read", noremap = true },
+    { "<space>gw", ":Gwrite<cr>", desc = "Git write", noremap = true },
+    { "<space>gbl", ":Git blame<cr>", desc = "Git blame", noremap = true },
+    { "<space>gbr", ":GBrowse<cr>", desc = "Open git file on web browser", noremap = true },
+    { "<space>ge", ":Gedit ", desc = "Git edit", noremap = true },
+    { "<space>gpu", ":Gpush<cr>", desc = "Git push", noremap = true },
+    { "<space>gpf", ":Gpush -f<cr>", desc = "Git push force", noremap = true },
+    { "<space>gfo", ":Gfetch origin<cr>", desc = "Git fetch origin", noremap = true },
+    { "<space>gpl", ":Gpull<cr>", desc = "Git pull", noremap = true },
     { "<space>go", ":DiffviewOpen<cr>", desc = "Open git diff explore", noremap = true },
-    { "<space>gO", ":DiffviewOpen HEAD~", desc = "Open git HEAD diff explore", noremap = true },
+    { "<space>gO", ":DiffviewOpen HEAD", desc = "Open git HEAD diff explore", noremap = true },
     { "<space>gc", ":DiffviewClose<cr>", desc = "Close git diff explore", noremap = true },
 
     { "]c", function()

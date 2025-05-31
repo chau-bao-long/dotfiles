@@ -24,9 +24,6 @@ require'bufferline'.setup {
 -- Setup intellij on vim
 require'intellij-on-vim'.setup {}
 
--- AI integration
-require('codeium').setup {}
-
 -- Note taking
 require("obsidian").setup({
   workspaces = {
@@ -39,5 +36,8 @@ require("obsidian").setup({
       path = "~/vaults/personal",
     },
   },
+  follow_url_func = function(url)
+    vim.ui.open(url)
+  end,
 })
 vim.opt.conceallevel = 2

@@ -63,6 +63,9 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$HOME/.pyenv:$PATH"
 zsh-defer -c "eval $(pyenv init -)"
 
+# Local ENV 
+[ -f ~/.local/.env ] && source ~/.local/.env
+
 # PHP to PATH
 export PATH="/opt/homebrew/opt/php@8.0/bin:$PATH"
 export PATH="/opt/homebrew/opt/php@8.0/bin:$PATH"
@@ -83,7 +86,10 @@ export PATH="/Applications/CMake.app/Contents/bin":"$PATH"
 
 # User bin folder to PATH
 export PATH="$HOME/bin:$PATH"
-export VISUAL=nvim
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+    alias nvim=nvr -cc split --remote-wait +'set bufhidden=wipe'
+fi
+export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
@@ -237,14 +243,14 @@ fd() {
 fo() {
   local files
   IFS=$'\n' files=($(fzf --preview "bat --color \"always\" {}" --query="$1" --multi --select-1 --exit-0))
-  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+  [[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
 }
 
 # search content and open file
 fg() {
   if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
   filepath=$(rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}")
-  [[ -n "$filepath" ]] && ${EDITOR:-vim} "${filepath[@]}"
+  [[ -n "$filepath" ]] && ${EDITOR:-nvim} "${filepath[@]}"
 }
 
 # search and kill proccess which consume most cpu

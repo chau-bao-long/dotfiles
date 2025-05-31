@@ -57,18 +57,9 @@ cmp.setup({
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'codeium' },
   }, {
     { name = 'buffer' },
   }),
-  formatting = {
-    format = lspkind.cmp_format({
-      mode = "symbol",
-      maxwidth = 50,
-      ellipsis_char = '...',
-      symbol_map = { Codeium = "🤖", }
-    })
-  },
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).

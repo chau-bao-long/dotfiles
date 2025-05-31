@@ -41,7 +41,9 @@ Plug 'folke/which-key.nvim'
 
 " AI integration
 " Plug 'github/copilot.vim'
-Plug 'Exafunction/windsurf.nvim'
+Plug 'supermaven-inc/supermaven-nvim'
+Plug 'olimorris/codecompanion.nvim'
+Plug 'Davidyz/VectorCode'
 
 Plug 'junegunn/vim-easy-align'
 Plug 'milkypostman/vim-togglelist'
