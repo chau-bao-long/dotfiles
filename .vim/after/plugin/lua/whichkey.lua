@@ -1,7 +1,7 @@
 require'which-key'.setup({
   preset = "helix",
   delay = function(ctx)
-    if ctx.mode == "n" and (string.find(ctx.keys, "^<Space>") or ctx.keys == "\\") then
+    if string.find(ctx.keys, "^<Space>") or ctx.keys == "\\" then
       return 200
     else
       return 800
@@ -22,8 +22,8 @@ require'which-key'.setup({
     { "T", "<Plug>Sneak_T" },
     { "<silent>gl", ":BufferLineCycleNext<CR>" },
     { "<silent>gh", ":BufferLineCyclePrev<CR>" },
-    { "ga", "<Plug>(EasyAlign)", mode = "x" },
-    { "ga", "<Plug>(EasyAlign)" },
+    { "<space>ea", "<Plug>(EasyAlign)", mode = "x" },
+    { "<space>ea", "<Plug>(EasyAlign)" },
     { "<space>sl", ":SidewaysJumpRight<cr>", noremap = true },
     { "<space>sh", ":SidewaysJumpLeft<cr>", noremap = true },
     { "<space>sL", ":SidewaysRight<cr>", noremap = true },
@@ -81,12 +81,11 @@ require'which-key'.setup({
     { "<space>gL", ":Gclog<cr>", desc = "Show git logs ", noremap = true },
     { "<space>g0l", ":0Gclog -n 100<cr>", desc = "Show current file recent 100 git logs", noremap = true },
     { "<space>g0L", ":0Gclog<cr>", desc = "Show current file git logs", noremap = true },
-    { "<space>gd", ":Gdiff HEAD<cr><c-w>l", desc = "Compare git diff current file", noremap = true },
     { "<space>gD", ":Gvdiffsplit!<cr>", desc = "Conflict merge git diff", noremap = true },
     { "<space>gpr", ":Ggrep ", desc = "Git grep", noremap = true },
     { "<space>gr", ":Gread! ", desc = "Git read", noremap = true },
     { "<space>gw", ":Gwrite<cr>", desc = "Git write", noremap = true },
-    { "<space>gbl", ":Git blame<cr>", desc = "Git blame", noremap = true },
+    { "<space>gba", ":Git blame<cr>", desc = "Git blame all lines", noremap = true },
     { "<space>gbr", ":GBrowse<cr>", desc = "Open git file on web browser", noremap = true },
     { "<space>ge", ":Gedit ", desc = "Git edit", noremap = true },
     { "<space>gpu", ":Gpush<cr>", desc = "Git push", noremap = true },
@@ -96,6 +95,10 @@ require'which-key'.setup({
     { "<space>go", ":DiffviewOpen<cr>", desc = "Open git diff explore", noremap = true },
     { "<space>gO", ":DiffviewOpen HEAD", desc = "Open git HEAD diff explore", noremap = true },
     { "<space>gc", ":DiffviewClose<cr>", desc = "Close git diff explore", noremap = true },
+    { "<space>gd", package.loaded.gitsigns.diffthis, desc = "Compare git diff current file", noremap = true },
+    { "<space>gbl", function() package.loaded.gitsigns.blame_line{full=true} end, desc = "Git blame a line", noremap = true },
+    { "<space>gs", function() package.loaded.gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end, desc = "Stage git hunk", noremap = true, mode = "v" },
+    { "<space>gr", function() package.loaded.gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end, desc = "Reset git hunk", noremap = true, mode = "v" },
 
     { "]c", function()
       if vim.wo.diff then return ']c' end
