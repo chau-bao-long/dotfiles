@@ -3,13 +3,14 @@ call plug#begin('~/.vim/plugged')
 
 " Theme
 " Plug 'ribru17/bamboo.nvim'
-Plug 'vague2k/vague.nvim'
+" Plug 'vague2k/vague.nvim'
+Plug 'scottmckendry/cyberdream.nvim'
 
 " Custom UI
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'ryanoasis/vim-devicons'
-Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/nvim-bufferline.lua'
 
 Plug 'luochen1990/rainbow'
@@ -143,8 +144,7 @@ if !exists('g:syntax_on')
 endif
 
 " ==================================================== Theme
-" colorscheme bamboo
-colorscheme vague
+colorscheme cyberdream
 
 set background=dark
 set termguicolors
