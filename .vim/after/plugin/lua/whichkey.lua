@@ -40,6 +40,7 @@ require'which-key'.setup({
         
     -- ai integration
     { "<space>a", group = "AI integration" },
+    { "<space>aq", "<cmd>CodeCompanion<cr>", desc = "Quick action inline", noremap = true, silent = true, mode = "v" },
     { "<space>ae", "<cmd>CodeCompanionActions<cr>", desc = "Show AI actions", noremap = true, silent = true, mode = { "n", "v" } },
     { "<space>ac", "<cmd>CodeCompanionChat Toggle<cr>", desc = "Toogle AI chat", noremap = true, silent = true, mode = { "n", "v" } },
     { "<space>aa", "<cmd>CodeCompanionChat Add<cr>", desc = "Add file to AI chat", noremap = true, silent = true, mode = { "v" } },
@@ -114,6 +115,11 @@ require'which-key'.setup({
       return '<Ignore>'
     end, desc = "Previous change in file" },
 
+    -- lsp
+    { "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", desc = "Show diagnostic", mode = "n", noremap=true, silent=true },
+    { "[s", "<cmd>lua vim.diagnostic.goto_prev()<CR>", desc = "Previous diagnostic", mode = "n", noremap=true, silent=true },
+    { "]s", "<cmd>lua vim.diagnostic.goto_next()<CR>", desc = "Next diagnostic", mode = "n", noremap=true, silent=true },
+
     -- tree
     { "<space>5", "<cmd>UndotreeToggle<cr>", desc = "Toggle undo tree", noremap = true },
     { "<space>h", "<cmd>NvimTreeFindFile<cr>", desc = "Open file explorer", noremap = true },
@@ -123,5 +129,11 @@ require'which-key'.setup({
     { "Q", ":Rg <c-r><c-w><cr>", desc = "Ripgrep search", noremap = true },
     { "Q", "y:Rg <c-r>0<cr>", desc = "Ripgrep search", noremap = true, mode ="x" },
     { "<space>q", ":Rg<cr>", desc = "Ripgrep search", noremap = true },
+    { "<space>p", "<cmd>Telescope find_files<cr>", desc = "Find files", noremap = true, mode = "n" },
+    { "<space>P", "<cmd>Telescope git_files<cr>", desc = "Find git files", noremap = true, mode = "n" },
+    { "<space>Q", "<cmd>Telescope live_grep<cr>", desc = "Live grep", noremap = true, mode = "n" },
+    { "<space>b", "<cmd>Telescope buffers<cr>", desc = "Find buffers", noremap = true, mode = "n" },
+    { "<space>u", "<cmd>Telescope oldfiles<cr>", desc = "Find old files", noremap = true, mode = "n" },
+    { "<space>B", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Find in current buffer", noremap = true, mode = "n" },
   }
 })

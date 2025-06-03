@@ -1,13 +1,7 @@
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- -- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
-vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-vim.api.nvim_set_keymap('n', '[s', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-vim.api.nvim_set_keymap('n', ']s', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -37,26 +31,27 @@ local debounce_duration = 200
 
 -- Python LSP
 -- npm install -g pyright
-require'lspconfig'.pyright.setup {
+vim.lsp.enable('pyright')
+vim.lsp.config('pyright', {
   on_attach = on_attach,
   flags = { debounce_text_changes = debounce_duration },
   capabilities = capabilities,
-}
+})
 
 -- PHP LSP
 -- npm install -g intelephense
-require'lspconfig'.intelephense.setup {
+vim.lsp.enable('intelephense')
+vim.lsp.config('intelephense', {
   on_attach = on_attach,
   flags = { debounce_text_changes = debounce_duration },
   capabilities = capabilities,
-}
+})
 
 -- Typescript LSP
 -- npm install -g typescript typescript-language-server
-require'lspconfig'.ts_ls.setup {
-  on_attach = function(client)
-    on_attach(client)
-  end,
+vim.lsp.enable('ts_ls')
+vim.lsp.config('ts_ls', {
+  on_attach = on_attach,
   flags = { debounce_text_changes = debounce_duration },
   capabilities = capabilities,
   init_options = {
@@ -64,7 +59,7 @@ require'lspconfig'.ts_ls.setup {
       importModuleSpecifierPreference = "relative"
     }
   }
-}
+})
 
 -- Diagnostic LSP
 -- yarn global add diagnostic-languageserver
@@ -98,7 +93,8 @@ local formatFiletypes = {
   typescript = "prettier",
   typescriptreact = "prettier"
 }
-require'lspconfig'.diagnosticls.setup {
+vim.lsp.enable('diagnosticls')
+vim.lsp.config('diagnosticls', {
   on_attach = on_attach,
   filetypes = vim.tbl_keys(filetypes),
   init_options = {
@@ -108,19 +104,21 @@ require'lspconfig'.diagnosticls.setup {
     formatFiletypes = formatFiletypes
   },
   flags = { debounce_text_changes = debounce_duration },
-}
+})
 
 -- Bash LSP
 -- npm i -g bash-language-server
-require'lspconfig'.bashls.setup{
+vim.lsp.enable('bashls')
+vim.lsp.config('bashls', {
   on_attach = on_attach,
   filetypes = { "sh", "zsh" },
   flags = { debounce_text_changes = debounce_duration },
-}
+})
 
 -- Yaml LSP
 -- yarn global add yaml-language-server
-require'lspconfig'.yamlls.setup{
+vim.lsp.enable('yamlls')
+vim.lsp.config('yamlls', {
   on_attach = on_attach,
   filetypes = { "yaml", "yml" },
   settings = {
@@ -141,11 +139,12 @@ require'lspconfig'.yamlls.setup{
   },
   flags = { debounce_text_changes = debounce_duration },
   capabilities = capabilities,
-}
+})
 
 -- Go lang LSP
 -- GO111MODULE=on go get golang.org/x/tools/gopls@latest
-require'lspconfig'.gopls.setup {
+vim.lsp.enable('gopls')
+vim.lsp.config('gopls', {
   on_attach = on_attach,
   settings = {
     gopls = {
@@ -157,11 +156,12 @@ require'lspconfig'.gopls.setup {
   },
   flags = { debounce_text_changes = debounce_duration },
   capabilities = capabilities,
-}
+})
 
 -- Ruby LSP
 -- gem install --user-install solargraph
-require'lspconfig'.solargraph.setup{
+vim.lsp.enable('solargraph')
+vim.lsp.config('solargraph', {
   on_attach = on_attach,
   filetypes = { "ruby", "rb" },
   init_options = {
@@ -174,11 +174,12 @@ require'lspconfig'.solargraph.setup{
   },
   flags = { debounce_text_changes = debounce_duration },
   capabilities = capabilities,
-}
+})
 
 -- Vimscript LSP
 -- npm install -g vim-language-server
-require'lspconfig'.vimls.setup{
+vim.lsp.enable('vimls')
+vim.lsp.config('vimls', {
   on_attach = on_attach,
   init_options = {
     diagnostic = {
@@ -203,4 +204,4 @@ require'lspconfig'.vimls.setup{
   end,
   flags = { debounce_text_changes = debounce_duration },
   capabilities = capabilities,
-}
+})
