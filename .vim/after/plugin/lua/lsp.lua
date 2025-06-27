@@ -3,29 +3,34 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local opts = { noremap=true, silent=true }
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  -- Do nothing if cannot get buffer number
-  if bufnr == nil then return end
-
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua require("telescope.builtin").lsp_implementations()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua require("telescope.builtin").lsp_definitions()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>sh', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>fm', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>fl', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
-end
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    local bufnr = ev.buf
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
+    
+    -- Key mapping options
+    local opts = { buffer = bufnr, silent = true, noremap = true }
+    
+    -- LSP key mappings
+    vim.keymap.set('n', 'gD', function() require("telescope.builtin").lsp_implementations() end, opts)
+    vim.keymap.set('n', 'gd', function() require("telescope.builtin").lsp_definitions() end, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<space>sh', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'ge', function() require("telescope.builtin").lsp_references() end, opts)
+    
+    -- Formatting mappings (updated API)
+    vim.keymap.set('n', '<space>fm', function() vim.lsp.buf.format({ async = true }) end, opts)
+    vim.keymap.set('v', '<space>fl', function() vim.lsp.buf.format({ async = true }) end, opts)
+  end,
+})
 
 local debounce_duration = 200
 
