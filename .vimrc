@@ -45,6 +45,7 @@ Plug 'folke/which-key.nvim'
 Plug 'supermaven-inc/supermaven-nvim'
 Plug 'olimorris/codecompanion.nvim'
 Plug 'Davidyz/VectorCode'
+Plug 'ravitemer/mcphub.nvim'
 
 Plug 'junegunn/vim-easy-align'
 Plug 'milkypostman/vim-togglelist'

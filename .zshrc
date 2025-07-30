@@ -314,9 +314,13 @@ gcor() {
   echo $branches | head -n"${ans:-1}" | tail -n1 | xargs git checkout
 }
 
-gh() {
+gho() {
   local repo=$(git remote -v | head -n1 | cut -d ':' -f2 | sed 's/.git (fetch)//g')
   open "https://github.com/$repo"
+}
+
+pr() {
+  gh pr view $(git branch --show-current) -w || gh pr create -w
 }
 
 # Open merge request on gitlab

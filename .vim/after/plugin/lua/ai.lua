@@ -1,3 +1,5 @@
+require("mcphub").setup()
+
 require("supermaven-nvim").setup({
   keymaps = {
     accept_suggestion = "<C-l>",
@@ -5,6 +7,7 @@ require("supermaven-nvim").setup({
     accept_word = "<C-j>",
   },
 })
+
 require("codecompanion").setup({
   strategies = {
     chat = {
@@ -18,8 +21,17 @@ require("codecompanion").setup({
     vectorcode = {
       opts = { add_tool = true, add_slash_command = true, tool_opts = {} },
     },
+    mcphub = {
+      callback = "mcphub.extensions.codecompanion",
+      opts = {
+        show_result_in_chat = true,  -- Show mcp tool results in chat
+        make_vars = true,            -- Convert resources to #variables
+        make_slash_commands = true,  -- Add prompts as /slash commands
+      }
+    }
   },
 })
+
 require("vectorcode").setup({
   async_opts = {
     debounce = 10,
